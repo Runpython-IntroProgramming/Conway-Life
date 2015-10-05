@@ -4,8 +4,8 @@ The purpose of this challenge is to practice building a graphical application wi
 
 Your task is to create a program using Python and ggame that plays [Conway's Game of Life](http://en.wikipedia.org/wiki/Conway's_Game_of_Life). The 
 Wikipedia article describes the rules and has an animated image that shows what it 
-looks like. I also have an example using Python and Pygame that you can interact with 
-or watch in action, and a [screencast video on Youtube](http://youtu.be/I5Hb268rZyw).
+looks like. I also have a [screencast video on Youtube](http://youtu.be/I5Hb268rZyw) that demonstrates
+the desired functionality.
 
 ## Some basic requirements for your submission:
 
