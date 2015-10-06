@@ -9,24 +9,23 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle
 import math
 
-grey = Color(0x808080, 1.0)
+grey = Color(0x808080, 0.5)
 dark = Color(0x333333, 1.0)
-nostroke = LineStyle(0, black)
+nostroke = LineStyle(0, grey)
 
 pixel = RectangleAsset(10, 10, nostroke, grey)
 
 field = []
-[field.append(1) for x in range(0, 30)]
+[field.append(0) for x in range(0, 1000)]
 
 g = 0
 for b in field:
-    g += 1
     if b == 1:
-        x = (g % 10) * 11
-        y = int(math.floor(g / 10.0)) * 11
+        x = (g % 50) * 11
+        y = int(math.floor(g / 50.0)) * 11
         Sprite(pixel, (x, y))
         print(x , y)
-    
+    g += 1
 
 myapp = App()
 myapp.run()
