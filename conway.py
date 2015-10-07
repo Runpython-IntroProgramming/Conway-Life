@@ -13,11 +13,11 @@ grey = Color(0x808080, 1.0)
 dark = Color(0x808080, 1.0)
 nostroke = LineStyle(0, grey)
 class pixel(Sprite):
-    pix = RectangleAsset(10,10,nostroke,grey)
+    pix = RectangleAsset(10, 10, nostroke, grey)
     def __init__(self, x, y):
-        Sprite(pix, (x, y))
+        Sprite(pixel.pix, (x, y))
     
-pixel(40,49)
+pixel(100,10)
 
 
     
