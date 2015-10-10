@@ -35,7 +35,7 @@ class Cell(Sprite):
         self.position = position
         
     def step(self):
-        n = find(xx, yy)
+        n = find(self.x, self.y)
         if n < 2:
             self.destroy()
             print("Im Dead")
