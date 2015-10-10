@@ -18,12 +18,24 @@ livecells = {}
 def getcoor(xx, yy):
     return([str((yy - 20, xx - 20)), str((yy - 20, xx)), str((yy - 20, xx + 20)), str((yy, xx - 20)), str((yy, xx + 20)), str((yy + 20, xx - 20)), str((yy + 20, xx)), str((yy + 20, xx + 20))])
 
+def check(posti):
+    if livecells.get(posti, False) == False:
+        neig = getcoor(xx, yy)
+        neighborcoun = 0
+        for posi in neig:
+            if livecells.get(posi, False) == True:
+                neighborcoun += 1
+        if neighborcoun == 3:
+            Cell(posti)
+    
 def find(xx, yy):
     neighbors = getcoor(xx, yy)
     neighborcount = 0
     for posi in neighbors:
         if livecells.get(posi, False) == True:
             neighborcount += 1
+        else:
+            check(posi)
     return(neighborcount)
 
 class Cell(Sprite):
@@ -49,7 +61,7 @@ class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
         Cell((0, 0))
-        Cell((0, 20))
+        Cell((40, 20))
         Cell((20, 20))
         
     def step(self):
