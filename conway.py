@@ -61,7 +61,7 @@ class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
         Cell((0, 0))
-        Cell((40, 20))
+        Cell((60, 20))
         Cell((20, 20))
         
     def step(self):
