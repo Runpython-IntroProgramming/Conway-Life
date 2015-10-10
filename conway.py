@@ -8,28 +8,37 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
 
-grey = Color(0x808080, 0.6)
-dark = Color(0x808080, 1.0)
+swidth = 640
+sheight = 480
+
+grey = Color(0x808080, 1)
 nostroke = LineStyle(0, grey)
+livecells = {}
+
 class Cell(Sprite):
+    pix = RectangleAsset(20, 20, nostroke, grey)
     
-    pix = RectangleAsset(10, 10, nostroke, grey)
+    def __init__(self, position):
+        super().__init__(Cell.pix, position)
+        livecells[position] = True
     
-    def __init__(self, x, y):
-        Sprite(Cell.pix, (x, y))
-        click = True
-        if click == True:
-            self.color = dark
-        else:
-            self.color = grey
+    def step(self):
+        self.GFX.destroy()
+        
+class Conway(App):
     
-Cell(0, 15)
+    def __init__(self, width, height):
+        super().__init__(width, height)
+        Cell(0, 0)
+        Cell(0, 20)
+        
+    def step(self):
+        for cell in self.getSpritesbyClass(Cell):
+            cell.step()
+    
+    
 
-
-    
-    
-
-myapp = App()
+myapp = Conway(swidth, sheight)
 myapp.run()
 
 
