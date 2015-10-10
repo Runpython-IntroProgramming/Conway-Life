@@ -50,14 +50,14 @@ class Cell(Sprite):
     def step(self):
         n = find(self.x, self.y)
         if n < 2:
+            livecells[str(self.position)] = False
             self.destroy()
-            livecells[self.position] = False
             print("Im Dead")
         elif n >= 2 and n <= 3:
             print("Im Living")
         elif n > 3:
+            livecells[str(self.position)] = False
             self.destroy()
-            livecells[self.position] = False
             print("Im Dead")
 
 class Conway(App):
