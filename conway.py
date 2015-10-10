@@ -16,23 +16,24 @@ nostroke = LineStyle(0, grey)
 livecells = {}
 
 def getcoor(xx, yy):
-    return([str((yy - 20, xx - 20)), str((yy - 20, xx)), str((yy - 20, xx + 20)), str((yy, xx - 20)), str((yy, xx + 20)), str((yy + 20, xx - 20)), str((yy + 20, xx)), str((yy + 20, xx + 20))])
+    return([[yy - 20, xx - 20], [yy - 20, xx], [yy - 20, xx + 20], [yy, xx - 20], [yy, xx + 20], [yy + 20, xx - 20], [yy + 20, xx], [yy + 20, xx + 20]])
 
 def check(posti):
-    if livecells.get(posti, False) == False:
+    if livecells.get(str((posti[1], posti[0])), False) == False:
         neig = getcoor(xx, yy)
         neighborcoun = 0
         for posi in neig:
-            if livecells.get(posi, False) == True:
+            if livecells.get(str((posi[1], posi[0])), False) == True:
                 neighborcoun += 1
         if neighborcoun == 3:
             Cell(posti)
+    return(True)
     
 def find(xx, yy):
     neighbors = getcoor(xx, yy)
     neighborcount = 0
     for posi in neighbors:
-        if livecells.get(posi, False) == True:
+        if livecells.get(str((posi[1], posi[0])), False) == True:
             neighborcount += 1
         else:
             check(posi)
