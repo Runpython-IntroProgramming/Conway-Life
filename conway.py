@@ -15,6 +15,13 @@ grey = Color(0x808080, 1)
 nostroke = LineStyle(0, grey)
 livecells = {}
 
+def find(post):
+    neighborcount = 0
+    for posi in neighbors:
+        if livecells.get(posi, False) == True:
+            neighborcount += 1
+    return(neighborcount)
+
 class Cell(Sprite):
     pix = RectangleAsset(20, 20, nostroke, grey)
     
@@ -22,15 +29,24 @@ class Cell(Sprite):
         super().__init__(Cell.pix, position)
         livecells[position] = True
         self.position = position
-    
-    def step(self):
-        neighborcount = 0
-        neighbors = [(self.y - 20, self.x - 20), (self.y - 20, self.x), (self.y - 20, self.x + 20), (self.y, self.x - 20), (self.y, self.x + 20), (self.y + 20, self.x - 20), (self.y + 20, self.x), (self.y + 20, self.x + 20)] 
-        if livecells.get(self.position, False) == True:
-            print("It Works")
-        else:
-            print("Didn't Work")
         
+    def step(self):
+        print(self.position)
+        self.destroy()
+        """
+        neighbors = [str((self.y - 20, self.x - 20)), str((self.y - 20, self.x)), str((self.y - 20, self.x + 20)), str((self.y, self.x - 20)), str((self.y, self.x + 20)), str((self.y + 20, self.x - 20)), str((self.y + 20, self.x)), str((self.y + 20, self.x + 20))]
+        ne = find(neighbors)
+        print(ne)
+        self.destroy()
+        
+        if neighborcount < 2:
+            self.destroy()
+            print("Im Dead")
+        elif neighborcount >= 2 and neighborcount <= 3:
+            print("Im Living")
+        elif neighborcount > 3:
+            self.destroy()
+        """
 class Conway(App):
     
     def __init__(self, width, height):
