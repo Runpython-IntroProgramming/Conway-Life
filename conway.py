@@ -20,7 +20,7 @@ def getcoor(xx, yy):
 
 def check(posti):
     if livecells.get(str((posti[1], posti[0])), False) == False:
-        neig = getcoor(xx, yy)
+        neig = getcoor(posti[1], posti[0])
         neighborcoun = 0
         for posi in neig:
             if livecells.get(str((posi[1], posi[0])), False) == True:
