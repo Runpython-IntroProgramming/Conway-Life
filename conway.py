@@ -24,19 +24,19 @@ class Cell(Sprite):
         self.position = position
     
     def step(self):
+        neighborcount = 0
+        neighbors = [(self.y - 20, self.x - 20), (self.y - 20, self.x), (self.y - 20, self.x + 20), (self.y, self.x - 20), (self.y, self.x + 20), (self.y + 20, self.x - 20), (self.y + 20, self.x), (self.y + 20, self.x + 20)] 
         if livecells.get(self.position, False) == True:
             print("It Works")
-            self.destroy()
         else:
             print("Didn't Work")
-            self.destroy()
         
 class Conway(App):
     
     def __init__(self, width, height):
         super().__init__(width, height)
         Cell((0, 0))
-        Cell((0, 20))
+        Cell((20, 20))
         
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
