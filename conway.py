@@ -63,14 +63,14 @@ class Cell(Sprite):
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
+        Cell((0, 0))
         Cell((10, 0))
         Cell((0, 10))
-        Cell((0, 20))
-        Cell((10, 30))
-        Cell((20, 10))
+        Cell((10, 10))
         Cell((20, 20))
-        Cell((30, 10))
-        
+        Cell((30, 20))
+        Cell((20, 30))
+        Cell((30, 30))
         
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
