@@ -15,7 +15,11 @@ grey = Color(0x808080, 1)
 nostroke = LineStyle(0, grey)
 livecells = {}
 
-def find(neighbors):
+def getcoor(xx, yy):
+    return([str((yy - 20, xx - 20)), str((yy - 20, xx)), str((yy - 20, xx + 20)), str((yy, xx - 20)), str((yy, xx + 20)), str((yy + 20, xx - 20)), str((yy + 20, xx)), str((yy + 20, xx + 20))])
+
+def find(xx, yy):
+    neighbors = getcoor(xx, yy)
     neighborcount = 0
     for posi in neighbors:
         if livecells.get(posi, False) == True:
@@ -31,8 +35,7 @@ class Cell(Sprite):
         self.position = position
         
     def step(self):
-        neighbors = [str((self.y - 20, self.x - 20)), str((self.y - 20, self.x)), str((self.y - 20, self.x + 20)), str((self.y, self.x - 20)), str((self.y, self.x + 20)), str((self.y + 20, self.x - 20)), str((self.y + 20, self.x)), str((self.y + 20, self.x + 20))]
-        n = find(neighbors)
+        n = find(xx, yy)
         if n < 2:
             self.destroy()
             print("Im Dead")
@@ -46,6 +49,7 @@ class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
         Cell((0, 0))
+        Cell((0, 20))
         Cell((20, 20))
         
     def step(self):
