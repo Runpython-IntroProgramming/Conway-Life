@@ -19,7 +19,7 @@ def getcoor(xx, yy):
     return([[yy - 20, xx - 20], [yy - 20, xx], [yy - 20, xx + 20], [yy, xx - 20], [yy, xx + 20], [yy + 20, xx - 20], [yy + 20, xx], [yy + 20, xx + 20]])
 
 def check(posti):
-    if livecells.get(str((posti[1], posti[0])), False) == False and posti[1] >= 0 and posti[0] >= 0 :
+    if livecells.get(str((posti[1], posti[0])), False) == False:
         neig = getcoor(posti[1], posti[0])
         neighborcoun = 0
         for posi in neig:
@@ -51,11 +51,14 @@ class Cell(Sprite):
         n = find(self.x, self.y)
         if n < 2:
             self.destroy()
+            livecells[self.position] = False
             print("Im Dead")
         elif n >= 2 and n <= 3:
             print("Im Living")
         elif n > 3:
             self.destroy()
+            livecells[self.position] = False
+            print("Im Dead")
 
 class Conway(App):
     
