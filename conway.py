@@ -26,7 +26,7 @@ def check(posti):
             if livecells.get(str((posi[1], posi[0])), False) == True:
                 neighborcoun += 1
         if neighborcoun == 3:
-            Cell(posti)
+            Cell((posti[1], posti[0]))
     return(True)
     
 def find(xx, yy):
