@@ -16,7 +16,7 @@ nostroke = LineStyle(0, grey)
 livecells = {}
 
 def getcoor(xx, yy):
-    return([[yy - 20, xx - 20], [yy - 20, xx], [yy - 20, xx + 20], [yy, xx - 20], [yy, xx + 20], [yy + 20, xx - 20], [yy + 20, xx], [yy + 20, xx + 20]])
+    return([[yy - 10, xx - 10], [yy - 10, xx], [yy - 10, xx + 10], [yy, xx - 10], [yy, xx + 10], [yy + 10, xx - 10], [yy + 10, xx], [yy + 10, xx + 10]])
 
 def check(posti):
     if livecells.get(str((posti[1], posti[0])), False) == False:
@@ -40,7 +40,7 @@ def find(xx, yy):
     return(neighborcount)
 
 class Cell(Sprite):
-    pix = RectangleAsset(20, 20, nostroke, grey)
+    pix = RectangleAsset(10, 10, nostroke, grey)
     
     def __init__(self, position):
         super().__init__(Cell.pix, position)
@@ -61,13 +61,16 @@ class Cell(Sprite):
             print("Im Dead")
 
 class Conway(App):
-    
     def __init__(self, width, height):
         super().__init__(width, height)
-        Cell((20, 0))
+        Cell((10, 0))
+        Cell((0, 10))
         Cell((0, 20))
-        Cell((0, 40))
-        Cell((20, 60))
+        Cell((10, 30))
+        Cell((20, 10))
+        Cell((20, 20))
+        Cell((30, 10))
+        
         
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
@@ -77,6 +80,7 @@ class Conway(App):
 
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
+
 
 
 
