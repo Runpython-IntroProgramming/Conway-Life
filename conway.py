@@ -75,6 +75,7 @@ class Conway(App):
         Cell((10, 0))
         Cell((10, 10))
         Cell((10, 20))
+        Cell((10, 30))
 
         
     def step(self):
