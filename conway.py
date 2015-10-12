@@ -14,7 +14,7 @@ SCREEN_HEIGHT = 480
 
 grey = Color(0x808080, 1)
 nostroke = LineStyle(0, grey)
-livecells = {}
+livecells = []
 makecells = []
 surcells = []
 killcells = []
@@ -36,7 +36,9 @@ def check():
 def checking(xx, yy):
     dei = getcoor(xx, yy)
     for deadcell in dei:
-        if livecells.get(str((deadcell[0], deadcell[1])), False) == False:
+        if str((deadcell[0], deadcell[1])) in livecells:
+            i = 3
+        else:
             if deadcell in surcells:
                 at = 1
             else:
@@ -46,7 +48,7 @@ def find(xx, yy):
     neighbors = getcoor(xx, yy)
     neighborcount = 0
     for posi in neighbors:
-        if livecells.get(str((posi[0], posi[1])), False) == True:
+        if str((posi[0], posi[1])) in livecells:
             neighborcount += 1
     return(neighborcount)
 
@@ -55,16 +57,15 @@ class Cell(Sprite):
     
     def __init__(self, position):
         super().__init__(Cell.pix, position)
-        livecells[str(self.position)] = True
+        livecells.append(str(self.position))
         
     def step(self):
         if str(self.position) in killcells:
-            livecells[str(self.position)] = False
+            livecells.remove(str(self.position))
             killcells.remove(str(self.position))
             self.destroy()
         else:
             n = find(self.x, self.y)
-            print(n)
             if n < 2 or n > 3:
                 killcells.append(str(self.position))
             checking(self.x, self.y)
@@ -83,6 +84,7 @@ class Conway(App):
         create()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
+        print(surcells)
         check()
     
     
