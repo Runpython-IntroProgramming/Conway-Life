@@ -1,18 +1,21 @@
 """
 conway.py
 Author: Morgan Meliment
-Credit: http://brythonserver.github.io/ggame/#ggame.EllipseAsset
+Credit: http://brythonserver.github.io/ggame/#ggame.EllipseAsset, http://stackoverflow.com/questions/10665591/how-to-remove-list-elements-in-a-for-loop-in-python
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 
 """
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
+import random
 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
 
-grey = Color(0x808080, 1)
+blue = Color(0x2196F3, 1)
+green = Color(0x4CAF50, 1)
+yellow = Color(0x512DA8, 1)
 nostroke = LineStyle(0, grey)
 livecells = {}
 makecells = []
@@ -51,10 +54,18 @@ def find(xx, yy):
     return(neighborcount)
 
 class Cell(Sprite):
-    pix = RectangleAsset(10, 10, nostroke, grey)
-    
+    pix = RectangleAsset(10, 10, nostroke, blue)
+    pixl = RectangleAsset(10, 10, nostroke, green)
+    pic = RectangleAsset(10, 10, nostroke, yellow)
     def __init__(self, position):
-        super().__init__(Cell.pix, position)
+        num = random.choice([0, 1, 2])
+        print(num)
+        if num == 0:
+            super().__init__(Cell.pixl, position)
+        elif num == 1:
+            super().__init__(Cell.pix, position)
+        elif num == 2:
+            super().__init__(Cell.pic, position)
         livecells[self.position] = True
         
     def step(self):
