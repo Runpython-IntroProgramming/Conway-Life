@@ -63,8 +63,8 @@ class Cell(Sprite):
         if n < 2 or n > 3:
             killcells[self.position] = True
         checking(self.x, self.y)
-        if livecells.get(self.position, False) == False:
-            self.destroy()
+        if livecells.get(self.position) == False:
+            self.visible = False
     
     def kill(self):
         if killcells.get(self.position, False) == True:
@@ -74,10 +74,10 @@ class Cell(Sprite):
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        Cell((10, 0))
-        Cell((10, 10))
-        Cell((10, 20))
-        
+        Cell((100, 50))
+        Cell((100, 60))
+        Cell((100, 70))
+        Cell((110, 60))
 
         
     def step(self):
