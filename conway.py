@@ -57,6 +57,9 @@ class Cell(Sprite):
     def __init__(self, position):
         super().__init__(Cell.pix, position)
         livecells.append(self.position)
+    
+    def live(self):
+        livecells.append(self.position)
         
     def step(self):
         n = find(self.x, self.y)
@@ -67,8 +70,6 @@ class Cell(Sprite):
     
     def kill(self):
         if self.position in killcells:
-            livecells.remove(self.position)
-            killcells.remove(self.position)
             self.destroy()
 
 class Conway(App):
@@ -80,18 +81,19 @@ class Conway(App):
 
         
     def step(self):
-        print(makecells)
         create()
         del makecells[:]
         for cell in self.getSpritesbyClass(Cell):
             cell.kill()
+        del killcells[:]
         print(livecells)
+        del livecells[:]
+        for cell in self.getSpritesbyClass(Cell):
+            cell.live()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
-        print(surcells)
         check()
         del surcells[:]
-        print(livecells)
     
 
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
