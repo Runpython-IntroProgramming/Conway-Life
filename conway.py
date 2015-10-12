@@ -14,10 +14,10 @@ SCREEN_HEIGHT = 480
 
 grey = Color(0x808080, 1)
 nostroke = LineStyle(0, grey)
-livecells = []
+livecells = {}
 makecells = []
 surcells = []
-killcells = []
+killcells = {}
 
 def create():
     for celle in makecells[:]:
@@ -36,9 +36,7 @@ def check():
 def checking(xx, yy):
     dei = getcoor(xx, yy)
     for deadcell in dei:
-        if (deadcell[0], deadcell[1]) in livecells:
-            i = 3
-        else:
+        if livecells.get((deadcell[0], deadcell[1]), False) == False:
             if deadcell in surcells:
                 at = 1
             else:
@@ -48,7 +46,7 @@ def find(xx, yy):
     neighbors = getcoor(xx, yy)
     neighborcount = 0
     for posi in neighbors:
-        if (posi[0], posi[1]) in livecells:
+        if livecells.get((posi[0], posi[1]), False) == True:
             neighborcount += 1
     return(neighborcount)
 
@@ -57,19 +55,19 @@ class Cell(Sprite):
     
     def __init__(self, position):
         super().__init__(Cell.pix, position)
-        livecells.append(self.position)
+        livecells[self.position] = True
         
     def step(self):
         n = find(self.x, self.y)
         print(n)
         if n < 2 or n > 3:
-            killcells.append(self.position)
+            killcells[self.position] = True
         checking(self.x, self.y)
     
     def kill(self):
-        if self.position in killcells[:]:
-            livecells.remove(self.position)
-            killcells.remove(self.position)
+        if killcells.get(self.position, False) == True:
+            livecells[self.position] = False
+            killcells[self.position] = False
             self.destroy()
 
 class Conway(App):
@@ -81,14 +79,15 @@ class Conway(App):
 
         
     def step(self):
-        print(livecells)
         create()
         for cell in self.getSpritesbyClass(Cell):
             cell.kill()
+        print(livecells)
+        for cell in self.getSpritesbyClass(Cell):
             cell.step()
-        print(surcells)
+        
         check()
-        print(makecells)
+        
     
 
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
