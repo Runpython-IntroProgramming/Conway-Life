@@ -20,7 +20,7 @@ surcells = []
 killcells = []
 
 def create():
-    for celle in makecells:
+    for celle in makecells[:]:
         Cell((celle[0], celle[1]))
         makecells.remove(celle)
 
@@ -28,7 +28,7 @@ def getcoor(xx, yy):
     return([[xx - 10, yy - 10], [xx - 10, yy], [xx - 10, yy + 10], [xx, yy - 10], [xx, yy + 10], [xx + 10, yy - 10], [xx + 10, yy], [xx + 10, yy + 10]])
 
 def check():
-    for celle in surcells:
+    for celle in surcells[:]:
         if find(celle[0], celle[1]) == 3:
             makecells.append(celle)
         surcells.remove(celle)
@@ -67,7 +67,7 @@ class Cell(Sprite):
         checking(self.x, self.y)
     
     def kill(self):
-        if self.position in killcells:
+        if self.position in killcells[:]:
             livecells.remove(self.position)
             killcells.remove(self.position)
             self.destroy()
