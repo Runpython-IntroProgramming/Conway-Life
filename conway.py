@@ -106,7 +106,13 @@ def check():
     for celle in surcells:
         if find(celle[1], celle[0]) == 3:
             makecells.append((celle[1], celle[0]))
-    
+            
+def checking(xx, yy):
+    dei = getcoor(xx, yy)
+    for deadcell in dei:
+        if livecells.get(str((deadcell[1], deadcell[0])), False) == False:
+            surcells.append(deadcell)
+            
 def find(xx, yy):
     neighbors = getcoor(xx, yy)
     neighborcount = 0
@@ -145,6 +151,7 @@ class Conway(App):
         create()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
+        check()
         
     
     
