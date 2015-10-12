@@ -36,7 +36,7 @@ def check():
 def checking(xx, yy):
     dei = getcoor(xx, yy)
     for deadcell in dei:
-        if str((deadcell[0], deadcell[1])) in livecells:
+        if (deadcell[0], deadcell[1]) in livecells:
             i = 3
         else:
             if deadcell in surcells:
@@ -48,7 +48,7 @@ def find(xx, yy):
     neighbors = getcoor(xx, yy)
     neighborcount = 0
     for posi in neighbors:
-        if str((posi[0], posi[1])) in livecells:
+        if (posi[0], posi[1]) in livecells:
             neighborcount += 1
     return(neighborcount)
 
@@ -57,19 +57,20 @@ class Cell(Sprite):
     
     def __init__(self, position):
         super().__init__(Cell.pix, position)
-        livecells.append(str(self.position))
+        livecells.append(self.position)
         
     def step(self):
-        if str(self.position) in killcells:
-            livecells.remove(str(self.position))
-            killcells.remove(str(self.position))
-            self.destroy()
+        n = find(self.x, self.y)
+        if n < 2 or n > 3:
+            killcells.append(self.position)
         else:
-            n = find(self.x, self.y)
-            if n < 2 or n > 3:
-                killcells.append(str(self.position))
             checking(self.x, self.y)
-        
+    
+    def kill(self):
+        if self.position in killcells:
+            livecells.remove(self.position)
+            killcells.remove(self.position)
+            self.destroy()
 
 class Conway(App):
     def __init__(self, width, height):
