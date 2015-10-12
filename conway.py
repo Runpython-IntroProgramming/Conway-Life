@@ -20,9 +20,9 @@ surcells = []
 killcells = []
 
 def create():
-    i = 0
-    for positio in makecells:
-        Cell((positio))
+    for celle in makecells:
+        Cell((celle[0], celle[1]))
+        makecells.remove(celle)
 
 def getcoor(xx, yy):
     return([[xx - 10, yy - 10], [xx - 10, yy], [xx - 10, yy + 10], [xx, yy - 10], [xx, yy + 10], [xx + 10, yy - 10], [xx + 10, yy], [xx + 10, yy + 10]])
@@ -30,7 +30,8 @@ def getcoor(xx, yy):
 def check():
     for celle in surcells:
         if find(celle[0], celle[1]) == 3:
-            makecells.append((celle[0], celle[1]))
+            makecells.append(celle)
+        surcells.remove(celle)
             
 def checking(xx, yy):
     dei = getcoor(xx, yy)
@@ -57,20 +58,19 @@ class Cell(Sprite):
     def __init__(self, position):
         super().__init__(Cell.pix, position)
         livecells.append(self.position)
-    
-    def live(self):
-        livecells.append(self.position)
         
     def step(self):
         n = find(self.x, self.y)
+        print(n)
         if n < 2 or n > 3:
             killcells.append(self.position)
         checking(self.x, self.y)
     
     def kill(self):
-        for pos in killcells:
-            if pos == self.position:
-                self.destroy()
+        if self.position in killcells:
+            livecells.remove(self.position)
+            killcells.remove(self.position)
+            self.destroy()
 
 class Conway(App):
     def __init__(self, width, height):
@@ -81,24 +81,18 @@ class Conway(App):
 
         
     def step(self):
+        print(livecells)
         create()
-        del makecells[:]
         for cell in self.getSpritesbyClass(Cell):
             cell.kill()
-        print(livecells)
-        del killcells[:]
-        del livecells[:]
-        for cell in self.getSpritesbyClass(Cell):
-            cell.live()
-        for cell in self.getSpritesbyClass(Cell):
             cell.step()
+        print(surcells)
         check()
-        del surcells[:]
+        print(makecells)
     
 
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
-
 
 
 
