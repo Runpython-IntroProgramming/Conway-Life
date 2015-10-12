@@ -21,7 +21,7 @@ killcells = []
 
 def create():
     for celle in makecells:
-        Cell(celle)
+        Cell(celle[0], celle[1])
         makecells.remove(celle)
 
 def getcoor(xx, yy):
@@ -30,7 +30,7 @@ def getcoor(xx, yy):
 def check():
     for celle in surcells:
         if find(celle[0], celle[1]) == 3:
-            makecells.append((celle[0], celle[1]))
+            makecells.append(celle)
         surcells.remove(celle)
             
 def checking(xx, yy):
@@ -64,7 +64,7 @@ class Cell(Sprite):
             self.destroy()
         else:
             n = find(self.x, self.y)
-            
+            print(n)
             if n < 2 or n > 3:
                 killcells.append(str(self.position))
             checking(self.x, self.y)
@@ -82,9 +82,7 @@ class Conway(App):
         create()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
-        print(surcells)
         check()
-        print(makecells)
     
     
 
