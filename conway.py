@@ -58,7 +58,7 @@ class Cell(Sprite):
     def __init__(self, position):
         num = random.choice([0, 1, 2])
         if num == 0:
-            super().__init__(Cell.pixl, position)
+            super().__init__(Cell.pix, position)
         else:
             super().__init__(Cell.pic, position)
         livecells[self.position] = True
