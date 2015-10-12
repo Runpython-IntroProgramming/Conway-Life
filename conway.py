@@ -93,7 +93,7 @@ nostroke = LineStyle(0, grey)
 livecells = {}
 newcells = []
 
-def makenewcells:
+def makenewcells():
     for pos in newcells:
         neighbors = getcoor(posti[1], posti[0])
         neighborcount = 0
@@ -125,9 +125,11 @@ def find(xx, yy):
         if livecells.get(str((posi[1], posi[0])), False) == True:
             neighborcount += 1
         else:
-            if str((posi[1], posi[0]) in newcells:
+            s = set(newcells)
+            if str((posi[1], posi[0])) in s:
+                sadop = 0
             else:
-                newcells.append(str((posi[1], posi[0]))
+                newcells.append(str((posi[1], posi[0])))
     return(neighborcount)
 
 class Cell(Sprite):
@@ -144,6 +146,7 @@ class Cell(Sprite):
             livecells[str(self.position)] = False
             self.destroy()
         elif n >= 2 and n <= 3:
+            print("Im alive")
         elif n > 3:
             livecells[str(self.position)] = False
             self.destroy()
