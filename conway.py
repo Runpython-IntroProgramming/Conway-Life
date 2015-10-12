@@ -20,9 +20,9 @@ surcells = []
 killcells = []
 
 def create():
-    for celle in makecells:
-        Cell((celle[0], celle[1]))
-        makecells.remove(celle)
+    i = 0
+    for positio in makecells:
+        Cell((positio))
 
 def getcoor(xx, yy):
     return([[xx - 10, yy - 10], [xx - 10, yy], [xx - 10, yy + 10], [xx, yy - 10], [xx, yy + 10], [xx + 10, yy - 10], [xx + 10, yy], [xx + 10, yy + 10]])
@@ -30,8 +30,7 @@ def getcoor(xx, yy):
 def check():
     for celle in surcells:
         if find(celle[0], celle[1]) == 3:
-            makecells.append(celle)
-        surcells.remove(celle)
+            makecells.append((celle[0], celle[1]))
             
 def checking(xx, yy):
     dei = getcoor(xx, yy)
@@ -81,14 +80,18 @@ class Conway(App):
 
         
     def step(self):
-        print(livecells)
+        print(makecells)
         create()
+        del makecells[:]
         for cell in self.getSpritesbyClass(Cell):
             cell.kill()
+        print(livecells)
+        for cell in self.getSpritesbyClass(Cell):
             cell.step()
         print(surcells)
         check()
-        print(makecells)
+        del surcells[:]
+        print(livecells)
     
 
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
