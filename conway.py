@@ -63,8 +63,6 @@ class Cell(Sprite):
         if n < 2 or n > 3:
             killcells[self.position] = True
         checking(self.x, self.y)
-        if killcells.get(self.position, False) == True:
-            self.destroy()
     
     def kill(self):
         if killcells.get(self.position, False) == True:
@@ -88,7 +86,6 @@ class Conway(App):
         print(livecells)
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
-        
         check()
         
     
