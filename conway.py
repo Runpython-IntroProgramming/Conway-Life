@@ -98,7 +98,7 @@ killcells = []
 def create():
     for celle in makecells:
         Cell(celle)
-    makecells = []
+        makecells.remove(celle)
 
 def getcoor(xx, yy):
     return([[yy - 10, xx - 10], [yy - 10, xx], [yy - 10, xx + 10], [yy, xx - 10], [yy, xx + 10], [yy + 10, xx - 10], [yy + 10, xx], [yy + 10, xx + 10]])
@@ -107,7 +107,7 @@ def check():
     for celle in surcells:
         if find(celle[1], celle[0]) == 3:
             makecells.append((celle[1], celle[0]))
-    surcells = []
+        surcells.remove(celle)
             
 def checking(xx, yy):
     dei = getcoor(xx, yy)
@@ -148,7 +148,8 @@ class Conway(App):
         super().__init__(width, height)
         Cell((10, 0))
         Cell((10, 10))
-        Cell((10, 20))
+        Cell((20, 10))
+        Cell((20, 20))
         
     def step(self):
         create()
