@@ -1,19 +1,14 @@
 """
 conway.py
 Author: Morgan Meliment
-Credit: http://brythonserver.github.io/ggame/#ggame.EllipseAsset, http://stackoverflow.com/questions/10665591/how-to-remove-list-elements-in-a-for-loop-in-python, http://stackoverflow.com/questions/6824681/get-a-random-boolean-in-python
+Credit: http://brythonserver.github.io/ggame/#ggame.EllipseAsset, http://stackoverflow.com/questions/10665591/how-to-remove-list-elements-in-a-for-loop-in-python
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 
 """
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
-import random
 
-SCREEN_WIDTH = 640
-SCREEN_HEIGHT = 480
-
-blue = Color(0x2196F3, 1)
 purple = Color(0x512DA8, 1)
 nostroke = LineStyle(0, grey)
 livecells = {}
@@ -53,14 +48,9 @@ def find(xx, yy):
     return(neighborcount)
 
 class Cell(Sprite):
-    pix = RectangleAsset(10, 10, nostroke, blue)
-    pic = RectangleAsset(10, 10, nostroke, purple)
+    pix = RectangleAsset(10, 10, nostroke, purple)
     def __init__(self, position):
-        num = random.choice([0, 1, 2])
-        if num == 0:
-            super().__init__(Cell.pix, position)
-        else:
-            super().__init__(Cell.pic, position)
+        super().__init__(Cell.pix, position)
         livecells[self.position] = True
         
     def step(self):
@@ -92,7 +82,7 @@ class Conway(App):
             cell.step()
         check()
         
-myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp = Conway(640, 480)
 myapp.run()
 
 
