@@ -15,7 +15,7 @@ SCREEN_HEIGHT = 480
 grey = Color(0x808080, 1)
 nostroke = LineStyle(0, grey)
 livecells = []
-makecells = [[0,0]]
+makecells = []
 surcells = []
 killcells = []
 
@@ -30,7 +30,7 @@ def getcoor(xx, yy):
 def check():
     for celle in surcells:
         if find(celle[0], celle[1]) == 3:
-            makecells.prepend(celle)
+            makecells.append(celle)
         surcells.remove(celle)
             
 def checking(xx, yy):
@@ -61,10 +61,10 @@ class Cell(Sprite):
         
     def step(self):
         n = find(self.x, self.y)
+        print(n)
         if n < 2 or n > 3:
             killcells.append(self.position)
-        else:
-            checking(self.x, self.y)
+        checking(self.x, self.y)
     
     def kill(self):
         if self.position in killcells:
@@ -86,7 +86,7 @@ class Conway(App):
         for cell in self.getSpritesbyClass(Cell):
             cell.kill()
             cell.step()
-        
+        print(surcells)
         check()
         print(makecells)
     
