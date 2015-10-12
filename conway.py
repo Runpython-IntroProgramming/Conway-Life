@@ -66,9 +66,9 @@ class Cell(Sprite):
     
     def kill(self):
         if killcells.get(self.position, False) == True:
-            self.destroy()
             livecells[self.position] = False
             killcells[self.position] = False
+            self.destroy()
 
 class Conway(App):
     def __init__(self, width, height):
@@ -81,6 +81,7 @@ class Conway(App):
     def step(self):
         create()
         print(killcells)
+        print(livecells)
         for cell in self.getSpritesbyClass(Cell):
             cell.kill()
         print(livecells)
