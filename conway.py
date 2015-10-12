@@ -59,7 +59,6 @@ class Cell(Sprite):
         
     def step(self):
         n = find(self.x, self.y)
-        print(n)
         if n < 2 or n > 3:
             killcells[self.position] = True
         checking(self.x, self.y)
@@ -81,11 +80,8 @@ class Conway(App):
 
     def step(self):
         create()
-        print(killcells)
-        print(livecells)
         for cell in self.getSpritesbyClass(Cell):
             cell.kill()
-        print(livecells)
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         check()
