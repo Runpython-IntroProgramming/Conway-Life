@@ -149,6 +149,7 @@ class Conway(App):
         Cell((10, 0))
         Cell((10, 10))
         Cell((20, 10))
+        Cell((30, 40))
         
     def step(self):
         create()
