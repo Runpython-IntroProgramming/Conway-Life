@@ -132,12 +132,13 @@ class Cell(Sprite):
         self.position = position
         
     def step(self):
-        if self.position in killcells:
+        if str(self.position) in killcells:
             livecells[str(self.position)] = False
             killcells.remove(str(self.position))
             self.destroy()
         else:
             n = find(self.x, self.y)
+            print(n)
             if n < 2 or n > 3:
                 killcells.append(str(self.position))
             checking(self.x, self.y)
@@ -148,8 +149,8 @@ class Conway(App):
         super().__init__(width, height)
         Cell((10, 0))
         Cell((10, 10))
-        Cell((20, 10))
-        Cell((30, 40))
+        Cell((10, 20))
+
         
     def step(self):
         create()
