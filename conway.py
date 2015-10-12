@@ -21,7 +21,7 @@ killcells = []
 
 def create():
     for celle in makecells:
-        Cell(celle[0], celle[1])
+        Cell((celle[0], celle[1]))
         makecells.remove(celle)
 
 def getcoor(xx, yy):
@@ -79,6 +79,7 @@ class Conway(App):
 
         
     def step(self):
+        print(makecells)
         create()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
