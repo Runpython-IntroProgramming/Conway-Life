@@ -80,11 +80,10 @@ class Conway(App):
 
         
     def step(self):
-        print(makecells)
         create()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
-        print(surcells)
+        print(livecells)
         check()
     
     
