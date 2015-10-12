@@ -115,7 +115,7 @@ def check(posti):
             if livecells.get(str((posi[1], posi[0])), False) == True:
                 neighborcoun += 1
         if neighborcoun == 3:
-            Cell((posti[1], posti[0]))
+            Cell(posti)
     return(True)
     
 def find(xx, yy):
@@ -125,11 +125,10 @@ def find(xx, yy):
         if livecells.get(str((posi[1], posi[0])), False) == True:
             neighborcount += 1
         else:
-            s = set(newcells)
-            if str((posi[1], posi[0])) in s:
-                sadop = 0
+            if posi in newcells:
+                print(newcells)
             else:
-                newcells.append(str((posi[1], posi[0])))
+                newcells.append(posi)
     return(neighborcount)
 
 class Cell(Sprite):
@@ -150,6 +149,7 @@ class Cell(Sprite):
         elif n > 3:
             livecells[str(self.position)] = False
             self.destroy()
+        
 
 class Conway(App):
     def __init__(self, width, height):
@@ -166,7 +166,7 @@ class Conway(App):
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
-        makenewcells()
+        
     
     
 
