@@ -72,10 +72,10 @@ class Cell(Sprite):
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        Cell((10, 0))
-        Cell((10, 10))
-        Cell((10, 20))
-        Cell((10, 30))
+        Cell((100, 50))
+        Cell((100, 60))
+        Cell((100, 70))
+        Cell((110, 60))
 
         
     def step(self):
