@@ -79,7 +79,6 @@ class Conway(App):
         Cell((100, 70))
         Cell((110, 60))
 
-        
     def step(self):
         create()
         print(killcells)
