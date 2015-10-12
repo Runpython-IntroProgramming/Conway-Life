@@ -1,7 +1,7 @@
 """
 conway.py
 Author: Morgan Meliment
-Credit: http://brythonserver.github.io/ggame/#ggame.EllipseAsset, http://stackoverflow.com/questions/10665591/how-to-remove-list-elements-in-a-for-loop-in-python
+Credit: http://brythonserver.github.io/ggame/#ggame.EllipseAsset, http://stackoverflow.com/questions/10665591/how-to-remove-list-elements-in-a-for-loop-in-python, http://stackoverflow.com/questions/6824681/get-a-random-boolean-in-python
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
@@ -14,8 +14,7 @@ SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
 
 blue = Color(0x2196F3, 1)
-green = Color(0x4CAF50, 1)
-yellow = Color(0x512DA8, 1)
+purple = Color(0x512DA8, 1)
 nostroke = LineStyle(0, grey)
 livecells = {}
 makecells = []
@@ -55,16 +54,12 @@ def find(xx, yy):
 
 class Cell(Sprite):
     pix = RectangleAsset(10, 10, nostroke, blue)
-    pixl = RectangleAsset(10, 10, nostroke, green)
-    pic = RectangleAsset(10, 10, nostroke, yellow)
+    pic = RectangleAsset(10, 10, nostroke, purple)
     def __init__(self, position):
         num = random.choice([0, 1, 2])
-        print(num)
         if num == 0:
             super().__init__(Cell.pixl, position)
-        elif num == 1:
-            super().__init__(Cell.pix, position)
-        elif num == 2:
+        else:
             super().__init__(Cell.pic, position)
         livecells[self.position] = True
         
@@ -97,8 +92,6 @@ class Conway(App):
             cell.step()
         check()
         
-    
-
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
 
