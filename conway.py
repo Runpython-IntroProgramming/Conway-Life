@@ -98,6 +98,7 @@ killcells = []
 def create():
     for celle in makecells:
         Cell(celle)
+    makecells = []
 
 def getcoor(xx, yy):
     return([[yy - 10, xx - 10], [yy - 10, xx], [yy - 10, xx + 10], [yy, xx - 10], [yy, xx + 10], [yy + 10, xx - 10], [yy + 10, xx], [yy + 10, xx + 10]])
@@ -106,6 +107,7 @@ def check():
     for celle in surcells:
         if find(celle[1], celle[0]) == 3:
             makecells.append((celle[1], celle[0]))
+    surcells = []
             
 def checking(xx, yy):
     dei = getcoor(xx, yy)
@@ -132,6 +134,7 @@ class Cell(Sprite):
     def step(self):
         if self.position in killcells:
             livecells[str(self.position)] = False
+            killcells.remove(self.position)
             self.destroy()
         else:
             n = find(self.x, self.y)
@@ -143,9 +146,9 @@ class Cell(Sprite):
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        Cell((0, 0))
         Cell((10, 0))
-        Cell((0, 10))
+        Cell((10, 10))
+        Cell((10, 20))
         
     def step(self):
         create()
