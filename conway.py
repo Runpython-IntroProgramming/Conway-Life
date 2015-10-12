@@ -128,18 +128,18 @@ class Cell(Sprite):
     
     def __init__(self, position):
         super().__init__(Cell.pix, position)
-        livecells[position] = True
+        livecells[str(position)] = True
         self.position = position
         
     def step(self):
         if self.position in killcells:
-            livecells[self.position] = False
-            killcells.remove(self.position)
+            livecells[str(self.position)] = False
+            killcells.remove(str(self.position))
             self.destroy()
         else:
             n = find(self.x, self.y)
             if n < 2 or n > 3:
-                killcells.append(self.position)
+                killcells.append(str(self.position))
             checking(self.x, self.y)
         
 
