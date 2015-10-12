@@ -14,11 +14,15 @@ nostroke = LineStyle(0, grey)
 livecells = {}
 makecells = []
 surcells = []
+restingcells = {}
 killcells = {}
 
 def create():
     for celle in makecells[:]:
-        Cell((celle[0], celle[1]))
+        if restingcells.get((celle[0], celle[1]), False) == False:
+            Cell((celle[0], celle[1]))
+        else:
+            restingcells[(celle[0], celle[1])] = False
         makecells.remove(celle)
 
 def getcoor(xx, yy):
@@ -60,6 +64,11 @@ class Cell(Sprite):
         checking(self.x, self.y)
         if livecells.get(self.position) == False:
             self.visible = False
+            if restingcells.get(self.position, True) == False:
+                self.visible = True
+                livecells[self.position] = True
+            else:
+                restingcells[self.position] = True
     
     def kill(self):
         if killcells.get(self.position, False) == True:
@@ -72,7 +81,6 @@ class Conway(App):
         Cell((100, 50))
         Cell((100, 60))
         Cell((100, 70))
-        Cell((110, 60))
 
     def step(self):
         create()
