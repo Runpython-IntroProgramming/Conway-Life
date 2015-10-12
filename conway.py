@@ -128,12 +128,12 @@ class Cell(Sprite):
     
     def __init__(self, position):
         super().__init__(Cell.pix, position)
-        livecells[str(position)] = True
+        livecells[position] = True
         self.position = position
         
     def step(self):
         if self.position in killcells:
-            livecells[str(self.position)] = False
+            livecells[self.position] = False
             killcells.remove(self.position)
             self.destroy()
         else:
@@ -149,7 +149,6 @@ class Conway(App):
         Cell((10, 0))
         Cell((10, 10))
         Cell((20, 10))
-        Cell((20, 20))
         
     def step(self):
         create()
