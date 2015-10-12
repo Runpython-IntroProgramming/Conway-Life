@@ -113,7 +113,10 @@ def checking(xx, yy):
     dei = getcoor(xx, yy)
     for deadcell in dei:
         if livecells.get(str((deadcell[1], deadcell[0])), False) == False:
-            surcells.append(deadcell)
+            if deadcell in surcells:
+                at = 1
+            else:
+                surcells.append(deadcell)
             
 def find(xx, yy):
     neighbors = getcoor(xx, yy)
@@ -128,8 +131,7 @@ class Cell(Sprite):
     
     def __init__(self, position):
         super().__init__(Cell.pix, position)
-        livecells[str(position)] = True
-        self.position = position
+        livecells[str(self.position)] = True
         
     def step(self):
         if str(self.position) in killcells:
@@ -153,6 +155,7 @@ class Conway(App):
 
         
     def step(self):
+        print(len(surcells))
         create()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
