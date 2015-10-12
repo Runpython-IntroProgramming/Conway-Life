@@ -25,18 +25,18 @@ def create():
         makecells.remove(celle)
 
 def getcoor(xx, yy):
-    return([[yy - 10, xx - 10], [yy - 10, xx], [yy - 10, xx + 10], [yy, xx - 10], [yy, xx + 10], [yy + 10, xx - 10], [yy + 10, xx], [yy + 10, xx + 10]])
+    return([[xx - 10, yy - 10], [xx - 10, yy], [xx - 10, yy + 10], [xx, yy - 10], [xx, yy + 10], [xx + 10, yy - 10], [xx + 10, yy], [xx + 10, yy + 10]])
 
 def check():
     for celle in surcells:
-        if find(celle[1], celle[0]) == 3:
-            makecells.append((celle[1], celle[0]))
+        if find(celle[0], celle[1]) == 3:
+            makecells.append((celle[0], celle[1]))
         surcells.remove(celle)
             
 def checking(xx, yy):
     dei = getcoor(xx, yy)
     for deadcell in dei:
-        if livecells.get(str((deadcell[1], deadcell[0])), False) == False:
+        if livecells.get(str((deadcell[0], deadcell[1])), False) == False:
             if deadcell in surcells:
                 at = 1
             else:
@@ -46,7 +46,7 @@ def find(xx, yy):
     neighbors = getcoor(xx, yy)
     neighborcount = 0
     for posi in neighbors:
-        if livecells.get(str((posi[1], posi[0])), False) == True:
+        if livecells.get(str((posi[0], posi[1])), False) == True:
             neighborcount += 1
     return(neighborcount)
 
@@ -82,7 +82,7 @@ class Conway(App):
         create()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
-        
+        print(surcells)
         check()
         print(makecells)
     
