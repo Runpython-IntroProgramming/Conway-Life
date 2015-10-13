@@ -10,12 +10,14 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
 
 purple = Color(0x512DA8, 1)
-nostroke = LineStyle(0, grey)
+nostroke = LineStyle(0, purple)
 livecells = {}
 makecells = []
 surcells = []
 restingcells = {}
 killcells = {}
+xdiff = 0
+ydiff = 0
 
 def create():
     for celle in makecells[:]:
@@ -73,16 +75,29 @@ class Cell(Sprite):
         if killcells.get(self.position, False) == True:
             livecells[self.position] = False
             killcells[self.position] = False
+    
+    def mover(self):
+        self.x += 10
 
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        Cell((100, 50))
+        """Cell((100, 50))
         Cell((110, 60))
         Cell((110, 70))
         Cell((100, 70))
-        Cell((90, 70))
-
+        Cell((90, 70))"""
+        Cell((100, 50))
+        Cell((110, 60))
+        Cell((100, 70))
+        Cell((100, 60))
+        self.listenKeyEvent("keydown", "right arrow", self.moveright)
+    
+    def moveright(self, event):
+        xdiff += 10
+        for cell in self.getSpritesbyClass(Cell):
+            cell.mover()
+    
     def step(self):
         create()
         for cell in self.getSpritesbyClass(Cell):
