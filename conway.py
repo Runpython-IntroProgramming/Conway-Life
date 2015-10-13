@@ -56,11 +56,12 @@ def find(xx, yy):
 
 class Cell(Sprite):
     pix = RectangleAsset(10, 10, nostroke, purple)
-    ogposx = self.x - xdiff
-    ogposy = self.y - ydiff
+    
     def __init__(self, position):
         super().__init__(Cell.pix, position)
         livecells[(ogposx, ogposy)] = True
+        ogposx = self.x - xdiff
+        ogposy = self.y - ydiff
         
     def step(self):
         n = find(ogposx, ogposy)
