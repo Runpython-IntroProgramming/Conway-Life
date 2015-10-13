@@ -78,9 +78,10 @@ class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
         Cell((100, 50))
-        Cell((100, 60))
-        Cell((100, 70))
         Cell((110, 60))
+        Cell((110, 70))
+        Cell((100, 70))
+        Cell((90, 70))
 
     def step(self):
         create()
@@ -89,6 +90,7 @@ class Conway(App):
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         check()
+        
         
 myapp = Conway(640, 480)
 myapp.run()
