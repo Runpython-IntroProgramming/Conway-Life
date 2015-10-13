@@ -56,25 +56,27 @@ def find(xx, yy):
 
 class Cell(Sprite):
     pix = RectangleAsset(10, 10, nostroke, purple)
+    ogposx = self.x - xdiff
+    ogposy = self.y - ydiff
     def __init__(self, position):
         super().__init__(Cell.pix, position)
-        livecells[self.position] = True
+        livecells[(ogposx, ogposy)] = True
         
     def step(self):
-        n = find(self.x, self.y)
+        n = find(ogposx, ogposy)
         if n < 2 or n > 3:
-            killcells[self.position] = True
-        checking(self.x, self.y)
-        if livecells.get(self.position) == False:
+            killcells[(ogposx, ogposy)] = True
+        checking(ogposx, ogposy)
+        if livecells.get((ogposx, ogposy)) == False:
             self.visible = False
-            restingcells[self.position] = True
-        if restingcells.get(self.position) == False:
+            restingcells[(ogposx, ogposy)] = True
+        if restingcells.get((ogposx, ogposy)) == False:
             self.visible = True
     
     def kill(self):
-        if killcells.get(self.position, False) == True:
-            livecells[self.position] = False
-            killcells[self.position] = False
+        if killcells.get((ogposx, ogposy), False) == True:
+            livecells[(ogposx, ogposy)] = False
+            killcells[(ogposx, ogposy)] = False
     
     def mover(self):
         self.x += 10
