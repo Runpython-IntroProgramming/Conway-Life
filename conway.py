@@ -89,6 +89,11 @@ class Cell(Sprite):
         elif direction == "d":
             self.y += 20
 
+right = True
+left = True
+up = True
+down = True
+
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -107,11 +112,8 @@ class Conway(App):
         self.listenKeyEvent("keydown", "left arrow", self.moveleft)
         self.listenKeyEvent("keydown", "up arrow", self.moveup)
         self.listenKeyEvent("keydown", "down arrow", self.movedown)
+        
     
-    right = True
-    left = True
-    up = True
-    down = True
     
     def moveright(self, event):
         right = True
