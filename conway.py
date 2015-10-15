@@ -59,28 +59,35 @@ class Cell(Sprite):
     
     def __init__(self, position):
         super().__init__(Cell.pix, position)
-        livecells[(ogposx, ogposy)] = True
-        ogposx = self.x - xdiff
-        ogposy = self.y - ydiff
+        self.ogposx = self.x - xdiff
+        self.ogposy = self.y - ydiff
+        livecells[(self.ogposx, self.ogposy)] = True
         
     def step(self):
-        n = find(ogposx, ogposy)
+        n = find(self.ogposx, self.ogposy)
         if n < 2 or n > 3:
-            killcells[(ogposx, ogposy)] = True
-        checking(ogposx, ogposy)
-        if livecells.get((ogposx, ogposy)) == False:
+            killcells[(self.ogposx, self.ogposy)] = True
+        checking(self.ogposx, self.ogposy)
+        if livecells.get((self.ogposx, self.ogposy)) == False:
             self.visible = False
-            restingcells[(ogposx, ogposy)] = True
-        if restingcells.get((ogposx, ogposy)) == False:
+            restingcells[(self.ogposx, self.ogposy)] = True
+        if restingcells.get((self.ogposx, self.ogposy)) == False:
             self.visible = True
     
     def kill(self):
-        if killcells.get((ogposx, ogposy), False) == True:
-            livecells[(ogposx, ogposy)] = False
-            killcells[(ogposx, ogposy)] = False
+        if killcells.get((self.ogposx, self.ogposy), False) == True:
+            livecells[(self.ogposx, self.ogposy)] = False
+            killcells[(self.ogposx, self.ogposy)] = False
     
-    def mover(self):
-        self.x += 10
+    def mover(self, direction):
+        if direction == "r":
+            self.x += 10
+        elif direction == "l":
+            self.x -= 10
+        elif direction == "u":
+            self.y += 10
+        elif direction == "d":
+            self.y -= 10
 
 class Conway(App):
     def __init__(self, width, height):
@@ -95,11 +102,26 @@ class Conway(App):
         Cell((100, 70))
         Cell((100, 60))
         self.listenKeyEvent("keydown", "right arrow", self.moveright)
+        self.listenKeyEvent("keydown", "left arrow", self.moveleft)
+        self.listenKeyEvent("keydown", "up arrow", self.moveup)
+        self.listenKeyEvent("keydown", "down arrow", self.movedown)
     
     def moveright(self, event):
         xdiff += 10
         for cell in self.getSpritesbyClass(Cell):
-            cell.mover()
+            cell.mover("r")
+    def moveleft(self, event):
+        xdiff -= 10
+        for cell in self.getSpritesbyClass(Cell):
+            cell.mover("l")
+    def moveup(self, event):
+        ydiff += 10
+        for cell in self.getSpritesbyClass(Cell):
+            cell.mover("u")
+    def movedown(self, event):
+        ydiff -= 10
+        for cell in self.getSpritesbyClass(Cell):
+            cell.mover("d")
     
     def step(self):
         create()
