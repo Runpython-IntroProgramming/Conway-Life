@@ -92,36 +92,35 @@ class Cell(Sprite):
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        """Cell((100, 50))
+        Cell((100, 50))
         Cell((110, 60))
         Cell((110, 70))
         Cell((100, 70))
-        Cell((90, 70))"""
+        Cell((90, 70))
+        """
         Cell((100, 50))
         Cell((110, 60))
         Cell((100, 70))
         Cell((100, 60))
+        """
         self.listenKeyEvent("keydown", "right arrow", self.moveright)
         self.listenKeyEvent("keydown", "left arrow", self.moveleft)
         self.listenKeyEvent("keydown", "up arrow", self.moveup)
         self.listenKeyEvent("keydown", "down arrow", self.movedown)
     
+    right = True
+    left = True
+    up = True
+    down = True
+    
     def moveright(self, event):
-        xdiff += 20
-        for cell in self.getSpritesbyClass(Cell):
-            cell.mover("r")
+        right = True
     def moveleft(self, event):
-        xdiff -= 20
-        for cell in self.getSpritesbyClass(Cell):
-            cell.mover("l")
+        left = True
     def moveup(self, event):
-        ydiff -= 20
-        for cell in self.getSpritesbyClass(Cell):
-            cell.mover("u")
+        up = True
     def movedown(self, event):
-        ydiff += 20
-        for cell in self.getSpritesbyClass(Cell):
-            cell.mover("d")
+        down = True
     
     def step(self):
         create()
@@ -129,6 +128,26 @@ class Conway(App):
             cell.kill()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
+        if right == True:
+            xdiff += 20
+            for cell in self.getSpritesbyClass(Cell):
+                cell.mover("r")
+            right = False
+        if left == True:
+            xdiff -= 20
+            for cell in self.getSpritesbyClass(Cell):
+                cell.mover("l")
+            left = False
+        if up == True:
+            ydiff -= 20
+            for cell in self.getSpritesbyClass(Cell):
+                cell.mover("u")
+            up = False
+        if down == True:
+            ydiff += 20
+            for cell in self.getSpritesbyClass(Cell):
+                cell.mover("d")
+            down = False
         check()
         
         
