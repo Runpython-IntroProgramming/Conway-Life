@@ -81,13 +81,13 @@ class Cell(Sprite):
     
     def mover(self, direction):
         if direction == "r":
-            self.x += 10
+            self.x += 20
         elif direction == "l":
-            self.x -= 10
+            self.x -= 20
         elif direction == "u":
-            self.y += 10
+            self.y -= 20
         elif direction == "d":
-            self.y -= 10
+            self.y += 20
 
 class Conway(App):
     def __init__(self, width, height):
@@ -107,19 +107,19 @@ class Conway(App):
         self.listenKeyEvent("keydown", "down arrow", self.movedown)
     
     def moveright(self, event):
-        xdiff += 10
+        xdiff += 20
         for cell in self.getSpritesbyClass(Cell):
             cell.mover("r")
     def moveleft(self, event):
-        xdiff -= 10
+        xdiff -= 20
         for cell in self.getSpritesbyClass(Cell):
             cell.mover("l")
     def moveup(self, event):
-        ydiff += 10
+        ydiff -= 20
         for cell in self.getSpritesbyClass(Cell):
             cell.mover("u")
     def movedown(self, event):
-        ydiff -= 10
+        ydiff += 20
         for cell in self.getSpritesbyClass(Cell):
             cell.mover("d")
     
