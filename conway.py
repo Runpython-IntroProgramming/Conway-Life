@@ -130,8 +130,8 @@ class Conway(App):
     def create(self, event):
         diffx = event.x % 10
         diffy = event.y % 10
-        finx = event.x - diffx
-        finy = event.y - diffy
+        finx = event.x - diffx - 10
+        finy = event.y - diffy - 10
         if restingcells.get((finx, finy), False) == False:
             Cell((finx, finy))
         else:
