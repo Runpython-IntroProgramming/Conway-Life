@@ -92,7 +92,7 @@ class Cell(Sprite):
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        """
+        
         Cell((100, 50))
         Cell((110, 60))
         Cell((110, 70))
@@ -103,7 +103,7 @@ class Conway(App):
         Cell((110, 60))
         Cell((100, 70))
         Cell((100, 60))
-        
+        """
         self.listenKeyEvent("keydown", "right arrow", self.moveright)
         self.listenKeyEvent("keydown", "left arrow", self.moveleft)
         self.listenKeyEvent("keydown", "up arrow", self.moveup)
@@ -128,10 +128,10 @@ class Conway(App):
             cell.mover("d")
             
     def create(self, event):
-        diffx = x % 10
-        diffy = y % 10
-        finx = x - diffx
-        finy = y - diffy
+        diffx = event.x % 10
+        diffy = event.y % 10
+        finx = event.x - diffx
+        finy = event.y - diffy
         if restingcells.get((finx, finy), False) == False:
             Cell((finx, finy))
         else:
