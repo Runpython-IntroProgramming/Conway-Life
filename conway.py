@@ -88,11 +88,16 @@ class Cell(Sprite):
             self.y -= 20
         elif direction == "d":
             self.y += 20
+            
+    def checktokill(self, px, py):
+        if px == self.ogposx and py == self.ogposy:
+            self.visible = False
+            livecells[(self.ogposx, self.ogposy)] = False
 
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        
+        self.stopped = True
         Cell((100, 50))
         Cell((110, 60))
         Cell((110, 70))
@@ -108,6 +113,7 @@ class Conway(App):
         self.listenKeyEvent("keydown", "left arrow", self.moveleft)
         self.listenKeyEvent("keydown", "up arrow", self.moveup)
         self.listenKeyEvent("keydown", "down arrow", self.movedown)
+        self.listenKeyEvent("keydown", "space", self.toggle)
         self.listenMouseEvent('click', self.create)
         
     def moveright(self, event):
@@ -126,6 +132,11 @@ class Conway(App):
         ydiff += 20
         for cell in self.getSpritesbyClass(Cell):
             cell.mover("d")
+    def toggle(self, event):
+        if self.stopped == True:
+            self.stopped = False
+        else:
+            self.stopped = True
             
     def create(self, event):
         diffx = event.x % 10
@@ -133,18 +144,23 @@ class Conway(App):
         finx = event.x - diffx - 10
         finy = event.y - diffy - 10
         if restingcells.get((finx, finy), False) == False:
-            Cell((finx, finy))
+            if livecells.get((finx, finy), False) == True:
+                for cell in self.getSpritesbyClass(Cell):
+                    cell.checktokill(finx, finy)
+            else:
+                Cell((finx, finy))
         else:
             restingcells[(finx, finy)] = False
             livecells[(finx, finy)] = True
     
     def step(self):
-        create()
-        for cell in self.getSpritesbyClass(Cell):
-            cell.kill()
-        for cell in self.getSpritesbyClass(Cell):
-            cell.step()
-        check()
+        if self.stopped == False:
+            create()
+            for cell in self.getSpritesbyClass(Cell):
+                cell.kill()
+            for cell in self.getSpritesbyClass(Cell):
+                cell.step()
+            check()
         
         
 myapp = Conway(640, 480)
