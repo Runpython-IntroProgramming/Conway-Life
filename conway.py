@@ -93,6 +93,12 @@ class Cell(Sprite):
         if px == self.ogposx and py == self.ogposy:
             self.visible = False
             livecells[(self.ogposx, self.ogposy)] = False
+            
+    def checktolive(self, px, py):
+        if px == self.ogposx and py == self.ogposy:
+            self.visible = True
+            livecells[(self.ogposx, self.ogposy)] = True
+            restingcells[(self.ogposx, self.ogposy)] = True
 
 class Conway(App):
     def __init__(self, width, height):
@@ -150,8 +156,8 @@ class Conway(App):
             else:
                 Cell((finx, finy))
         else:
-            restingcells[(finx, finy)] = False
-            livecells[(finx, finy)] = True
+            for cell in self.getSpritesbyClass(Cell):
+                cell.checktolive(finx, finy)
     
     def step(self):
         if self.stopped == False:
