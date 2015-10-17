@@ -92,13 +92,14 @@ class Cell(Sprite):
     def checktokill(self, px, py):
         if px == self.ogposx and py == self.ogposy:
             self.visible = False
-            livecells[(self.ogposx, self.ogposy)] = False
+            killcells[(self.ogposx, self.ogposy)] = True
+            self.kill()
             
     def checktolive(self, px, py):
         if px == self.ogposx and py == self.ogposy:
             self.visible = True
             livecells[(self.ogposx, self.ogposy)] = True
-            restingcells[(self.ogposx, self.ogposy)] = True
+            restingcells[(self.ogposx, self.ogposy)] = False
 
 class Conway(App):
     def __init__(self, width, height):
@@ -149,6 +150,7 @@ class Conway(App):
         diffy = event.y % 10
         finx = event.x - diffx - 10
         finy = event.y - diffy - 10
+        print(finx, finy)
         if restingcells.get((finx, finy), False) == False:
             if livecells.get((finx, finy), False) == True:
                 for cell in self.getSpritesbyClass(Cell):
