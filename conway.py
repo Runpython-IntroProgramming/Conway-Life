@@ -14,18 +14,13 @@ nostroke = LineStyle(0, purple)
 livecells = {}
 makecells = []
 surcells = []
-restingcells = {}
 killcells = {}
 xdiff = 0
 ydiff = 0
 
 def create():
     for celle in makecells[:]:
-        if restingcells.get((celle[0], celle[1]), False) == False:
-            Cell((celle[0], celle[1]))
-        else:
-            restingcells[(celle[0], celle[1])] = False
-            livecells[(celle[0], celle[1])] = True
+        Cell((celle[0], celle[1]))
         makecells.remove(celle)
 
 def getcoor(xx, yy):
@@ -59,20 +54,20 @@ class Cell(Sprite):
     
     def __init__(self, position):
         super().__init__(Cell.pix, position)
-        self.ogposx = self.x - xdiff
-        self.ogposy = self.y - ydiff
+        self.ogposx = self.x
+        self.ogposy = self.y
         livecells[(self.ogposx, self.ogposy)] = True
+        self.x += xdiff
+        self.y += ydiff
         
     def step(self):
-        n = find(self.ogposx, self.ogposy)
-        if n < 2 or n > 3:
-            killcells[(self.ogposx, self.ogposy)] = True
-        checking(self.ogposx, self.ogposy)
-        if livecells.get((self.ogposx, self.ogposy)) == False:
+        if livecells.get((self.ogposx, self.ogposy)) == True:
+            n = find(self.ogposx, self.ogposy)
+            if n < 2 or n > 3:
+                killcells[(self.ogposx, self.ogposy)] = True
+            checking(self.ogposx, self.ogposy)
+        else:
             self.visible = False
-            restingcells[(self.ogposx, self.ogposy)] = True
-        if restingcells.get((self.ogposx, self.ogposy)) == False:
-            self.visible = True
     
     def kill(self):
         if killcells.get((self.ogposx, self.ogposy), False) == True:
@@ -94,12 +89,6 @@ class Cell(Sprite):
             self.visible = False
             killcells[(self.ogposx, self.ogposy)] = True
             self.kill()
-            
-    def checktolive(self, px, py):
-        if px == self.ogposx and py == self.ogposy:
-            self.visible = True
-            livecells[(self.ogposx, self.ogposy)] = True
-            restingcells[(self.ogposx, self.ogposy)] = False
 
 class Conway(App):
     def __init__(self, width, height):
@@ -150,16 +139,11 @@ class Conway(App):
         diffy = event.y % 10
         finx = event.x - diffx - 10
         finy = event.y - diffy - 10
-        print(finx, finy)
-        if restingcells.get((finx, finy), False) == False:
-            if livecells.get((finx, finy), False) == True:
-                for cell in self.getSpritesbyClass(Cell):
-                    cell.checktokill(finx, finy)
-            else:
-                Cell((finx, finy))
-        else:
+        if livecells.get((finx, finy), False) == True:
             for cell in self.getSpritesbyClass(Cell):
-                cell.checktolive(finx, finy)
+                cell.checktokill(finx, finy)
+        else:
+            Cell((finx, finy))
     
     def step(self):
         if self.stopped == False:
