@@ -137,8 +137,8 @@ class Conway(App):
     def create(self, event):
         diffx = event.x % 10
         diffy = event.y % 10
-        finx = event.x - diffx - 10
-        finy = event.y - diffy - 10
+        finx = event.x - diffx - 10 - xdiff
+        finy = event.y - diffy - 10 - ydiff
         if livecells.get((finx, finy), False) == True:
             for cell in self.getSpritesbyClass(Cell):
                 cell.checktokill(finx, finy)
