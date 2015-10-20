@@ -10,6 +10,7 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
 
 purple = Color(0x512DA8, 1)
+colortwo = Color(0xFF0000, 1)
 nostroke = LineStyle(0, purple)
 livecells = {}
 makecells = []
@@ -59,9 +60,15 @@ class Cell(Sprite):
         livecells[(self.ogposx, self.ogposy)] = True
         self.x += xdiff
         self.y += ydiff
+        self.day = 0
+        self.changed = False
         
     def step(self):
         if livecells.get((self.ogposx, self.ogposy)) == True:
+            self.day += 1
+            if self.day > 1 and self.changed == False:
+                self.color = colortwo
+                self.changed = True
             n = find(self.ogposx, self.ogposy)
             if n < 2 or n > 3:
                 killcells[(self.ogposx, self.ogposy)] = True
