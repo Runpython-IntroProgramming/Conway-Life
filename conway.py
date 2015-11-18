@@ -27,8 +27,8 @@ class Cell(Sprite):
     def __init__(self, position):
         super().__init__(Cell.asset, position)
         
-    def step():
-        
+    def step(self):
+        neighbors = {'topleft':0, 'topcenter':0, 'topright':0, 'centerleft':0, 'centercenter':0, 'centerright':0, 'bottomleft':0, 'bottomcenter':0, 'bottomright':0}
     
 
 
