@@ -10,13 +10,22 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
-CELLWIDTH = 64
-CELLHEIGHT = 48
+CELLWIDTH = 10
+CELLHEIGHT = 10
 
 black = Color(0, 1)
-green = Color(0x00ff00, 1)
 white = Color(0xffffff, 1)
+noline = LineStyle(0, white)
 blackline = LineStyle(.1, black)
+
+class Cell(Sprite):
+    cell = RectangleAsset(10, 10, noline, black)
+    
+    def __init__(self, position):
+        self.x = x-position
+        self.y = y-position
+
+
 
 class Conways(App):
     def _init__(self, width, height):
@@ -28,11 +37,7 @@ class Conways(App):
         celloutline = RectangleAsset(CELLWIDTH, CELLHEIGHT, blackline, white)
         #for x in range(0, SCREEN_WIDTH, CELLWIDTH):
             #Sprite(celloutline)
-
-
-
-
-
+        Cell((10, 10))
 
 myapp = Conways(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
