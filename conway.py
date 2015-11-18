@@ -18,26 +18,36 @@ white = Color(0xffffff, 1)
 noline = LineStyle(0, white)
 blackline = LineStyle(.1, black)
 
+
+
+
 class Cell(Sprite):
-    cell = RectangleAsset(10, 10, noline, black)
+    asset = RectangleAsset(10, 10, noline, black)
     
     def __init__(self, position):
-        self.x = x-position
-        self.y = y-position
-
+        super().__init__(Cell.asset, position)
+        
+    def step():
+        
+    
 
 
 class Conways(App):
-    def _init__(self, width, height):
+    def __init__(self, width, height):
         super().__init__(width, height)
-        green = Color(0x00ff00, 1)
-        blackline = LineStyle(1, green)
-        bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, blackline, green)
-        Sprite(bg_asset, (0,0))
-        celloutline = RectangleAsset(CELLWIDTH, CELLHEIGHT, blackline, white)
-        #for x in range(0, SCREEN_WIDTH, CELLWIDTH):
-            #Sprite(celloutline)
-        Cell((10, 10))
+        black = Color(0, 1)
+        noline = LineStyle(0, black)
+        bg_asset = RectangleAsset(width, height, noline, white)
+        bg = Sprite(bg_asset, (0,0))
+        Cell((100, 100))
+        Cell((90, 100))
+        Cell((110, 100))
+    
+    def step(self):
+        for cell in self.getSpritesbyClass(Cell):
+            cell.step()
+        
+
 
 myapp = Conways(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
