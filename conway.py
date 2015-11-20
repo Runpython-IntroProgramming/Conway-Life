@@ -27,13 +27,18 @@ class Cell(Sprite):
     def __init__(self, position):
         super().__init__(Cell.asset, position)
         
-    def step(self):
-        x += self.x
+    def get_neighbors(self):
+        neighbors = []
+        for y in (-1, 0, 1):
+            for x in (-1, 0, 1):
+                x += self.x
                 y += self.y
                 neighbor = find_cell(x, y)
                 if neighbor not in (None, self):
                     neighbors.append(neighbor)
                     neighbor.switch()
+        return neighbors
+
     
 def find_cell(x, y):
     for Cell in board:
