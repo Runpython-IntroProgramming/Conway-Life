@@ -28,9 +28,18 @@ class Cell(Sprite):
         super().__init__(Cell.asset, position)
         
     def step(self):
-        neighbors = {'topleft':0, 'topcenter':0, 'topright':0, 'centerleft':0, 'centercenter':0, 'centerright':0, 'bottomleft':0, 'bottomcenter':0, 'bottomright':0}
+        x += self.x
+                y += self.y
+                neighbor = find_cell(x, y)
+                if neighbor not in (None, self):
+                    neighbors.append(neighbor)
+                    neighbor.switch()
     
-
+def find_cell(x, y):
+    for Cell in board:
+        if Cell.x == x:
+            if Cell.y == y:
+                return Cell
 
 class Conways(App):
     def __init__(self, width, height):
