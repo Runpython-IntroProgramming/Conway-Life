@@ -18,7 +18,8 @@ white = Color(0xffffff, 1)
 noline = LineStyle(0, white)
 blackline = LineStyle(.1, black)
 
-
+def get_neighbors(self):
+    
 
 
 class Cell(Sprite):
@@ -26,25 +27,9 @@ class Cell(Sprite):
     
     def __init__(self, position):
         super().__init__(Cell.asset, position)
-        
-    def get_neighbors(self):
-        neighbors = []
-        for y in (-1, 0, 1):
-            for x in (-1, 0, 1):
-                x += self.x
-                y += self.y
-                neighbor = find_cell(x, y)
-                if neighbor not in (None, self):
-                    neighbors.append(neighbor)
-                    neighbor.switch()
-        return neighbors
 
-    
-def find_cell(x, y):
-    for Cell in board:
-        if Cell.x == x:
-            if Cell.y == y:
-                return Cell
+
+
 
 class Conways(App):
     def __init__(self, width, height):
@@ -59,8 +44,8 @@ class Conways(App):
     
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
-            cell.step()
-        
+    #        cell.step()
+            print(cell.get_neighbors())
 
 
 myapp = Conways(SCREEN_WIDTH, SCREEN_HEIGHT)
