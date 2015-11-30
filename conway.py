@@ -1,25 +1,29 @@
 """
 conway.py
 Author: Dimitri
-Credit: Wikipedia
+Credit: Morgan
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
-SCREEN_WIDTH = 640
-SCREEN_HEIGHT = 480
-CELLWIDTH = 10
-CELLHEIGHT = 10
-
 black = Color(0, 1)
 white = Color(0xffffff, 1)
 noline = LineStyle(0, white)
-blackline = LineStyle(.1, black)
 
-def get_neighbors(self):
-    
+def neighborlist(x1, y1):
+    return([[x1-10, y1-10], [x1-10, y1], [x1-10, y1+10], [x1, y1-10], [x1, y1+10], [x1+10, y1-10], [x1+10, y1], [x1+10, y1+10]])
+
+def getneighbors(x1, y1):
+    neighbors = neighborlist(x1, y1)
+    counted = 0
+    for cells in neighbors:
+        if 
+            counted += 1
+        else:
+            counted += 0
+    return(counted)
 
 
 class Cell(Sprite):
@@ -27,6 +31,10 @@ class Cell(Sprite):
     
     def __init__(self, position):
         super().__init__(Cell.asset, position)
+        self.locx = x
+        self.locy = y
+        
+    def 
 
 
 
@@ -34,19 +42,19 @@ class Cell(Sprite):
 class Conways(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        black = Color(0, 1)
-        noline = LineStyle(0, black)
-        bg_asset = RectangleAsset(width, height, noline, white)
-        bg = Sprite(bg_asset, (0,0))
+        self.stopped = true
         Cell((100, 100))
         Cell((90, 100))
         Cell((110, 100))
-    
+
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
-    #        cell.step()
-            print(cell.get_neighbors())
+            cell.kill()
+        for cell in self.getSpritesbyClass(Cell):
+            cell.step()
+        check()
 
 
-myapp = Conways(SCREEN_WIDTH, SCREEN_HEIGHT)
+
+myapp = Conways(640, 480)
 myapp.run()
