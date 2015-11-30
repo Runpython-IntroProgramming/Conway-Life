@@ -20,7 +20,7 @@ def getneighbors(x1, y1):
     neighbors = neighborlist(x1, y1)
     counted = 0
     for cells in neighbors:
-        if livecells.get(
+        if livecells.get((cells[0], cells[1]) = False) == True:
             counted += 1
         else:
             counted += 0
@@ -42,7 +42,7 @@ class Cell(Sprite):
 class Conways(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        self.stopped = true
+        #self.stopped = true
         Cell((100, 100))
         Cell((90, 100))
         Cell((110, 100))
