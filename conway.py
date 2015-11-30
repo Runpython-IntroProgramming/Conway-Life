@@ -11,6 +11,7 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 black = Color(0, 1)
 white = Color(0xffffff, 1)
 noline = LineStyle(0, white)
+livecells = []
 
 def neighborlist(x1, y1):
     return([[x1-10, y1-10], [x1-10, y1], [x1-10, y1+10], [x1, y1-10], [x1, y1+10], [x1+10, y1-10], [x1+10, y1], [x1+10, y1+10]])
@@ -19,7 +20,7 @@ def getneighbors(x1, y1):
     neighbors = neighborlist(x1, y1)
     counted = 0
     for cells in neighbors:
-        if 
+        if livecells.get(
             counted += 1
         else:
             counted += 0
@@ -33,8 +34,7 @@ class Cell(Sprite):
         super().__init__(Cell.asset, position)
         self.locx = x
         self.locy = y
-        
-    def 
+        livecells = [(self.locx, self.locy)] = True
 
 
 
