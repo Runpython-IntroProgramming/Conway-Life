@@ -158,12 +158,13 @@ class Conway(App):
         
 myapp = Conway(640, 480)
 myapp.run()
-"""from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+"""
+from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
 black = Color(0, 1)
 white = Color(0xffffff, 1)
 noline = LineStyle(0, white)
-livecells = []
+livecells = {}
 
 def neighborlist(x1, y1):
     return([[x1-10, y1-10], [x1-10, y1], [x1-10, y1+10], [x1, y1-10], [x1, y1+10], [x1+10, y1-10], [x1+10, y1], [x1+10, y1+10]])
@@ -184,10 +185,9 @@ class Cell(Sprite):
     
     def __init__(self, position):
         super().__init__(Cell.asset, position)
-        self.locx = x
-        self.locy = y
-        livecells = [(self.locx, self.locy)] = True
-
+        livecells[(self.x, self.y)] = True
+        getneighbors(self.x, self.y)
+        
 
 
 
@@ -199,12 +199,14 @@ class Conways(App):
         Cell((90, 100))
         Cell((110, 100))
 
+
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
             cell.kill()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         check()
+        
 
 
 
