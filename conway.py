@@ -166,6 +166,19 @@ white = Color(0xffffff, 1)
 noline = LineStyle(0, white)
 livecells = {}
 deadcells = {}
+makecells = []
+surcells = []
+
+def create():
+    for celle in makecells[:]:
+        Cell((celle[0], celle[1]))
+        makecells.remove(celle)
+
+def check():
+    for celle in surcells[:]:
+        if find(celle[0], celle[1]) == 3:
+            makecells.append(celle)
+        surcells.remove(celle)
 
 def neighborlist(x1, y1):
     return([[x1-10, y1-10], [x1-10, y1], [x1-10, y1+10], [x1, y1-10], [x1, y1+10], [x1+10, y1-10], [x1+10, y1], [x1+10, y1+10]])
@@ -188,12 +201,13 @@ class Cell(Sprite):
         generation = 0
         
     def step(self):
-        if livecells.get((self.x[0], self.y[1]), False) == True:
-            self.generation += 1
-            neighbors = getneighbors(self.x, self.y)
-            if neighbors < 2 or neighbors > 3:
-                self.visible == False
-        print(0)
+        neighbors = getneighbors(self.x, self.y)
+        if neighbors < 2 or neighbors > 3:
+            self.visible = False
+            deadcells[(self.x, self.y)] = True
+            livecells[(self.x, self.y)] = False
+        create()
+        check()
 
 
 
