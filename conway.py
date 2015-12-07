@@ -180,6 +180,9 @@ def getneighbors(x1, y1):
     for outsidecells in neighbors:
         if livecells.get((outsidecells[0], outsidecells[1]), False) == True:
             counted += 1
+        else:
+            if outsidecells not in surcells:
+                surcells.append(outsidecells)
     return(counted)
 
 
@@ -197,6 +200,11 @@ class Cell(Sprite):
             self.visible = False
             deadcells[(self.x, self.y)] = True
             livecells[(self.x, self.y)] = False
+        for celles in surcells:
+            if neighbors == 3:
+                self.visible = True
+                deadcells[(self.x, self.y)] = False
+                livecells[(self.x, self.y)] = True
 
 
 
