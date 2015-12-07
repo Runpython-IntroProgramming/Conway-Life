@@ -193,6 +193,7 @@ class Cell(Sprite):
             neighbors = getneighbors(self.x, self.y)
             if neighbors < 2 or neighbors > 3:
                 self.visible == False
+        print(0)
 
 
 
@@ -203,16 +204,14 @@ class Conways(App):
         Cell((100, 100))
         Cell((90, 100))
         Cell((110, 100))
-        n = Cell.step
-        print(n)
 
 
     def step(self):
-        for cell in self.getSpritesbyClass(Cell):
-            cell.kill()
+      #  for cell in self.getSpritesbyClass(Cell):
+      #      cell.kill()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
-        check()
+
 
 
 
