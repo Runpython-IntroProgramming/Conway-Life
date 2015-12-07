@@ -165,6 +165,7 @@ black = Color(0, 1)
 white = Color(0xffffff, 1)
 noline = LineStyle(0, white)
 livecells = {}
+deadcells = {}
 
 def neighborlist(x1, y1):
     return([[x1-10, y1-10], [x1-10, y1], [x1-10, y1+10], [x1, y1-10], [x1, y1+10], [x1+10, y1-10], [x1+10, y1], [x1+10, y1+10]])
@@ -172,11 +173,9 @@ def neighborlist(x1, y1):
 def getneighbors(x1, y1):
     neighbors = neighborlist(x1, y1)
     counted = 0
-    for cells in neighbors:
-        if livecells.get((cells[0], cells[1]) = False) == True:
+    for outsidecells in neighbors:
+        if livecells.get((outsidecells[0], outsidecells[1]), False) == True:
             counted += 1
-        else:
-            counted += 0
     return(counted)
 
 
@@ -186,18 +185,26 @@ class Cell(Sprite):
     def __init__(self, position):
         super().__init__(Cell.asset, position)
         livecells[(self.x, self.y)] = True
-        getneighbors(self.x, self.y)
+        generation = 0
         
+    def step(self):
+        if livecells.get((self.x[0], self.y[1]), False) == True:
+            self.generation += 1
+            neighbors = getneighbors(self.x, self.y)
+            if neighbors < 2 or neighbors > 3:
+                self.visible == False
 
 
 
 class Conways(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        #self.stopped = true
+        #self.stopped = True
         Cell((100, 100))
         Cell((90, 100))
         Cell((110, 100))
+        n = Cell.step
+        print(n)
 
 
     def step(self):
@@ -206,7 +213,6 @@ class Conways(App):
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         check()
-        
 
 
 
