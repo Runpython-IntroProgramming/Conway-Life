@@ -169,16 +169,7 @@ deadcells = {}
 makecells = []
 surcells = []
 
-def create():
-    for celle in makecells[:]:
-        Cell((celle[0], celle[1]))
-        makecells.remove(celle)
 
-def check():
-    for celle in surcells[:]:
-        if find(celle[0], celle[1]) == 3:
-            makecells.append(celle)
-        surcells.remove(celle)
 
 def neighborlist(x1, y1):
     return([[x1-10, y1-10], [x1-10, y1], [x1-10, y1+10], [x1, y1-10], [x1, y1+10], [x1+10, y1-10], [x1+10, y1], [x1+10, y1+10]])
@@ -206,8 +197,7 @@ class Cell(Sprite):
             self.visible = False
             deadcells[(self.x, self.y)] = True
             livecells[(self.x, self.y)] = False
-        create()
-        check()
+
 
 
 
