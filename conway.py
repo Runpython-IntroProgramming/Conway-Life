@@ -191,7 +191,7 @@ def createcells():
 
 def revive():
     for nextcells in surcells:
-        if getneighbors((nextcells[0], nextcells[1])) == 3:
+        if getneighbors(nextcells[0], nextcells[1]) == 3:
             addcells.append(nextcells)
         surcells.remove(nextcells)
 
