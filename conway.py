@@ -212,6 +212,10 @@ class Cell(Sprite):
             self.visible = False
             deadcells[(self.x, self.y)] = True
             livecells[(self.x, self.y)] = False
+        if neighbors == 3:
+            self.visible = True
+            deadcells[(self.x, self.y)] = False
+            livecells[(self.x, self.y)] = True
 
 class Conways(App):
     def __init__(self, width, height):
