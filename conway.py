@@ -193,10 +193,10 @@ def createcells(self):
         addcells.remove(cells)
 
 def revive(self):
-    for cells in surcells[:]:
-        if getneighbors(cells[0], cells[1]) == 3:
-            addcells.append(cells)
-        surcells.remove(cells)
+    for nextcells in surcells[:]:
+        if getneighbors((nextcells[0], nextcells[1])) == 3:
+            addcells.append(nextcells)
+        surcells.remove(nextcells)
 
 class Cell(Sprite):
     asset = RectangleAsset(10, 10, noline, black)
