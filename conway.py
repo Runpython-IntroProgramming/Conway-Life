@@ -183,12 +183,12 @@ def getneighbors(x1, y1):
         else:
             surcells.append(outsidecells)
     return(counted)
-
+"""
 def createcells():
     for cells in addcells[:]:
         Cell((cells[0], cells[1]))
         addcells.remove(cells)
-
+"""
 def revive():
     for nextcells in surcells:
         if getneighbors(nextcells[0], nextcells[1]) == 3:
@@ -211,7 +211,6 @@ class Cell(Sprite):
             self.visible = False
             deadcells[(self.x, self.y)] = True
             livecells[(self.x, self.y)] = False
-       # print(surcells)
 """
         if neighbors == 3 and deadcells[(self.x, self.y)] == True:
             self.visible = True
