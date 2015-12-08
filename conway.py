@@ -166,7 +166,7 @@ white = Color(0xffffff, 1)
 noline = LineStyle(0, white)
 livecells = {}
 deadcells = {}
-makecells = []
+addcells = []
 surcells = []
 
 
@@ -186,14 +186,15 @@ def getneighbors(x1, y1):
     return(counted)
 
 def createcells(self):
-    for cells in surcells[:]:
+    for cells in addcells[:]:
         Cell((cells[0], cells[1]))
+        addcells.remove(cells)
 
 def revive(self):
     for cells in surcells[:]:
         if getneighbors(cells[0], cells[1]) == 3:
-            self.visible = True
-            livecells.append(cells)
+            addcells.append(cells)
+        surcells.remove(cells)
 
 class Cell(Sprite):
     asset = RectangleAsset(10, 10, noline, black)
