@@ -181,10 +181,16 @@ def getneighbors(x1, y1):
         if livecells.get((outsidecells[0], outsidecells[1]), False) == True:
             counted += 1
         else:
-            if outsidecells not in surcells:
-                surcells.append(outsidecells)
+            #if outsidecells not in surcells:
+            surcells.append(outsidecells)
     return(counted)
 
+def revive(self):
+    for cells in surcells:
+        neighbors = getneighbors(self.x, self.y)
+        if neighbors == 3:
+            self.visible = True
+            livecells.append(cells)
 
 class Cell(Sprite):
     asset = RectangleAsset(10, 10, noline, black)
@@ -200,12 +206,14 @@ class Cell(Sprite):
             self.visible = False
             deadcells[(self.x, self.y)] = True
             livecells[(self.x, self.y)] = False
+
+"""
         for celles in surcells:
             if neighbors == 3:
                 self.visible = True
                 deadcells[(self.x, self.y)] = False
                 livecells[(self.x, self.y)] = True
-
+"""
 
 
 
@@ -221,8 +229,10 @@ class Conways(App):
     def step(self):
       #  for cell in self.getSpritesbyClass(Cell):
       #      cell.kill()
+      
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
+        check()
 
 
 
