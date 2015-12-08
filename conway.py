@@ -232,7 +232,7 @@ class Conways(App):
       
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
-        check()
+        revive()
 
 
 
