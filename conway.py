@@ -213,16 +213,6 @@ class Cell(Sprite):
             deadcells[(self.x, self.y)] = True
             livecells[(self.x, self.y)] = False
 
-"""
-        for celles in surcells:
-            if neighbors == 3:
-                self.visible = True
-                deadcells[(self.x, self.y)] = False
-                livecells[(self.x, self.y)] = True
-"""
-
-
-
 class Conways(App):
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -235,10 +225,11 @@ class Conways(App):
     def step(self):
       #  for cell in self.getSpritesbyClass(Cell):
       #      cell.kill()
-        createcells()
+        
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         revive()
+        createcells()
 
 
 
