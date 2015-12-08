@@ -229,10 +229,10 @@ class Conways(App):
     def step(self):
       #  for cell in self.getSpritesbyClass(Cell):
       #      cell.kill()
-        
+        revive()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
-        revive()
+        
         createcells()
 
 
