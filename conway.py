@@ -180,8 +180,6 @@ def getneighbors(x1, y1):
     for outsidecells in neighbors:
         if livecells.get((outsidecells[0], outsidecells[1]), False) == True:
             counted += 1
-        else:
-            surcells.append(outsidecells)
     return(counted)
 
 def createcells(self):
@@ -194,6 +192,16 @@ def revive(self):
         if getneighbors((nextcells[0], nextcells[1])) == 3:
             addcells.append(nextcells)
         surcells.remove(nextcells)
+
+def checking(xx, yy):
+    dei = getcoor(xx, yy)
+    for deadcell in dei:
+        if livecells.get((deadcell[0], deadcell[1]), False) == False:
+            if deadcell in surcells:
+                at = 1
+            else:
+                surcells.append(deadcell)
+        
 
 class Cell(Sprite):
     asset = RectangleAsset(10, 10, noline, black)
@@ -209,12 +217,12 @@ class Cell(Sprite):
             self.visible = False
             deadcells[(self.x, self.y)] = True
             livecells[(self.x, self.y)] = False
-        if neighbors == 3 and deadcells[(self.x, self.y)] == True:
+        checking(self.x, self.y)
+ """       if neighbors == 3 and deadcells[(self.x, self.y)] == True:
             self.visible = True
             deadcells[(self.x, self.y)] = False
             livecells[(self.x, self.y)] = True
-        print(surcells)
-
+"""
 class Conways(App):
     def __init__(self, width, height):
         super().__init__(width, height)
