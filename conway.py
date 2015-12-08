@@ -218,6 +218,7 @@ class Cell(Sprite):
             deadcells[(self.x, self.y)] = True
             livecells[(self.x, self.y)] = False
         checking(self.x, self.y)
+        print(surcells)
 """
         if neighbors == 3 and deadcells[(self.x, self.y)] == True:
             self.visible = True
