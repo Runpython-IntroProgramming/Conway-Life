@@ -181,10 +181,7 @@ def getneighbors(x1, y1):
         if livecells.get((outsidecells[0], outsidecells[1]), False) == True:
             counted += 1
         else:
-            if outsidecells in surcells:
-                at = 1
-            else:
-                surcells.append(outsidecells)
+            surcells.append(outsidecells)
     return(counted)
 
 def createcells(self):
@@ -229,10 +226,10 @@ class Conways(App):
     def step(self):
       #  for cell in self.getSpritesbyClass(Cell):
       #      cell.kill()
-        revive()
+        
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
-        
+        revive()
         createcells()
 
 
