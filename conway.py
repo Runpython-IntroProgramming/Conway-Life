@@ -186,13 +186,12 @@ def getneighbors(x1, y1):
     return(counted)
 
 def createcells(self):
-    for cells in surcells:
+    for cells in surcells[:]:
         Cell((cells[0], cells[1]))
 
 def revive(self):
-    for cells in surcells:
-        neighbors = getneighbors(self.x, self.y)
-        if neighbors == 3:
+    for cells in surcells[:]:
+        if getneighbors(cells[0], cells[1]) == 3:
             self.visible = True
             livecells.append(cells)
 
