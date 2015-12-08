@@ -212,7 +212,7 @@ class Cell(Sprite):
             self.visible = False
             deadcells[(self.x, self.y)] = True
             livecells[(self.x, self.y)] = False
-        if neighbors == 3 and deadcells[(self.x, self.y)] = True:
+        if neighbors == 3 and deadcells[(self.x, self.y)] == True:
             self.visible = True
             deadcells[(self.x, self.y)] = False
             livecells[(self.x, self.y)] = True
