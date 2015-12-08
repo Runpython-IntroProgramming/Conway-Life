@@ -213,6 +213,7 @@ class Cell(Sprite):
             self.visible = True
             deadcells[(self.x, self.y)] = False
             livecells[(self.x, self.y)] = True
+        print(surcells)
 
 class Conways(App):
     def __init__(self, width, height):
