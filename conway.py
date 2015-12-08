@@ -185,6 +185,10 @@ def getneighbors(x1, y1):
             surcells.append(outsidecells)
     return(counted)
 
+def createcells(self):
+    for cells in surcells:
+        Cell((cells[0], cells[1]))
+
 def revive(self):
     for cells in surcells:
         neighbors = getneighbors(self.x, self.y)
@@ -229,7 +233,7 @@ class Conways(App):
     def step(self):
       #  for cell in self.getSpritesbyClass(Cell):
       #      cell.kill()
-      
+        createcells()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         revive()
