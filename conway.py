@@ -193,10 +193,10 @@ def getneighbors(x1, y1):
     return(counted)
 
 def createcells():
-    for cells in addcells:
-        Cell((cells[0], cells[1]))
-        deadcells[(cells[0], cells[1])] == True
-        addcells.remove(cells)
+    for newcells in addcells:
+        Cell((newcells[0], newcells[1]))
+        deadcells[(newcells[0], newcells[1])] == True
+        addcells.remove(newcells)
 
 def revive():
     for nextcells in surcells:
