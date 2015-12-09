@@ -218,7 +218,6 @@ class Cell(Sprite):
     def step(self):
         neighbors = getneighbors(self.x, self.y)
         revive()
-        createcells()
         if neighbors < 2 or neighbors > 3:
             self.visible = False
             deadcells[(self.x, self.y)] = True
@@ -241,7 +240,7 @@ class Conways(App):
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         revive()
-        #createcells()
+        createcells()
        
 
 
