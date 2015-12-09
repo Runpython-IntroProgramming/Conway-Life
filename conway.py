@@ -200,6 +200,7 @@ def createcells():
 
 def revive():
     for nextcells in surcells:
+        print(getneighborssur(nextcells[0], nextcells[1]))
         if getneighborssur(nextcells[0], nextcells[1]) == 3:
             addcells.append(nextcells)
         surcells.remove(nextcells)
@@ -216,6 +217,8 @@ class Cell(Sprite):
         
     def step(self):
         neighbors = getneighbors(self.x, self.y)
+        revive()
+        createcells()
         if neighbors < 2 or neighbors > 3:
             self.visible = False
             deadcells[(self.x, self.y)] = True
@@ -235,16 +238,11 @@ class Conways(App):
 
 
     def step(self):
-        revive()
-        createcells()
-        revive()
-        createcells()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         revive()
-        createcells()
-        revive()
-        createcells()
+        #createcells()
+       
 
 
 
