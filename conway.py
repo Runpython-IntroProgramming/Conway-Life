@@ -6,10 +6,10 @@ Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
-"""
+
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
 
-purple = Color(0x512DA8, 1)
+red = Color(0xff0000, 1)
 colortwo = Color(0xFF0000, 1)
 nostroke = LineStyle(0, purple)
 livecells = {}
@@ -194,13 +194,14 @@ def getneighbors(x1, y1):
 
 def createcells():
     for newcells in addcells:
+        print(newcells[0], newcells[1])
         Cell((newcells[0], newcells[1]))
         deadcells[(newcells[0], newcells[1])] == True
         addcells.remove(newcells)
 
 def revive():
     for nextcells in surcells:
-        print(getneighborssur(nextcells[0], nextcells[1]))
+        #print(getneighborssur(nextcells[0], nextcells[1]))
         if getneighborssur(nextcells[0], nextcells[1]) == 3:
             addcells.append(nextcells)
         surcells.remove(nextcells)
@@ -217,7 +218,6 @@ class Cell(Sprite):
         
     def step(self):
         neighbors = getneighbors(self.x, self.y)
-        revive()
         if neighbors < 2 or neighbors > 3:
             self.visible = False
             deadcells[(self.x, self.y)] = True
@@ -234,13 +234,13 @@ class Conways(App):
         Cell((100, 100))
         Cell((90, 100))
         Cell((110, 100))
+        Cell((90, 110))
 
 
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
-        revive()
-        createcells()
+        #createcells()
        
 
 
@@ -248,3 +248,4 @@ class Conways(App):
 
 myapp = Conways(640, 480)
 myapp.run()
+"""
