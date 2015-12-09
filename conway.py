@@ -174,6 +174,14 @@ surcells = []
 def neighborlist(x1, y1):
     return([[x1-10, y1-10], [x1-10, y1], [x1-10, y1+10], [x1, y1-10], [x1, y1+10], [x1+10, y1-10], [x1+10, y1], [x1+10, y1+10]])
 
+def getneighborssur(x1, y1):
+    neighbors = neighborlist(x1, y1)
+    counted = 0
+    for outsidecells in neighbors:
+        if livecells.get((outsidecells[0], outsidecells[1]), False) == True:
+            counted += 1
+    return(counted)
+
 def getneighbors(x1, y1):
     neighbors = neighborlist(x1, y1)
     counted = 0
@@ -183,16 +191,17 @@ def getneighbors(x1, y1):
         else:
             surcells.append(outsidecells)
     return(counted)
-"""
+
 def createcells():
-    for cells in addcells[:]:
+    for cells in addcells:
         Cell((cells[0], cells[1]))
+        deadcells[(cells[0], cells[1])] == True
         addcells.remove(cells)
-"""
+
 def revive():
     for nextcells in surcells:
-        #if getneighbors(nextcells[0], nextcells[1]) == 3:
-        #    addcells.append(nextcells)
+        if getneighborssur(nextcells[0], nextcells[1]) == 3:
+            addcells.append(nextcells)
         surcells.remove(nextcells)
 
 
@@ -211,12 +220,11 @@ class Cell(Sprite):
             self.visible = False
             deadcells[(self.x, self.y)] = True
             livecells[(self.x, self.y)] = False
-"""
         if neighbors == 3 and deadcells[(self.x, self.y)] == True:
             self.visible = True
             deadcells[(self.x, self.y)] = False
             livecells[(self.x, self.y)] = True
-"""
+
 class Conways(App):
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -227,13 +235,16 @@ class Conways(App):
 
 
     def step(self):
-      #  for cell in self.getSpritesbyClass(Cell):
-      #      cell.kill()
-        
+        revive()
+        createcells()
+        revive()
+        createcells()
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         revive()
-        #createcells()
+        createcells()
+        revive()
+        createcells()
 
 
 
