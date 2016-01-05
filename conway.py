@@ -159,7 +159,7 @@ class Conway(App):
 myapp = Conway(640, 480)
 myapp.run()
 """
-from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
 
 black = Color(0, 1)
 white = Color(0xffffff, 1)
@@ -173,13 +173,10 @@ mortalcells = []
 def neighborlist(x1, y1):
     return([[x1-10, y1-10], [x1-10, y1], [x1-10, y1+10], [x1, y1-10], [x1, y1+10], [x1+10, y1-10], [x1+10, y1], [x1+10, y1+10]])
 
-def getneighborssur(x1, y1):
-    neighbors = neighborlist(x1, y1)
-    counted = 0
-    for outsidecells in neighbors:
-        if [outsidecells[0], outsidecells[1]] not in livecells:
-            counted += 1
-    return(counted)
+def getneighborssur():
+    for pos in surcells:
+        if getneighbors(pos[0], pos[1]) == 3:
+            addcells.append(pos)
 
 def getneighbors(x1, y1):
     neighbors = neighborlist(x1, y1)
@@ -187,29 +184,28 @@ def getneighbors(x1, y1):
     for outsidecells in neighbors:
         if [outsidecells[0], outsidecells[1]] in livecells:
             counted += 1
-        #else:
-         #   surcells.append(outsidecells)
+        else:
+            surcells.append(outsidecells)
     return(counted)
 
 def createcells():
     for newcells in addcells:
-        print(newcells[0], newcells[1])
+        #print(newcells[0], newcells[1])
         Cell((newcells[0], newcells[1]))
-        deadcells[(newcells[0], newcells[1])] == True
         addcells.remove(newcells)
-
+"""
 def revive():
     for nextcells in surcells:
         #print(getneighborssur(nextcells[0], nextcells[1]))
         if getneighborssur(nextcells[0], nextcells[1]) == 3:
             addcells.append(nextcells)
         surcells.remove(nextcells)
-
+"""
 def kill():
     for thecell in mortalcells:
         deadcells.append(thecell)
         livecells.pop(livecells.index(thecell))
-        mortalcells.pop(mortalcells.index(thecell))
+        #mortalcells.pop(mortalcells.index(thecell))
     
 
 class Cell(Sprite):
@@ -221,35 +217,41 @@ class Cell(Sprite):
         generation = 0
         
     def step(self):
-        neighbors = getneighbors(self.x, self.y)
-        if neighbors < 2 or neighbors > 3:
-            self.visible = False
-            mortalcells.append([self.x, self.y])
-        if neighbors == 3 and [self.x, self.y] in deadcells:
-            self.visible = True
-            deadcells.pop(deadcells.index([self.x, self.y]))
-            livecells.append([self.x, self.y])
+        if [self.x, self.y] in livecells:
+            neighbors = getneighbors(self.x, self.y)
+            print(neighbors)
+            if neighbors < 2 or neighbors > 3:
+                self.visible = False
+                mortalcells.append([self.x, self.y])
+                print("dead")
+            elif [self.x, self.y] in mortalcells:
+                mortalcells.pop(mortalcells.index(thecell))
+        else:
+            if neighbors == 3 and [self.x, self.y] in deadcells:
+                self.visible = True
+                deadcells.pop(deadcells.index([self.x, self.y]))
+                livecells.append([self.x, self.y])
 
 class Conways(App):
     def __init__(self, width, height):
         super().__init__(width, height)
         #self.stopped = True
         Cell((100, 100))
-        Cell((90, 100))
-        Cell((110, 100))
-        Cell((90, 110))
+        Cell((100, 90))
+        Cell((100, 80))
 
 
     def step(self):
+        print("hello")
         kill()
-        print(livecells)
+        getneighborssur()
+        create()
+        countir = 0
         for cell in self.getSpritesbyClass(Cell):
+            countir += 1
             cell.step()
-        
-        #createcells()
-       
-
-
+            print("hi")
+        print(countir)
 
 
 myapp = Conways(640, 480)
