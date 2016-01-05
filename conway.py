@@ -177,7 +177,7 @@ def getneighborssur(x1, y1):
     neighbors = neighborlist(x1, y1)
     counted = 0
     for outsidecells in neighbors:
-        if [outsidecells[0], outsidecells[1]] in livecells:
+        if [outsidecells[0], outsidecells[1]] not in livecells:
             counted += 1
     return(counted)
 
@@ -187,8 +187,8 @@ def getneighbors(x1, y1):
     for outsidecells in neighbors:
         if [outsidecells[0], outsidecells[1]] in livecells:
             counted += 1
-        else:
-            surcells.append(outsidecells)
+        #else:
+         #   surcells.append(outsidecells)
     return(counted)
 
 def createcells():
@@ -209,6 +209,8 @@ def kill():
     for thecell in mortalcells:
         deadcells.append(thecell)
         livecells.pop(livecells.index(thecell))
+        mortalcells.pop(mortalcells.index(thecell))
+    
 
 class Cell(Sprite):
     asset = RectangleAsset(10, 10, noline, black)
@@ -240,6 +242,7 @@ class Conways(App):
 
     def step(self):
         kill()
+        print(livecells)
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         
