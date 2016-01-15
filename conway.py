@@ -214,7 +214,7 @@ class Cell(Sprite):
         super().__init__(Cell.asset, position)
         livecells.append([self.x, self.y])
         generation = 0
-        
+
     def step(self):
         if [self.x, self.y] in livecells:
             neighbor = getneighbors(self.x, self.y)
@@ -242,13 +242,13 @@ class Conways(App):
 
     def step(self):
         print(livecells, "b", deadcells, "b", addcells, "b", surcells, "b", mortalcells)
-        #kill()
+        kill()
         countir = 0
         for cell in self.getSpritesbyClass(Cell):
             countir += 1
             cell.step()
             print("hi")
-        #getneighborssur()
+        getneighborssur()
         #createcells()
         print(countir)
 
