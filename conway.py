@@ -216,20 +216,20 @@ class Cell(Sprite):
         generation = 0
         
     def step(self):
-        if [self.x, self.y] in livecells:
-            neighbors = getneighbors(self.x, self.y)
-            print(neighbors)
-            if neighbors < 2 or neighbors > 3:
-                self.visible = False
-                mortalcells.append([self.x, self.y])
-                print("dead")
-            elif [self.x, self.y] in mortalcells:
-                mortalcells.pop(mortalcells.index(thecell))
-        else:
-            if neighbors == 3 and [self.x, self.y] in deadcells:
-                self.visible = True
-                deadcells.pop(deadcells.index([self.x, self.y]))
-                livecells.append([self.x, self.y])
+        #if [self.x, self.y] in livecells:
+        #    neighbors = getneighbors(self.x, self.y)
+        #    print(neighbors)
+        #    if neighbors < 2 or neighbors > 3:
+        #        self.visible = False
+        #        mortalcells.append([self.x, self.y])
+        #        print("dead")
+        #    elif [self.x, self.y] in mortalcells:
+        #        mortalcells.pop(mortalcells.index(thecell))
+        #else:
+        #    if neighbors == 3 and [self.x, self.y] in deadcells:
+        #        self.visible = True
+        #        deadcells.pop(deadcells.index([self.x, self.y]))
+        #        livecells.append([self.x, self.y])
 
 class Conways(App):
     def __init__(self, width, height):
