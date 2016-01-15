@@ -248,7 +248,7 @@ class Conways(App):
         #    countir += 1
         #    cell.step()
         #    print("hi")
-        #getneighborssur()
+        getneighborssur()
         createcells()
         print(countir)
 
