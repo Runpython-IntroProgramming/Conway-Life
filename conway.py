@@ -6,13 +6,12 @@ Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
-"""
+
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
 
-purple = Color(0xff0000, 1)
-colortwo = Color(0xFF0000, 1)
-nostroke = LineStyle(0, purple)
-livecells = {}
+black = Color(0x000000, 1)
+nostroke = LineStyle(0, black)
+alivecells = {}
 makecells = []
 surcells = []
 killcells = {}
@@ -36,7 +35,7 @@ def check():
 def checking(xx, yy):
     dei = getcoor(xx, yy)
     for deadcell in dei:
-        if livecells.get((deadcell[0], deadcell[1]), False) == False:
+        if alivecells.get((deadcell[0], deadcell[1]), False) == False:
             if deadcell in surcells:
                 at = 1
             else:
@@ -46,25 +45,25 @@ def find(xx, yy):
     neighbors = getcoor(xx, yy)
     neighborcount = 0
     for posi in neighbors:
-        if livecells.get((posi[0], posi[1]), False) == True:
+        if alivecells.get((posi[0], posi[1]), False) == True:
             neighborcount += 1
     return(neighborcount)
 
 class Cell(Sprite):
-    pix = RectangleAsset(10, 10, nostroke, purple)
+    pix = RectangleAsset(10, 10, nostroke, black)
     
     def __init__(self, position):
         super().__init__(Cell.pix, position)
         self.ogposx = self.x
         self.ogposy = self.y
-        livecells[(self.ogposx, self.ogposy)] = True
+        alivecells[(self.ogposx, self.ogposy)] = True
         self.x += xdiff
         self.y += ydiff
         self.day = 0
         self.changed = False
         
     def step(self):
-        if livecells.get((self.ogposx, self.ogposy)) == True:
+        if alivecells.get((self.ogposx, self.ogposy)) == True:
             self.day += 1
             if self.day > 1 and self.changed == False:
                 self.color = colortwo
@@ -78,7 +77,7 @@ class Cell(Sprite):
     
     def kill(self):
         if killcells.get((self.ogposx, self.ogposy), False) == True:
-            livecells[(self.ogposx, self.ogposy)] = False
+            alivecells[(self.ogposx, self.ogposy)] = False
             killcells[(self.ogposx, self.ogposy)] = False
     
     def mover(self, direction):
@@ -140,7 +139,7 @@ class Conway(App):
         diffy = event.y % 10
         finx = event.x - diffx - 10 - xdiff
         finy = event.y - diffy - 10 - ydiff
-        if livecells.get((finx, finy), False) == True:
+        if alivecells.get((finx, finy), False) == True:
             for cell in self.getSpritesbyClass(Cell):
                 cell.checktokill(finx, finy)
         else:
@@ -193,14 +192,14 @@ def createcells():
         #print(newcells[0], newcells[1])
         Cell((newcells[0], newcells[1]))
         addcells.remove(newcells)
-"""
+
 def revive():
     for nextcells in surcells:
         #print(getneighborssur(nextcells[0], nextcells[1]))
         if getneighborssur(nextcells[0], nextcells[1]) == 3:
             addcells.append(nextcells)
         surcells.remove(nextcells)
-"""
+
 def kill():
     for thecell in mortalcells:
         deadcells.append(thecell)
@@ -256,3 +255,4 @@ class Conways(App):
 
 myapp = Conways(640, 480)
 myapp.run()
+"""
