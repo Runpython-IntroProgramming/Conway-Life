@@ -216,10 +216,10 @@ class Cell(Sprite):
         generation = 0
         
     def step(self):
-        #if [self.x, self.y] in livecells:
-        #    neighbors = getneighbors(self.x, self.y)
-        #    print(neighbors)
-        #    if neighbors < 2 or neighbors > 3:
+        if [self.x, self.y] in livecells:
+            neighbor = getneighbors(self.x, self.y)
+            print(neighbor)
+        #    if neighbor < 2 or neighbor > 3:
         #        self.visible = False
         #        mortalcells.append([self.x, self.y])
         #        print("dead")
