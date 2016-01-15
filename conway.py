@@ -249,7 +249,7 @@ class Conways(App):
         #    cell.step()
         #    print("hi")
         #getneighborssur()
-        #createcells()
+        createcells()
         print(countir)
 
 
