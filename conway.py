@@ -174,10 +174,18 @@ def neighborlist(x1, y1):
 
 def getneighborssur():
     for pos in surcells:
-        print("new")
-        if getneighbors(pos[0], pos[1]) == 3:
-            addcells.append(pos)
+        if newneighbors(pos[0], pos[1]) == 3:
+            print("new")
+            #addcells.append(pos)
     #    surcells.remove(pos)
+
+def newneighbors(x1, y1):
+    neighbors = neighborlist(x1, y1)
+    counted = 0
+    for outsidecells in neighbors:
+        if [outsidecells[0], outsidecells[1]] in livecells:
+            counted += 1
+    return(counted)
 
 def getneighbors(x1, y1):
     neighbors = neighborlist(x1, y1)
