@@ -242,7 +242,7 @@ class Conways(App):
 
     def step(self):
         print("hello")
-        #kill()
+        kill()
         #countir = 0
         #for cell in self.getSpritesbyClass(Cell):
         #    countir += 1
