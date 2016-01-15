@@ -244,13 +244,13 @@ class Conways(App):
     def step(self):
         print("hello")
         kill()
-        getneighborssur()
-        create()
         countir = 0
         for cell in self.getSpritesbyClass(Cell):
             countir += 1
             cell.step()
             print("hi")
+        getneighborssur()
+        createcells()
         print(countir)
 
 
