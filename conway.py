@@ -246,7 +246,7 @@ class Conways(App):
         countir = 0
         for cell in self.getSpritesbyClass(Cell):
             countir += 1
-        #    cell.step()
+            cell.step()
             print("hi")
         getneighborssur()
         createcells()
