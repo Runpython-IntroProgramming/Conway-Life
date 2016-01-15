@@ -203,8 +203,8 @@ def revive():
 def kill():
     for thecell in mortalcells:
         deadcells.append(thecell)
-        livecells.pop(livecells.index(thecell))
-        #mortalcells.pop(mortalcells.index(thecell))
+        livecells.remove(thecell)
+        mortalcells.remove(thecell)
     
 
 class Cell(Sprite):
@@ -219,17 +219,17 @@ class Cell(Sprite):
         if [self.x, self.y] in livecells:
             neighbor = getneighbors(self.x, self.y)
             print(neighbor)
-        #    if neighbor < 2 or neighbor > 3:
-        #        self.visible = False
-        #        mortalcells.append([self.x, self.y])
-        #        print("dead")
-        #    elif [self.x, self.y] in mortalcells:
-        #        mortalcells.pop(mortalcells.index(thecell))
-        #else:
-        #    if neighbors == 3 and [self.x, self.y] in deadcells:
-        #        self.visible = True
-        #        deadcells.pop(deadcells.index([self.x, self.y]))
-        #        livecells.append([self.x, self.y])
+            if neighbor < 2 or neighbor > 3:
+                self.visible = False
+                mortalcells.append([self.x, self.y])
+                print("dead")
+            elif [self.x, self.y] in mortalcells:
+                mortalcells.remove([self.x, self.y])
+        else:
+            if neighbors == 3 and [self.x, self.y] in deadcells:
+                self.visible = True
+                deadcells.pop(deadcells.index([self.x, self.y]))
+                livecells.append([self.x, self.y])
 
 class Conways(App):
     def __init__(self, width, height):
@@ -241,15 +241,15 @@ class Conways(App):
 
 
     def step(self):
-        print("hello")
-        kill()
+        print(livecells, "b", deadcells, "b", addcells, "b", surcells, "b", mortalcells)
+        #kill()
         countir = 0
         for cell in self.getSpritesbyClass(Cell):
             countir += 1
             cell.step()
             print("hi")
-        getneighborssur()
-        createcells()
+        #getneighborssur()
+        #createcells()
         print(countir)
 
 
