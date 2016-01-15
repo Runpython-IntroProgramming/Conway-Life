@@ -255,4 +255,3 @@ class Conways(App):
 
 myapp = Conways(640, 480)
 myapp.run()
-"""
