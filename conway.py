@@ -176,6 +176,7 @@ def getneighborssur():
     for pos in surcells:
         if getneighbors(pos[0], pos[1]) == 3:
             addcells.append(pos)
+        surcells.remove(pos)
 
 def getneighbors(x1, y1):
     neighbors = neighborlist(x1, y1)
