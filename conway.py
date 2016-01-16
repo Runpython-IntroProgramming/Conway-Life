@@ -201,6 +201,7 @@ def createcells():
         #print(newcells[0], newcells[1])
         Cell((newcells[0], newcells[1]))
         addcells.remove(newcells)
+        livecells.append(newcells)
 
 def kill():
     for thecell in mortalcells:
