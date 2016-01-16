@@ -241,7 +241,7 @@ class Conways(App):
         surcells = []
         #createcells()
         addcells = []
-        #kill()
+        kill()
         mortalcells = []
 
 
