@@ -237,11 +237,12 @@ class Conways(App):
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
+        kill()
         getneighborssur()
         surcells = []
         createcells()
         addcells = []
-        kill()
+        #kill()
         mortalcells = []
 
 
