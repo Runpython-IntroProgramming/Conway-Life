@@ -239,10 +239,10 @@ class Conways(App):
             cell.step()
         getneighborssur()
         surcells = []
-        createcells()
-        #addcells = []
+        #createcells()
+        addcells = []
         #kill()
-        #mortalcells = []
+        mortalcells = []
 
 
 myapp = Conways(640, 480)
