@@ -223,13 +223,6 @@ class Cell(Sprite):
                 self.visible = False
                 mortalcells.append([self.x, self.y])
                 print("dead")
-           # elif [self.x, self.y] in mortalcells:
-               # mortalcells.remove([self.x, self.y])
-        """else:
-            if neighbors == 3 and [self.x, self.y] in deadcells:
-                self.visible = True
-                deadcells.pop(deadcells.index([self.x, self.y]))
-                livecells.append([self.x, self.y])"""
 
 class Conways(App):
     def __init__(self, width, height):
@@ -241,20 +234,14 @@ class Conways(App):
 
 
     def step(self):
-        #print(addcells)
-        countir = 0
         for cell in self.getSpritesbyClass(Cell):
-            countir += 1
             cell.step()
-            print("hi")
-        #print(surcells)
         getneighborssur()
         surcells = []
         createcells()
         addcells = []
         kill()
         mortalcells = []
-        print(countir)
 
 
 myapp = Conways(640, 480)
