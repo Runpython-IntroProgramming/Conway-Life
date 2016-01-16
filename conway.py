@@ -200,6 +200,7 @@ def createcells():
     for newcells in addcells:
         #print(newcells[0], newcells[1])
         Cell((newcells[0], newcells[1]))
+        addcells.remove(newcells)
 
 def kill():
     for thecell in mortalcells:
@@ -239,9 +240,9 @@ class Conways(App):
         getneighborssur()
         surcells = []
         createcells()
-        addcells = []
-        kill()
-        mortalcells = []
+        #addcells = []
+        #kill()
+        #mortalcells = []
 
 
 myapp = Conways(640, 480)
