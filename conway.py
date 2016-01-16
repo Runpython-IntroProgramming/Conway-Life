@@ -175,17 +175,16 @@ def neighborlist(x1, y1):
 def getneighborssur():
     for pos in surcells:
         if newneighbors(pos[0], pos[1]) == 3:
-            print("new")
             addcells.append(pos)
-            surcells.remove(pos)
 
 def newneighbors(x1, y1):
-    neighbors = neighborlist(x1, y1)
-    counted = 0
-    for outsidecells in neighbors:
-        if [outsidecells[0], outsidecells[1]] in livecells:
-            counted += 1
-    return(counted)
+    neighbors2 = neighborlist(x1, y1)
+    #print(neighbors2)
+    counted2 = 0
+    for outsidecells2 in neighbors2:
+        if [outsidecells2[0], outsidecells2[1]] in livecells:
+            counted2 += 1
+    return(counted2)
 
 def getneighbors(x1, y1):
     neighbors = neighborlist(x1, y1)
@@ -201,20 +200,11 @@ def createcells():
     for newcells in addcells:
         #print(newcells[0], newcells[1])
         Cell((newcells[0], newcells[1]))
-        addcells.remove(newcells)
-
-def revive():
-    for nextcells in surcells:
-        #print(getneighborssur(nextcells[0], nextcells[1]))
-        if getneighborssur(nextcells[0], nextcells[1]) == 3:
-            addcells.append(nextcells)
-        surcells.remove(nextcells)
 
 def kill():
     for thecell in mortalcells:
         deadcells.append(thecell)
         livecells.remove(thecell)
-        mortalcells.remove(thecell)
     
 
 class Cell(Sprite):
@@ -233,13 +223,13 @@ class Cell(Sprite):
                 self.visible = False
                 mortalcells.append([self.x, self.y])
                 print("dead")
-            elif [self.x, self.y] in mortalcells:
-                mortalcells.remove([self.x, self.y])
-        else:
+           # elif [self.x, self.y] in mortalcells:
+               # mortalcells.remove([self.x, self.y])
+        """else:
             if neighbors == 3 and [self.x, self.y] in deadcells:
                 self.visible = True
                 deadcells.pop(deadcells.index([self.x, self.y]))
-                livecells.append([self.x, self.y])
+                livecells.append([self.x, self.y])"""
 
 class Conways(App):
     def __init__(self, width, height):
@@ -251,15 +241,19 @@ class Conways(App):
 
 
     def step(self):
-        print(livecells, "b", deadcells, "b", addcells, "b", surcells, "b", mortalcells)
-        kill()
+        #print(addcells)
         countir = 0
         for cell in self.getSpritesbyClass(Cell):
             countir += 1
             cell.step()
             print("hi")
+        #print(surcells)
         getneighborssur()
+        surcells = []
         createcells()
+        addcells = []
+        kill()
+        mortalcells = []
         print(countir)
 
 
