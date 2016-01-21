@@ -5,7 +5,6 @@ Credit: Morgan
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
-"""
 
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
 
@@ -32,7 +31,7 @@ def check():
         if find(celle[0], celle[1]) == 3:
             makecells.append(celle)
         surcells.remove(celle)
-            
+
 def checking(xx, yy):
     dei = getcoor(xx, yy)
     for deadcell in dei:
@@ -104,10 +103,12 @@ class Conway(App):
         Cell((100, 70))
         Cell((90, 70))
         """
+        """
         Cell((100, 50))
         Cell((110, 60))
         Cell((100, 70))
         Cell((100, 60))
+        """
         """
         self.listenKeyEvent("keydown", "right arrow", self.moveright)
         self.listenKeyEvent("keydown", "left arrow", self.moveleft)
@@ -252,4 +253,4 @@ class Conways(App):
 
 
 myapp = Conways(640, 480)
-myapp.run()"""
+myapp.run()
