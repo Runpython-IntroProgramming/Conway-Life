@@ -8,7 +8,7 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
 
-black = Color(0, 1)
+black = Color(0x000000, 1)
 white = Color(0xffffff, 1)
 noline = LineStyle(0, white)
 livecells = {}
