@@ -59,7 +59,7 @@ class Cell(Sprite):
     def step(self):
         if livecells.get((self.posx, self.posy)) == True:
             neighbors = getneighbors(self.posx, self.posy)
-            if neighbors < 2 or neighbor > 3:
+            if neighbors < 2 or neighbors > 3:
                 deadcells[(self.posx, self.posy)] = True
             surroundcells(self.posx, self.posy)
         else:
