@@ -54,7 +54,7 @@ class Cell(Sprite):
         super().__init__(Cell.asset, position)
         self.posx = self.x
         self.posy = self.y
-        livecells[(self.ogposx, self.ogposy)] = True
+        livecells[(self.posx, self.posy)] = True
 
     def step(self):
         if livecells.get((self.ogposx, self.ogposy)) == True:
