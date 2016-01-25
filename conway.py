@@ -1,5 +1,4 @@
 """
-conway.py
 Author: Dimitri
 Credit: Morgan
 Assignment:
