@@ -69,10 +69,11 @@ class Conways(App):
     def __init__(self, width, height):
         super().__init__(width, height)
         #self.stopped = True
-        Cell((100, 100))
-        Cell((100, 90))
-        Cell((100, 80))
-
+        Cell((100, 50))
+        Cell((110, 60))
+        Cell((110, 70))
+        Cell((100, 70))
+        Cell((90, 70))
 
     def step(self):
         print(livecells, "b", deadcells, "b", addcells, "b", surcells, "b", mortalcells)
