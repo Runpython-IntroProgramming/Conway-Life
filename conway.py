@@ -68,7 +68,6 @@ class Cell(Sprite):
 class Conways(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        #self.stopped = True
         Cell((100, 50))
         Cell((110, 60))
         Cell((110, 70))
@@ -82,7 +81,12 @@ class Conways(App):
             print("hi")
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
+        revive()
 
 
 myapp = Conways(640, 480)
 myapp.run()
+
+
+
+
