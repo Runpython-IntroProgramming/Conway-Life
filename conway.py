@@ -88,10 +88,5 @@ class Conways(App):
             cell.step()
         revive()
 
-
 myapp = Conways(640, 480)
 myapp.run()
-
-
-
-
