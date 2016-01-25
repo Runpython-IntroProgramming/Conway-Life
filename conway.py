@@ -1,80 +1,79 @@
 """
+conway.py
 Author: Dimitri
 Credit: Morgan
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
-
+"""
+"""
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
-
-purple = Color(0x512DA8, 1)
-colortwo = Color(0xFF0000, 1)
-nostroke = LineStyle(0, purple)
-livecells = []
+black = Color(0x000000, 1)
+nostroke = LineStyle(0, black)
+alivecells = {}
 makecells = []
 surcells = []
-killcells = []
+killcells = {}
 xdiff = 0
 ydiff = 0
-
 def create():
     for celle in makecells[:]:
         Cell((celle[0], celle[1]))
         makecells.remove(celle)
-
 def getcoor(xx, yy):
     return([[xx - 10, yy - 10], [xx - 10, yy], [xx - 10, yy + 10], [xx, yy - 10], [xx, yy + 10], [xx + 10, yy - 10], [xx + 10, yy], [xx + 10, yy + 10]])
-
 def check():
     for celle in surcells[:]:
         if find(celle[0], celle[1]) == 3:
             makecells.append(celle)
         surcells.remove(celle)
-
+            
 def checking(xx, yy):
     dei = getcoor(xx, yy)
     for deadcell in dei:
-        if (deadcell[0], deadcell[1]) in livecells:
-            if deadcell not in surcells:
+        if alivecells.get((deadcell[0], deadcell[1]), False) == False:
+            if deadcell in surcells:
+                at = 1
+            else:
                 surcells.append(deadcell)
             
 def find(xx, yy):
     neighbors = getcoor(xx, yy)
     neighborcount = 0
     for posi in neighbors:
-        if (posi[0], posi[1]) in livecells:
+        if alivecells.get((posi[0], posi[1]), False) == True:
             neighborcount += 1
     return(neighborcount)
-
 class Cell(Sprite):
-    pix = RectangleAsset(10, 10, nostroke, purple)
+    pix = RectangleAsset(10, 10, nostroke, black)
     
     def __init__(self, position):
         super().__init__(Cell.pix, position)
         self.ogposx = self.x
         self.ogposy = self.y
-        livecells.append((self.ogposx, self.ogposy))
+        alivecells[(self.ogposx, self.ogposy)] = True
         self.x += xdiff
         self.y += ydiff
         self.day = 0
         self.changed = False
         
     def step(self):
-        if (self.ogposx, self.ogposy) in livecells:
+        if alivecells.get((self.ogposx, self.ogposy)) == True:
             self.day += 1
             if self.day > 1 and self.changed == False:
                 self.color = colortwo
                 self.changed = True
             n = find(self.ogposx, self.ogposy)
             if n < 2 or n > 3:
-                killcells.append((self.ogposx, self.ogposy))
+                killcells[(self.ogposx, self.ogposy)] = True
             checking(self.ogposx, self.ogposy)
+        else:
+            self.visible = False
     
     def kill(self):
-        if (self.ogposx, self.ogposy) in killcells and (self.ogposx, self.ogposy) in livecells:
-            livecells.remove((self.ogposx, self.ogposy))
-            killcells.remove((self.ogposx, self.ogposy))
-            self.visible = False
+        if killcells.get((self.ogposx, self.ogposy), False) == True:
+            alivecells[(self.ogposx, self.ogposy)] = False
+            killcells[(self.ogposx, self.ogposy)] = False
     
     def mover(self, direction):
         if direction == "r":
@@ -89,9 +88,8 @@ class Cell(Sprite):
     def checktokill(self, px, py):
         if px == self.ogposx and py == self.ogposy:
             self.visible = False
-            killcells.append((self.ogposx, self.ogposy))
+            killcells[(self.ogposx, self.ogposy)] = True
             self.kill()
-
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -101,14 +99,6 @@ class Conway(App):
         Cell((110, 70))
         Cell((100, 70))
         Cell((90, 70))
-        """
-        """
-        Cell((100, 50))
-        Cell((110, 60))
-        Cell((100, 70))
-        Cell((100, 60))
-        """
-        """
         self.listenKeyEvent("keydown", "right arrow", self.moveright)
         self.listenKeyEvent("keydown", "left arrow", self.moveleft)
         self.listenKeyEvent("keydown", "up arrow", self.moveup)
@@ -143,7 +133,7 @@ class Conway(App):
         diffy = event.y % 10
         finx = event.x - diffx - 10 - xdiff
         finy = event.y - diffy - 10 - ydiff
-        if (finx, finy) in livecells:
+        if alivecells.get((finx, finy), False) == True:
             for cell in self.getSpritesbyClass(Cell):
                 cell.checktokill(finx, finy)
         else:
@@ -179,17 +169,17 @@ def neighborlist(x1, y1):
 def getneighborssur():
     for pos in surcells:
         if newneighbors(pos[0], pos[1]) == 3:
+            print("new")
             addcells.append(pos)
             surcells.remove(pos)
 
 def newneighbors(x1, y1):
-    neighbors2 = neighborlist(x1, y1)
-    #print(neighbors2)
-    counted2 = 0
-    for outsidecells2 in neighbors2:
-        if [outsidecells2[0], outsidecells2[1]] in livecells:
-            counted2 += 1
-    return(counted2)
+    neighbors = neighborlist(x1, y1)
+    counted = 0
+    for outsidecells in neighbors:
+        if [outsidecells[0], outsidecells[1]] in livecells:
+            counted += 1
+    return(counted)
 
 def getneighbors(x1, y1):
     neighbors = neighborlist(x1, y1)
@@ -207,10 +197,18 @@ def createcells():
         Cell((newcells[0], newcells[1]))
         addcells.remove(newcells)
 
+def revive():
+    for nextcells in surcells:
+        #print(getneighborssur(nextcells[0], nextcells[1]))
+        if getneighborssur(nextcells[0], nextcells[1]) == 3:
+            addcells.append(nextcells)
+        surcells.remove(nextcells)
+
 def kill():
     for thecell in mortalcells:
         deadcells.append(thecell)
         livecells.remove(thecell)
+        mortalcells.remove(thecell)
     
 
 class Cell(Sprite):
@@ -229,6 +227,13 @@ class Cell(Sprite):
                 self.visible = False
                 mortalcells.append([self.x, self.y])
                 print("dead")
+            elif [self.x, self.y] in mortalcells:
+                mortalcells.remove([self.x, self.y])
+        else:
+            if neighbors == 3 and [self.x, self.y] in deadcells:
+                self.visible = True
+                deadcells.pop(deadcells.index([self.x, self.y]))
+                livecells.append([self.x, self.y])
 
 class Conways(App):
     def __init__(self, width, height):
@@ -240,15 +245,16 @@ class Conways(App):
 
 
     def step(self):
-        for cell in self.getSpritesbyClass(Cell):
-            cell.step()
+        print(livecells, "b", deadcells, "b", addcells, "b", surcells, "b", mortalcells)
         kill()
+        countir = 0
+        for cell in self.getSpritesbyClass(Cell):
+            countir += 1
+            cell.step()
+            print("hi")
         getneighborssur()
-        surcells = []
         createcells()
-        addcells = []
-        #kill()
-        mortalcells = []
+        print(countir)
 
 
 myapp = Conways(640, 480)
