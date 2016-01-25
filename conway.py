@@ -67,7 +67,8 @@ class Cell(Sprite):
             
     def kill(self):
         if deadcells.get((self.posx, self.posy), False) == True:
-            
+            livecells[(self.posx, self.posy)] = False
+            deadcells[(self.posx, self.posy)] = False
 
 class Conways(App):
     def __init__(self, width, height):
