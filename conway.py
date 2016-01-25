@@ -60,9 +60,7 @@ class Cell(Sprite):
         if livecells.get((self.ogposx, self.ogposy)) == True:
             neighbors = getneighbors(self.posx, self.posy)
             if neighbor < 2 or neighbor > 3:
-                self.visible = False
-                mortalcells.append([self.x, self.y])
-                print("dead")
+                deadcells[(self.posx, self.posy)] = True
             elif [self.x, self.y] in mortalcells:
                 mortalcells.remove([self.x, self.y])
         else:
