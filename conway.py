@@ -83,7 +83,6 @@ class Conways(App):
         createcells()
         for cell in self.getSpritesbyClass(Cell):
             cell.kill()
-            print("hi")
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         revive()
