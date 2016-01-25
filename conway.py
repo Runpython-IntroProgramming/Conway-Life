@@ -6,7 +6,100 @@ Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
+""""""
+conway.py
+Author: Dimitri
+Credit: Morgan
+Assignment:
+Write and submit a program that plays Conway's Game of Life, per 
+https://github.com/HHS-IntroProgramming/Conway-Life
 """
+from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
+
+black = Color(0, 1)
+white = Color(0xffffff, 1)
+noline = LineStyle(0, white)
+livecells = {}
+addcells = []
+surcells = []
+deadcells = {}
+
+def neighborlist(x1, y1):
+    return([[x1-10, y1-10], [x1-10, y1], [x1-10, y1+10], [x1, y1-10], [x1, y1+10], [x1+10, y1-10], [x1+10, y1], [x1+10, y1+10]])
+
+def surroundcells(x1, y1):
+    celllist = neighborlist(x1, y1)
+    for deadcell in celllist:
+        if livecells.get((deadcell[0], deadcell[1]), False) == False:
+            if deadcell in surcells:
+                print("found")
+            else:
+                surcells.append(deadcell)
+
+def getneighbors(x1, y1):
+    neighbors = neighborlist(x1, y1)
+    counted = 0
+    for outsidecells in neighbors:
+        if livecells.get((outsidecells[0], outsidecells[1]), False) == True:
+            counted += 1
+    return(counted)
+
+def createcells():
+    for newcells in addcells[:]:
+        Cell((newcells[0], newcells[1]))
+        addcells.remove(newcells)
+
+def revive():
+    for nextcells in surcells[:]:
+        if getneighbors(nextcells[0], nextcells[1]) == 3:
+            addcells.append(nextcells)
+        surcells.remove(nextcells)
+
+class Cell(Sprite):
+    asset = RectangleAsset(10, 10, noline, black)
+    
+    def __init__(self, position):
+        super().__init__(Cell.asset, position)
+        self.posx = x
+        self.posy = y
+        livecells[(self.ogposx, self.ogposy)] = True
+
+    def step(self):
+        if livecells.get((self.ogposx, self.ogposy)) == True:
+            neighbors = getneighbors(self.posx, self.posy)
+            if neighbor < 2 or neighbor > 3:
+                self.visible = False
+                mortalcells.append([self.x, self.y])
+                print("dead")
+            elif [self.x, self.y] in mortalcells:
+                mortalcells.remove([self.x, self.y])
+        else:
+            self.visible = False
+
+class Conways(App):
+    def __init__(self, width, height):
+        super().__init__(width, height)
+        #self.stopped = True
+        Cell((100, 100))
+        Cell((100, 90))
+        Cell((100, 80))
+
+
+    def step(self):
+        print(livecells, "b", deadcells, "b", addcells, "b", surcells, "b", mortalcells)
+        kill()
+        countir = 0
+        for cell in self.getSpritesbyClass(Cell):
+            countir += 1
+            cell.step()
+            print("hi")
+        getneighborssur()
+        createcells()
+        print(countir)
+
+
+myapp = Conways(640, 480)
+myapp.run()
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
 black = Color(0x000000, 1)
 nostroke = LineStyle(0, black)
