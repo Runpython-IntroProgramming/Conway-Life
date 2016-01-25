@@ -61,8 +61,7 @@ class Cell(Sprite):
             neighbors = getneighbors(self.posx, self.posy)
             if neighbor < 2 or neighbor > 3:
                 deadcells[(self.posx, self.posy)] = True
-            elif [self.x, self.y] in mortalcells:
-                mortalcells.remove([self.x, self.y])
+            surroundcells(self.posx, self.posy)
         else:
             self.visible = False
 
