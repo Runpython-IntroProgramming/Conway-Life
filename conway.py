@@ -76,16 +76,12 @@ class Conways(App):
         Cell((90, 70))
 
     def step(self):
-        print(livecells, "b", deadcells, "b", addcells, "b", surcells, "b", mortalcells)
-        kill()
-        countir = 0
-        for cell in self.getSpritesbyClass(Cell):
-            countir += 1
-            cell.step()
-            print("hi")
-        getneighborssur()
         createcells()
-        print(countir)
+        for cell in self.getSpritesbyClass(Cell):
+            cell.kill()
+            print("hi")
+        for cell in self.getSpritesbyClass(Cell):
+            cell.step()
 
 
 myapp = Conways(640, 480)
