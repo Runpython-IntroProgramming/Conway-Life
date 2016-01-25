@@ -24,7 +24,7 @@ def surroundcells(x1, y1):
     for deadcell in celllist:
         if livecells.get((deadcell[0], deadcell[1]), False) == False:
             if deadcell in surcells:
-                print("found")
+                at = 1
             else:
                 surcells.append(deadcell)
 
