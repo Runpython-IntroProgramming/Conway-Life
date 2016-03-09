@@ -23,7 +23,7 @@ for x in range(0,50):
 
 class Conway(App):
     
-    def__init__(self):
+    def__init__(self, position):
         Conway.listenKeyEvent( "mousedown", "right", self.click)
     
     def click(self, event):
