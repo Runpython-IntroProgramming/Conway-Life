@@ -18,7 +18,7 @@ white = Color(0xFFFFFF, 1.0) #color of dead cell
 red = Color(0xff0000, 1.0) #color of first day of life
 blue = Color(0x0000ff, 1.0) #color of subsequent days of life
 
-noline = LineStyle(.01, black)
+noline = LineStyle(.1, black)
 
 square = RectangleAsset(10,10, noline, white)
 
