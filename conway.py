@@ -20,11 +20,11 @@ blue = Color(0x0000ff, 1.0) #color of subsequent days of life
 
 noline = LineStyle(.0001, black)
 
-square = RectangleAsset(2,2, noline, white)
+square = RectangleAsset(10,10, noline, white)
 
 for x in range(0,50):
     for y in range(0,50):
-        Sprite(square, (x,y))
+        Sprite(square, (10*x,10*y))
 
 
 
