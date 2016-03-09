@@ -32,6 +32,8 @@ class Conway(App):
     def __init__(self):
         Conway.listenKeyEvent("mousedown", "right", self.click)
 
+    def click(self,event):
+        print("did it")
 
 myapp = App()
 myapp.run()
