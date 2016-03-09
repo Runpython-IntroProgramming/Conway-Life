@@ -9,9 +9,6 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 from ggame import App, RectangleAsset, ImageAsset, 
 from ggame import LineStyle, Color, Sprite, Sound
 
-SCREEN_WIDTH = 640
-SCREEN_HEIGHT = 480
-
 white = Color(0xffffff, 1.0)
 blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
