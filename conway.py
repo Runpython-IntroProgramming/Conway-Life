@@ -27,6 +27,11 @@ for x in range(0,50):
         Sprite(square, (10*x,10*y))
 
 
+class Conway(App):
+    
+    def __init__(self, position):
+        Conway.listenKeyEvent("mousedown", "right", self.click)
+
 
 myapp = App()
 myapp.run()
