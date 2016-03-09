@@ -15,12 +15,12 @@ black = Color(0x000000, 1.0)
 red = Color(0xff0000, 1.0)
 noline = LineStyle(.00001, black)
 
+square = RectangleAsset(2, 2, noline, black) 
 for x in range(0,50):
-    square = RectangleAsset(2, 2, noline, black) 
     for y in range(0,50):
-        Sprite(rectangle, (x,y))
+        Sprite(square, (x,y))
     
 
-myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp = App()
 
 myapp.run()
