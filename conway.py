@@ -18,7 +18,7 @@ black = Color(0x000000, 1.0)
 red = Color(0xff0000, 1.0)
 noline = LineStyle(0, black)
 
-for x in range(0,10):
+for x in range(0,50):
     rectangle = RectangleAsset(1,1,noline, black) 
     Sprite(rectangle, (x,x))
 
