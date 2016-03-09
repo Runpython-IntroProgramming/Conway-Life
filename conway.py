@@ -19,6 +19,16 @@ square = RectangleAsset(10, 10, noline, white)
 for x in range(0,50):
     for y in range(0,50):
         Sprite(square, (10*x,10*y))
+        
+
+class Conway(App):
+    
+    def__init__(self):
+        Conway.listenKeyEvent( "mousedown", "right", self.click)
+    
+    def click(self, event):
+        Sprite(square, (100, 100))
+    
     
 
 myapp = App()
