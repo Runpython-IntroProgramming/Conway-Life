@@ -15,9 +15,9 @@ black = Color(0x000000, 1.0)
 red = Color(0xff0000, 1.0)
 noline = LineStyle(.1, black)
 
-square = RectangleAsset(10, 10, noline, black) 
-for x in range(0,10):
-    for y in range(0,10):
+square = RectangleAsset(10, 10, noline, white) 
+for x in range(0,50):
+    for y in range(0,50):
         Sprite(square, (10*x,10*y))
     
 
