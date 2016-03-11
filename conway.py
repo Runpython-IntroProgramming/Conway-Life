@@ -22,7 +22,6 @@ for x in range(0,50):
         Sprite(square, (10*x,10*y))
         list.append(Sprite(square, (10*x,10*y)))
 
-print(list)
 class Conway(App):
     
     def __init__(self):
