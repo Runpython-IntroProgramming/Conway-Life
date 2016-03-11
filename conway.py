@@ -36,16 +36,17 @@ for x in range(0,50):
 class Conway(App):
     
     def __init__(self):
-        myapp.listenMouseEvent('click', mouseClick)
+        myapp.listenMouseEvent('click', self.mouseClick)
 
     def mouseClick(event):
         x=event.x
         y=event.y
         for sprite in list:
+            print("here!")
             xsprite =sprite[1][0]
             ysprite=sprite[1][1]
-            if x<=xsprite + 5 and x>= xsprite -5 and y<=ysprite + 5 and y>= ysprite -5:
-                sprite=Rsquare
+            if x<= xsprite + 5 and x>= xsprite -5 and y<=ysprite + 5 and y>= ysprite -5:
+                sprite =Rsquare
 
 
 myapp = App()
