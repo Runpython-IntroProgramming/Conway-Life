@@ -17,6 +17,7 @@ line = LineStyle(.1, black)
 list=[]
 
 square = RectangleAsset(10, 10, line, white) 
+Rsquare = RectangleAsset(10, 10, line, red)
 for x in range(0,50):
     for y in range(0,50):
         Sprite(square, (10*x,10*y))
@@ -28,9 +29,12 @@ class Conway(App):
         Conway.listenMouseEvent( 'click', self.click)
     
     def mouse(click, event):
-        Sprite(square, (100, 100))
         x = event.x
         y = event.y
+        for sprite in list:
+            xsprite = list[x][1][0]
+            if x<= xsprite+5 or x>= xsprite-5:
+                list[x] = Rsquare
     
  
 
