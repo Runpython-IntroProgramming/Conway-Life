@@ -24,12 +24,13 @@ for x in range(0,50):
 class Conway(App):
     
     def __init__(self):
-        Conway.listenKeyEvent( "keydown", "mouse", self.click)
+        Conway.listenKeyEvent( "MOUSEBUTTONDOWN", self.click)
     
     def click(self, event):
         Sprite(square, (100, 100))
     
-    
+  
+  
 
 myapp = App()
 
