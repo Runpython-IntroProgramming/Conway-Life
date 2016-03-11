@@ -30,7 +30,7 @@ class Conway(App):
     def __init__(self):
         Conway.listenMouseEvent( 'click', self.click)
     
-    def mouse(click, event):
+    def click(self, event):
         x = event.x
         y = event.y
         for sprite in list:
