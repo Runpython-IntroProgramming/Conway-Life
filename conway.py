@@ -20,10 +20,10 @@ square = RectangleAsset(10, 10, line, white)
 Rsquare = RectangleAsset(10, 10, line, red)
 Bsquare = RectangleAsset(10, 10, line, blue)
 
-for x in range(0,50):
-    for y in range(0,50):
-        Sprite(square, (10*x,10*y))
-        list.append(Sprite(square, (10*x,10*y)))
+for x in range(0,20):
+    for y in range(0,20):
+        Sprite(square, (15*x,15*y))
+        list.append(Sprite(square, (15*x,15*y)))
 
 class Conway(App):
     
