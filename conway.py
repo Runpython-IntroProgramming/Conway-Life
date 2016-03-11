@@ -20,11 +20,16 @@ blue = Color(0x0000ff, 1.0) #color of subsequent days of life
 
 line = LineStyle(.1, black)
 
+list=[]
+
 square = RectangleAsset(10,10, line, white)
 
 for x in range(0,50):
     for y in range(0,50):
         Sprite(square, (10*x,10*y))
+        list.append(Sprite(square, (10*x,10*y)))
+
+print(list)
 
 
 class Conway(App):
@@ -33,8 +38,7 @@ class Conway(App):
         myapp.listenMouseEvent('click', mouseClick)
 
     def mouseClick(event):
-        
-
+        x=event.x
 
 
 myapp = App()
