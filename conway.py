@@ -28,7 +28,8 @@ for x in range(0,20):
 class Conway(App):
     
     def __init__(self):
-        Conway.listenMouseEvent( 'click', self.click)
+        super().__init__()
+        self.listenMouseEvent( 'click', self.click)
     
     def click(self, event):
         x = event.x
