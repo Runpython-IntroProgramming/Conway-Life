@@ -40,7 +40,8 @@ class Conway(App):
             if x<= sprite.x +10 and x>= sprite.x-10 and y<= sprite.y+10 and y>= sprite.y-10:
                 sprite.visible = True
     
- 
+    for sprites in list1:
+        if s.visible = true 
 
 myapp = Conway()
 myapp.run()
