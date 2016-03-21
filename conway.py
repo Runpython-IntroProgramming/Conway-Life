@@ -14,7 +14,7 @@ blue = Color(0x000000, 1.0)
 black = Color(0x000000, 1.0)
 red = Color(0xff0000, 1.0)
 line = LineStyle(.1, black)
-list=[]
+list1=[]
 
 square = RectangleAsset(20, 20, line, white) 
 Rsquare = RectangleAsset(20, 20, line, red)
@@ -23,7 +23,7 @@ Bsquare = RectangleAsset(20, 20, line, blue)
 for x in range(0,20):
     for y in range(0,20):
         Sprite(square, (20*x,20*y))
-        list.append(Sprite(square, (20*x,20*y)))
+        list1.append(Sprite(square, (20*x,20*y)))
 
 class Conway(App):
     
@@ -34,7 +34,7 @@ class Conway(App):
     def click(self, event):
         x = event.x
         y = event.y
-        for sprite in list:
+        for sprite in list1:
             xsprite = sprite[1][0]
             ysprite = sprite[1][1]
             if x<= xsprite+10 and x>= xsprite-10 and y<= ysprite+10 and y>= ysprite-10:
