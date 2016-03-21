@@ -16,14 +16,14 @@ red = Color(0xff0000, 1.0)
 line = LineStyle(.1, black)
 list=[]
 
-square = RectangleAsset(10, 10, line, white) 
-Rsquare = RectangleAsset(10, 10, line, red)
-Bsquare = RectangleAsset(10, 10, line, blue)
+square = RectangleAsset(20, 20, line, white) 
+Rsquare = RectangleAsset(20, 20, line, red)
+Bsquare = RectangleAsset(20, 20, line, blue)
 
 for x in range(0,20):
     for y in range(0,20):
         Sprite(square, (20*x,20*y))
-        list.append(Sprite(square, (15*x,15*y)))
+        list.append(Sprite(square, (20*x,20*y)))
 
 class Conway(App):
     
