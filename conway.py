@@ -43,7 +43,6 @@ class Conway(App):
         x=event.x
         y=event.y
         for sprite in list1:
-            print("here!")
             xsprite =sprite.x
             ysprite=sprite.y
             if x<= xsprite + 7.5 and x>= xsprite -7.5 and y<=ysprite + 7.5 and y>= ysprite -7.5:
