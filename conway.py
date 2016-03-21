@@ -18,12 +18,13 @@ white = Color(0xFFFFFF, 1.0) #color of dead cell
 red = Color(0xff0000, 1.0) #color of first day of life
 blue = Color(0x0000ff, 1.0) #color of subsequent days of life
 
-line = LineStyle(.1, black)
+line = LineStyle(0, black)
 
 list1=[]
 
-square = RectangleAsset(20,20, line, white)
-Rsquare = RectangleAsset(20,20, line, red)
+
+square = RectangleAsset(20,20, line, red)
+
 
 
 for x in range(0,20):
