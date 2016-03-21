@@ -29,8 +29,9 @@ square = RectangleAsset(20,20, line, red)
 
 for x in range(0,20):
     for y in range(0,20):
-        Sprite(square, (20*x,20*y))
-        list1.append(Sprite(square, (20*x,20*y)))
+        s=Sprite(square, (20*x,20*y))
+        s.visible= False 
+        list1.append(s)
 
 
 
@@ -47,7 +48,7 @@ class Conway(App):
             xsprite =sprite.x
             ysprite=sprite.y
             if x<= xsprite + 7.5 and x>= xsprite -7.5 and y<=ysprite + 7.5 and y>= ysprite -7.5:
-                sprite = Rsquare
+                
 
 
 myapp = Conway()
