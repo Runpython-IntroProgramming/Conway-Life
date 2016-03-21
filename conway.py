@@ -13,12 +13,11 @@ white = Color(0xffffff, 1.0)
 blue = Color(0x000000, 1.0)
 black = Color(0x000000, 1.0)
 red = Color(0xff0000, 1.0)
-line = LineStyle(.1, black)
-list1=[]
+line = LineStyle(0, black)
+list1 = []
 
-square = RectangleAsset(20, 20, line, white) 
-Rsquare = RectangleAsset(20, 20, line, red)
-Bsquare = RectangleAsset(20, 20, line, blue)
+square = RectangleAsset(20, 20, line, red) 
+
 
 for x in range(0,20):
     for y in range(0,20):
