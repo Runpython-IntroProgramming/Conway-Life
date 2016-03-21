@@ -44,8 +44,8 @@ class Conway(App):
         y=event.y
         for sprite in list1:
             print("here!")
-            xsprite =sprite[1][0]
-            ysprite=sprite[1][1]
+            xsprite =sprite.x
+            ysprite=sprite.y
             if x<= xsprite + 7.5 and x>= xsprite -7.5 and y<=ysprite + 7.5 and y>= ysprite -7.5:
                 sprite = Rsquare
 
