@@ -20,7 +20,7 @@ blue = Color(0x0000ff, 1.0) #color of subsequent days of life
 
 line = LineStyle(.1, black)
 
-list=[]
+list1=[]
 
 square = RectangleAsset(20,20, line, white)
 Rsquare = RectangleAsset(20,20, line, red)
@@ -29,19 +29,20 @@ Rsquare = RectangleAsset(20,20, line, red)
 for x in range(0,20):
     for y in range(0,20):
         Sprite(square, (20*x,20*y))
-        list.append(Sprite(square, (20*x,20*y)))
+        list1.append(Sprite(square, (20*x,20*y)))
 
 
 
 class Conway(App):
     
     def __init__(self):
-        myapp.listenMouseEvent('click', self.mouseClick)
-
-    def mouseClick(event):
+        super().__init__()
+        self.listenMouseEvent('click', self.mouseClick)
+        
+    def mouseClick(self, event):
         x=event.x
         y=event.y
-        for sprite in list:
+        for sprite in list1:
             print("here!")
             xsprite =sprite[1][0]
             ysprite=sprite[1][1]
@@ -49,5 +50,5 @@ class Conway(App):
                 sprite = Rsquare
 
 
-myapp = App()
+myapp = Conway()
 myapp.run()
