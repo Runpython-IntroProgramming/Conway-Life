@@ -22,14 +22,14 @@ line = LineStyle(.1, black)
 
 list=[]
 
-square = RectangleAsset(10,10, line, white)
-Rsquare = RectangleAsset(10,10, line, red)
+square = RectangleAsset(15,15, line, white)
+Rsquare = RectangleAsset(15,15, line, red)
 
 
-for x in range(0,50):
-    for y in range(0,50):
-        Sprite(square, (10*x,10*y))
-        list.append(Sprite(square, (10*x,10*y)))
+for x in range(0,20):
+    for y in range(0,20):
+        Sprite(square, (15*x,15*y))
+        list.append(Sprite(square, (15*x,15*y)))
 
 
 
@@ -45,8 +45,8 @@ class Conway(App):
             print("here!")
             xsprite =sprite[1][0]
             ysprite=sprite[1][1]
-            if x<= xsprite + 5 and x>= xsprite -5 and y<=ysprite + 5 and y>= ysprite -5:
-                sprite =Rsquare
+            if x<= xsprite + 7.5 and x>= xsprite -7.5 and y<=ysprite + 7.5 and y>= ysprite -7.5:
+                sprite = Rsquare
 
 
 myapp = App()
