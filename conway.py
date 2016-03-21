@@ -47,7 +47,7 @@ class Conway(App):
         for sprite in list1:
             xsprite =sprite.x
             ysprite=sprite.y
-            if x<= xsprite + 7.5 and x>= xsprite -7.5 and y<=ysprite + 7.5 and y>= ysprite -7.5:
+            if x<= xsprite + 10 and x>= xsprite -10 and y<=ysprite + 10 and y>= ysprite -10:
                sprite.visible= True 
 
 myapp = Conway()
