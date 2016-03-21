@@ -36,7 +36,7 @@ class Conway(App):
         for sprite in list:
             xsprite = sprite[1][0]
             ysprite = sprite[1][1]
-            if x<= xsprite+5 and x>= xsprite-5 and y<= ysprite+5 and y>= ysprite-5:
+            if x<= xsprite+10 and x>= xsprite-10 and y<= ysprite+10 and y>= ysprite-10:
                 sprite = Rsquare
     
  
