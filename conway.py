@@ -36,7 +36,7 @@ class Conway(App):
         y = event.y
         for sprite in list1:
             if x<= sprite.x +10 and x>= sprite.x-10 and y<= sprite.y+10 and y>= sprite.y-10:
-                s.visible = True
+                sprite.visible = True
     
  
 
