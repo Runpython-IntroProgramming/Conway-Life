@@ -22,7 +22,7 @@ Bsquare = RectangleAsset(10, 10, line, blue)
 
 for x in range(0,20):
     for y in range(0,20):
-        Sprite(square, (15*x,15*y))
+        Sprite(square, (20*x,20*y))
         list.append(Sprite(square, (15*x,15*y)))
 
 class Conway(App):
