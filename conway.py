@@ -41,6 +41,6 @@ class Conway(App):
     
  
 
-myapp = App()
+myapp = Conway
 
 myapp.run()
