@@ -35,9 +35,7 @@ class Conway(App):
         x = event.x
         y = event.y
         for sprite in list1:
-            xsprite = sprite[1][0]
-            ysprite = sprite[1][1]
-            if x<= xsprite+10 and x>= xsprite-10 and y<= ysprite+10 and y>= ysprite-10:
+            if x<= sprite.x +10 and x>= sprite.x-10 and y<= sprite.y+10 and y>= sprite.y-10:
                 sprite = Rsquare
     
  
