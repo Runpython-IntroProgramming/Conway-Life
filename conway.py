@@ -18,12 +18,14 @@ white = Color(0xFFFFFF, 1.0) #color of dead cell
 red = Color(0xff0000, 1.0) #color of first day of life
 blue = Color(0x0000ff, 1.0) #color of subsequent days of life
 
-line = LineStyle(0, black)
+line = LineStyle(.1, black)
+noline = LineStyle(0, black)
 
 list1=[]
+screen=RectangleAsset(400,400, line, white)
+Sprite(screen, (0,0))
 
-
-square = RectangleAsset(20,20, line, red)
+square = RectangleAsset(20,20, noline, red)
 
 
 
