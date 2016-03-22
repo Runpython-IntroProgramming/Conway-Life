@@ -44,11 +44,11 @@ class Conway(App):
                 sprite.visible = True
                 
     def spacebar(self, event):
-        running = True
+        self.running = True
      
     
     def step(self):
-        while running == True:
+        if self.running == True:
             for sprite in list1:
                 surroudlist = []
                 redlist = []
