@@ -56,7 +56,7 @@ class Conway(App):
                     if spr.visible==True:
                         redlist.append(spr)
                 for redsprite in redlist:
-                    if abs(sprite.x - redsprite.x) == 20 and abs(sprite.y - redsprite.y) == 20:
+                    if abs(sprite.x - redsprite.x) <= 25 and abs(sprite.y - redsprite.y) <= 25:
                         surroundlist.append(redsprite)
                         n = surroundlist.count
                         if sprite.visible ==True:
