@@ -44,6 +44,8 @@ class Conway(App):
     def __init__(self):
         super().__init__()
         self.listenMouseEvent('click', self.mouseClick)
+        self.running = False
+        self.listenKeyEvent("keydown", "space", self.spacebar)
         
     def mouseClick(self, event):
         x=event.x
@@ -55,23 +57,26 @@ class Conway(App):
                sprite.visible= True 
                
     
+    def spacebar(self, event):
+        self.running = True
 
     def step(self):
-        for sprite1 in list1:
-            surroundlist=[]
-            listred=[]
-            if sprite1.visible==True:
-                listred.append(sprite)
-            for redsprite in listred:
-                if abs(sprite1.x-redsprite.x) >= 20 and abs(sprite1.y-redsprite.y) >= 20:
-                    surroundlist.append(redsprite)
-                    num=surroundlist.count
-                    if num>3:
-                        sprite1.visible=False
-                    elif num==3:
-                        sprite1.visible=True
-                    elif num<2:
-                        sprite1.visible=False
+        if self.running == True:
+            for sprite1 in list1:
+                surroundlist=[]
+                listred=[]
+                if sprite1.visible==True:
+                    listred.append(sprite)
+                for redsprite in listred:
+                    if abs(sprite1.x-redsprite.x) >= 20 and abs(sprite1.y-redsprite.y) >= 20:
+                        surroundlist.append(redsprite)
+                        num=surroundlist.count
+                        if num>3:
+                            sprite1.visible=False
+                        elif num==3:
+                            sprite1.visible=True
+                        elif num<2:
+                            sprite1.visible=False
 
 myapp = Conway()
 myapp.run()
