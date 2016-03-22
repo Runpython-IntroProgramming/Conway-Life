@@ -56,7 +56,7 @@ class Conway(App):
                
     
     for sprites in list1:
-        if sprite.visible=True:
+        if sprite.visible==True:
             listred.append(sprite)
 
     for sprite in list1:
@@ -67,7 +67,7 @@ class Conway(App):
                 num=surroundlist.count
                 if num>3:
                     sprite.visible=False
-                elif num=3:
+                elif num==3:
                     sprite.visible=True
                 elif num<2:
                     sprite.visible=False
