@@ -16,7 +16,7 @@ red = Color(0xff0000, 1.0)
 noline = LineStyle(0, black)
 line = LineStyle(.2, black)
 list1 = []
-redlist = []
+
 
 square = RectangleAsset(20, 20, noline, red) 
 screen = RectangleAsset(400,400, line, white)
@@ -42,11 +42,13 @@ class Conway(App):
                 sprite.visible = True
                 
     
-    for sprite in list1: #interation??
-        if sprite.visible==True:
-            redlist.append(sprite)
+
     for sprite in list1:
         surroudlist = []
+        redlist = []
+        for spr in list1:
+            if spr.visible==True:
+                redlist.append(spr)
         for redsprite in redlist:
             if abs(sprite.x - redsprite.x) >= 20 and abs(sprite.y - redsprite.y) >= 20:
                 surroundlist.append(redsprite)
