@@ -22,7 +22,7 @@ line = LineStyle(.1, black)
 noline = LineStyle(0, black)
 
 list1=[]
-listred=[]
+
 
 screen=RectangleAsset(400,400, line, white)
 Sprite(screen, (0,0))
@@ -48,29 +48,30 @@ class Conway(App):
     def mouseClick(self, event):
         x=event.x
         y=event.y
-        for sprit in list1:
-            xsprit =sprit.x
-            ysprit=sprit.y
-            if x<= xsprit + 10 and x>= xsprit -10 and y<=ysprit + 10 and y>= ysprit -10:
-               sprit.visible= True 
+        for sprite in list1:
+            xsprite =sprite.x
+            ysprite=sprite.y
+            if x<= xsprite + 10 and x>= xsprite -10 and y<=ysprite + 10 and y>= ysprite -10:
+               sprite.visible= True 
                
     
-    for sprites in list1:
-        if sprite.visible==True:
-            listred.append(sprite)
 
-    for sprite1 in list1:
-        surroundlist=[]
-        for redsprite in listred:
-            if abs(sprite1.x-redsprite.x) >= 20 and abs(sprite1.y-redsprite.y) >= 20:
-                surroundlist.append(redsprite)
-                num=surroundlist.count
-                if num>3:
-                    sprite1.visible=False
-                elif num==3:
-                    sprite1.visible=True
-                elif num<2:
-                    sprite1.visible=False
+    def step(self):
+        for sprite1 in list1:
+            surroundlist=[]
+            listred=[]
+            if sprite1.visible==True:
+                listred.append(sprite)
+            for redsprite in listred:
+                if abs(sprite1.x-redsprite.x) >= 20 and abs(sprite1.y-redsprite.y) >= 20:
+                    surroundlist.append(redsprite)
+                    num=surroundlist.count
+                    if num>3:
+                        sprite1.visible=False
+                    elif num==3:
+                        sprite1.visible=True
+                    elif num<2:
+                        sprite1.visible=False
 
 myapp = Conway()
 myapp.run()
