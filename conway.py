@@ -43,7 +43,7 @@ class Conway(App):
                 
     
     for sprite in list1: #interation??
-        if sprite.visible=True:
+        if sprite.visible==True:
             redlist.append(sprite)
     for sprite in list1:
         surroudlist = []
