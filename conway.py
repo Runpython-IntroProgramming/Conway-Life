@@ -1,7 +1,7 @@
 """
 conway.py
 Author: Mary Feyrer
-Credit: Tess Snyder
+Credit: Tess Snyder, Mr. Dennison 
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
@@ -16,6 +16,7 @@ red = Color(0xff0000, 1.0)
 noline = LineStyle(0, black)
 line = LineStyle(.2, black)
 list1 = []
+redlist = []
 
 square = RectangleAsset(20, 20, noline, red) 
 screen = RectangleAsset(400,400, line, white)
@@ -39,9 +40,24 @@ class Conway(App):
         for sprite in list1:
             if x<= sprite.x +10 and x>= sprite.x-10 and y<= sprite.y+10 and y>= sprite.y-10:
                 sprite.visible = True
+                
     
-    for sprites in list1:
-        if s.visible = true 
+    for sprite in list1: #interation??
+        if sprite.visible=True:
+            redlist.append(sprite)
+    for sprite in list1:
+        surroudlist = []
+        for redsprite in redlist:
+            if abs(sprite.x - redsprite.x) >= 10 and abs(sprite.y - redsprite.y) >= 10:
+                surroundlist.append(redsprite)
+                if surroundlist.count > 3:
+                    sprite.visible = False
+                elif surroundlist.count >= 2:
+                    sprite.visible = True
+                elif surroundlist.count < 2:
+                    sprite.visible = False
+        
+            
 
 myapp = Conway()
 myapp.run()
