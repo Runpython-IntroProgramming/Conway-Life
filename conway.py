@@ -48,7 +48,7 @@ class Conway(App):
      
     
     def step(self):
-        while running = True:
+        while running == True:
             for sprite in list1:
                 surroudlist = []
                 redlist = []
