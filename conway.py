@@ -22,6 +22,8 @@ line = LineStyle(.1, black)
 noline = LineStyle(0, black)
 
 list1=[]
+listred=[]
+
 screen=RectangleAsset(400,400, line, white)
 Sprite(screen, (0,0))
 
@@ -51,9 +53,11 @@ class Conway(App):
             ysprite=sprite.y
             if x<= xsprite + 10 and x>= xsprite -10 and y<=ysprite + 10 and y>= ysprite -10:
                sprite.visible= True 
+               listred.append(sprite)
     
     for sprites in list1:
-        if s.visible=true
+        for spritesred in listred:
+            if s.visible=true
 
 myapp = Conway()
 myapp.run()
