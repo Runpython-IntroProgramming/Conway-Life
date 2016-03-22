@@ -53,7 +53,7 @@ class Conway(App):
                 n = surroundlist.count
                 if n > 3:
                     sprite.visible = False
-                elif n = 3:
+                elif n == 3:
                     sprite.visible = True
                 elif n < 2:
                     sprite.visible = False
