@@ -1,7 +1,7 @@
 """
 conway.py
 Author: Tess Snyder
-Credit: Mary Feyrer
+Credit: Mr. Dennison, Mary Feyrer, https://realpython.com/blog/python/pygame-a-primer/
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
@@ -53,11 +53,16 @@ class Conway(App):
             ysprite=sprite.y
             if x<= xsprite + 10 and x>= xsprite -10 and y<=ysprite + 10 and y>= ysprite -10:
                sprite.visible= True 
-               listred.append(sprite)
+               
     
     for sprites in list1:
-        for spritesred in listred:
-            if s.visible=true
+        if sprite.visible=True:
+            listred.append(sprite)
+
+    for sprite in list1:
+        surroundlist=[]
+        for redsprite in listred:
+            if abs(sprite.x-redsprite.x) >= 20
 
 myapp = Conway()
 myapp.run()
