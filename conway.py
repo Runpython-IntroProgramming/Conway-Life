@@ -62,7 +62,15 @@ class Conway(App):
     for sprite in list1:
         surroundlist=[]
         for redsprite in listred:
-            if abs(sprite.x-redsprite.x) >= 20
+            if abs(sprite.x-redsprite.x) >= 20 and abs(sprite.y-redsprite.y) >= 20:
+                surroundlist.append(redsprite)
+                num=surroundlist.count
+                if num>3:
+                    sprite.visible=False
+                elif num=3:
+                    sprite.visible=True
+                elif num<2:
+                    sprite.visible=False
 
 myapp = Conway()
 myapp.run()
