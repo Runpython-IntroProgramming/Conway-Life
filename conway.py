@@ -41,24 +41,23 @@ class Conway(App):
             if x<= sprite.x +10 and x>= sprite.x-10 and y<= sprite.y+10 and y>= sprite.y-10:
                 sprite.visible = True
                 
-    
-
-    for sprite in list1:
-        surroudlist = []
-        redlist = []
-        for spr in list1:
-            if spr.visible==True:
-                redlist.append(spr)
-        for redsprite in redlist:
-            if abs(sprite.x - redsprite.x) >= 20 and abs(sprite.y - redsprite.y) >= 20:
-                surroundlist.append(redsprite)
-                n = surroundlist.count
-                if n > 3:
-                    sprite.visible = False
-                elif n == 3:
-                    sprite.visible = True
-                elif n < 2:
-                    sprite.visible = False
+    def step(self):
+        for sprite in list1:
+            surroudlist = []
+            redlist = []
+            for spr in list1:
+                if spr.visible==True:
+                    redlist.append(spr)
+            for redsprite in redlist:
+                if abs(sprite.x - redsprite.x) >= 20 and abs(sprite.y - redsprite.y) >= 20:
+                    surroundlist.append(redsprite)
+                    n = surroundlist.count
+                    if n > 3:
+                        sprite.visible = False
+                    elif n == 3:
+                        sprite.visible = True
+                    elif n < 2:
+                        sprite.visible = False
         
             
 
