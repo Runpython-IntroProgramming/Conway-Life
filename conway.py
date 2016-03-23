@@ -16,7 +16,6 @@ noline = LineStyle(0, black)
 line = LineStyle(.2, black)
 list1 = []
 
-
 square = RectangleAsset(20, 20, noline, red) 
 screen = RectangleAsset(400,400, line, white)
 Sprite(screen,(0,0))
@@ -67,7 +66,6 @@ class Conway(App):
                         elif num<2:
                             sprite.visible = False
         
-            
 
 myapp = Conway()
 myapp.run()
