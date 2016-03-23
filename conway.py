@@ -6,11 +6,10 @@ Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
-from ggame import App, RectangleAsset, ImageAsset 
+from ggame import App, RectangleAsset, 
 from ggame import LineStyle, Color, Sprite, Sound
 
 white = Color(0xffffff, 1.0)
-blue = Color(0x000000, 1.0)
 black = Color(0x000000, 1.0)
 red = Color(0xff0000, 1.0)
 noline = LineStyle(0, black)
@@ -49,13 +48,12 @@ class Conway(App):
     
     def step(self):
         if self.running == True:
-            print("hello")
             redlist=[]
             for spr in list1:
                 if spr.visible==True:
                     redlist.append(spr)
             for sprite in list1:
-                surroudlist=[]
+                surroundlist=[]
                 for redsprite in redlist:
                     if abs(sprite.x-redsprite.x) <= 20 and abs(sprite.y-redsprite.y) <= 20:
                         surroundlist.append(redsprite)
