@@ -58,10 +58,10 @@ class Conway(App):
                
     
     def spacebar(self, event):
-        running = True
+        self.running = True
 
     def step(self):
-        if running == True:
+        if self.running == True:
             for sprite1 in list1:
                 surroundlist=[]
                 listred=[]
@@ -72,8 +72,6 @@ class Conway(App):
                     if abs(sprite1.x-redsprite.x) == 20 and abs(sprite1.y-redsprite.y) == 20:
                         surroundlist.append(redsprite)
                         num=surroundlist.count
-                        if sprite1.visible==True:
-                            num=num-1
                         if num>3:
                             sprite1.visible=False
                         elif num==3:
