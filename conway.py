@@ -18,14 +18,13 @@ SCREEN_HEIGHT = 1000
 
 rectangle = RectangleAsset(10, 10, thinline, blue)
 
-createRectangles = 100
-
+thinline = LineStyle(1, black)
 
 a = 0
 b = 0
 
 for x in range(0, 10):
-    While x > 0:
+    for x in range(0, 10):
         Sprite(rectangle, (a, b))
         a = a+1
     a = 0
