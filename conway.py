@@ -58,10 +58,10 @@ class Conway(App):
                
     
     def spacebar(self, event):
-        self.running = True
+        running = True
 
     def step(self):
-        if self.running == True:
+        if running == True:
             for sprite1 in list1:
                 surroundlist=[]
                 listred=[]
