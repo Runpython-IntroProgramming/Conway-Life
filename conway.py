@@ -49,6 +49,7 @@ class Conway(App):
     
     def step(self):
         if self.running == True:
+            print("hello")
             redlist=[]
             for spr in list1:
                 if spr.visible==True:
