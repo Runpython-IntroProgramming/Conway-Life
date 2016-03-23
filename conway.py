@@ -62,12 +62,12 @@ class Conway(App):
 
     def step(self):
         if self.running == True:
+            listred=[]
+            for spr in list1:
+                if spr.visible==True:
+                    listred.append(spr)
             for sprite1 in list1:
                 surroundlist=[]
-                listred=[]
-                for spr in list1:
-                    if spr.visible==True:
-                        listred.append(spr)
                 for redsprite in listred:
                     if abs(sprite1.x-redsprite.x) <= 20 and abs(sprite1.y-redsprite.y) <= 20:
                         surroundlist.append(redsprite)
