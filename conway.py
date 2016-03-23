@@ -69,9 +69,11 @@ class Conway(App):
                     if spr.visible==True:
                         listred.append(spr)
                 for redsprite in listred:
-                    if abs(sprite1.x-redsprite.x) == 20 and abs(sprite1.y-redsprite.y) == 20:
+                    if abs(sprite1.x-redsprite.x) <= 20 and abs(sprite1.y-redsprite.y) <= 20:
                         surroundlist.append(redsprite)
                         num=len(surroundlist)
+                        if sprite1.visible==True:
+                            num=num-1
                         if num>3:
                             sprite1.visible=False
                         elif num==3:
