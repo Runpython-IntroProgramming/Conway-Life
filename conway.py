@@ -43,7 +43,7 @@ class Conway(App):
                 
     def spacebar(self, event):
         self.running = True
-     
+    
     
     def step(self):
         if self.running == True:
