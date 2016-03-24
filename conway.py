@@ -13,8 +13,8 @@ green = Color(0x00ff00, 1.0)
 blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 
-SCREEN_WIDTH = 1000
-SCREEN_HEIGHT = 1000
+SCREEN_WIDTH = 640
+SCREEN_HEIGHT = 480
 
 thinline = LineStyle(1, black)
 rectangle = RectangleAsset(10, 10, thinline, blue)
@@ -29,3 +29,5 @@ for x in range(0, 10):
     a = 0
     b = b+1
     
+myapp = App()
+myapp.run()
