@@ -31,7 +31,7 @@ for x in range(0, 11):
         a = a+20
     a = 0
     b = b+20
-    
+print(squares)
 
 
 myapp = App()
