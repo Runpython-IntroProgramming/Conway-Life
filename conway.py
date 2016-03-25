@@ -25,9 +25,8 @@ b = 0
 for x in range(0, 24):
     for x in range(0, 32):
         Sprite(rectangle, (a, b))
-        a = a+1
+        a = a+20
     a = 0
-    b = b+1
-    
+    b = b+20
 myapp = App()
 myapp.run()
