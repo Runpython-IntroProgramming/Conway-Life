@@ -33,6 +33,7 @@ class Conway(App):
         self.listenMouseEvent( 'click', self.click)
         self.running = False
         self.listenKeyEvent("keydown", "space", self.spacebar)
+        self.listenKeyEvent("keydown", "s", self.skey)
     
     def click(self, event):
         x = event.x
@@ -44,6 +45,8 @@ class Conway(App):
     def spacebar(self, event):
         self.running = True
     
+    def skey(self, event):
+        self.running = False
     
     def step(self):
         if self.running == True:
