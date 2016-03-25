@@ -17,13 +17,13 @@ SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
 
 thinline = LineStyle(1, black)
-rectangle = RectangleAsset(10, 10, thinline, blue)
+rectangle = RectangleAsset(20, 20, thinline, blue)
 
 a = 0
 b = 0
 
-for x in range(0, 10):
-    for x in range(0, 10):
+for x in range(0, 24):
+    for x in range(0, 32):
         Sprite(rectangle, (a, b))
         a = a+1
     a = 0
