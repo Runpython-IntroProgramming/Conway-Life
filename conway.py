@@ -77,12 +77,12 @@ class Conway(App):
                         surroundlist.append(redsprite)
                         num=len(surroundlist)
                         if sprite1.visible==True:
-                            num=num-1
-                        if num>3:
+                            n=num-1
+                        if n>3:
                             sprite1.visible=False
-                        elif num==3:
+                        elif n==3:
                             sprite1.visible=True
-                        elif num<2:
+                        elif n<2:
                             sprite1.visible=False
 
 myapp = Conway()
