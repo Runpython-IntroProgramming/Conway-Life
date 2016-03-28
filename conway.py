@@ -30,7 +30,6 @@ for x in range(0,30):
         list1.append(s)
 
 
-
 class Conway(App):
     
     def __init__(self):
