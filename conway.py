@@ -24,15 +24,15 @@ noline = LineStyle(0, black)
 list1=[]
 
 
-screen=RectangleAsset(400,400, line, white)
+screen=RectangleAsset(600,600, line, white)
 Sprite(screen, (0,0))
 
 square = RectangleAsset(20,20, noline, red)
 
 
 
-for x in range(0,20):
-    for y in range(0,20):
+for x in range(0,30):
+    for y in range(0,30):
         s=Sprite(square, (20*x,20*y))
         s.visible= False 
         list1.append(s)
