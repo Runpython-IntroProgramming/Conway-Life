@@ -17,11 +17,11 @@ line = LineStyle(.2, black)
 list1 = []
 
 square = RectangleAsset(20, 20, noline, red) 
-screen = RectangleAsset(600,600, line, white)
+screen = RectangleAsset(500,500, line, white)
 Sprite(screen,(0,0))
 
-for x in range(0,30):
-    for y in range(0,30):
+for x in range(0,25):
+    for y in range(0,25):
         s = Sprite(square, (20*x,20*y))
         s.visible = False
         list1.append(s)
