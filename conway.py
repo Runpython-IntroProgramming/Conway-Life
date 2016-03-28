@@ -69,6 +69,5 @@ class Conway(App):
                 elif num<2:
                     sprite.visible = False
         
-
 myapp = Conway()
 myapp.run()
