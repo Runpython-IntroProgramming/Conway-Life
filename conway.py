@@ -44,6 +44,12 @@ print(squares)
 for z in range(0, height):
     for w in range(0, width):
         squares[(w, z)]
+        if squares[(w+1, z+1)] self.state == True:
+            surroundingCells = surroundingCells + 1
+        else:
+        
+        
+        
         
     
 
