@@ -9,27 +9,19 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 from ggame import App, RectangleAsset
 from ggame import LineStyle, Color, Sprite, Sound
 
-SCREEN_WIDTH = 640
-SCREEN_HEIGHT = 480
-
-
 black = Color(0x000000, 1.0)
 white = Color(0xFFFFFF, 1.0) #color of dead cell
 red = Color(0xff0000, 1.0) #color of first day of life
-blue = Color(0x0000ff, 1.0) #color of subsequent days of life
 
 line = LineStyle(.1, black)
 noline = LineStyle(0, black)
 
 list1=[]
 
-
 screen=RectangleAsset(600,600, line, white)
 Sprite(screen, (0,0))
 
 square = RectangleAsset(20,20, noline, red)
-
-
 
 for x in range(0,30):
     for y in range(0,30):
