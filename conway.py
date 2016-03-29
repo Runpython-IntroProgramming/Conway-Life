@@ -12,6 +12,7 @@ class cell(Sprite):
     def __init__(self, asset, position):
         super().__init__(asset, position)
         self.state = False
+        self.livingNeighbors = 0
 
 red = Color(0xff0000, 1.0)
 green = Color(0x00ff00, 1.0)
@@ -41,20 +42,44 @@ for x in range(0, height):
     b = b+20
 print(squares)
 
-for z in range(0, height):
+for h in range(0, height):
     for w in range(0, width):
-        squares[(w, z)]
-        if squares[(w+1, z+1)] self.state == True:
-            surroundingCells = surroundingCells + 1
+        surroudingCellsAlive = 0
+        
+        if squares[(w+1, h+1)].state == True:
+            surroundingCellsAlive = surroundingCellsAlive + 1
+        else: 
+        if squares[(w+1, h)].state == True:
+            surroundingCellsAlive = surroundingCellsAlive + 1
         else:
+        if squares[(w+1, h-1)].state == True:
+            surroundingCellsAlive = surroundingCellsAlive + 1
+        else:    
+        if squares[(w, h-1)].state == True:
+            surroundingCellsAlive = surroundingCellsAlive + 1
+        else:
+        if squares[(w, h+1)].state == True:
+            surroundingCellsAlive = surroundingCellsAlive + 1
+        else:
+        if squares[(w-1, h-1)].state == True:
+            surroundingCellsAlive = surroundingCellsAlive + 1
+        else:
+        if squares[(w-1, h)].state == True:
+            surroundingCellsAlive = surroundingCellsAlive + 1
+        else:
+        if squares[(w-1, h+1)].state == True:
+            surroundingCellsAlive = surroundingCellsAlive + 1
+        else:
+        #squares[(w, z)].livingNeighbors = surroundingCellsAlive
         
-        
-        
-        
-    
-
-    
-
+        if surroundingCellsAlive < 2:
+            .state = False
+        elif surroundingCellsAlive  == 2:
+            .state = .state
+        elif surroundingCellsAlive == 3:
+            .state = True
+        else:
+            .state = False
 
 myapp = App()
 myapp.run()
