@@ -13,7 +13,7 @@ class cell(Sprite):
         super().__init__(asset, position)
         self.stateCurent = False
         self.livingNeighbors = 0
-        self.nextState
+        self.nextState = False
 
 red = Color(0xff0000, 1.0)
 green = Color(0x00ff00, 1.0)
@@ -65,7 +65,7 @@ for h in range(0, height):
         elif surroundingCellsAlive < 2:
             squares[(w, h)].nextState = False
         elif surroundingCellsAlive  == 2:
-            squares[(w, h)].nextState = .state
+            squares[(w, h)].nextState = squares[(w, h)].stateCurrent
         elif surroundingCellsAlive == 3:
             squares[(w, h)].nextState = True
         else:
