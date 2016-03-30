@@ -11,8 +11,9 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 class cell(Sprite):
     def __init__(self, asset, position):
         super().__init__(asset, position)
-        self.state = False
+        self.stateCurent = False
         self.livingNeighbors = 0
+        self.nextState
 
 red = Color(0xff0000, 1.0)
 green = Color(0x00ff00, 1.0)
@@ -45,41 +46,30 @@ print(squares)
 for h in range(0, height):
     for w in range(0, width):
         surroudingCellsAlive = 0
-        
-        if squares[(w+1, h+1)].state == True:
+        if squares[(w+1, h+1)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        else: 
-        if squares[(w+1, h)].state == True:
+        elif squares[(w+1, h)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        else:
-        if squares[(w+1, h-1)].state == True:
+        elif squares[(w+1, h-1)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        else:    
-        if squares[(w, h-1)].state == True:
+        elif squares[(w, h-1)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        else:
-        if squares[(w, h+1)].state == True:
+        elif squares[(w, h+1)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        else:
-        if squares[(w-1, h-1)].state == True:
+        elif squares[(w-1, h-1)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        else:
-        if squares[(w-1, h)].state == True:
+        elif squares[(w-1, h)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        else:
-        if squares[(w-1, h+1)].state == True:
+        elif squares[(w-1, h+1)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        else:
-        #squares[(w, z)].livingNeighbors = surroundingCellsAlive
-        
-        if surroundingCellsAlive < 2:
-            .state = False
+        elif surroundingCellsAlive < 2:
+            squares[(w, h)].nextState = False
         elif surroundingCellsAlive  == 2:
-            .state = .state
+            squares[(w, h)].nextState = .state
         elif surroundingCellsAlive == 3:
-            .state = True
+            squares[(w, h)].nextState = True
         else:
-            .state = False
+            squares[(w, h)].nextState = False
 
 myapp = App()
 myapp.run()
