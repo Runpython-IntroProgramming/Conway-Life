@@ -48,25 +48,25 @@ for h in range(0, height):
         surroudingCellsAlive = 0
         if squares[(w+1, h+1)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        elif squares[(w+1, h)].stateCurent == True:
+        if squares[(w+1, h)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        elif squares[(w+1, h-1)].stateCurent == True:
+        if squares[(w+1, h-1)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        elif squares[(w, h-1)].stateCurent == True:
+        if squares[(w, h-1)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        elif squares[(w, h+1)].stateCurent == True:
+        if squares[(w, h+1)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        elif squares[(w-1, h-1)].stateCurent == True:
+        if squares[(w-1, h-1)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        elif squares[(w-1, h)].stateCurent == True:
+        if squares[(w-1, h)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        elif squares[(w-1, h+1)].stateCurent == True:
+        if squares[(w-1, h+1)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
-        elif surroundingCellsAlive < 2:
+        if surroundingCellsAlive < 2:
             squares[(w, h)].nextState = False
-        elif surroundingCellsAlive  == 2:
+        if surroundingCellsAlive  == 2:
             squares[(w, h)].nextState = squares[(w, h)].stateCurrent
-        elif surroundingCellsAlive == 3:
+        if surroundingCellsAlive == 3:
             squares[(w, h)].nextState = True
         else:
             squares[(w, h)].nextState = False
