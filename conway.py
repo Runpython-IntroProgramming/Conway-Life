@@ -41,7 +41,6 @@ for x in range(0, height):
         a = a+20
     a = 0
     b = b+20
-print(squares)
 
 for h in range(0, height):
     for w in range(0, width):
@@ -63,11 +62,13 @@ for h in range(0, height):
         if (w-1, h+1) in squares and squares[(w-1, h+1)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
             
+        print(surroundingCellsAlive)
+            
         if surroundingCellsAlive < 2:
             squares[(w, h)].nextState = False
-        if (w+1, h+1) in squares and surroundingCellsAlive  == 2:
+        if surroundingCellsAlive  == 2:
             squares[(w, h)].nextState = squares[(w, h)].stateCurrent
-        if (w+1, h+1) in squares and surroundingCellsAlive == 3:
+        if surroundingCellsAlive == 3:
             squares[(w, h)].nextState = True
         else:
             squares[(w, h)].nextState = False
