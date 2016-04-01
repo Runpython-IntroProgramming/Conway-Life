@@ -44,7 +44,7 @@ for x in range(0, height):
 
 for h in range(0, height):
     for w in range(0, width):
-        surroudingCellsAlive = 0
+        surroundingCellsAlive = 0
         if (w+1, h+1) in squares and squares[(w+1, h+1)].stateCurent == True:
             surroundingCellsAlive = surroundingCellsAlive + 1
         if ((w+1, h)) in squares and squares[(w+1, h)].stateCurent == True:
