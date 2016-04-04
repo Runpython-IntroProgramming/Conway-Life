@@ -35,41 +35,49 @@ squares = {}
 height = 20
 width = 20
 
+simulationState = 0
+
 for x in range(0, height):
     for y in range(0, width):
         squares[(x,y)] = cell(rectangle, (a, b))
         a = a+20
     a = 0
     b = b+20
+while simulationState = 0
 
-for h in range(0, height):
-    for w in range(0, width):
-        surroundingCellsAlive = 0
-        if (w+1, h+1) in squares and squares[(w+1, h+1)].stateCurent == True:
-            surroundingCellsAlive = surroundingCellsAlive + 1
-        if ((w+1, h)) in squares and squares[(w+1, h)].stateCurent == True:
-            surroundingCellsAlive = surroundingCellsAlive + 1
-        if (w+1, h-1) in squares and squares[(w+1, h-1)].stateCurent == True:
-            surroundingCellsAlive = surroundingCellsAlive + 1
-        if (w, h-1) in squares and squares[(w, h-1)].stateCurent == True:
-            surroundingCellsAlive = surroundingCellsAlive + 1
-        if (w, h+1) in squares and squares[(w, h+1)].stateCurent == True:
-            surroundingCellsAlive = surroundingCellsAlive + 1
-        if (w-1, h-1) in squares and squares[(w-1, h-1)].stateCurent == True:
-            surroundingCellsAlive = surroundingCellsAlive + 1
-        if (w-1, h) in squares and squares[(w-1, h)].stateCurent == True:
-            surroundingCellsAlive = surroundingCellsAlive + 1
-        if (w-1, h+1) in squares and squares[(w-1, h+1)].stateCurent == True:
-            surroundingCellsAlive = surroundingCellsAlive + 1
-            
-        if surroundingCellsAlive < 2:
-            squares[(w, h)].nextState = False
-        if surroundingCellsAlive  == 2:
-            squares[(w, h)].nextState = squares[(w, h)].stateCurrent
-        if surroundingCellsAlive == 3:
-            squares[(w, h)].nextState = True
-        else:
-            squares[(w, h)].nextState = False
+while simulationState = 1
+    for h in range(0, height):
+        for w in range(0, width):
+            surroundingCellsAlive = 0
+            if (w+1, h+1) in squares and squares[(w+1, h+1)].stateCurent == True:
+                surroundingCellsAlive = surroundingCellsAlive + 1
+            if ((w+1, h)) in squares and squares[(w+1, h)].stateCurent == True:
+                surroundingCellsAlive = surroundingCellsAlive + 1
+            if (w+1, h-1) in squares and squares[(w+1, h-1)].stateCurent == True:
+                surroundingCellsAlive = surroundingCellsAlive + 1
+            if (w, h-1) in squares and squares[(w, h-1)].stateCurent == True:
+                surroundingCellsAlive = surroundingCellsAlive + 1
+            if (w, h+1) in squares and squares[(w, h+1)].stateCurent == True:
+                surroundingCellsAlive = surroundingCellsAlive + 1
+            if (w-1, h-1) in squares and squares[(w-1, h-1)].stateCurent == True:
+                surroundingCellsAlive = surroundingCellsAlive + 1
+            if (w-1, h) in squares and squares[(w-1, h)].stateCurent == True:
+                surroundingCellsAlive = surroundingCellsAlive + 1
+            if (w-1, h+1) in squares and squares[(w-1, h+1)].stateCurent == True:
+                surroundingCellsAlive = surroundingCellsAlive + 1
+                
+            if surroundingCellsAlive < 2:
+                squares[(w, h)].nextState = False
+            elif surroundingCellsAlive  == 2:
+                squares[(w, h)].nextState = squares[(w, h)].stateCurrent
+            elif surroundingCellsAlive == 3:
+                squares[(w, h)].nextState = True
+            else:
+                squares[(w, h)].nextState = False
+                
+    for h in range(0, height):
+        for w in range(0, width):
+            squares[(w, h)].stateCurent = squares[(w, h)].nextState
 
 myapp = App()
 myapp.run()
