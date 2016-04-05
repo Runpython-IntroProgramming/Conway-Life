@@ -8,14 +8,23 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
+
+
+    def step(self):
+        for Sprite in self.getSpritesbyClass(Sprite):
+            Sprite.step()
+
+
+
+
+
+
 class cell(Sprite):
     def __init__(self, asset, position):
         super().__init__(asset, position)
         self.stateCurent = False
         self.livingNeighbors = 0
         self.nextState = False
-        
-def 
 
 red = Color(0xff0000, 1.0)
 green = Color(0x00ff00, 1.0)
