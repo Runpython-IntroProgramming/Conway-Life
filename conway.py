@@ -79,7 +79,7 @@ while simulationState == 1:
     for h in range(0, height):
         for w in range(0, width):
             squares[(w, h)].stateCurent = squares[(w, h)].nextState
-    App.listenKeyEvents ("keydown", "space", simulationState = 3)
+    App.listenKeyEvent("keydown", "space", simulationState = 3)
 
 myapp = App()
 myapp.run()
