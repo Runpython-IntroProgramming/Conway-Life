@@ -43,9 +43,10 @@ for x in range(0, height):
         a = a+20
     a = 0
     b = b+20
-while simulationState = 0
+while simulationState == 0:
+    pass
 
-while simulationState = 1
+while simulationState == 1:
     for h in range(0, height):
         for w in range(0, width):
             surroundingCellsAlive = 0
