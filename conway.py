@@ -35,7 +35,7 @@ squares = {}
 height = 20
 width = 20
 
-simulationState = 0
+simulationState = 1
 
 for x in range(0, height):
     for y in range(0, width):
