@@ -73,5 +73,5 @@ class ConwayGame(App):
                     for w in range(0, width):
                         squares[(w, h)].stateCurent = squares[(w, h)].nextState
 
-myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp = ConwayGame
 myapp.run()
