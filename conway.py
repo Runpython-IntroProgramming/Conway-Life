@@ -8,11 +8,38 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
-
+class ConwayGame(App):
+    
+    def __init__(self, width, height):
+        super().__init__(width, height)
+        black = Color(0, 1)
+        noline = LineStyle(0, black)
+        bg_asset = RectangleAsset(width, height, noline, black)
+        bg = Sprite(bg_asset, (0,0))
+        SpaceShip((100,100))
+        SpaceShip((150,150))
+        SpaceShip((200,50))
 
     def step(self):
-        for Sprite in self.getSpritesbyClass(Sprite):
-            Sprite.step()
+        for ship in self.getSpritesbyClass(SpaceShip):
+            ship.step()
+
+
+myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp.run()
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
