@@ -37,44 +37,41 @@ class ConwayGame(App):
                 a = 0
                 b = b+20
         
-        
-
     def step(self):
         for ship in self.getSpritesbyClass(SpaceShip):
             ship.step()
             for h in range(0, height):
-                
-        for w in range(0, width):
-            surroundingCellsAlive = 0
-            if (w+1, h+1) in squares and squares[(w+1, h+1)].stateCurent == True:
-                surroundingCellsAlive = surroundingCellsAlive + 1
-            if ((w+1, h)) in squares and squares[(w+1, h)].stateCurent == True:
-                surroundingCellsAlive = surroundingCellsAlive + 1
-            if (w+1, h-1) in squares and squares[(w+1, h-1)].stateCurent == True:
-                surroundingCellsAlive = surroundingCellsAlive + 1
-            if (w, h-1) in squares and squares[(w, h-1)].stateCurent == True:
-                surroundingCellsAlive = surroundingCellsAlive + 1
-            if (w, h+1) in squares and squares[(w, h+1)].stateCurent == True:
-                surroundingCellsAlive = surroundingCellsAlive + 1
-            if (w-1, h-1) in squares and squares[(w-1, h-1)].stateCurent == True:
-                surroundingCellsAlive = surroundingCellsAlive + 1
-            if (w-1, h) in squares and squares[(w-1, h)].stateCurent == True:
-                surroundingCellsAlive = surroundingCellsAlive + 1
-            if (w-1, h+1) in squares and squares[(w-1, h+1)].stateCurent == True:
-                surroundingCellsAlive = surroundingCellsAlive + 1
-                
-            if surroundingCellsAlive < 2:
-                squares[(w, h)].nextState = False
-            elif surroundingCellsAlive  == 2:
-                squares[(w, h)].nextState = squares[(w, h)].stateCurrent
-            elif surroundingCellsAlive == 3:
-                squares[(w, h)].nextState = True
-            else:
-                squares[(w, h)].nextState = False
-                
-        for h in range(0, height):
-            for w in range(0, width):
-                squares[(w, h)].stateCurent = squares[(w, h)].nextState
+                for w in range(0, width):
+                    surroundingCellsAlive = 0
+                    if (w+1, h+1) in squares and squares[(w+1, h+1)].stateCurent == True:
+                        surroundingCellsAlive = surroundingCellsAlive + 1
+                    if ((w+1, h)) in squares and squares[(w+1, h)].stateCurent == True:
+                        surroundingCellsAlive = surroundingCellsAlive + 1
+                    if (w+1, h-1) in squares and squares[(w+1, h-1)].stateCurent == True:
+                        surroundingCellsAlive = surroundingCellsAlive + 1
+                    if (w, h-1) in squares and squares[(w, h-1)].stateCurent == True:
+                        surroundingCellsAlive = surroundingCellsAlive + 1
+                    if (w, h+1) in squares and squares[(w, h+1)].stateCurent == True:
+                        surroundingCellsAlive = surroundingCellsAlive + 1
+                    if (w-1, h-1) in squares and squares[(w-1, h-1)].stateCurent == True:
+                        surroundingCellsAlive = surroundingCellsAlive + 1
+                    if (w-1, h) in squares and squares[(w-1, h)].stateCurent == True:
+                        surroundingCellsAlive = surroundingCellsAlive + 1
+                    if (w-1, h+1) in squares and squares[(w-1, h+1)].stateCurent == True:
+                        surroundingCellsAlive = surroundingCellsAlive + 1
+                        
+                    if surroundingCellsAlive < 2:
+                        squares[(w, h)].nextState = False
+                    elif surroundingCellsAlive  == 2:
+                        squares[(w, h)].nextState = squares[(w, h)].stateCurrent
+                    elif surroundingCellsAlive == 3:
+                        squares[(w, h)].nextState = True
+                    else:
+                        squares[(w, h)].nextState = False
+                        
+                for h in range(0, height):
+                    for w in range(0, width):
+                        squares[(w, h)].stateCurent = squares[(w, h)].nextState
 
 myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
