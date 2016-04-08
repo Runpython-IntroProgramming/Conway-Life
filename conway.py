@@ -36,6 +36,9 @@ class ConwayGame(App):
                 a = a+20
                 a = 0
                 b = b+20
+                
+        def listenMouseEvent(cls, eventtype, callback)
+                
         
     def step(self):
         for ship in self.getSpritesbyClass(SpaceShip):
