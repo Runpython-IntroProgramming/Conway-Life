@@ -10,14 +10,15 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 
 class ConwayGame(App):
     
-    def __init__(self, width, height):
-        super().__init__(width, height)
+    def __init__(self):
+        SCREEN_WIDTH = 640
+        SCREEN_HEIGHT = 480
+        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT)
         
         blue = Color(0x0000ff, 1.0)
         black = Color(0x000000, 1.0)
 
-        SCREEN_WIDTH = 640
-        SCREEN_HEIGHT = 480
+     
 
         thinline = LineStyle(1, black)
         rectangle = RectangleAsset(20, 20, thinline, white)
