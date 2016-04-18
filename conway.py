@@ -8,6 +8,11 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
+
+class cell(object)
+
+
+
 class ConwayGame(App):
     
     def __init__(self):
@@ -17,11 +22,11 @@ class ConwayGame(App):
         
         blue = Color(0x0000ff, 1.0)
         black = Color(0x000000, 1.0)
-
+        green = Color(0x00ff00, 1.0)
      
 
         thinline = LineStyle(1, black)
-        rectangle = RectangleAsset(20, 20, thinline, white)
+        rectangle = RectangleAsset(20, 20, thinline, green)
 
         a = 0
         b = 0
@@ -42,8 +47,8 @@ class ConwayGame(App):
                 
         
     def step(self):
-        for ship in self.getSpritesbyClass(SpaceShip):
-            ship.step()
+        for cell in self.getSpritesbyClass(cell):
+            cell.step()
             for h in range(0, height):
                 for w in range(0, width):
                     surroundingCellsAlive = 0
