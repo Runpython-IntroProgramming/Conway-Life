@@ -23,6 +23,9 @@ class cell(Sprite):
 
 a = 0
 b = 0
+height = 20
+width = 20
+
 for x in range(0, height):
             for y in range(0, width):
                 squares[(x,y)] = cell(rectangle, (a, b))
