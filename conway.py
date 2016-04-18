@@ -8,15 +8,81 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
+class ConwayGame(App):
+    
+    def __init__(self):
+        SCREEN_WIDTH = 640
+        SCREEN_HEIGHT = 480
+        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT)
 
-class cell(object):
+class cell(Sprite):
     def __init__(self):
         self.current = False
         self.next = False
         self.surrounding = 0
 
+a = 0
+b = 0
+for x in range(0, height):
+            for y in range(0, width):
+                squares[(x,y)] = cell(rectangle, (a, b))
+                a = a+20
+                a = 0
+                b = b+20
+
+myapp = ConwayGame()
+myapp.run()
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
 class ConwayGame(App):
     
     def __init__(self):
@@ -86,3 +152,4 @@ class ConwayGame(App):
 
 myapp = ConwayGame()
 myapp.run()
+"""
