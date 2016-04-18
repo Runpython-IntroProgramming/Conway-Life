@@ -37,7 +37,7 @@ class ConwayGame(App):
                 a = 0
                 b = b+20
                 
-        def listenMouseEvent(cls, eventtype, callback)
+        #def listenMouseEvent(cls, eventtype, callback)
                 
         
     def step(self):
@@ -76,5 +76,5 @@ class ConwayGame(App):
                     for w in range(0, width):
                         squares[(w, h)].stateCurent = squares[(w, h)].nextState
 
-myapp = ConwayGame
+myapp = ConwayGame()
 myapp.run()
