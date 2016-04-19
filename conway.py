@@ -38,7 +38,10 @@ for x in range(0, height):
     for y in range(0, width):
         squares[(x,y)] = cell(rectangle, (x*height, y*width))
 
-print(squares)
+for w in range(-2, 1)
+    if (w+1, h+1) in squares and squares[(w+1, h+1)].stateCurent == True:
+        sca = sca + 1
+
 myapp = ConwayGame()
 myapp.run()
 
@@ -129,6 +132,7 @@ class ConwayGame(App):
             for h in range(0, height):
                 for w in range(0, width):
                     surroundingCellsAlive = 0
+                    #use just one of these and for loops and then use the variable instead of the +1's etc..
                     if (w+1, h+1) in squares and squares[(w+1, h+1)].stateCurent == True:
                         surroundingCellsAlive = surroundingCellsAlive + 1
                     if ((w+1, h)) in squares and squares[(w+1, h)].stateCurent == True:
