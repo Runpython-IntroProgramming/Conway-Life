@@ -36,7 +36,7 @@ class cell(Sprite):
 
 for x in range(0, height):
     for y in range(0, width):
-        squares[(x,y)] = cell(rectangle, (x, y))
+        squares[(x,y)] = cell(rectangle, (x*height, y*width))
 
 print(squares)
 myapp = ConwayGame()
