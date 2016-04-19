@@ -32,16 +32,19 @@ class cell(Sprite):
         super().__init__(asset, position)
         self.current = False
         self.next = False
-        self.surrounding = 0
+        self.sca = 0
 
 for x in range(0, height):
     for y in range(0, width):
         squares[(x,y)] = cell(rectangle, (x*height, y*width))
-
-for w in range(-2, 1):
-    for h in range(-2, 1)
-        if (w+1, h+1) in squares and squares[(w+1, h+1)].stateCurent == True:
-            sca = sca + 1
+        
+for h in range(0, height):
+    for w in range(0, width):
+        for w in range(-2, 1):
+            for h in range(-2, 1):
+                if (w+1, h+1) in squares and squares[(w+1, h+1)].current == True:
+                    sca = sca + 1
+                    print(sca)
 
 myapp = ConwayGame()
 myapp.run()
