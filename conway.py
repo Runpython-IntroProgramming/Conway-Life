@@ -35,11 +35,11 @@ class cell(Sprite):
         self.surrounding = 0
 
 for x in range(0, height):
-            for y in range(0, width):
-                squares[(x,y)] = cell(rectangle, (a, b))
-                a = a+20
-                a = 0
-                b = b+20
+    for y in range(0, width):
+        squares[(x,y)] = cell(rectangle, (a, b))
+        a = a+20
+        a = 0
+        b = b+20
 
 myapp = ConwayGame()
 myapp.run()
