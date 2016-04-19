@@ -40,7 +40,7 @@ for x in range(0, height):
         a = a+20
         a = 0
         b = b+20
-
+print(squares)
 myapp = ConwayGame()
 myapp.run()
 
