@@ -38,7 +38,7 @@ for x in range(0, height):
     for y in range(0, width):
         squares[(x,y)] = cell(rectangle, (x*height, y*width))
 
-for w in range(-2, 1)
+for w in range(-2, 1):
     if (w+1, h+1) in squares and squares[(w+1, h+1)].stateCurent == True:
         sca = sca + 1
 
