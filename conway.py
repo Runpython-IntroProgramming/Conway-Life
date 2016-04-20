@@ -42,9 +42,13 @@ for g in range(0, height):
     for f in range(0, width):
         for w in range(-1, 2):
             for h in range(-1, 2):
-                if (w+1, h+1) in squares and squares[(w+1, h+1)].current == True:
+                if (w, h) in squares and squares[(w, h)].current == True:
                     squares[(g,f)].sca = squares[(g,f)].sca + 1
+                    print("it works")
                     print(squares[(g,f)].sca)
+                if squares[(g,f).sca == True:
+                    squares[(g,f)].sca = squares[(g,f)].sca - 1
+              
 
 myapp = ConwayGame()
 myapp.run()
