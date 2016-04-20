@@ -38,10 +38,10 @@ for x in range(0, height):
     for y in range(0, width):
         squares[(x,y)] = cell(rectangle, (x*height, y*width))
         
-for h in range(0, height):
-    for w in range(0, width):
-        for w in range(-2, 1):
-            for h in range(-2, 1):
+for g in range(0, height):
+    for f in range(0, width):
+        for w in range(-1, 2):
+            for h in range(-1, 2):
                 if (w+1, h+1) in squares and squares[(w+1, h+1)].current == True:
                     sca = sca + 1
                     print(sca)
