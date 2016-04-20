@@ -43,8 +43,8 @@ for g in range(0, height):
         for w in range(-1, 2):
             for h in range(-1, 2):
                 if (w+1, h+1) in squares and squares[(w+1, h+1)].current == True:
-                    sca = sca + 1
-                    print(sca)
+                    squares[(g,f)].sca = squares[(g,f)].sca + 1
+                    print(squares[(g,f)].sca)
 
 myapp = ConwayGame()
 myapp.run()
