@@ -31,7 +31,6 @@ class cell(Sprite):
     def __init__(self, asset, position):
         super().__init__(asset, position)
         self.current = False
-        self.next = False
         self.sca = 0
 
 for x in range(0, height):
@@ -44,12 +43,15 @@ for g in range(0, height):
             for h in range(-1, 2):
                 if (w, h) in squares and squares[(w, h)].current == True:
                     squares[(g,f)].sca = squares[(g,f)].sca + 1
-                    print("it works")
                     print(squares[(g,f)].sca)
-                if squares[(g,f).sca == True:
+                if squares[(g,f)].sca == True:
                     squares[(g,f)].sca = squares[(g,f)].sca - 1
-              
 
+for s in range(0, height):
+    for d in range(0, width):
+        if squares[(s, d)].sca > 3 or squares[(s, d)].sca < 2:
+            squares[(s, d)].current = False
+                    
 myapp = ConwayGame()
 myapp.run()
 
