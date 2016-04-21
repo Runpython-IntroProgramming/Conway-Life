@@ -34,8 +34,19 @@ class ConwayGame(App):
         SCREEN_WIDTH = 640
         SCREEN_HEIGHT = 480
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT)
-        
+        ConwayGame.listenMouseEvent("click",self.breathlife)
+    
+    def breathlife(self, event):
+        self.cx = event.x
+        self.cy = event.y
+        self.go = True
     def step(self):
+
+        if self.go == True:
+            self.cx
+            self.cy
+            self.go = False
+        
 
         for x in range(0, height):
             for y in range(0, width):
