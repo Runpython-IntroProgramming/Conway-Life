@@ -20,12 +20,6 @@ squares = {}
 thinline = LineStyle(1, black)
 rectangle = RectangleAsset(20, 20, thinline, green)
 
-class ConwayGame(App):
-    
-    def __init__(self):
-        SCREEN_WIDTH = 640
-        SCREEN_HEIGHT = 480
-        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 class cell(Sprite):
     def __init__(self, asset, position):
@@ -33,24 +27,40 @@ class cell(Sprite):
         self.current = False
         self.sca = 0
 
-for x in range(0, height):
-    for y in range(0, width):
-        squares[(x,y)] = cell(rectangle, (x*height, y*width))
+
+class ConwayGame(App):
+    
+    def __init__(self):
+        SCREEN_WIDTH = 640
+        SCREEN_HEIGHT = 480
+        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT)
         
-for g in range(0, height):
-    for f in range(0, width):
-        for w in range(-1, 2):
-            for h in range(-1, 2):
-                if (w, h) in squares and squares[(w, h)].current == True:
-                    squares[(g,f)].sca = squares[(g,f)].sca + 1
-                    print(squares[(g,f)].sca)
+    def step(self):
+
+        for x in range(0, height):
+            for y in range(0, width):
+                squares[(x,y)] = cell(rectangle, (x*height, y*width))
+                
+        for g in range(0, height):
+            for f in range(0, width):
                 if squares[(g,f)].sca == True:
                     squares[(g,f)].sca = squares[(g,f)].sca - 1
+                for w in range(-1, 2):
+                    for h in range(-1, 2):
+                        if (w, h) in squares and squares[(w, h)].current == True:
+                            squares[(g,f)].sca += 1
+                            print(squares[(g,f)].sca)
+        
+        for s in range(0, height):
+            for d in range(0, width):
+                if squares[(s, d)].current == True and squares[(s, d)].sca < 3 or squares[(s, d)].sca > 3:
+                    squares[(s, d)].current = False
+                elif squares[(s, d)].current == False and squares[(s, d)].sca == 3:
+                    squares[(s, d)].current = True
+                else:
+                    squares[(s, d)].current = True
 
-for s in range(0, height):
-    for d in range(0, width):
-        if squares[(s, d)].sca > 3 or squares[(s, d)].sca < 2:
-            squares[(s, d)].current = False
+
                     
 myapp = ConwayGame()
 myapp.run()
