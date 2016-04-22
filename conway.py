@@ -26,7 +26,7 @@ class cell(Sprite):
         super().__init__(asset, position)
         self.current = False
         self.sca = 0
-        self.visible = False
+        self.visible = True
 
 for x in range(0, height):
             for y in range(0, width):
@@ -39,18 +39,23 @@ class ConwayGame(App):
         SCREEN_HEIGHT = 480
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT)
         ConwayGame.listenMouseEvent("click",self.breathlife)
-    
-    def breathlife(self, event):
+   
+   def breathlife(self, event):
         self.cx = event.x
         self.cy = event.y
-        self.go = True
-    def step(self):
-
+        self.go = True 
+    
+    while going == False:
         if self.go == True:
             self.cx = ((self.cx/10)//1)*10
             self.cy = ((self.cy/10)//1)*10
-            squares[(self.cx, self.cy)].current = True
+            squares[(self.cx, self.cy)].visible = True
             self.go = False
+            
+            
+    def step(self):
+
+        
                 
         for g in range(0, height):
             for f in range(0, width):
