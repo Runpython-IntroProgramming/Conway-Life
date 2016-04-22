@@ -45,6 +45,7 @@ class ConwayGame(App):
         self.cy = event.y
         self.go = True 
     
+    going = False
     while going == False:
         if self.go == True:
             self.cx = ((self.cx/10)//1)*10
@@ -55,26 +56,26 @@ class ConwayGame(App):
             
     def step(self):
 
-        
+        while going == True:
                 
-        for g in range(0, height):
-            for f in range(0, width):
-                if squares[(g,f)].sca == True:
-                    squares[(g,f)].sca = squares[(g,f)].sca - 1
-                for w in range(-1, 2):
-                    for h in range(-1, 2):
-                        if (w, h) in squares and squares[(w, h)].current == True:
-                            squares[(g,f)].sca += 1
-                            print(squares[(g,f)].sca)
-        
-        for s in range(0, height):
-            for d in range(0, width):
-                if squares[(s, d)].current == True and squares[(s, d)].sca < 3 or squares[(s, d)].sca > 3:
-                    squares[(s, d)].current = False
-                elif squares[(s, d)].current == False and squares[(s, d)].sca == 3:
-                    squares[(s, d)].current = True
-                else:
-                    squares[(s, d)].current = True
+            for g in range(0, height):
+                for f in range(0, width):
+                    if squares[(g,f)].sca == True:
+                        squares[(g,f)].sca = squares[(g,f)].sca - 1
+                    for w in range(-1, 2):
+                        for h in range(-1, 2):
+                            if (w, h) in squares and squares[(w, h)].current == True:
+                                squares[(g,f)].sca += 1
+                                print(squares[(g,f)].sca)
+            
+            for s in range(0, height):
+                for d in range(0, width):
+                    if squares[(s, d)].current == True and squares[(s, d)].sca < 3 or squares[(s, d)].sca > 3:
+                        squares[(s, d)].current = False
+                    elif squares[(s, d)].current == False and squares[(s, d)].sca == 3:
+                        squares[(s, d)].current = True
+                    else:
+                        squares[(s, d)].current = True
 
 
                     
