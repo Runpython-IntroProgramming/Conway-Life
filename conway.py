@@ -80,9 +80,6 @@ class ConwayGame(App):
                         squares[(s, d)].current = True
                     else:
                         squares[(s, d)].current = True
-
-
-                    
 myapp = ConwayGame()
 myapp.run()
 
