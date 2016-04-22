@@ -19,7 +19,7 @@ width = 20
 squares = {}
 thinline = LineStyle(1, black)
 rectangle = RectangleAsset(20, 20, thinline, green)
-
+ going = False
 
 class cell(Sprite):
     def __init__(self, asset, position):
@@ -49,16 +49,14 @@ class ConwayGame(App):
     def spaceclick(self,event):
         going = True
     
-    going = False
-    while going == False:
+   
+    def step(self):
+        while going == False:
         if self.go == True:
             self.cx = ((self.cx/10)//1)*10
             self.cy = ((self.cy/10)//1)*10
             squares[(self.cx, self.cy)].visible = True
             self.go = False
-            
-            
-    def step(self):
 
         while going == True:
                 
