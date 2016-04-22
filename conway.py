@@ -35,7 +35,7 @@ for x in range(0, height):
 class ConwayGame(App):
     
     def __init__(self):
-        self.listenKesyEvent("keydown", "space", self.spaceclick)
+        self.listenKeyEvent("keydown", "space", self.spaceclick)
         SCREEN_WIDTH = 640
         SCREEN_HEIGHT = 480
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT)
