@@ -41,7 +41,7 @@ class ConwayGame(App):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT)
         ConwayGame.listenMouseEvent("click",self.breathlife)
    
-   def breathlife(self, event):
+    def breathlife(self, event):
         self.cx = event.x
         self.cy = event.y
         self.go = True 
