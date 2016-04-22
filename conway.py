@@ -27,6 +27,9 @@ class cell(Sprite):
         self.current = False
         self.sca = 0
 
+for x in range(0, height):
+            for y in range(0, width):
+                squares[(x,y)] = cell(rectangle, (x*height, y*width))
 
 class ConwayGame(App):
     
@@ -43,14 +46,10 @@ class ConwayGame(App):
     def step(self):
 
         if self.go == True:
-            self.cx
-            self.cy
+            self.cx = ((self.cx/10)//1)*10
+            self.cy = ((self.cy/10)//1)*10
+            squares[(self.cx, self.cy)].current = True
             self.go = False
-        
-
-        for x in range(0, height):
-            for y in range(0, width):
-                squares[(x,y)] = cell(rectangle, (x*height, y*width))
                 
         for g in range(0, height):
             for f in range(0, width):
