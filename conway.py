@@ -55,6 +55,7 @@ class ConwayGame(App):
                 self.cx = ((self.cx/10)//1)*10
                 self.cy = ((self.cy/10)//1)*10
                 squares[(self.cx, self.cy)].visible = True
+                print("uhsdlhadlh")
                 self.go = False
 
         if going == True:
