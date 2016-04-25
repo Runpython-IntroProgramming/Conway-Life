@@ -47,18 +47,17 @@ class ConwayGame(App):
         self.go = True 
     
     def spaceclick(self,event):
-        going = True
-    
-   
+        going = False
+
     def step(self):
-        while going == False:
+        if going == False:
             if self.go == True:
                 self.cx = ((self.cx/10)//1)*10
                 self.cy = ((self.cy/10)//1)*10
                 squares[(self.cx, self.cy)].visible = True
                 self.go = False
 
-        while going == True:
+        if going == True:
                 
             for g in range(0, height):
                 for f in range(0, width):
