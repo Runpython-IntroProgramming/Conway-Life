@@ -45,21 +45,21 @@ class ConwayGame(App):
     def breathlife(self, event):
         self.cx = event.x
         self.cy = event.y
-        self.go = True 
     
     def spaceclick(self,event):
         self.going = False
 
     def step(self):
+        print("uhsdlhadlh")
         if self.going == False:
+            print("uits working?")
             self.cx = ((self.cx/10)//1)*10
             self.cy = ((self.cy/10)//1)*10
             squares[(self.cx, self.cy)].visible = True
-            print("uhsdlhadlh")
             self.going = True
 
         if self.going == True:
-                
+            print("going now")    
             for g in range(0, height):
                 for f in range(0, width):
                     if squares[(g,f)].sca == True:
