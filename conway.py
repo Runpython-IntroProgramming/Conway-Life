@@ -52,8 +52,8 @@ class ConwayGame(App):
     def step(self):
         print("uhsdlhadlh")
         if self.going == False:
-            self.cx = int(self.cx/20)*20+10
-            self.cy = int(self.cy/20)*20+10
+            self.cx = int(self.cx/20)
+            self.cy = int(self.cy/20)
             squares[(self.cx, self.cy)].visible = False
             self.going = True
             print("its working?")
