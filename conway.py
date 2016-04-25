@@ -53,8 +53,8 @@ class ConwayGame(App):
         print("uhsdlhadlh")
         if self.going == False:
             print("its working?")
-            self.cx = ((self.cx/10)//1)*10
-            self.cy = ((self.cy/10)//1)*10
+            self.cx = (((self.cx/20)//1)*10)+10
+            self.cy = (((self.cy/20)//1)*10)+10
             squares[(self.cx, self.cy)].visible = False
             self.going = True
 
