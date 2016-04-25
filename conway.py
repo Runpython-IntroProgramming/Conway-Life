@@ -55,7 +55,7 @@ class ConwayGame(App):
             print("uits working?")
             self.cx = ((self.cx/10)//1)*10
             self.cy = ((self.cy/10)//1)*10
-            squares[(self.cx, self.cy)].visible = True
+            squares[(self.cx, self.cy)].visible = False
             self.going = True
 
         if self.going == True:
