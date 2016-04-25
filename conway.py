@@ -19,7 +19,7 @@ width = 20
 squares = {}
 thinline = LineStyle(1, black)
 rectangle = RectangleAsset(20, 20, thinline, green)
-going = False
+
 
 class cell(Sprite):
     def __init__(self, asset, position):
@@ -38,6 +38,7 @@ class ConwayGame(App):
         ConwayGame.listenKeyEvent("keydown", "space", self.spaceclick)
         SCREEN_WIDTH = 640
         SCREEN_HEIGHT = 480
+        self.going = False
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT)
         ConwayGame.listenMouseEvent("click",self.breathlife)
    
@@ -47,10 +48,10 @@ class ConwayGame(App):
         self.go = True 
     
     def spaceclick(self,event):
-        going = False
+        self.going = False
 
     def step(self):
-        if going == False:
+        if self.going == False:
             if self.go == True:
                 self.cx = ((self.cx/10)//1)*10
                 self.cy = ((self.cy/10)//1)*10
@@ -58,7 +59,7 @@ class ConwayGame(App):
                 print("uhsdlhadlh")
                 self.go = False
 
-        if going == True:
+        if self.going == True:
                 
             for g in range(0, height):
                 for f in range(0, width):
