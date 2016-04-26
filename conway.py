@@ -51,6 +51,8 @@ class ConwayGame(App):
 
     def step(self):
         if self.going == False:
+            print(self.cx)
+            print(self.cy)
             squares[(self.cx, self.cy)].visible = False
             self.going = True
          
