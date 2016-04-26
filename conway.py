@@ -26,7 +26,7 @@ class cell(Sprite):
         super().__init__(asset, position)
         self.current = False
         self.sca = 0
-        self.visible = True
+        self.visible = False
 
 for x in range(0, height):
             for y in range(0, width):
@@ -45,10 +45,7 @@ class ConwayGame(App):
     def breathlife(self, event):
         self.cx = int(event.x/20)
         self.cy = int(event.y/20)
-        squares[(self.cx, self.cy)].visible = False
-        print(self.cx)
-        print(self.cy)
-        print("")
+        squares[(self.cx, self.cy)].visible = True
     
     def spaceclick(self,event):
         self.going = not self.going
