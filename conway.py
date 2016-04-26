@@ -54,12 +54,13 @@ class ConwayGame(App):
         if self.going == True:
             for g in range(0, height):
                 for f in range(0, width):
-                    if squares[(g,f)].sca == True:
+                    if squares[(g,f)].visible == True:
                         squares[(g,f)].sca = squares[(g,f)].sca - 1
                     for w in range(-1, 2):
                         for h in range(-1, 2):
                             if (w, h) in squares and squares[(w, h)].visible == True:
                                 squares[(g,f)].sca += 1
+                    print(squares[(g,f)].sca)
             
             for s in range(0, height):
                 for d in range(0, width):
