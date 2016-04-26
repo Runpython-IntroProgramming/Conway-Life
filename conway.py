@@ -59,7 +59,7 @@ class ConwayGame(App):
                     for w in range(-1, 2):
                         for h in range(-1, 2):
                             if (w, h) in squares and squares[(w, h)].visible == True:
-                                squares[(g,f)].sca += 1
+                                squares[(g,f)].sca = quares[(g,f)].sca + 1
                     print(squares[(g,f)].sca)
             
             for s in range(0, height):
