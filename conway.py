@@ -43,24 +43,17 @@ class ConwayGame(App):
         ConwayGame.listenMouseEvent("click",self.breathlife)
    
     def breathlife(self, event):
-        self.cx = event.x
-        self.cy = event.y
+        self.cx = int(event.x/20)
+        self.cy = int(event.y/20)
     
     def spaceclick(self,event):
         self.going = False
 
     def step(self):
         if self.going == False:
-            #self.cx = int(self.cx/20)
-            #self.cy = int(self.cy/20)
-            print(self.cx)
-            print(self.cy)
-            #squares[(self.cx, self.cy)].visible = False
-            squares[(1, 1)].visible = False
+            squares[(self.cx, self.cy)].visible = False
             self.going = True
-           
-
-
+         
         if self.going == True:
             for g in range(0, height):
                 for f in range(0, width):
