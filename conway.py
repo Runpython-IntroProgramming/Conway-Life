@@ -24,7 +24,7 @@ rectangle = RectangleAsset(20, 20, thinline, green)
 class cell(Sprite):
     def __init__(self, asset, position):
         super().__init__(asset, position)
-        self.current = False
+        self.visible = False
         self.sca = 0
         self.visible = False
 
@@ -58,17 +58,16 @@ class ConwayGame(App):
                         squares[(g,f)].sca = squares[(g,f)].sca - 1
                     for w in range(-1, 2):
                         for h in range(-1, 2):
-                            if (w, h) in squares and squares[(w, h)].current == True:
+                            if (w, h) in squares and squares[(w, h)].visible == True:
                                 squares[(g,f)].sca += 1
-                                print(squares[(g,f)].sca)
             
             for s in range(0, height):
                 for d in range(0, width):
-                    if squares[(s, d)].current == True and squares[(s, d)].sca < 3 or squares[(s, d)].sca > 3:
-                        squares[(s, d)].current = False
-                    elif squares[(s, d)].current == False and squares[(s, d)].sca == 3:
-                        squares[(s, d)].current = True
+                    if squares[(s, d)].visible == True and squares[(s, d)].sca < 3 or squares[(s, d)].sca > 3:
+                        squares[(s, d)].visible = False
+                    elif squares[(s, d)].visible == False and squares[(s, d)].sca == 3:
+                        squares[(s, d)].visible = True
                     else:
-                        squares[(s, d)].current = True
+                        squares[(s, d)].visible = True
 myapp = ConwayGame()
 myapp.run()
