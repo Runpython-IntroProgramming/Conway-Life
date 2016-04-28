@@ -46,7 +46,7 @@ class ConwayGame(App):
     def breathlife(self, event):
         self.cx = int(event.x/20)
         self.cy = int(event.y/20)
-        squares[(self.cx, self.cy)].visible = True
+        squares[(self.cx, self.cy)].visible = not squares[(self.cx, self.cy)].visible
     
     def spaceclick(self,event):
         self.going = not self.going
