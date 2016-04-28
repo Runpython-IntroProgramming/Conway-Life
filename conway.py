@@ -64,7 +64,7 @@ class ConwayGame(App):
             
             for s in range(0, height):
                 for d in range(0, width):
-                    if squares[(s, d)].visible == True and squares[(s, d)].sca < 3 or squares[(s, d)].sca > 3:
+                    if squares[(s, d)].visible == True and squares[(s, d)].sca < 2 or squares[(s, d)].sca > 3:
                         squares[(s, d)].visible = False
                     elif squares[(s, d)].visible == False and squares[(s, d)].sca == 3:
                         squares[(s, d)].visible = True
