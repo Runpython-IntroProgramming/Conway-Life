@@ -8,7 +8,6 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
-blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 green = Color(0x00ff00, 1.0)
 orange = Color(0xFF8400,1.0)
