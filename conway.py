@@ -20,7 +20,7 @@ width = 20
 squares = {}
 thinline = LineStyle(1, black)
 rectangle = RectangleAsset(20, 20, thinline, green)
-rectangle = RectangleAsset(20, 20, thinline, orange)
+rectangle2 = RectangleAsset(20, 20, thinline, orange)
 
 class cell(Sprite):
     def __init__(self, asset, position):
