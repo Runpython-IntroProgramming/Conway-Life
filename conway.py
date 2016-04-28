@@ -68,7 +68,6 @@ class ConwayGame(App):
                         squares[(s, d)].visible = False
                     elif squares[(s, d)].visible == False and squares[(s, d)].sca == 3:
                         squares[(s, d)].visible = True
-                    else:
-                        squares[(s, d)].visible = True
+                    
 myapp = ConwayGame()
 myapp.run()
