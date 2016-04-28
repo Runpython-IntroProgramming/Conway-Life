@@ -1,7 +1,7 @@
 """
 conway.py
 Author: Glen Passow
-Credit: 
+Credit: Adam Glueck
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
@@ -11,6 +11,7 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 green = Color(0x00ff00, 1.0)
+orange = Color(0xFF8400,1.0)
 thinline = LineStyle(1, black)
 a = 0
 b = 0
@@ -19,7 +20,7 @@ width = 20
 squares = {}
 thinline = LineStyle(1, black)
 rectangle = RectangleAsset(20, 20, thinline, green)
-
+rectangle = RectangleAsset(20, 20, thinline, orange)
 
 class cell(Sprite):
     def __init__(self, asset, position):
@@ -31,6 +32,7 @@ class cell(Sprite):
 for x in range(0, height):
             for y in range(0, width):
                 squares[(x,y)] = cell(rectangle, (x*height, y*width))
+                squares[(x,y)] = (rectangle, (x*height, y*width))
 
 class ConwayGame(App):
     
