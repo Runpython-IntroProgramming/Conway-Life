@@ -31,7 +31,7 @@ class cell(Sprite):
 
 for x in range(0, height):
             for y in range(0, width):
-                rectangle, (x*height, y*width)
+                Sprite(rectangle2, (x*height, y*width))
                 squares[(x,y)] = cell(rectangle, (x*height, y*width))
           
 class ConwayGame(App):
