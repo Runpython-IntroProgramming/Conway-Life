@@ -9,8 +9,8 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 from ggame import Frame, App, Color, RectangleAsset, Sprite, ImageAsset, LineStyle 
 
 black=Color(0x000000,1.0)
-green=Color(0x00ff00,1.0)
-orange=Color(0xFF8400,1.0)
+celestegreen=Color(0x00FFB7,1.0)
+red=Color(0xBA0000,1.0)
 thinline=LineStyle(1, black)
 a=0
 b=0
@@ -18,8 +18,8 @@ height=20
 width=20
 squares={}
 thinline=LineStyle(1, black)
-rectangle=RectangleAsset(20, 20, thinline, green)
-rectangle2=RectangleAsset(20, 20, thinline, orange)
+livecell=RectangleAsset(20, 20, thinline, celestegreen)
+deadcell=RectangleAsset(20, 20, thinline, red)
 
 class cell(Sprite):
     def __init__(self, asset, position):
@@ -29,8 +29,8 @@ class cell(Sprite):
 
 for x in range(0, height):
             for y in range(0, width):
-                Sprite(rectangle2, (x*height, y*width))
-                squares[(x,y)]=cell(rectangle, (x*height, y*width))
+                Sprite(deadcell, (x*height, y*width))
+                squares[(x,y)]=cell(livecell, (x*height, y*width))
           
 class ConwayGame(App):
     
