@@ -1,7 +1,7 @@
 """
 conway.py
 Author: Adam Glueck
-Credit: Glen Passow
+Credit: Glen Passow, Stack overflow
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
@@ -14,12 +14,12 @@ red=Color(0xBA0000,1.0)
 line=LineStyle(1, black)
 a=0
 b=0
-height=20
-width=20
+height=30
+width=30
 squares={}
 thinline=LineStyle(1, black)
-livecell=RectangleAsset(20,20,line,celestegreen)
-deadcell=RectangleAsset(20,20,line,red)
+livecell=RectangleAsset(30,30,line,celestegreen)
+deadcell=RectangleAsset(30,30,line,red)
 
 class cell(Sprite):
     def __init__(self, asset, position):
@@ -36,14 +36,14 @@ class ConwayGame(App):
     
     def __init__(self):
         ConwayGame.listenKeyEvent("keydown", "space",self.spaceclick)
-        SCREEN_WIDTH=640
-        SCREEN_HEIGHT=480
+        SCREEN_WIDTH=960
+        SCREEN_HEIGHT=720
         self.going = False
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT)
         ConwayGame.listenMouseEvent("click",self.create)
     def create(self, event):
-        self.cx=int(event.x/20)
-        self.cy=int(event.y/20)
+        self.cx=int(event.x/30)
+        self.cy=int(event.y/30)
         squares[(self.cx, self.cy)].visible=not squares[(self.cx, self.cy)].visible
     
     def spaceclick(self,event):
