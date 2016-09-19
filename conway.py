@@ -17,7 +17,7 @@ border = LineStyle(2, black)
 line = LineStyle(1, black)
 
 class Cell(Sprite):
-    asset = RectangleAsset(10,10, line, black)
+    asset = RectangleAsset(10,10, line, white)
     def __init__(self, position):
         super().__init__(Cell.asset, position)
         
