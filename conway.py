@@ -26,7 +26,8 @@ class Conway(App):
     bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, border, white)
     bg = Sprite(bg_asset, (0,0))
     for row in range(0,120):
-        Cell((row*10,0))
+        for col in range(0,80):
+            Cell((row*10,col*10))
 
 
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
