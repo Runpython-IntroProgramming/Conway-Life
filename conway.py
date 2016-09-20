@@ -8,8 +8,8 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
-SCREEN_WIDTH = 1001
-SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 151
+SCREEN_HEIGHT = 101
 black = Color(0, 1)
 green = Color(0x408000, 1.0)
 white = Color(0xffffff, 1.0)
@@ -20,15 +20,29 @@ class Cell(Sprite):
     asset = RectangleAsset(10,10, line, white)
     def __init__(self, position):
         super().__init__(Cell.asset, position)
-        
+        self.fxcenter = self.fycenter = 0
+    
+    def step(self):#Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
+        if createlife = True and 
 
 class Conway(App):
-    bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, border, white)
-    bg = Sprite(bg_asset, (0,0))
-    for row in range(0,100):
-        for col in range(0,60):
-            Cell((row*10,col*10))
+    list = [[0 for col in range(0,15)] for row in range(0,10)]
+
+    
+
+    def mousedown(event):
+        createlife = True
+    
+    def mouseup(event):
+        createlife = False
+    
+    def step(self):
+        for Cell in self.getSpritebyClass(Cell):
+            Cell.step()
+
+#Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
 
 
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
+#add mouse sensing here
 myapp.run()
