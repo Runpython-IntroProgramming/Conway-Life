@@ -22,17 +22,23 @@ class Cell(Sprite):
         super().__init__(Cell.asset, position)
         self.fxcenter = self.fycenter = 0
     
-    def step(self):#Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
-        if createlife = True and 
+    #def step(self):Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
 
 class Conway(App):
-    list = [[0 for col in range(0,15)] for row in range(0,10)]
+    def __init__(self, width, height):
+        super().__init__(width, height)
+        list = [( for col in range(0,15)] for row in range(0,10)]
+    
 
     
 
     def mousedown(event):
         createlife = True
-    
+
+    def mousemove(event):
+        mousex = event.x
+        mousey = event.y
+
     def mouseup(event):
         createlife = False
     
@@ -44,5 +50,7 @@ class Conway(App):
 
 
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
-#add mouse sensing here
+myapp.listenMouseEvent('mousedown', mousedown)
+myapp.listenMouseEvent('mouseup', mouseup)
+myapp.listenMouseEvent('mousemove', mousemove)
 myapp.run()
