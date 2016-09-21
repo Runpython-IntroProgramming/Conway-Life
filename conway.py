@@ -40,14 +40,14 @@ class Conway(App):
 
     
 
-    def mousedown(event):
+    def mousedown(self, event):
         createlife = True
 
-    def mousemove(event):
+    def mousemove(self, event):
         mousex = event.x
         mousey = event.y
 
-    def mouseup(event):
+    def mouseup(self, event):
         createlife = False
     
     def step(self):
