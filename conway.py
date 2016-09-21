@@ -21,9 +21,13 @@ class Cell(Sprite):
     def __init__(self, position):
         super().__init__(Cell.asset, position)
         self.fxcenter = self.fycenter = 0
-        self.row = x
-        self.col = y
+        self.row = position[1]/10
+        self.col = position[0]/10
+
+    """
+    def step(self)
     
+    """
     #def step(self):Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
 
 class Conway(App):
@@ -54,7 +58,7 @@ class Conway(App):
 
 
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
-myapp.listenMouseEvent('mousedown', mousedown)
-myapp.listenMouseEvent('mouseup', mouseup)
-myapp.listenMouseEvent('mousemove', mousemove)
+myapp.listenMouseEvent('mousedown', myapp.mousedown)
+myapp.listenMouseEvent('mouseup', myapp.mouseup)
+myapp.listenMouseEvent('mousemove', myapp.mousemove)
 myapp.run()
