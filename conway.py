@@ -21,13 +21,17 @@ class Cell(Sprite):
     def __init__(self, position):
         super().__init__(Cell.asset, position)
         self.fxcenter = self.fycenter = 0
+        self.row = x
+        self.col = y
     
     #def step(self):Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
 
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        list = [( for col in range(0,15)] for row in range(0,10)]
+        for x in range(0,15):
+            for y in range(0,10):
+                Cell((10*x,10*y))
     
 
     
