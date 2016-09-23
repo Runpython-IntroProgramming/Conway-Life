@@ -27,6 +27,7 @@ class Cell(Sprite):
 """
     def step(self):
         if Conway.createlife == True
+            list[self.col][self.row][0] = 1
             make black
         if list[col][row]
     
@@ -39,12 +40,12 @@ class Conway(App):
         for x in range(0,15):
             for y in range(0,10):
                 Cell((10*x,10*y))
-
+"""
     def createlife(self):
         if (mousex >= self.x and mousex <= self.x+10) and (mousey >= self.y and mousey <= self.y):
-            list[col.self][row.self][0] = 1
+        Return True
             
-
+"""
 
     def mousedown(self, event):
         createlife = True
