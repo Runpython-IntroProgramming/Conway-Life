@@ -59,3 +59,9 @@ class Conway(App):
     def step(self):
         for Cell in self.getSpritebyClass(Cell):
             Cell.step()
+
+myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp.listenMouseEvent('mousedown', myapp.mousedown)
+myapp.listenMouseEvent('mouseup', myapp.mouseup)
+myapp.listenMouseEvent('mousemove', myapp.mousemove)
+myapp.run()
