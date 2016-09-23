@@ -20,13 +20,16 @@ class Cell(Sprite):
     asset = RectangleAsset(10,10, line, white)
     def __init__(self, position):
         super().__init__(Cell.asset, position)
-        
+        self.fxcenter = self.fycenter = 0
+        self.row = position[1]/10
+        self.col = position[0]/10
 
-class Conway(App):
-    for row in range(0,13):
-        for col in range(0,10):
-            Cell((row*10,col*10))
+list = [[(0,col,row) for row in range(15)] for col in range(10)]
+
+for row in range(0,15):
+    for col in range(0,10):
+        Cell((row*10,col*10))
 
 
-myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
