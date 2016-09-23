@@ -25,14 +25,26 @@ class Cell(Sprite):
         self.col = position[0]/10
 
 """
-    def step(self):
-        if list[self.col][self.row][0] == 1:
+    def step(self): #Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
+        if list[self.col][self.row][0] == 1: #if alive do the below
+            check if should be alive
+            if yes, set to 1
+            if no, set to 0
+            
+        if list[self.col][self.row][0] == 0: #if dead do the below
+            check if should be alive
+            if yes, set to 2
+            if no, set to 0
+            
+        if list[self.col][self.row][0] == 2: #if just birthed do the below
+            if yes, set to 1
+            if no, set to 0
             
         if Conway.createlife == True:
-            list[self.col][self.row][0] = 1
-            make green
+            list[self.col][self.row][0] = 2
     
-    #def step(self):Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
+    def changecolor(self)
+        if 
 """
 
 class Conway(App):
@@ -61,6 +73,9 @@ class Conway(App):
     def step(self):
         for Cell in self.getSpritebyClass(Cell):
             Cell.step()
+        """
+        for Cell in self.getSpritebyClass(Cell):
+            Cell.changecolor
         
 
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
