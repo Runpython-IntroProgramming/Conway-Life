@@ -73,7 +73,7 @@ class Cell(Sprite):
             s += 1
         if list[self.col+1][self.row+1][0] == 1 or list[self.col+1][self.row+1][0] == 2:
             s += 1
-        Return s
+        "Return s"
 
 
 
