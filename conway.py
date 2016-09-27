@@ -17,14 +17,14 @@ border = LineStyle(2, black)
 line = LineStyle(1, black)
 
 class Cell(Sprite):
-    asset = RectangleAsset(10,10, line, white)
+    asset = ImageAsset("conwaysprites.png",
+        Frame(0,0,10,10), 3, 'horizontal')
     def __init__(self, position):
         super().__init__(Cell.asset, position)
         self.fxcenter = self.fycenter = 0
         self.row = position[1]/10
         self.col = position[0]/10
 
-"""
     def step(self): #Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
         if list[self.col][self.row][0] == 1: #if alive do the below
             if Cell.countneighbors < 2 or Cel.countneighbors > 3:
@@ -45,8 +45,11 @@ class Cell(Sprite):
     
     def changecolor(self)
         if list[self.col][self.row][0] == 0:
+            self.setImage(2)
         if list[self.col][self.row][0] == 1:
+            self.setImage(1)
         if list[self.col][self.row][0] == 2:
+            self.setImage(0)
     
     def createlife(self):
         if (mousex >= self.x and mousex <= self.x+10) and (mousey >= self.y and mousey <= self.y):
@@ -72,7 +75,7 @@ class Cell(Sprite):
             s += 1
         Return s
 
-"""
+
 
 class Conway(App):
     def __init__(self, width, height):
@@ -94,10 +97,9 @@ class Conway(App):
     def step(self):
         for Cell in self.getSpritebyClass(Cell):
             Cell.step()
-        """
         for Cell in self.getSpritebyClass(Cell):
             Cell.changecolor
-        """
+
 
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mousedown', myapp.mousedown)
