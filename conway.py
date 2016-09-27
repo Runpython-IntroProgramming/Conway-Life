@@ -54,7 +54,7 @@ class Cell(Sprite):
     
     def createlife(self):
         if (mousex >= self.x and mousex <= self.x+10) and (mousey >= self.y and mousey <= self.y):
-            "Return True"
+            Return True
             
     def countneighbors(self):
         s = 0
@@ -74,7 +74,7 @@ class Cell(Sprite):
             s += 1
         if list[self.col+1][self.row+1][0] == 1 or list[self.col+1][self.row+1][0] == 2:
             s += 1
-        "Return s"
+        Return s
 
 
 
