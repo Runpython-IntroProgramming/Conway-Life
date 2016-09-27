@@ -31,7 +31,7 @@ class Cell(Sprite):
                 list[self.col][self.row][0] = 0
             
         if list[self.col][self.row][0] == 0: #if dead do the below
-            if Cell.countneighbors = 3:
+            if Cell.countneighbors == 3:
                 list[self.col][self.row][0] = 2
             
         if list[self.col][self.row][0] == 2: #if just birthed do the below
@@ -43,7 +43,7 @@ class Cell(Sprite):
         if Conway.createlife == True:
             list[self.col][self.row][0] = 2
     
-    def changecolor(self)
+    def changecolor(self):
         if list[self.col][self.row][0] == 0:
             self.setImage(2)
         if list[self.col][self.row][0] == 1:
@@ -53,7 +53,7 @@ class Cell(Sprite):
     
     def createlife(self):
         if (mousex >= self.x and mousex <= self.x+10) and (mousey >= self.y and mousey <= self.y):
-        Return True
+            Return True
             
     def countneighbors(self):
         s = 0
