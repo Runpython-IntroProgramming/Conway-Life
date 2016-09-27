@@ -39,10 +39,10 @@ class Cell(Sprite):
                 list[self.col][self.row][0] = 0
             else:
                 list[self.col][self.row][0] = 1
-            
+            """
         if Conway.createlife == True:
             list[self.col][self.row][0] = 2
-    
+    """
     def changecolor(self):
         if list[self.col][self.row][0] == 0:
             self.setImage(2)
@@ -53,25 +53,25 @@ class Cell(Sprite):
     
     def createlife(self):
         if (mousex >= self.x and mousex <= self.x+10) and (mousey >= self.y and mousey <= self.y):
-            Return True
+            "Return True"
             
     def countneighbors(self):
         s = 0
-        if list[self.col-1][self.row-1][0] == 1
+        if list[self.col-1][self.row-1][0] == 1 or list[self.col-1][self.row-1][0] == 2:
             s += 1
-        if list[self.col-1][self.row][0] == 1
+        if list[self.col-1][self.row][0] == 1 or list[self.col-1][self.row][0] == 2:
             s += 1
-        if list[self.col-1][self.row+1][0] == 1
+        if list[self.col-1][self.row+1][0] == 1 or list[self.col-1][self.row+1][0] == 2:
             s += 1
-        if list[self.col][self.row-1][0] == 1
+        if list[self.col][self.row-1][0] == 1 or list[self.col][self.row-1][0] == 2:
             s += 1
-        if list[self.col][self.row+1][0] == 1
+        if list[self.col][self.row+1][0] == 1 or list[self.col][self.row+1][0] == 2:
             s += 1
-        if list[self.col+1][self.row-1][0] == 1
+        if list[self.col+1][self.row-1][0] == 1 or list[self.col+1][self.row-1][0] == 2:
             s += 1
-        if list[self.col+1][self.row][0] == 1
+        if list[self.col+1][self.row][0] == 1 or list[self.col+1][self.row][0] == 2:
             s += 1
-        if list[self.col+1][self.row+1][0] == 1
+        if list[self.col+1][self.row+1][0] == 1 or list[self.col+1][self.row+1][0] == 2:
             s += 1
         Return s
 
