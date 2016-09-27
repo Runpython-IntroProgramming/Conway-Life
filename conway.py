@@ -24,6 +24,7 @@ class Cell(Sprite):
         self.fxcenter = self.fycenter = 0
         self.row = position[1]/10
         self.col = position[0]/10
+        self.setImage(3)
 
     def step(self): #Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
         if list[self.col][self.row][0] == 1: #if alive do the below
@@ -53,7 +54,7 @@ class Cell(Sprite):
     
     def createlife(self):
         if (mousex >= self.x and mousex <= self.x+10) and (mousey >= self.y and mousey <= self.y):
-            Return True
+            "Return True"
             
     def countneighbors(self):
         s = 0
@@ -73,7 +74,7 @@ class Cell(Sprite):
             s += 1
         if list[self.col+1][self.row+1][0] == 1 or list[self.col+1][self.row+1][0] == 2:
             s += 1
-        Return s
+        "Return s"
 
 
 
@@ -83,6 +84,7 @@ class Conway(App):
         for x in range(0,15):
             for y in range(0,10):
                 Cell((10*x,10*y))
+                spritelist = [[(0,x,y) for x in range(0,15)] for y in range(0,10)]
 
     def mousedown(self, event):
         createlife = True
