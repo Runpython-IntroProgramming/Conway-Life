@@ -27,29 +27,29 @@ class Cell(Sprite):
         self.setImage(3)
 
     def step(self): #Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
-        if list[self.col][self.row][0] == 1: #if alive do the below
+        if spritelist[self.col][self.row][0] == 1: #if alive do the below
             if Cell.countneighbors < 2 or Cell.countneighbors > 3:
-                list[self.col][self.row][0] = 0
+                spritelist[self.col][self.row][0] = 0
             
-        if list[self.col][self.row][0] == 0: #if dead do the below
+        if spritelist[self.col][self.row][0] == 0: #if dead do the below
             if Cell.countneighbors == 3:
-                list[self.col][self.row][0] = 2
+                spritelist[self.col][self.row][0] = 2
             
-        if list[self.col][self.row][0] == 2: #if just birthed do the below
+        if spritelist[self.col][self.row][0] == 2: #if just birthed do the below
             if Cell.countneighbors < 2 or Cell.countneighbors > 3:
-                list[self.col][self.row][0] = 0
+                spritelist[self.col][self.row][0] = 0
             else:
-                list[self.col][self.row][0] = 1
+                spritelist[self.col][self.row][0] = 1
         
         if Conway.createlife == True:
-            list[self.col][self.row][0] = 2
+            spritelist[self.col][self.row][0] = 2
     
     def changecolor(self):
-        if list[self.col][self.row][0] == 0:
+        if spritelist[self.col][self.row][0] == 0:
             self.setImage(2)
-        if list[self.col][self.row][0] == 1:
+        if spritelist[self.col][self.row][0] == 1:
             self.setImage(1)
-        if list[self.col][self.row][0] == 2:
+        if spritelist[self.col][self.row][0] == 2:
             self.setImage(0)
     
     def createlife(self):
@@ -58,21 +58,21 @@ class Cell(Sprite):
             
     def countneighbors(self):
         s = 0
-        if list[self.col-1][self.row-1][0] == 1 or list[self.col-1][self.row-1][0] == 2:
+        if spritelist[self.col-1][self.row-1][0] == 1 or spritelist[self.col-1][self.row-1][0] == 2:
             s += 1
-        if list[self.col-1][self.row][0] == 1 or list[self.col-1][self.row][0] == 2:
+        if spritelist[self.col-1][self.row][0] == 1 or spritelist[self.col-1][self.row][0] == 2:
             s += 1
-        if list[self.col-1][self.row+1][0] == 1 or list[self.col-1][self.row+1][0] == 2:
+        if spritelist[self.col-1][self.row+1][0] == 1 or spritelist[self.col-1][self.row+1][0] == 2:
             s += 1
-        if list[self.col][self.row-1][0] == 1 or list[self.col][self.row-1][0] == 2:
+        if spritelist[self.col][self.row-1][0] == 1 or spritelist[self.col][self.row-1][0] == 2:
             s += 1
-        if list[self.col][self.row+1][0] == 1 or list[self.col][self.row+1][0] == 2:
+        if spritelist[self.col][self.row+1][0] == 1 or spritelist[self.col][self.row+1][0] == 2:
             s += 1
-        if list[self.col+1][self.row-1][0] == 1 or list[self.col+1][self.row-1][0] == 2:
+        if spritelist[self.col+1][self.row-1][0] == 1 or spritelist[self.col+1][self.row-1][0] == 2:
             s += 1
-        if list[self.col+1][self.row][0] == 1 or list[self.col+1][self.row][0] == 2:
+        if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2:
             s += 1
-        if list[self.col+1][self.row+1][0] == 1 or list[self.col+1][self.row+1][0] == 2:
+        if spritelist[self.col+1][self.row+1][0] == 1 or spritelist[self.col+1][self.row+1][0] == 2:
             s += 1
         return s
 
