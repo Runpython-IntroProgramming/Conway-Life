@@ -8,28 +8,42 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
-SCREEN_WIDTH = 150
-SCREEN_HEIGHT = 100
+SCREEN_WIDTH = 151
+SCREEN_HEIGHT = 101
 black = Color(0, 1)
 green = Color(0x408000, 1.0)
 white = Color(0xffffff, 1.0)
 border = LineStyle(2, black)
 line = LineStyle(1, black)
 
-class Cell(Sprite):
-    asset = RectangleAsset(10,10, line, white)
-    def __init__(self, position):
-        super().__init__(Cell.asset, position)
-        self.fxcenter = self.fycenter = 0
-        self.row = position[1]/10
-        self.col = position[0]/10
+    
+spritelist = [[(0, 0, 0), (1, 1, 0), (0, 2, 0)], [(2, 0, 1), (0, 1, 1), (0, 2, 1)], [(0, 0, 2), (0, 1, 2), (0, 2, 2)]]
+print(spritelist)
+col = 1
+row = 1
+def countneighbors(col, row):
+        s = 0
+        if col+1 <= 2 and row+1 <= 2 and col-1 >= 0 and row-1 >= 0:
+            if spritelist[col-1][row-1][0] == 1 or spritelist[col-1][row-1][0] == 2:
+                s += 1
+            if spritelist[col-1][row][0] == 1 or spritelist[col-1][row][0] == 2:
+                s += 1
+            if spritelist[col][row-1][0] == 1 or spritelist[col][row-1][0] == 2:
+                s += 1
+            if spritelist[col-1][row+1][0] == 1 or spritelist[col-1][row+1][0] == 2:
+                s += 1
+            if spritelist[col][row+1][0] == 1 or spritelist[col][row+1][0] == 2:
+                s += 1
+            if spritelist[col+1][row-1][0] == 1 or spritelist[col+1][row-1][0] == 2:
+                s += 1
+            if spritelist[col+1][row][0] == 1 or spritelist[col+1][row][0] == 2:
+                s += 1
+            if spritelist[col+1][row+1][0] == 1 or spritelist[col+1][row+1][0] == 2:
+                s += 1
+        if col+1
+        if col+1 <= 2 and row+1 > 2:
+        print(s)
+        return s
+if countneighbors(2,1) == 2:
+    print("yes")
 
-list = [[(0,col,row) for row in range(15)] for col in range(10)]
-
-for row in range(0,15):
-    for col in range(0,10):
-        Cell((row*10,col*10))
-
-
-myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
-myapp.run()
