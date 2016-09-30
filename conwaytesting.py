@@ -19,9 +19,7 @@ line = LineStyle(1, black)
     
 spritelist = [[(1, 0, 0), (0, 1, 0), (0, 2, 0)], [(1, 0, 1), (2, 1, 1), (0, 2, 1)], [(1, 0, 2), (2, 1, 2), (0, 2, 2)]]
 print(spritelist)
-col = 0
-row = 0
-def countneighbors(col, row):
+def countneighbors(row, col):
         s = 0
         print(col, row)
         if col+1 <= 2 and row+1 <= 2 and col-1 >= 0 and row-1 >= 0: # center
