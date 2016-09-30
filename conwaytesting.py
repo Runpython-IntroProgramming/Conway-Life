@@ -115,4 +115,3 @@ def countneighbors(row, col):
         return s
 if countneighbors(2,1) == 2:
     print("yes")
-
