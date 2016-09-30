@@ -17,13 +17,14 @@ border = LineStyle(2, black)
 line = LineStyle(1, black)
 
     
-spritelist = [[(0, 0, 0), (1, 1, 0), (0, 2, 0)], [(1, 0, 1), (0, 1, 1), (0, 2, 1)], [(0, 0, 2), (0, 1, 2), (0, 2, 2)]]
+spritelist = [[(1, 0, 0), (0, 1, 0), (0, 2, 0)], [(1, 0, 1), (2, 1, 1), (0, 2, 1)], [(1, 0, 2), (2, 1, 2), (0, 2, 2)]]
 print(spritelist)
 col = 0
 row = 0
 def countneighbors(col, row):
         s = 0
-        """if col+1 <= 2 and row+1 <= 2 and col-1 >= 0 and row-1 >= 0: # center
+        print(col, row)
+        if col+1 <= 2 and row+1 <= 2 and col-1 >= 0 and row-1 >= 0: # center
             if spritelist[col-1][row-1][0] == 1 or spritelist[col-1][row-1][0] == 2: #7
                 s += 1
             if spritelist[col-1][row][0] == 1 or spritelist[col-1][row][0] == 2: #4
@@ -39,8 +40,8 @@ def countneighbors(col, row):
             if spritelist[col+1][row][0] == 1 or spritelist[col+1][row][0] == 2: #6
                 s += 1
             if spritelist[col+1][row+1][0] == 1 or spritelist[col+1][row+1][0] == 2: #3
-                s += 1"""
-        if col+1 <= 2 and row+1 <= 2 and col-1 >=0 and row-1 < 0: #top middle
+                s += 1
+        elif col+1 <= 2 and row+1 <= 2 and col-1 >=0 and row-1 < 0: #top middle
             if spritelist[col-1][row+1][0] == 1 or spritelist[col-1][row+1][0] == 2: #1
                 s += 1
             if spritelist[col][row+1][0] == 1 or spritelist[col][row+1][0] == 2: #2
@@ -73,7 +74,7 @@ def countneighbors(col, row):
                 s += 1
             if spritelist[col+1][row-1][0] == 1 or spritelist[col+1][row-1][0] == 2: #9
                 s += 1
-        elif col+1 >= 2 and row+1 <= 2 and col-1 >= 0 and row-1 >= 0: #right middle
+        elif col+1 > 2 and row+1 <= 2 and col-1 >= 0 and row-1 >= 0: #right middle
             if spritelist[col-1][row+1][0] == 1 or spritelist[col-1][row+1][0] == 2: #1
                 s += 1
             if spritelist[col][row+1][0] == 1 or spritelist[col][row+1][0] == 2: #2
