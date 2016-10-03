@@ -8,8 +8,8 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
-SCREEN_WIDTH = 151
-SCREEN_HEIGHT = 101
+SCREEN_WIDTH = 1201
+SCREEN_HEIGHT = 801
 black = Color(0, 1)
 green = Color(0x408000, 1.0)
 white = Color(0xffffff, 1.0)
@@ -58,22 +58,95 @@ class Cell(Sprite):
             
     def countneighbors(self):
         s = 0
-        if spritelist[self.col-1][self.row-1][0] == 1 or spritelist[self.col-1][self.row-1][0] == 2:
-            s += 1
-        if spritelist[self.col-1][self.row][0] == 1 or spritelist[self.col-1][self.row][0] == 2:
-            s += 1
-        if spritelist[self.col-1][self.row+1][0] == 1 or spritelist[self.col-1][self.row+1][0] == 2:
-            s += 1
-        if spritelist[self.col][self.row-1][0] == 1 or spritelist[self.col][self.row-1][0] == 2:
-            s += 1
-        if spritelist[self.col][self.row+1][0] == 1 or spritelist[self.col][self.row+1][0] == 2:
-            s += 1
-        if spritelist[self.col+1][self.row-1][0] == 1 or spritelist[self.col+1][self.row-1][0] == 2:
-            s += 1
-        if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2:
-            s += 1
-        if spritelist[self.col+1][self.row+1][0] == 1 or spritelist[self.col+1][self.row+1][0] == 2:
-            s += 1
+        if self.col+1 <= 79 and self.row+1 <= 59 and self.col-1 >= 0 and self.row-1 >= 0: # center
+            if spritelist[self.col-1][self.row-1][0] == 1 or spritelist[self.col-1][self.row-1][0] == 2: #7
+                s += 1
+            if spritelist[self.col-1][self.row][0] == 1 or spritelist[self.col-1][self.row][0] == 2: #4
+                s += 1
+            if spritelist[self.col][self.row-1][0] == 1 or spritelist[self.col][self.row-1][0] == 2: #8
+                s += 1
+            if spritelist[self.col-1][self.row+1][0] == 1 or spritelist[self.col-1][self.row+1][0] == 2: #1
+                s += 1
+            if spritelist[self.col][self.row+1][0] == 1 or spritelist[self.col][self.row+1][0] == 2: #2
+                s += 1
+            if spritelist[self.col+1][self.row-1][0] == 1 or spritelist[self.col+1][self.row-1][0] == 2: #9
+                s += 1
+            if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
+                s += 1
+            if spritelist[self.col+1][self.row+1][0] == 1 or spritelist[self.col+1][self.row+1][0] == 2: #3
+                s += 1
+        elif self.col+1 <= 79 and self.row+1 <= 59 and self.col-1 >=0 and self.row-1 < 0: #top middle
+            if spritelist[self.col-1][self.row+1][0] == 1 or spritelist[self.col-1][self.row+1][0] == 2: #1
+                s += 1
+            if spritelist[self.col][self.row+1][0] == 1 or spritelist[self.col][self.row+1][0] == 2: #2
+                s += 1
+            if spritelist[self.col+1][self.row+1][0] == 1 or spritelist[self.col+1][self.row+1][0] == 2: #3
+                s += 1
+            if spritelist[self.col-1][self.row][0] == 1 or spritelist[self.col-1][self.row][0] == 2: #4
+                s += 1
+             if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
+                s += 1
+        elif self.col+1 <= 79 and self.row+1 <= 59 and self.col-1 < 0 and self.row-1 >= 0: #left middle
+            if spritelist[self.col][self.row+1][0] == 1 or spritelist[self.col][self.row+1][0] == 2: #2
+                s += 1
+            if spritelist[self.col+1][self.row+1][0] == 1 or spritelist[self.col+1][self.row+1][0] == 2: #3
+                s += 1
+             if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
+                s += 1
+            if spritelist[self.col][self.row-1][0] == 1 or spritelist[self.col][self.row-1][0] == 2: #8
+                s += 1
+            if spritelist[self.col+1][self.row-1][0] == 1 or spritelist[self.col+1][self.row-1][0] == 2: #9
+                s += 1
+        elif self.col+1 <= 79 and self.row+1 > 59 and self.col-1 >= 0 and self.row-1 >= 0: #bottom middle
+            if spritelist[self.col-1][self.row][0] == 1 or spritelist[self.col-1][self.row][0] == 2: #4
+                s += 1
+             if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
+                s += 1
+            if spritelist[self.col-1][self.row-1][0] == 1 or spritelist[self.col-1][self.row-1][0] == 2: #7
+                s += 1
+            if spritelist[self.col][self.row-1][0] == 1 or spritelist[self.col][self.row-1][0] == 2: #8
+                s += 1
+            if spritelist[self.col+1][self.row-1][0] == 1 or spritelist[self.col+1][self.row-1][0] == 2: #9
+                s += 1
+        elif self.col+1 > 79 and self.row+1 <= 59 and self.col-1 >= 0 and self.row-1 >= 0: #right middle
+            if spritelist[self.col-1][self.row+1][0] == 1 or spritelist[self.col-1][self.row+1][0] == 2: #1
+                s += 1
+            if spritelist[self.col][self.row+1][0] == 1 or spritelist[self.col][self.row+1][0] == 2: #2
+                s += 1
+            if spritelist[self.col-1][self.row][0] == 1 or spritelist[self.col-1][self.row][0] == 2: #4
+                s += 1
+            if spritelist[self.col-1][self.row-1][0] == 1 or spritelist[self.col-1][self.row-1][0] == 2: #7
+                s += 1
+            if spritelist[self.col][self.row-1][0] == 1 or spritelist[self.col][self.row-1][0] == 2: #8
+                s += 1
+        elif self.col+1 <= 79 and self.row+1 <= 59 and self.col-1 < 0 and self.row-1 < 0: #left upper corner
+            if spritelist[self.col][self.row+1][0] == 1 or spritelist[self.col][self.row+1][0] == 2: #2
+                s += 1
+            if spritelist[self.col+1][self.row+1][0] == 1 or spritelist[self.col+1][self.row+1][0] == 2: #3
+                s += 1
+             if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
+                s += 1
+        elif self.col+1 > 79 and self.row+1 <= 59 and self.col-1 >= 0 and self.row-1 < 0: #right upper corner
+            if spritelist[self.col-1][self.row+1][0] == 1 or spritelist[self.col-1][self.row+1][0] == 2: #1
+                s += 1
+            if spritelist[self.col][self.row+1][0] == 1 or spritelist[self.col][self.row+1][0] == 2: #2
+                s += 1
+            if spritelist[self.col-1][self.row][0] == 1 or spritelist[self.col-1][self.row][0] == 2: #4
+                s += 1
+        elif self.col+1 > 79 and self.row+1 > 59 and self.col-1 >= 0 and self.row-1 >= 0: #right lower corner
+            if spritelist[self.col-1][self.row-1][0] == 1 or spritelist[self.col-1][self.row-1][0] == 2: #7
+                s += 1
+            if spritelist[self.col-1][self.row][0] == 1 or spritelist[self.col-1][self.row][0] == 2: #4
+                s += 1
+            if spritelist[self.col][self.row-1][0] == 1 or spritelist[self.col][self.row-1][0] == 2: #8
+                s += 1
+        elif self.col+1 <= 79 and self.row+1 > 59 and self.col-1 < 0 and self.row-1 >= 0: #left lower corner
+            if spritelist[self.col+1][self.row-1][0] == 1 or spritelist[self.col+1][self.row-1][0] == 2: #9
+                s += 1
+             if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
+                s += 1
+            if spritelist[self.col][self.row-1][0] == 1 or spritelist[self.col][self.row-1][0] == 2: #8
+                s += 1
         return s
 
 
@@ -81,10 +154,10 @@ class Cell(Sprite):
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        for x in range(0,15):
-            for y in range(0,10):
+        for x in range(0,80):
+            for y in range(0,60):
                 Cell((10*x,10*y))
-                spritelist = [[(0,x,y) for x in range(0,15)] for y in range(0,10)]
+        spritelist = [[(0,x,y) for x in range(0,80)] for y in range(0,60)]
 
     def mousedown(self, event):
         createlife = True
