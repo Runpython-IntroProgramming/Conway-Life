@@ -84,7 +84,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.col-1][self.row][0] == 1 or spritelist[self.col-1][self.row][0] == 2: #4
                 s += 1
-             if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
+            if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
                 s += 1
         elif self.col+1 <= 79 and self.row+1 <= 59 and self.col-1 < 0 and self.row-1 >= 0: #left middle
             if spritelist[self.col][self.row+1][0] == 1 or spritelist[self.col][self.row+1][0] == 2: #2
