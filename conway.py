@@ -100,7 +100,7 @@ class Cell(Sprite):
         elif self.col+1 <= 79 and self.row+1 > 59 and self.col-1 >= 0 and self.row-1 >= 0: #bottom middle
             if spritelist[self.col-1][self.row][0] == 1 or spritelist[self.col-1][self.row][0] == 2: #4
                 s += 1
-             if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
+            if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
                 s += 1
             if spritelist[self.col-1][self.row-1][0] == 1 or spritelist[self.col-1][self.row-1][0] == 2: #7
                 s += 1
@@ -124,7 +124,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.col+1][self.row+1][0] == 1 or spritelist[self.col+1][self.row+1][0] == 2: #3
                 s += 1
-             if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
+            if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
                 s += 1
         elif self.col+1 > 79 and self.row+1 <= 59 and self.col-1 >= 0 and self.row-1 < 0: #right upper corner
             if spritelist[self.col-1][self.row+1][0] == 1 or spritelist[self.col-1][self.row+1][0] == 2: #1
@@ -143,7 +143,7 @@ class Cell(Sprite):
         elif self.col+1 <= 79 and self.row+1 > 59 and self.col-1 < 0 and self.row-1 >= 0: #left lower corner
             if spritelist[self.col+1][self.row-1][0] == 1 or spritelist[self.col+1][self.row-1][0] == 2: #9
                 s += 1
-             if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
+            if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
                 s += 1
             if spritelist[self.col][self.row-1][0] == 1 or spritelist[self.col][self.row-1][0] == 2: #8
                 s += 1
