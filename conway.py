@@ -24,7 +24,7 @@ class Cell(Sprite):
         self.fxcenter = self.fycenter = 0
         self.row = position[1]/10
         self.col = position[0]/10
-        self.setImage(3)
+        self.setImage(2)
 
     def step(self): #Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
         if spritelist[self.col][self.row][0] == 1: #if alive do the below
@@ -40,10 +40,10 @@ class Cell(Sprite):
                 spritelist[self.col][self.row][0] = 0
             else:
                 spritelist[self.col][self.row][0] = 1
-        
+            
         if Conway.createlife == True:
             spritelist[self.col][self.row][0] = 2
-    
+
     def changecolor(self):
         if spritelist[self.col][self.row][0] == 0:
             self.setImage(2)
