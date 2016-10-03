@@ -16,7 +16,6 @@ white = Color(0xffffff, 1.0)
 border = LineStyle(2, black)
 line = LineStyle(1, black)
 """
-    
 spritelist = [[(1, 0, 0), (0, 1, 0), (0, 2, 0)], [(1, 0, 1), (2, 1, 1), (0, 2, 1)], [(1, 0, 2), (2, 1, 2), (0, 2, 2)]]
 print(spritelist)
 def countneighbors(row, col):
@@ -116,17 +115,27 @@ def countneighbors(row, col):
 if countneighbors(2,1) == 2:
     print("yes")
 """
-class Conway(Sprite):
-    asset = ImageAsset("conwaysprites.png",
-        Frame(0,0,10,10), 3, 'horizontal')
-    def __init__(self, position):
-        super().__init__(Conway.asset, position)
-        self.phase = 0
-        
-        Sprite(asset)
 
-def changecolor()
-Sprite(asset)
+asset = ImageAsset("conwaysprites.png",
+    Frame(0,0,10,10), 3, 'horizontal')
+cell = Sprite(asset, (0,0))
+cell.phase = 0
+cell.setImage(2)
 
-myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
-myapp.run()
+def step():
+    if cell.phase == 0
+        cell.setImage(2)
+    if cell.phase == 1
+        cell.setImage(1)
+    if cell.phase == 2
+        cell.setImage(0)
+
+def changecolor(event)
+    cell.phase += 1
+    if cell.phase == 3:
+        cell.phase = 0
+
+
+myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp.listenKeyEvent('keydown', 'space', changecolor)
+myapp.run(step)
