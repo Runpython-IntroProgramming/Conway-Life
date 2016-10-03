@@ -15,7 +15,7 @@ green = Color(0x408000, 1.0)
 white = Color(0xffffff, 1.0)
 border = LineStyle(2, black)
 line = LineStyle(1, black)
-
+"""
     
 spritelist = [[(1, 0, 0), (0, 1, 0), (0, 2, 0)], [(1, 0, 1), (2, 1, 1), (0, 2, 1)], [(1, 0, 2), (2, 1, 2), (0, 2, 2)]]
 print(spritelist)
@@ -115,3 +115,18 @@ def countneighbors(row, col):
         return s
 if countneighbors(2,1) == 2:
     print("yes")
+"""
+class Conway(Sprite):
+    asset = ImageAsset("conwaysprites.png",
+        Frame(0,0,10,10), 3, 'horizontal')
+    def __init__(self, position):
+        super().__init__(Conway.asset, position)
+        self.phase = 0
+        
+        Sprite(asset)
+
+def changecolor()
+Sprite(asset)
+
+myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp.run()
