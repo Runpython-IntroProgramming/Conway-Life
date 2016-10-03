@@ -91,7 +91,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.col+1][self.row+1][0] == 1 or spritelist[self.col+1][self.row+1][0] == 2: #3
                 s += 1
-             if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
+            if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
                 s += 1
             if spritelist[self.col][self.row-1][0] == 1 or spritelist[self.col][self.row-1][0] == 2: #8
                 s += 1
