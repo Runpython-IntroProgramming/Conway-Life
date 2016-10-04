@@ -130,14 +130,19 @@ def step():
     if cell.phase == 2:
         cell.setImage(0)
 
+def mousemove(event):
+        mousex = event.x
+        mousey = event.y
+
 def changecolor(event):
-    print(cell.x)
-    print(cell.y)
+    print(mousex)
+    print(mousey)
     cell.phase += 1
     if cell.phase == 3:
         cell.phase = 0
 
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
-myapp.listenKeyEvent('keydown', 'space', changecolor)
+myapp.listenMouseEvent('mousemove', mousemove)
+myapp.listenKeyEvent('keydown','space', changecolor)
 myapp.run(step)
