@@ -123,14 +123,16 @@ cell.phase = 0
 cell.setImage(2)
 
 def step():
-    if cell.phase == 0
+    if cell.phase == 0:
         cell.setImage(2)
-    if cell.phase == 1
+    if cell.phase == 1:
         cell.setImage(1)
-    if cell.phase == 2
+    if cell.phase == 2:
         cell.setImage(0)
 
-def changecolor(event)
+def changecolor(event):
+    print(cell.x)
+    print(cell.y)
     cell.phase += 1
     if cell.phase == 3:
         cell.phase = 0
