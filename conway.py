@@ -15,6 +15,9 @@ green = Color(0x408000, 1.0)
 white = Color(0xffffff, 1.0)
 border = LineStyle(2, black)
 line = LineStyle(1, black)
+mousex = 0
+mousey = 0
+createlife = False
 
 class Cell(Sprite):
     asset = ImageAsset("conwaysprites.png",
@@ -41,7 +44,7 @@ class Cell(Sprite):
             else:
                 spritelist[self.col][self.row][0] = 1
             
-        if createlife == True and Cell.mouseoverlife() == True:
+        if createlife == True and self.mouseoverlife() == True:
             spritelist[self.col][self.row][0] = 2
 
     def changecolor(self):
@@ -173,10 +176,10 @@ class Conway(App):
         createlife = False
     
     def step(self):
-        for x in self.getSpritebyClass(Cell):
-            x.step()
-        for x in self.getSpritebyClass(Cell):
-            x.changecolor()
+        for g in self.getSpritebyClass(Cell):
+            g.step()
+        for g in self.getSpritebyClass(Cell):
+            g.changecolor()
 
 
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
