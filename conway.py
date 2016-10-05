@@ -18,6 +18,7 @@ line = LineStyle(1, black)
 mousex = 0
 mousey = 0
 createlife = False
+spritelist = 0
 
 class Cell(Sprite):
     asset = ImageAsset("conwaysprites.png",
@@ -162,6 +163,7 @@ class Conway(App):
         for x in range(0,80):
             for y in range(0,60):
                 Cell((10*x,10*y))
+        global spritelist
         spritelist = [[(0,x,y) for x in range(0,80)] for y in range(0,60)]
 
     def mousedown(self, event):
@@ -171,8 +173,8 @@ class Conway(App):
     def mousemove(self, event):
         global mousex
         global mousey
-        mousex = event.x
-        mousey = event.y
+        mousex = event.x-10
+        mousey = event.y-10
 
     def mouseup(self, event):
         global createlife
