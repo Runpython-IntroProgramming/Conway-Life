@@ -121,6 +121,8 @@ asset = ImageAsset("conwaysprites.png",
 cell = Sprite(asset, (0,0))
 cell.phase = 0
 cell.setImage(2)
+mousex = 0
+mousey = 0
 
 def step():
     if cell.phase == 0:
@@ -131,6 +133,8 @@ def step():
         cell.setImage(0)
 
 def mousemove(event):
+    global mousex
+    global mousey
     mousex = event.x
     mousey = event.y
 
