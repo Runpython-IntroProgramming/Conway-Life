@@ -56,6 +56,8 @@ class Cell(Sprite):
             self.setImage(0)
     
     def mouseoverlife(self):
+        global mousex
+        global mousey
         if (mousex >= self.x and mousex <= self.x+10) and (mousey >= self.y and mousey <= self.y+10):
             return True
         else:
@@ -162,10 +164,12 @@ class Conway(App):
         for x in range(0,80):
             for y in range(0,60):
                 Cell((10*x,10*y))
+        global createlife
         spritelist = [[(0,x,y) for x in range(0,80)] for y in range(0,60)]
         createlife = False
 
     def mousedown(self, event):
+        global createlife
         createlife = True
 
     def mousemove(self, event):
@@ -175,6 +179,7 @@ class Conway(App):
         mousey = event.y
 
     def mouseup(self, event):
+        global createlife
         createlife = False
     
     def step(self):
