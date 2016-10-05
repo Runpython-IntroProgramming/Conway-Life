@@ -131,12 +131,10 @@ def step():
         cell.setImage(0)
 
 def mousemove(event):
-        mousex = event.x
-        mousey = event.y
+    mousex = event.x
+    mousey = event.y
 
 def changecolor(event):
-    print(mousex)
-    print(mousey)
     cell.phase += 1
     if cell.phase == 3:
         cell.phase = 0
