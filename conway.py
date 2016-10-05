@@ -169,6 +169,8 @@ class Conway(App):
         createlife = True
 
     def mousemove(self, event):
+        global mousex
+        global mousey
         mousex = event.x
         mousey = event.y
 
