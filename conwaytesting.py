@@ -23,7 +23,6 @@ spritelist = 0
 class Cell(Sprite):
     asset = ImageAsset("conwaysprites.png",
         Frame(0,0,10,10), 3, 'horizontal')
-    print('cell sprite is running')
     def __init__(self, position):
         super().__init__(Cell.asset, position)
         self.fxcenter = self.fycenter = 0
@@ -32,7 +31,6 @@ class Cell(Sprite):
         self.setImage(2)
 
     def step(self): #Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
-        print('cell sprites are stepping')
         if spritelist[self.col][self.row][0] == 1: #if alive do the below
             if self.countneighbors() < 2 or self.countneighbors() > 3:
                 spritelist[self.col][self.row][0] = 0
@@ -48,6 +46,7 @@ class Cell(Sprite):
                 spritelist[self.col][self.row][0] = 1
             
         if createlife == True and self.mouseoverlife() == True:
+            print('hi')
             spritelist[self.col][self.row][0] = 2
 
     def changecolor(self):
@@ -155,6 +154,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.col][self.row-1][0] == 1 or spritelist[self.col][self.row-1][0] == 2: #8
                 s += 1
+        print(s)
         return s
 
 
@@ -162,7 +162,6 @@ class Cell(Sprite):
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        print('conway app is running')
         for x in range(0,80):
             for y in range(0,60):
                 Cell((10*x,10*y))
@@ -184,10 +183,9 @@ class Conway(App):
         createlife = False
     
     def step(self):
-        print('conway app is stepping')
-        for g in self.getSpritebyClass(Cell):
+        for g in self.getSpritesbyClass(Cell):
             g.step()
-        for g in self.getSpritebyClass(Cell):
+        for g in self.getSpritesbyClass(Cell):
             g.changecolor()
 
 
