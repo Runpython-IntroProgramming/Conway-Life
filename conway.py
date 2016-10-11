@@ -9,7 +9,7 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 
 
 """
-from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+from ggame import App, PolygonAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
@@ -25,7 +25,7 @@ thinline = LineStyle(1, black)
 
 for x in width:
     for y in height:
-        rectangle = polygonAsset((x*10, y*10), ((x+1)*10, y*10),((x+1)*10, (y+1)*10),((x)*10, (y+1)*10), thinline, red)
+        rectangle = PolygonAsset((x*10, y*10), ((x+1)*10, y*10),((x+1)*10, (y+1)*10),((x)*10, (y+1)*10), thinline, red)
         Sprite(rectangle)
 
 myapp = App()
