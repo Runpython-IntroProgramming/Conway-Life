@@ -25,7 +25,7 @@ thinline = LineStyle(1, black)
 
 for x in width:
     for y in height:
-        rectangle = PolygonAsset((x*10, y*10), ((x+1)*10, y*10),((x+1)*10, (y+1)*10),((x)*10, (y+1)*10), thinline, red)
+        rectangle = PolygonAsset(((x*10, y*10), ((x+1)*10, y*10),((x+1)*10, (y+1)*10),((x)*10, (y+1)*10)), thinline, red)
         Sprite(rectangle)
 
 myapp = App()
