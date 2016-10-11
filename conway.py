@@ -16,7 +16,7 @@ SCREEN_HEIGHT = 480
 
 black = Color(0x000000, 1.0)
 red = Color(0xff0000, 1.0)
-
+white = Color(0xffffff, 1.0)
 
 width=list(range(0,64))
 height = list(range(0,48))
@@ -27,6 +27,8 @@ for x in width:
     for y in height:
         rectangle = PolygonAsset(((x*10, y*10), ((x+1)*10, y*10),((x+1)*10, (y+1)*10),((x)*10, (y+1)*10)), thinline, white)
         Sprite(rectangle)
+
+
 
 myapp = App()
 myapp.run()
