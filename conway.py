@@ -26,4 +26,4 @@ thinline = LineStyle(1, black)
 
 for x in width
     for y in height
-        rectangle = RectangleAsset(50, 20, thinline, blue)
+        rectangle = RectangleAsset(x, y, thinline, white)
