@@ -24,6 +24,6 @@ height = list(range(0,48))
 
 thinline = LineStyle(1, black)
 
-print(width)
-
-
+for x in width
+    for y in height
+        rectangle = RectangleAsset(50, 20, thinline, blue)
