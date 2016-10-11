@@ -17,7 +17,7 @@ border = LineStyle(2, black)
 line = LineStyle(1, black)
 mousex = 0
 mousey = 0
-createlife = False
+createlife = 0
 spritelist = 0
 
 class Cell(Sprite):
@@ -45,8 +45,13 @@ class Cell(Sprite):
             else:
                 spritelist[self.col][self.row][0] = 1
             
-        if createlife == True and self.mouseoverlife() == True:
+        if createlife == 1:
+            print('hi')
             spritelist[self.col][self.row][0] = 2
+        
+        """if self.mouseoverlife == True:
+            print('hi')
+            spritelist[self.col][self.row][0] = 2"""
 
     def changecolor(self):
         if spritelist[self.col][self.row][0] == 0:
@@ -168,7 +173,7 @@ class Conway(App):
 
     def mousedown(self, event):
         global createlife
-        createlife = True
+        createlife = 1
 
     def mousemove(self, event):
         global mousex
@@ -178,14 +183,13 @@ class Conway(App):
 
     def mouseup(self, event):
         global createlife
-        createlife = False
+        createlife = 0
     
     def step(self):
-        for g in self.getSpritebyClass(Cell):
+        for g in self.getSpritesbyClass(Cell):
             g.step()
-        for g in self.getSpritebyClass(Cell):
+        for g in self.getSpritesbyClass(Cell):
             g.changecolor()
-
 
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mousedown', myapp.mousedown)
