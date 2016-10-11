@@ -26,5 +26,7 @@ thinline = LineStyle(1, black)
 for x in width:
     for y in height:
         rectangle = RectangleAsset(x, y, thinline, white)
-        myapp = App()
-        myapp.run()
+        Sprite(rectangle)
+
+myapp = App()
+myapp.run()
