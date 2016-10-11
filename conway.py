@@ -10,3 +10,9 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
+
+width=list(range(0,640))
+height = list(range(0,480))
+
+myapp = App()
+myapp.run()
