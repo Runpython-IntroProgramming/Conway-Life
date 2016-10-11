@@ -7,8 +7,7 @@ Write and submit a program that plays Conway's Game of Life, per
 https://github.com/HHS-IntroProgramming/Conway-Life
 
 
-myapp = App()
-myapp.run()
+
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
@@ -24,6 +23,8 @@ height = list(range(0,48))
 
 thinline = LineStyle(1, black)
 
-for x in width
-    for y in height
+for x in width:
+    for y in height:
         rectangle = RectangleAsset(x, y, thinline, white)
+        myapp = App()
+        myapp.run()
