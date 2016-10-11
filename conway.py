@@ -28,6 +28,8 @@ for x in width:
         rectangle = PolygonAsset(((x*10, y*10), ((x+1)*10, y*10),((x+1)*10, (y+1)*10),((x)*10, (y+1)*10)), thinline, white)
         Sprite(rectangle)
 
+def mouseclick(event)
+def spacekey(event)
 
 
 myapp = App()
