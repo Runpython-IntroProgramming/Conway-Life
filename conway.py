@@ -33,6 +33,7 @@ def mouseclick(event):
     pixelpositiony = ((event.y)//10)*10
     if rectangle = PolygonAsset(((pixelpositionx*10, pixelpositiony*10), ((pixelpositionx+1)*10, pixelpositiony*10),((pixelpositionx+1)*10, (pixelpositiony+1)*10),((pixelpositionx)*10, (pixelpositiony+1)*10)), thinline, white):
         rectangle = PolygonAsset(((pixelpositionx*10, pixelpositiony*10), ((pixelpositionx+1)*10, pixelpositiony*10),((pixelpositionx+1)*10, (pixelpositiony+1)*10),((pixelpositionx)*10, (pixelpositiony+1)*10)), thinline, red)
+        Sprite(rectangle)
 def spacekey(event)
 
 myapp.listenMouseEvent('click', mouseclick)
