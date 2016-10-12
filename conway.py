@@ -31,7 +31,7 @@ for x in width:
 def mouseclick(event):
     pixelpositionx = ((event.x)//10)*10
     pixelpositiony = ((event.y)//10)*10
-    if 
+    if rectangle = PolygonAsset(((pixelpositionx*10, pixelpositiony*10), ((pixelpositionx+1)*10, pixelpositiony*10),((pixelpositionx+1)*10, (pixelpositiony+1)*10),((pixelpositionx)*10, (pixelpositiony+1)*10)), thinline, white)
 def spacekey(event)
 
 myapp.listenMouseEvent('click', mouseclick)
