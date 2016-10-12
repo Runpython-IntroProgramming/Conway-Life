@@ -32,32 +32,26 @@ class Cell(Sprite):
 
     def step(self): #Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
         global spritelist
-        if spritelist[self.col][self.row][0] == 1: #if alive do the below
-            if self.countneighbors() < 2 or self.countneighbors() > 3:
-                spritelist[self.col][self.row][0] = 0
-            
-        if spritelist[self.col][self.row][0] == 0: #if dead do the below
-            if self.countneighbors() == 3:
-                spritelist[self.col][self.row][0] = 2
-            
-        if spritelist[self.col][self.row][0] == 2: #if just birthed do the below
-            if self.countneighbors() < 2 or self.countneighbors() > 3:
-                spritelist[self.col][self.row][0] = 0
-            else:
-                spritelist[self.col][self.row][0] = 1
-            
+        global mousex
+        global mousey
+        print("sprite mousex", mousex)
         if createlife == True and self.mouseoverlife() == True:
             spritelist[self.col][self.row][0] = 2
 
     def changecolor(self):
+        print(self.col, self.row)
+
         if spritelist[self.col][self.row][0] == 0:
             self.setImage(2)
         if spritelist[self.col][self.row][0] == 1:
             self.setImage(1)
         if spritelist[self.col][self.row][0] == 2:
             self.setImage(0)
+
     
     def mouseoverlife(self):
+        global mousex
+        global mousey
         if (mousex >= self.x and mousex <= self.x+10) and (mousey >= self.y and mousey <= self.y+10):
             return True
         else:
@@ -65,7 +59,7 @@ class Cell(Sprite):
             
     def countneighbors(self):
         s = 0
-        if self.col+1 <= 79 and self.row+1 <= 59 and self.col-1 >= 0 and self.row-1 >= 0: # center
+        if self.col+1 <= 9 and self.row+1 <= 7 and self.col-1 >= 0 and self.row-1 >= 0: # center
             if spritelist[self.col-1][self.row-1][0] == 1 or spritelist[self.col-1][self.row-1][0] == 2: #7
                 s += 1
             if spritelist[self.col-1][self.row][0] == 1 or spritelist[self.col-1][self.row][0] == 2: #4
@@ -82,7 +76,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.col+1][self.row+1][0] == 1 or spritelist[self.col+1][self.row+1][0] == 2: #3
                 s += 1
-        elif self.col+1 <= 79 and self.row+1 <= 59 and self.col-1 >=0 and self.row-1 < 0: #top middle
+        elif self.col+1 <= 9 and self.row+1 <= 7 and self.col-1 >=0 and self.row-1 < 0: #top middle
             if spritelist[self.col-1][self.row+1][0] == 1 or spritelist[self.col-1][self.row+1][0] == 2: #1
                 s += 1
             if spritelist[self.col][self.row+1][0] == 1 or spritelist[self.col][self.row+1][0] == 2: #2
@@ -93,7 +87,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
                 s += 1
-        elif self.col+1 <= 79 and self.row+1 <= 59 and self.col-1 < 0 and self.row-1 >= 0: #left middle
+        elif self.col+1 <= 9 and self.row+1 <= 7 and self.col-1 < 0 and self.row-1 >= 0: #left middle
             if spritelist[self.col][self.row+1][0] == 1 or spritelist[self.col][self.row+1][0] == 2: #2
                 s += 1
             if spritelist[self.col+1][self.row+1][0] == 1 or spritelist[self.col+1][self.row+1][0] == 2: #3
@@ -104,7 +98,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.col+1][self.row-1][0] == 1 or spritelist[self.col+1][self.row-1][0] == 2: #9
                 s += 1
-        elif self.col+1 <= 79 and self.row+1 > 59 and self.col-1 >= 0 and self.row-1 >= 0: #bottom middle
+        elif self.col+1 <= 9 and self.row+1 > 7 and self.col-1 >= 0 and self.row-1 >= 0: #bottom middle
             if spritelist[self.col-1][self.row][0] == 1 or spritelist[self.col-1][self.row][0] == 2: #4
                 s += 1
             if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
@@ -115,7 +109,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.col+1][self.row-1][0] == 1 or spritelist[self.col+1][self.row-1][0] == 2: #9
                 s += 1
-        elif self.col+1 > 79 and self.row+1 <= 59 and self.col-1 >= 0 and self.row-1 >= 0: #right middle
+        elif self.col+1 > 9 and self.row+1 <= 7 and self.col-1 >= 0 and self.row-1 >= 0: #right middle
             if spritelist[self.col-1][self.row+1][0] == 1 or spritelist[self.col-1][self.row+1][0] == 2: #1
                 s += 1
             if spritelist[self.col][self.row+1][0] == 1 or spritelist[self.col][self.row+1][0] == 2: #2
@@ -126,28 +120,28 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.col][self.row-1][0] == 1 or spritelist[self.col][self.row-1][0] == 2: #8
                 s += 1
-        elif self.col+1 <= 79 and self.row+1 <= 59 and self.col-1 < 0 and self.row-1 < 0: #left upper corner
+        elif self.col+1 <= 9 and self.row+1 <= 7 and self.col-1 < 0 and self.row-1 < 0: #left upper corner
             if spritelist[self.col][self.row+1][0] == 1 or spritelist[self.col][self.row+1][0] == 2: #2
                 s += 1
             if spritelist[self.col+1][self.row+1][0] == 1 or spritelist[self.col+1][self.row+1][0] == 2: #3
                 s += 1
             if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
                 s += 1
-        elif self.col+1 > 79 and self.row+1 <= 59 and self.col-1 >= 0 and self.row-1 < 0: #right upper corner
+        elif self.col+1 > 9 and self.row+1 <= 7 and self.col-1 >= 0 and self.row-1 < 0: #right upper corner
             if spritelist[self.col-1][self.row+1][0] == 1 or spritelist[self.col-1][self.row+1][0] == 2: #1
                 s += 1
             if spritelist[self.col][self.row+1][0] == 1 or spritelist[self.col][self.row+1][0] == 2: #2
                 s += 1
             if spritelist[self.col-1][self.row][0] == 1 or spritelist[self.col-1][self.row][0] == 2: #4
                 s += 1
-        elif self.col+1 > 79 and self.row+1 > 59 and self.col-1 >= 0 and self.row-1 >= 0: #right lower corner
+        elif self.col+1 > 9 and self.row+1 > 7 and self.col-1 >= 0 and self.row-1 >= 0: #right lower corner
             if spritelist[self.col-1][self.row-1][0] == 1 or spritelist[self.col-1][self.row-1][0] == 2: #7
                 s += 1
             if spritelist[self.col-1][self.row][0] == 1 or spritelist[self.col-1][self.row][0] == 2: #4
                 s += 1
             if spritelist[self.col][self.row-1][0] == 1 or spritelist[self.col][self.row-1][0] == 2: #8
                 s += 1
-        elif self.col+1 <= 79 and self.row+1 > 59 and self.col-1 < 0 and self.row-1 >= 0: #left lower corner
+        elif self.col+1 <= 9 and self.row+1 > 7 and self.col-1 < 0 and self.row-1 >= 0: #left lower corner
             if spritelist[self.col+1][self.row-1][0] == 1 or spritelist[self.col+1][self.row-1][0] == 2: #9
                 s += 1
             if spritelist[self.col+1][self.row][0] == 1 or spritelist[self.col+1][self.row][0] == 2: #6
@@ -161,11 +155,11 @@ class Cell(Sprite):
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        for x in range(0,80):
-            for y in range(0,60):
+        for x in range(0,10):
+            for y in range(0,8):
                 Cell((10*x,10*y))
         global spritelist
-        spritelist = [[(0,x,y) for x in range(0,80)] for y in range(0,60)]
+        spritelist = [[(0,x,y) for x in range(0,8)] for y in range(0,10)]
 
     def mousedown(self, event):
         global createlife
@@ -174,19 +168,24 @@ class Conway(App):
     def mousemove(self, event):
         global mousex
         global mousey
+        print(mousex)
         mousex = event.x-10
         mousey = event.y-10
+
 
     def mouseup(self, event):
         global createlife
         createlife = False
     
     def step(self):
+        print("step")
         for g in self.getSpritesbyClass(Cell):
             g.step()
         for g in self.getSpritesbyClass(Cell):
             g.changecolor()
+        print("unstep")
 
+        
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mousedown', myapp.mousedown)
 myapp.listenMouseEvent('mouseup', myapp.mouseup)
