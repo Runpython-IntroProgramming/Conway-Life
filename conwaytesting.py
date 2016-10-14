@@ -146,6 +146,11 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.row-1][self.col] == 1 or spritelist[self.row-1][self.col] == 2: #4
                 s += 1
+            # Here somewhere...
+            #
+            #
+            #
+            #
         elif self.col+1 > 9 and self.row+1 > 7 and self.col-1 >= 0 and self.row-1 >= 0: #right lower corner
             print('right lower corner')
             if spritelist[self.row-1][self.col-1] == 1 or spritelist[self.row-1][self.col-1] == 2: #7
