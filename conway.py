@@ -26,7 +26,7 @@ thinline = LineStyle(1, black)
 for x in width:
     for y in height:
         rsquare_asset =RectangleAsset(10,10,thinline, red)
-        wsquare_asset = RectangleAsset(10,10,thinline, thinline, white)
+        wsquare_asset = RectangleAsset(10,10, thinline, white)
         rectangle = wsquare_asset
         Sprite(rectangle)
 
