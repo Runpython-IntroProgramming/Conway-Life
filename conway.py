@@ -27,7 +27,7 @@ for x in width:
     for y in height:
         rsquare_asset = PolygonAsset(((x*10, y*10), ((x+1)*10, y*10),((x+1)*10, (y+1)*10),((x)*10, (y+1)*10)), thinline, red)
         wsquare_asset = PolygonAsset(((x*10, y*10), ((x+1)*10, y*10),((x+1)*10, (y+1)*10),((x)*10, (y+1)*10)), thinline, white)
-        rectangle = square_asset
+        rectangle = wsquare_asset
         Sprite(rectangle)
 
 def mouseclick(event):
