@@ -7,7 +7,7 @@ Write and submit a program that plays Conway's Game of Life, per
 https://github.com/HHS-IntroProgramming/Conway-Life
 
 
-
+while z==0:
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
@@ -42,8 +42,7 @@ def spacekey(event):
     else:
         z=0
 
-while z==0:
-    z=1
+
     
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('click', mouseclick)
