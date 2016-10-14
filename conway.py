@@ -9,7 +9,7 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 
 
 """
-from ggame import App, PolygonAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
@@ -25,20 +25,25 @@ thinline = LineStyle(1, black)
 
 for x in width:
     for y in height:
-        rsquare_asset = PolygonAsset(((x*10, y*10), ((x+1)*10, y*10),((x+1)*10, (y+1)*10),((x)*10, (y+1)*10)), thinline, red)
-        wsquare_asset = PolygonAsset(((x*10, y*10), ((x+1)*10, y*10),((x+1)*10, (y+1)*10),((x)*10, (y+1)*10)), thinline, white)
+        rsquare_asset =RectangleAsset(10,10,thinline, red)
+        wsquare_asset = RectangleAsset(10,10,thinline, thinline, white)
         rectangle = wsquare_asset
         Sprite(rectangle)
 
 def mouseclick(event):
     pixelpositionx = ((event.x)//10)*10
     pixelpositiony = ((event.y)//10)*10
-    if rectangle == PolygonAsset(((pixelpositionx*10, pixelpositiony*10), ((pixelpositionx+1)*10, pixelpositiony*10),((pixelpositionx+1)*10, (pixelpositiony+1)*10),((pixelpositionx)*10, (pixelpositiony+1)*10)), thinline, white):
+    if rectangle == wsquareasset
         rectangle = PolygonAsset(((pixelpositionx*10, pixelpositiony*10), ((pixelpositionx+1)*10, pixelpositiony*10),((pixelpositionx+1)*10, (pixelpositiony+1)*10),((pixelpositionx)*10, (pixelpositiony+1)*10)), thinline, red)
         Sprite(rectangle)
 def spacekey(event):
- z=0
+    if z==0:
+        z=1
+    else:
+        z=0
 
+while z==0:
+    
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('click', mouseclick)
 myapp.listenKeyEvent('keydown', 'space', spacekey)
