@@ -26,8 +26,8 @@ class Cell(Sprite):
     def __init__(self, position):
         super().__init__(Cell.asset, position)
         self.fxcenter = self.fycenter = 0
-        self.col = position[1]/10
-        self.row = position[0]/10
+        self.col = position[0]/10
+        self.row = position[1]/10
         self.setImage(2)
 
     def step(self): #Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
@@ -35,31 +35,19 @@ class Cell(Sprite):
         global mousex
         global mousey
         print("sprite mousex", mousex)
-        if spritelist[self.col][self.row] == 1: #if alive do the below
-            if self.countneighbors() < 2 or self.countneighbors() > 3:
-                spritelist[self.col][self.row] = 0
-            
-        if spritelist[self.col][self.row] == 0: #if dead do the below
-            if self.countneighbors() == 3:
-                spritelist[self.col][self.row] = 2
-            
-        if spritelist[self.col][self.row] == 2: #if just birthed do the below
-            if self.countneighbors() < 2 or self.countneighbors() > 3:
-                spritelist[self.col][self.row] = 0
-            else:
-                spritelist[self.col][self.row] = 1
-            
+        print(self.countneighbors())
         if createlife == True and self.mouseoverlife() == True:
-            spritelist[self.col][self.row] = 2
+            print('done')
+            spritelist[self.row][self.col] = 2
             
 
     def changecolor(self):
         print(self.col, self.row)
-        if spritelist[self.col][self.row] == 0:
+        if spritelist[self.row][self.col] == 0:
             self.setImage(2)
-        if spritelist[self.col][self.row] == 1:
+        if spritelist[self.row][self.col] == 1:
             self.setImage(1)
-        if spritelist[self.col][self.row] == 2:
+        if spritelist[self.row][self.col] == 2:
             self.setImage(0)
 
     
@@ -74,93 +62,93 @@ class Cell(Sprite):
     def countneighbors(self):
         s = 0
         if self.col+1 <= 9 and self.row+1 <= 7 and self.col-1 >= 0 and self.row-1 >= 0: # center
-            if spritelist[self.col-1][self.row-1] == 1 or spritelist[self.col-1][self.row-1] == 2: #7
+            if spritelist[self.row-1][self.col-1] == 1 or spritelist[self.row-1][self.col-1] == 2: #7
                 s += 1
-            if spritelist[self.col-1][self.row] == 1 or spritelist[self.col-1][self.row] == 2: #4
+            if spritelist[self.row-1][self.col] == 1 or spritelist[self.row-1][self.col] == 2: #4
                 s += 1
-            if spritelist[self.col][self.row-1] == 1 or spritelist[self.col][self.row-1] == 2: #8
+            if spritelist[self.row][self.col-1] == 1 or spritelist[self.row][self.col-1] == 2: #8
                 s += 1
-            if spritelist[self.col-1][self.row+1] == 1 or spritelist[self.col-1][self.row+1] == 2: #1
+            if spritelist[self.row-1][self.col+1] == 1 or spritelist[self.row-1][self.col+1] == 2: #1
                 s += 1
-            if spritelist[self.col][self.row+1] == 1 or spritelist[self.col][self.row+1] == 2: #2
+            if spritelist[self.row][self.col+1] == 1 or spritelist[self.row][self.col+1] == 2: #2
                 s += 1
-            if spritelist[self.col+1][self.row-1] == 1 or spritelist[self.col+1][self.row-1] == 2: #9
+            if spritelist[self.row+1][self.col-1] == 1 or spritelist[self.row+1][self.col-1] == 2: #9
                 s += 1
-            if spritelist[self.col+1][self.row] == 1 or spritelist[self.col+1][self.row] == 2: #6
+            if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #6
                 s += 1
-            if spritelist[self.col+1][self.row+1] == 1 or spritelist[self.col+1][self.row+1] == 2: #3
+            if spritelist[self.row+1][self.col+1] == 1 or spritelist[self.row+1][self.col+1] == 2: #3
                 s += 1
         elif self.col+1 <= 9 and self.row+1 <= 7 and self.col-1 >=0 and self.row-1 < 0: #top middle
-            if spritelist[self.col-1][self.row+1] == 1 or spritelist[self.col-1][self.row+1] == 2: #1
+            if spritelist[self.row-1][self.col+1] == 1 or spritelist[self.row-1][self.col+1] == 2: #1
                 s += 1
-            if spritelist[self.col][self.row+1] == 1 or spritelist[self.col][self.row+1] == 2: #2
+            if spritelist[self.row][self.col+1] == 1 or spritelist[self.row][self.col+1] == 2: #2
                 s += 1
-            if spritelist[self.col+1][self.row+1] == 1 or spritelist[self.col+1][self.row+1] == 2: #3
+            if spritelist[self.row+1][self.col+1] == 1 or spritelist[self.row+1][self.col+1] == 2: #3
                 s += 1
-            if spritelist[self.col-1][self.row] == 1 or spritelist[self.col-1][self.row] == 2: #4
+            if spritelist[self.row-1][self.col] == 1 or spritelist[self.row-1][self.col] == 2: #4
                 s += 1
-            if spritelist[self.col+1][self.row] == 1 or spritelist[self.col+1][self.row] == 2: #6
+            if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #6
                 s += 1
         elif self.col+1 <= 9 and self.row+1 <= 7 and self.col-1 < 0 and self.row-1 >= 0: #left middle
-            if spritelist[self.col][self.row+1] == 1 or spritelist[self.col][self.row+1] == 2: #2
+            if spritelist[self.row][self.col+1] == 1 or spritelist[self.row][self.col+1] == 2: #2
                 s += 1
-            if spritelist[self.col+1][self.row+1] == 1 or spritelist[self.col+1][self.row+1] == 2: #3
+            if spritelist[self.row+1][self.col+1] == 1 or spritelist[self.row+1][self.col+1] == 2: #3
                 s += 1
-            if spritelist[self.col+1][self.row] == 1 or spritelist[self.col+1][self.row] == 2: #6
+            if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #6
                 s += 1
-            if spritelist[self.col][self.row-1] == 1 or spritelist[self.col][self.row-1] == 2: #8
+            if spritelist[self.row][self.col-1] == 1 or spritelist[self.row][self.col-1] == 2: #8
                 s += 1
-            if spritelist[self.col+1][self.row-1] == 1 or spritelist[self.col+1][self.row-1] == 2: #9
+            if spritelist[self.row+1][self.col-1] == 1 or spritelist[self.row+1][self.col-1] == 2: #9
                 s += 1
         elif self.col+1 <= 9 and self.row+1 > 7 and self.col-1 >= 0 and self.row-1 >= 0: #bottom middle
-            if spritelist[self.col-1][self.row] == 1 or spritelist[self.col-1][self.row] == 2: #4
+            if spritelist[self.row-1][self.col] == 1 or spritelist[self.row-1][self.col] == 2: #4
                 s += 1
-            if spritelist[self.col+1][self.row] == 1 or spritelist[self.col+1][self.row] == 2: #6
+            if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #6
                 s += 1
-            if spritelist[self.col-1][self.row-1] == 1 or spritelist[self.col-1][self.row-1] == 2: #7
+            if spritelist[self.row-1][self.col-1] == 1 or spritelist[self.row-1][self.col-1] == 2: #7
                 s += 1
-            if spritelist[self.col][self.row-1] == 1 or spritelist[self.col][self.row-1] == 2: #8
+            if spritelist[self.row][self.col-1] == 1 or spritelist[self.row][self.col-1] == 2: #8
                 s += 1
-            if spritelist[self.col+1][self.row-1] == 1 or spritelist[self.col+1][self.row-1] == 2: #9
+            if spritelist[self.row+1][self.col-1] == 1 or spritelist[self.row+1][self.col-1] == 2: #9
                 s += 1
         elif self.col+1 > 9 and self.row+1 <= 7 and self.col-1 >= 0 and self.row-1 >= 0: #right middle
-            if spritelist[self.col-1][self.row+1] == 1 or spritelist[self.col-1][self.row+1] == 2: #1
+            if spritelist[self.row-1][self.col+1] == 1 or spritelist[self.row-1][self.col+1] == 2: #1
                 s += 1
-            if spritelist[self.col][self.row+1] == 1 or spritelist[self.col][self.row+1] == 2: #2
+            if spritelist[self.row][self.col+1] == 1 or spritelist[self.row][self.col+1] == 2: #2
                 s += 1
-            if spritelist[self.col-1][self.row] == 1 or spritelist[self.col-1][self.row] == 2: #4
+            if spritelist[self.row-1][self.col-1] == 1 or spritelist[self.row-1][self.col-1] == 2: #7
                 s += 1
-            if spritelist[self.col-1][self.row-1] == 1 or spritelist[self.col-1][self.row-1] == 2: #7
+            if spritelist[self.row-1][self.col] == 1 or spritelist[self.row-1][self.col] == 2: #4
                 s += 1
-            if spritelist[self.col][self.row-1] == 1 or spritelist[self.col][self.row-1] == 2: #8
+            if spritelist[self.row][self.col-1] == 1 or spritelist[self.row][self.col-1] == 2: #8
                 s += 1
         elif self.col+1 <= 9 and self.row+1 <= 7 and self.col-1 < 0 and self.row-1 < 0: #left upper corner
-            if spritelist[self.col][self.row+1] == 1 or spritelist[self.col][self.row+1] == 2: #2
+            if spritelist[self.row][self.col+1] == 1 or spritelist[self.row][self.col+1] == 2: #2
                 s += 1
-            if spritelist[self.col+1][self.row+1] == 1 or spritelist[self.col+1][self.row+1] == 2: #3
+            if spritelist[self.row+1][self.col+1] == 1 or spritelist[self.row+1][self.col+1] == 2: #3
                 s += 1
-            if spritelist[self.col+1][self.row] == 1 or spritelist[self.col+1][self.row] == 2: #6
+            if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #6
                 s += 1
         elif self.col+1 > 9 and self.row+1 <= 7 and self.col-1 >= 0 and self.row-1 < 0: #right upper corner
-            if spritelist[self.col-1][self.row+1] == 1 or spritelist[self.col-1][self.row+1] == 2: #1
+            if spritelist[self.row-1][self.col+1] == 1 or spritelist[self.row-1][self.col+1] == 2: #1
                 s += 1
-            if spritelist[self.col][self.row+1] == 1 or spritelist[self.col][self.row+1] == 2: #2
+            if spritelist[self.row][self.col+1] == 1 or spritelist[self.row][self.col+1] == 2: #2
                 s += 1
-            if spritelist[self.col-1][self.row] == 1 or spritelist[self.col-1][self.row] == 2: #4
+            if spritelist[self.row-1][self.col] == 1 or spritelist[self.row-1][self.col] == 2: #4
                 s += 1
         elif self.col+1 > 9 and self.row+1 > 7 and self.col-1 >= 0 and self.row-1 >= 0: #right lower corner
-            if spritelist[self.col-1][self.row-1] == 1 or spritelist[self.col-1][self.row-1] == 2: #7
+            if spritelist[self.row-1][self.col-1] == 1 or spritelist[self.row-1][self.col-1] == 2: #7
                 s += 1
-            if spritelist[self.col-1][self.row] == 1 or spritelist[self.col-1][self.row] == 2: #4
+            if spritelist[self.row-1][self.col] == 1 or spritelist[self.row-1][self.col] == 2: #4
                 s += 1
-            if spritelist[self.col][self.row-1] == 1 or spritelist[self.col][self.row-1] == 2: #8
+            if spritelist[self.row][self.col-1] == 1 or spritelist[self.row][self.col-1] == 2: #8
                 s += 1
         elif self.col+1 <= 9 and self.row+1 > 7 and self.col-1 < 0 and self.row-1 >= 0: #left lower corner
-            if spritelist[self.col+1][self.row-1] == 1 or spritelist[self.col+1][self.row-1] == 2: #9
+            if spritelist[self.row+1][self.col-1] == 1 or spritelist[self.row+1][self.col-1] == 2: #9
                 s += 1
-            if spritelist[self.col+1][self.row] == 1 or spritelist[self.col+1][self.row] == 2: #6
+            if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #6
                 s += 1
-            if spritelist[self.col][self.row-1] == 1 or spritelist[self.col][self.row-1] == 2: #8
+            if spritelist[self.row][self.col-1] == 1 or spritelist[self.row][self.col-1] == 2: #8
                 s += 1
         return s
 
