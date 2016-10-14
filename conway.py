@@ -22,13 +22,12 @@ width=list(range(0,64))
 height = list(range(0,48))
 
 thinline = LineStyle(1, black)
-
+rsquare_asset =RectangleAsset(10,10, thinline, red)
+wsquare_asset = RectangleAsset(10, 10, thinline, white)
 for x in width:
     for y in height:
-        rsquare_asset =RectangleAsset(10,10, thinline, red)
-        wsquare_asset = RectangleAsset(10, 10, thinline, white)
-        rectangle = wsquare_asset((x*10, y*10), ((x+1)*10, y*10),((x+1)*10, (y+1)*10),((x)*10, (y+1)*10))
-        Sprite(rectangle)
+        
+        Sprite(rectangle,(x*10, y*10))
 
 def mouseclick(event):
     pixelpositionx = ((event.x)//10)*10
