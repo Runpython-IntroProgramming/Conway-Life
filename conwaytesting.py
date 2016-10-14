@@ -35,8 +35,21 @@ class Cell(Sprite):
         global mousex
         global mousey
         print("sprite mousex", mousex)
+        if spritelist[self.col][self.row] == 1: #if alive do the below
+            if self.countneighbors() < 2 or self.countneighbors() > 3:
+                spritelist[self.col][self.row] = 0
+            
+        if spritelist[self.col][self.row] == 0: #if dead do the below
+            if self.countneighbors() == 3:
+                spritelist[self.col][self.row] = 2
+            
+        if spritelist[self.col][self.row] == 2: #if just birthed do the below
+            if self.countneighbors() < 2 or self.countneighbors() > 3:
+                spritelist[self.col][self.row] = 0
+            else:
+                spritelist[self.col][self.row] = 1
+            
         if createlife == True and self.mouseoverlife() == True:
-            print('done')
             spritelist[self.col][self.row] = 2
             
 
