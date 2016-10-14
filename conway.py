@@ -43,6 +43,7 @@ def spacekey(event):
         z=0
 
 while z==0:
+    z=1
     
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('click', mouseclick)
