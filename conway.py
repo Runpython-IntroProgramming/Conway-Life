@@ -37,7 +37,7 @@ def mouseclick(event):
 def spacekey(event):
  print(poop)
 
-
+myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('click', mouseclick)
 myapp.listenKeyEvent('keydown', 'space', spacekey)
 
