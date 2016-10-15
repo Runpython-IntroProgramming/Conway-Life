@@ -31,8 +31,7 @@ for x in width:
 def mouseclick(event):
     pixelpositionx = ((event.x)//10)*10
     pixelpositiony = ((event.y)//10)*10
-    if Sprite(pixelpositionx, pixelpositiony)= wsquare_asset:
-        Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
+    Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
 def spacekey(event):
     if z==0:
         z=1
