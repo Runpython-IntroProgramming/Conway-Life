@@ -47,7 +47,7 @@ def spacekey(event):
     
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('dblclick', doubleclick)
-myapp.listenMouseEvent('click', mouseclick)
+myapp.listenMouseEvent('mousedown', mouseclick)
 myapp.listenKeyEvent('keydown', 'space', spacekey)
 
 myapp = App()
