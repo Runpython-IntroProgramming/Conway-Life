@@ -32,6 +32,11 @@ def mouseclick(event):
     pixelpositionx = ((event.x)//10)*10
     pixelpositiony = ((event.y)//10)*10
     Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
+def doubleclick:
+    pixelpositionx = ((event.x)//10)*10
+    pixelpositiony = ((event.y)//10)*10
+    Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
+
 def spacekey(event):
     if z==0:
         z=1
@@ -41,6 +46,7 @@ def spacekey(event):
 
     
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp.listenMouseEvent('dblclick', doubleclick)
 myapp.listenMouseEvent('click', mouseclick)
 myapp.listenKeyEvent('keydown', 'space', spacekey)
 
