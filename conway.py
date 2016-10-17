@@ -26,8 +26,8 @@ rsquare_asset =RectangleAsset(10,10, thinline, red)
 wsquare_asset = RectangleAsset(10, 10, thinline, white)
 for x in width:
     for y in height:
-        (square+str(x)+str(y))_asset=wsquare_asset,(x*10, y*10)
-        Sprite((square+str(x)+str(y))_asset)
+        (square+str(x)+str(y))=(wsquare_asset,(x*10, y*10))
+        Sprite((wsquare_asset,(x*10, y*10)))
 
 def mouseclick(event):
     pixelpositionx = ((event.x)//10)*10
