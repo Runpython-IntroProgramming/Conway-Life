@@ -48,14 +48,11 @@ class Cell(Sprite):
             if self.countneighbors() == 3:
                 spritelist[self.row][self.col] = 2
         
-        print("sprite mousex", mousex)
-        print(self.countneighbors())
         if createlife == True and self.mouseoverlife() == True:
             spritelist[self.row][self.col] = 2
             
 
     def changecolor(self):
-        print(self.col, self.row)
         if spritelist[self.row][self.col] == 0:
             self.setImage(2)
         if spritelist[self.row][self.col] == 1:
@@ -74,8 +71,7 @@ class Cell(Sprite):
             
     def countneighbors(self):
         s = 0
-        if self.col+1 <= 9 and self.row+1 <= 7 and self.col-1 >= 0 and self.row-1 >= 0: # center
-            print('center')
+        if self.col+1 <= 29 and self.row+1 <= 29 and self.col-1 >= 0 and self.row-1 >= 0: # center
             if spritelist[self.row-1][self.col-1] == 1 or spritelist[self.row-1][self.col-1] == 2: #7
                 s += 1
             if spritelist[self.row-1][self.col] == 1 or spritelist[self.row-1][self.col] == 2: #8
@@ -92,8 +88,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.row+1][self.col+1] == 1 or spritelist[self.row+1][self.col+1] == 2: #3
                 s += 1
-        elif self.col+1 <= 9 and self.row+1 <= 7 and self.col-1 >=0 and self.row-1 < 0: #top middle
-            print('top middle')
+        elif self.col+1 <= 29 and self.row+1 <= 29 and self.col-1 >=0 and self.row-1 < 0: #top middle
             if spritelist[self.row+1][self.col-1] == 1 or spritelist[self.row+1][self.col-1] == 2: #1
                 s += 1
             if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #2
@@ -104,8 +99,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.row][self.col+1] == 1 or spritelist[self.row][self.col+1] == 2: #6
                 s += 1
-        elif self.col+1 <= 9 and self.row+1 <= 7 and self.col-1 < 0 and self.row-1 >= 0: #left middle
-            print('left middle')
+        elif self.col+1 <= 29 and self.row+1 <= 29 and self.col-1 < 0 and self.row-1 >= 0: #left middle
             if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #2
                 s += 1
             if spritelist[self.row+1][self.col+1] == 1 or spritelist[self.row+1][self.col+1] == 2: #3
@@ -116,8 +110,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.row-1][self.col+1] == 1 or spritelist[self.row-1][self.col+1] == 2: #9
                 s += 1
-        elif self.col+1 <= 9 and self.row+1 > 7 and self.col-1 >= 0 and self.row-1 >= 0: #bottom middle
-            print('bottom middle')
+        elif self.col+1 <= 29 and self.row+1 > 29 and self.col-1 >= 0 and self.row-1 >= 0: #bottom middle
             if spritelist[self.row][self.col-1] == 1 or spritelist[self.row][self.col-1] == 2: #4
                 s += 1
             if spritelist[self.row][self.col+1] == 1 or spritelist[self.row][self.col+1] == 2: #6
@@ -128,8 +121,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.row-1][self.col+1] == 1 or spritelist[self.row-1][self.col+1] == 2: #9
                 s += 1
-        elif self.col+1 > 9 and self.row+1 <= 7 and self.col-1 >= 0 and self.row-1 >= 0: #right middle
-            print('right middle')
+        elif self.col+1 > 29 and self.row+1 <= 29 and self.col-1 >= 0 and self.row-1 >= 0: #right middle
             if spritelist[self.row+1][self.col-1] == 1 or spritelist[self.row+1][self.col-1] == 2: #1
                 s += 1
             if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #2
@@ -140,33 +132,28 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.row-1][self.col] == 1 or spritelist[self.row-1][self.col] == 2: #8
                 s += 1
-        elif self.col+1 <= 9 and self.row+1 <= 7 and self.col-1 < 0 and self.row-1 < 0: #left upper corner
-            print('left upper corner')
+        elif self.col+1 <= 29 and self.row+1 <= 29 and self.col-1 < 0 and self.row-1 < 0: #left upper corner
             if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #2
                 s += 1
             if spritelist[self.row+1][self.col+1] == 1 or spritelist[self.row+1][self.col+1] == 2: #3
                 s += 1
             if spritelist[self.row][self.col+1] == 1 or spritelist[self.row][self.col+1] == 2: #6
                 s += 1
-        elif self.col+1 > 9 and self.row+1 <= 7 and self.col-1 >= 0 and self.row-1 < 0: #right upper corner
-            print('right upper corner')
-            print(self.col, self.row)
+        elif self.col+1 > 29 and self.row+1 <= 29 and self.col-1 >= 0 and self.row-1 < 0: #right upper corner
             if spritelist[self.row+1][self.col-1] == 1 or spritelist[self.row+1][self.col-1] == 2: #1
                 s += 1
             if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #2
                 s += 1
             if spritelist[self.row][self.col-1] == 1 or spritelist[self.row][self.col-1] == 2: #4
                 s += 1
-        elif self.col+1 > 9 and self.row+1 > 7 and self.col-1 >= 0 and self.row-1 >= 0: #right lower corner
-            print('right lower corner')
+        elif self.col+1 > 29 and self.row+1 > 29 and self.col-1 >= 0 and self.row-1 >= 0: #right lower corner
             if spritelist[self.row-1][self.col-1] == 1 or spritelist[self.row-1][self.col-1] == 2: #7
                 s += 1
             if spritelist[self.row-1][self.col] == 1 or spritelist[self.row-1][self.col] == 2: #8
                 s += 1
             if spritelist[self.row][self.col-1] == 1 or spritelist[self.row][self.col-1] == 2: #4
                 s += 1
-        elif self.col+1 <= 9 and self.row+1 > 7 and self.col-1 < 0 and self.row-1 >= 0: #left lower corner
-            print('left lower corner')
+        elif self.col+1 <= 29 and self.row+1 > 29 and self.col-1 < 0 and self.row-1 >= 0: #left lower corner
             if spritelist[self.row-1][self.col+1] == 1 or spritelist[self.row-1][self.col+1] == 2: #9
                 s += 1
             if spritelist[self.row][self.col+1] == 1 or spritelist[self.row][self.col+1] == 2: #6
@@ -180,11 +167,11 @@ class Cell(Sprite):
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        for y in range(0,8):
-            for x in range(0,10):
+        for y in range(0,30):
+            for x in range(0,30):
                 Cell((10*x,10*y))
         global spritelist
-        spritelist = [[(0) for x in range(0,10)] for y in range(0,8)]
+        spritelist = [[(0) for x in range(0,30)] for y in range(0,30)]
 
     def mousedown(self, event):
         global createlife
@@ -193,7 +180,6 @@ class Conway(App):
     def mousemove(self, event):
         global mousex
         global mousey
-        print(mousex)
         mousex = event.x-10
         mousey = event.y-10
 
@@ -203,12 +189,10 @@ class Conway(App):
         createlife = False
     
     def step(self):
-        print("step")
         for g in self.getSpritesbyClass(Cell):
             g.step()
         for g in self.getSpritesbyClass(Cell):
             g.changecolor()
-        print("unstep")
 
         
 myapp = Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
