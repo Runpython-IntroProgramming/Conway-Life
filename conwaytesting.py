@@ -1,7 +1,7 @@
 """
 conway.py
 Author: Peter Bynum
-Credit: <list sources used, if any>
+Credit: https://jakevdp.github.io/blog/2013/08/07/conways-game-of-life/ ..... idea for using lists to generate sprites
 Assignment: Conway's Game of life
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
