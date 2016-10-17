@@ -19,6 +19,7 @@ mousex = 0
 mousey = 0
 createlife = 0
 spritelist = 0
+spritelistfinal = 0
 
 class Cell(Sprite):
     asset = ImageAsset("conwaysprites.png",
@@ -32,24 +33,25 @@ class Cell(Sprite):
 
     def step(self): #Step needs to 1. cycle through generations, 2. detect if mouse is over then create life, 3. Change color of new life to black after first cycle
         global spritelist
+        global spritelistfinal
         global mousex
         global mousey
         if spritelist[self.row][self.col] == 1: #if alive do the below
             if self.countneighbors() < 2 or self.countneighbors() > 3:
-                spritelist[self.row][self.col] = 0
+                spritelistfinal[self.row][self.col] = 0
 
         if spritelist[self.row][self.col] == 2: #if just birthed do the below
             if self.countneighbors() < 2 or self.countneighbors() > 3:
-                spritelist[self.row][self.col] = 0
+                spritelistfinal[self.row][self.col] = 0
             else:
-                spritelist[self.row][self.col] = 1
+                spritelistfinal[self.row][self.col] = 1
         
         if spritelist[self.row][self.col] == 0: #if dead do the below
             if self.countneighbors() == 3:
-                spritelist[self.row][self.col] = 2
+                spritelistfinal[self.row][self.col] = 2
         
         if createlife == True and self.mouseoverlife() == True:
-            spritelist[self.row][self.col] = 2
+            spritelistfinal[self.row][self.col] = 2
             
 
     def changecolor(self):
@@ -171,7 +173,9 @@ class Conway(App):
             for x in range(0,30):
                 Cell((10*x,10*y))
         global spritelist
+        global spritelistfinal
         spritelist = [[(0) for x in range(0,30)] for y in range(0,30)]
+        spritelistfinal = [[(0) for x in range(0,30)] for y in range(0,30)]
 
     def mousedown(self, event):
         global createlife
@@ -189,8 +193,11 @@ class Conway(App):
         createlife = False
     
     def step(self):
+        global spritelist
+        global spritelistfinal
         for g in self.getSpritesbyClass(Cell):
             g.step()
+        spritelist = spritelistfinal[:]
         for g in self.getSpritesbyClass(Cell):
             g.changecolor()
 
