@@ -21,10 +21,10 @@ white = Color(0xffffff, 1.0)
 width=list(range(0,64))
 height = list(range(0,48))
 
-colors={"0101":w}
+colors={"0101":"w"}
 for x in width:
     for y in height:
-        colors['0'+str(x)+'0'+str(y)]=w
+        colors['0'+str(x)+'0'+str(y)]="w"
 
 
 thinline = LineStyle(1, black)
