@@ -21,12 +21,17 @@ white = Color(0xffffff, 1.0)
 width=list(range(0,64))
 height = list(range(0,48))
 
+colors={"0101":white}
+for x in width:
+    for y in height:
+        colors['0'+str(x)+'0'+str(y)]
+
+
 thinline = LineStyle(1, black)
 rsquare_asset =RectangleAsset(10,10, thinline, red)
 wsquare_asset = RectangleAsset(10, 10, thinline, white)
 for x in width:
     for y in height:
-        (square+str(x)+str(y))=(wsquare_asset,(x*10, y*10))
         Sprite((wsquare_asset,(x*10, y*10)))
 
 def mouseclick(event):
