@@ -22,7 +22,7 @@ white = Color(0xffffff, 1.0)
 width=list(range(0,64))
 height = list(range(0,48))
 
-colors={"0101":"w"}
+colors={"0101":"0"}
 for x in width:
     for y in height:
         colors['0'+str(x)+'0'+str(y)]=0
@@ -41,7 +41,7 @@ def mouseclick(event):
     if colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]==0:
         Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
         colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]=1
-     if colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]==1:
+    if colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]==1:
         Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
         colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]=0
     
