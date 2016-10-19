@@ -22,9 +22,9 @@ width=list(range(0,64))
 height = list(range(0,48))
 
 colors={"0101":"w"}
-for x in width:
-    for y in height:
-        colors['0'+str(x)+'0'+str(y)]="w"
+for x in range(0,64):
+    for y in (0,48):
+        colors['0'+str(x)+'0'+str(y)]=0
 
 
 thinline = LineStyle(1, black)
@@ -37,9 +37,9 @@ for x in width:
 def mouseclick(event):
     pixelpositionx = ((event.x)//10)*10
     pixelpositiony = ((event.y)//10)*10
-    if colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]=="w":
+    if colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]==0:
         Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
-        colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]="r"
+        colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]=1
     
 def doubleclick(event):
     pixelpositionx = ((event.x)//10)*10
