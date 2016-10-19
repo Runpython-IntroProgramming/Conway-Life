@@ -57,7 +57,7 @@ def spacekey(event):
         z=0
 
 
-print(colors)    
+
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('dblclick', doubleclick)
 myapp.listenMouseEvent('mousedown', mouseclick)
