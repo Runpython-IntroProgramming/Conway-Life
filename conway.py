@@ -42,7 +42,7 @@ def mouseclick(event):
         Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
         colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=1
     if colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]==1:
-        Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
+        Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
         colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
     
 def doubleclick(event):
