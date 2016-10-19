@@ -37,8 +37,10 @@ for x in width:
 def mouseclick(event):
     pixelpositionx = ((event.x)//10)*10
     pixelpositiony = ((event.y)//10)*10
-    Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
-    colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]="r"
+    if colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]=="r":
+        Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
+        colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]="r"
+    
 def doubleclick(event):
     pixelpositionx = ((event.x)//10)*10
     pixelpositiony = ((event.y)//10)*10
