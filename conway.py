@@ -22,8 +22,8 @@ width=list(range(0,64))
 height = list(range(0,48))
 
 colors={"0101":"w"}
-for x in range(0,64):
-    for y in (0,48):
+for x in width:
+    for y in height:
         colors['0'+str(x)+'0'+str(y)]=0
 
 
