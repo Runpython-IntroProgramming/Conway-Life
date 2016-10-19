@@ -38,12 +38,12 @@ for x in width:
 def mouseclick(event):
     pixelpositionx = ((event.x)//10)*10
     pixelpositiony = ((event.y)//10)*10
-    if colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]==0:
+    if colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]==0:
         Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
-        colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]=1
-    if colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]==1:
+        colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=1
+    if colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]==1:
         Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
-        colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]=0
+        colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
     
 def doubleclick(event):
     pixelpositionx = ((event.x)//10)*10
