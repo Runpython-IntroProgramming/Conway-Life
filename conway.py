@@ -7,6 +7,7 @@ Write and submit a program that plays Conway's Game of Life, per
 https://github.com/HHS-IntroProgramming/Conway-Life
 
 
+
 while z==0:
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
@@ -40,6 +41,9 @@ def mouseclick(event):
     if colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]==0:
         Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
         colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]=1
+     if colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]==1:
+        Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
+        colors['0'+str(pixelpositionx/10)+'0'+str(pixelpositiony/10)]=0
     
 def doubleclick(event):
     pixelpositionx = ((event.x)//10)*10
