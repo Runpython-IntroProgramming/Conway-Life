@@ -41,7 +41,7 @@ def mouseclick(event):
     if colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]==0:
         Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
         colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=1
-    else:
+    elif:colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]==1:
         Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
         colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
 
@@ -69,9 +69,8 @@ def spacekey(event):
 
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
-myapp.listenMouseEvent('mouseclick' and 'mousemove', drag)
 myapp.listenMouseEvent('dblclick', doubleclick)
-myapp.listenMouseEvent('mousedown', mouseclick)
+myapp.listenMouseEvent('click', mouseclick)
 myapp.listenKeyEvent('keydown', 'space', spacekey)
 
 myapp = App()
