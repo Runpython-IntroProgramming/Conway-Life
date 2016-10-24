@@ -7,6 +7,16 @@ Write and submit a program that plays Conway's Game of Life, per
 https://github.com/HHS-IntroProgramming/Conway-Life
 
 
+def mouseclick(event):
+    pixelpositionx = ((event.x)//10)*10
+    pixelpositiony = ((event.y)//10)*10
+    if colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]==0:
+        Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
+        colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=1
+    else:
+        Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
+        colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
+
 
 while z==0:
 """
@@ -36,6 +46,7 @@ for x in width:
         Sprite(wsquare_asset,(x*10, y*10))
 
 def mouseclick(event):
+    click = 1
     pixelpositionx = ((event.x)//10)*10
     pixelpositiony = ((event.y)//10)*10
     if colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]==0:
@@ -44,16 +55,17 @@ def mouseclick(event):
     else:
         Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
         colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
-
+        
 def drag(event):
-    pixelpositionx = ((event.x)//10)*10
-    pixelpositiony = ((event.y)//10)*10
-    if colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]==0:
-        Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
-        colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=1
-    else:
-        Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
-        colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
+    if click==1:
+        pixelpositionx = ((event.x)//10)*10
+        pixelpositiony = ((event.y)//10)*10
+        if colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]==0:
+            Sprite(rsquare_asset, (pixelpositionx, pixelpositiony))
+            colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=1
+        else:
+            Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
+            colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
 
 def doubleclick(event):
     pixelpositionx = ((event.x)//10)*10
@@ -71,7 +83,7 @@ def spacekey(event):
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('dblclick', doubleclick)
 myapp.listenMouseEvent('mousedown', mouseclick)
-myapp.listenMouseEvent('mousedown','movsemove', drag)
+myapp.listenMouseEvent('movsemove', drag)
 myapp.listenKeyEvent('keydown', 'space', spacekey)
 
 myapp = App()
