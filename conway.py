@@ -83,10 +83,9 @@ def doubleclick(event):
     Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
 
 def spacekey(event):
-    if z==0:
-        z=1
-    else:
-        z=0
+    colors1=colors
+    for x in colors:
+        if 
 
 
 
