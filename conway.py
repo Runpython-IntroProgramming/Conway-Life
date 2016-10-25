@@ -19,6 +19,7 @@ def mouseclick(event):
 
 
 while z==0:
+    
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 scrw= 320
@@ -66,6 +67,7 @@ def mouseup(event):
     
 def drag(event):
     global click
+    print(event.x, event.y)
     if click==1:
         pixelpositionx = ((event.x)//10)*10
         pixelpositiony = ((event.y)//10)*10
@@ -93,7 +95,7 @@ myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mouseup', mouseup)
 myapp.listenMouseEvent('dblclick', doubleclick)
 myapp.listenMouseEvent('mousedown', mouseclick)
-myapp.listenMouseEvent('movsemove', drag)
+myapp.listenMouseEvent('mousemove', drag)
 myapp.listenKeyEvent('keydown', 'space', spacekey)
 
 myapp = App()
