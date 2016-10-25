@@ -48,6 +48,7 @@ for x in width:
         Sprite(wsquare_asset,(x*10, y*10))
 
 def mouseclick(event):
+    global click
     click = 1
     pixelpositionx = ((event.x)//10)*10
     pixelpositiony = ((event.y)//10)*10
@@ -59,9 +60,11 @@ def mouseclick(event):
         colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
         
 def mouseup(event):        
+    global click
     click = 0
     
 def drag(event):
+    global click
     if click==1:
         pixelpositionx = ((event.x)//10)*10
         pixelpositiony = ((event.y)//10)*10
