@@ -32,6 +32,8 @@ white = Color(0xffffff, 1.0)
 width=list(range(0,64))
 height = list(range(0,48))
 
+click = 0
+
 colors={"0101":"0"}
 for x in width:
     for y in height:
@@ -55,7 +57,10 @@ def mouseclick(event):
     else:
         Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
         colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
-        click = 0
+        
+def mouseup(event):        
+    click = 0
+    
 def drag(event):
     if click==1:
         pixelpositionx = ((event.x)//10)*10
@@ -81,6 +86,7 @@ def spacekey(event):
 
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp.listenMouseEvent('mouseup', mouseup)
 myapp.listenMouseEvent('dblclick', doubleclick)
 myapp.listenMouseEvent('mousedown', mouseclick)
 myapp.listenMouseEvent('movsemove',  drag)
