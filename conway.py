@@ -55,7 +55,7 @@ def mouseclick(event):
     else:
         Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
         colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
-        
+        click = 0
 def drag(event):
     if click==1:
         pixelpositionx = ((event.x)//10)*10
@@ -83,7 +83,7 @@ def spacekey(event):
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('dblclick', doubleclick)
 myapp.listenMouseEvent('mousedown', mouseclick)
-myapp.listenMouseEvent('movsemove', drag)
+myapp.listenMouseEvent('movsemove',  drag)
 myapp.listenKeyEvent('keydown', 'space', spacekey)
 
 myapp = App()
