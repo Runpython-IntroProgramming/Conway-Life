@@ -92,7 +92,7 @@ myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mouseup', mouseup)
 myapp.listenMouseEvent('dblclick', doubleclick)
 myapp.listenMouseEvent('mousedown', mouseclick)
-myapp.listenMouseEvent('movsemove',  drag)
+myapp.listenMouseEvent('movsemove', drag)
 myapp.listenKeyEvent('keydown', 'space', spacekey)
 
 myapp = App()
