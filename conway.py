@@ -77,15 +77,10 @@ def drag(event):
             Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
             colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
 
-def doubleclick(event):
-    pixelpositionx = ((event.x)//10)*10
-    pixelpositiony = ((event.y)//10)*10
-    Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
 
 def spacekey(event):
     colors1=colors
-    for x in colors:
-        if 
+    
 
 
 
