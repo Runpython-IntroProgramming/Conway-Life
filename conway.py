@@ -21,16 +21,17 @@ def mouseclick(event):
 while z==0:
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
-
-SCREEN_WIDTH = 640
-SCREEN_HEIGHT = 480
+scrw= 640
+scrh=480
+SCREEN_WIDTH = scrw
+SCREEN_HEIGHT = scrh
 
 black = Color(0x000000, 1.0)
 red = Color(0xff0000, 1.0)
 white = Color(0xffffff, 1.0)
 
-width=list(range(0,64))
-height = list(range(0,48))
+width=list(range(0,scrw/10))
+height = list(range(0,scrh/10))
 
 click = 0
 
