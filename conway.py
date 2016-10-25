@@ -67,7 +67,6 @@ def mouseup(event):
     
 def drag(event):
     global click
-    print(event.x, event.y)
     if click==1:
         pixelpositionx = ((event.x)//10)*10
         pixelpositiony = ((event.y)//10)*10
