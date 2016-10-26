@@ -80,8 +80,10 @@ def drag(event):
 
 def spacekey(event):
     colors1=colors
-    for x in colors:
-        if int(colors.get[str(int(x-1))]+int(colors.get[str(int(x+1))]+
+    for x in width:
+        for y in height:
+            if int(colors.get['0'+str(x+1)+'0'+str(y)])+int(colors.get['0'+str(x-1)+'0'+str(y)])+int(colors.get['0'+str(x)+'0'+str(y+1)])+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])==3:
+                
     
 
 
