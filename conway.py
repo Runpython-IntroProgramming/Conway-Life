@@ -80,6 +80,8 @@ def drag(event):
 
 def spacekey(event):
     colors1=colors
+    for x in colors:
+        if int(colors.get[str(int(x-1))]+int(colors.get[str(int(x+1))]+
     
 
 
