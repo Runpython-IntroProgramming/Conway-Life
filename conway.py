@@ -91,8 +91,11 @@ def spacekey(event):
                     colors1['0'+str(x)+'0'+str(y)]=1
                     Sprite(rsquare_asset,(x*10, y*10))
                 if int(colors.get['0'+str(x+1)+'0'+str(y)])+int(colors.get['0'+str(x-1)+'0'+str(y)])+int(colors.get['0'+str(x)+'0'+str(y+1)])+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])==2:
-                colors1['0'+str(x)+'0'+str(y)]=1
+                    colors1['0'+str(x)+'0'+str(y)]=1
                     Sprite(rsquare_asset,(x*10, y*10))
+                if int(colors.get['0'+str(x+1)+'0'+str(y)])+int(colors.get['0'+str(x-1)+'0'+str(y)])+int(colors.get['0'+str(x)+'0'+str(y+1)])+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])<2:
+                    colors1['0'+str(x)+'0'+str(y)]=0
+                    Sprite(wsquare_asset,(x*10, y*10))
 
 
 
