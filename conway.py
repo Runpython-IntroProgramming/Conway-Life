@@ -77,9 +77,9 @@ def drag(event):
             Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
             colors['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
 
-
+go=0
 def spacekey(event):
-    go=0
+    global go
     if go==0:
         go=1
     else:
