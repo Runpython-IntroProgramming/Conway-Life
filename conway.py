@@ -79,10 +79,10 @@ def drag(event):
 
 
 def spacekey(event):
-    if a==0:
-        a=1
+    if go==0:
+        go=1
     else:
-        a=0
+        go=0
     colors1=colors
     while a == 1
         for x in width:
