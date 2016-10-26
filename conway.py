@@ -83,9 +83,8 @@ def spacekey(event):
         go=1
     else:
         go=0
-    
-    while a == 1
     colors1=colors
+    while a == 1
         for x in width:
             for y in height:
                 if int(colors.get['0'+str(x+1)+'0'+str(y)])+int(colors.get['0'+str(x-1)+'0'+str(y)])+int(colors.get['0'+str(x)+'0'+str(y+1)])+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])==3:
