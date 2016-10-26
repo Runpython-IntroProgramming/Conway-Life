@@ -85,23 +85,23 @@ def spacekey(event):
     else:
         go=0
 
-colors1=colors
-while go == 1:
-    for x in width:
-        for y in height:
-            if int(colors.get['0'+str(x+1)+'0'+str(y)])+int(colors.get['0'+str(x-1)+'0'+str(y)])+int(colors.get['0'+str(x)+'0'+str(y+1)])+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])==3:
-                colors1['0'+str(x)+'0'+str(y)]=1
-                Sprite(rsquare_asset,(x*10, y*10))
-            if int(colors.get['0'+str(x+1)+'0'+str(y)])+int(colors.get['0'+str(x-1)+'0'+str(y)])+int(colors.get['0'+str(x)+'0'+str(y+1)])+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])==2:
-                colors1['0'+str(x)+'0'+str(y)]=1
-                Sprite(rsquare_asset,(x*10, y*10))
-            if int(colors.get['0'+str(x+1)+'0'+str(y)])+int(colors.get['0'+str(x-1)+'0'+str(y)])+int(colors.get['0'+str(x)+'0'+str(y+1)])+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])<2:
-                colors1['0'+str(x)+'0'+str(y)]=0
-                Sprite(wsquare_asset,(x*10, y*10))
-            if int(colors.get['0'+str(x+1)+'0'+str(y)])+int(colors.get['0'+str(x-1)+'0'+str(y)])+int(colors.get['0'+str(x)+'0'+str(y+1)])+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])>3:
-                colors1['0'+str(x)+'0'+str(y)]=0
-                Sprite(wsquare_asset,(x*10, y*10))
-    colors=colors1        
+def run(event):
+    while go == 1:
+        for x in width:
+            for y in height:
+                if int(colors.get['0'+str(x+1)+'0'+str(y)])+int(colors.get['0'+str(x-1)+'0'+str(y)])+int(colors.get['0'+str(x)+'0'+str(y+1)])+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])==3:
+                    colors1['0'+str(x)+'0'+str(y)]=1
+                    Sprite(rsquare_asset,(x*10, y*10))
+                if int(colors.get['0'+str(x+1)+'0'+str(y)])+int(colors.get['0'+str(x-1)+'0'+str(y)])+int(colors.get['0'+str(x)+'0'+str(y+1)])+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])==2:
+                    colors1['0'+str(x)+'0'+str(y)]=1
+                    Sprite(rsquare_asset,(x*10, y*10))
+                if int(colors.get['0'+str(x+1)+'0'+str(y)])+int(colors.get['0'+str(x-1)+'0'+str(y)])+int(colors.get['0'+str(x)+'0'+str(y+1)])+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])<2:
+                    colors1['0'+str(x)+'0'+str(y)]=0
+                    Sprite(wsquare_asset,(x*10, y*10))
+                if int(colors.get['0'+str(x+1)+'0'+str(y)])+int(colors.get['0'+str(x-1)+'0'+str(y)])+int(colors.get['0'+str(x)+'0'+str(y+1)])+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])>3:
+                    colors1['0'+str(x)+'0'+str(y)]=0
+                    Sprite(wsquare_asset,(x*10, y*10))
+        colors=colors1        
 
 
 
@@ -112,4 +112,4 @@ myapp.listenMouseEvent('mousemove', drag)
 myapp.listenKeyEvent('keydown', 'space', spacekey)
 
 myapp = App()
-myapp.run()
+myapp.run(run)
