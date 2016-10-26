@@ -105,7 +105,6 @@ def spacekey(event):
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mouseup', mouseup)
-myapp.listenMouseEvent('dblclick', doubleclick)
 myapp.listenMouseEvent('mousedown', mouseclick)
 myapp.listenMouseEvent('mousemove', drag)
 myapp.listenKeyEvent('keydown', 'space', spacekey)
