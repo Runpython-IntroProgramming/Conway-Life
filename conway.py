@@ -79,6 +79,7 @@ def drag(event):
 
 
 def spacekey(event):
+    global colors
     go=0
     if go==0:
         go=1
