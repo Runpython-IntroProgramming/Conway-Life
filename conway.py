@@ -88,18 +88,21 @@ def spacekey(event):
 def run():
     global width
     global height
-    colors1=colors.deepcopy
     while go == 1:
         for x in width:
             for y in height:
                 print(x,y)
                 if int(colors.get('0'+str(x+1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))==3:
+                    print(y)
                     colors1['0'+str(x)+'0'+str(y)]=1
+                    print(y)
                     Sprite(rsquare_asset,(x*10, y*10))
+                    print(y)
                 if int(colors.get('0'+str(x+1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))==2:
+                    print(y)
                     colors1['0'+str(x)+'0'+str(y)]=1
                     Sprite(rsquare_asset,(x*10, y*10))
-                if int(colors.get('0'+str(x+1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])<2:
+                if int(colors.get('0'+str(x+1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))<2:
                     colors1['0'+str(x)+'0'+str(y)]=0
                     Sprite(wsquare_asset,(x*10, y*10))
                 if int(colors.get['0'+str(x+1)+'0'+str(y)])+int(colors.get['0'+str(x-1)+'0'+str(y)])+int(colors.get['0'+str(x)+'0'+str(y+1)])+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])>3:
