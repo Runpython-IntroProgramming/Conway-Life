@@ -86,9 +86,13 @@ def spacekey(event):
         go=0
 
 def run():
+    global width
+    global height
     while go == 1:
         for x in width:
             for y in height:
+                print(x,y)
+                return
                 if int(colors.get['0'+str(x+1)+'0'+str(y)])+int(colors.get['0'+str(x-1)+'0'+str(y)])+int(colors.get['0'+str(x)+'0'+str(y+1)])+int(colors.get['0'+str(x)+'0'+str(y-1)])+int(colors.get['0'+str(x-1)+'0'+str(y+1)])+int(colors.get['0'+str(x-1)+'0'+str(y-1)])+int(colors.get['0'+str(x+1)+'0'+str(y+1)])+int(colors.get['0'+str(x+1)+'0'+str(y-1)])==3:
                     colors1['0'+str(x)+'0'+str(y)]=1
                     Sprite(rsquare_asset,(x*10, y*10))
