@@ -85,7 +85,7 @@ def spacekey(event):
     else:
         go=0
 
-def run(event):
+def run():
     while go == 1:
         for x in width:
             for y in height:
@@ -110,6 +110,7 @@ myapp.listenMouseEvent('mouseup', mouseup)
 myapp.listenMouseEvent('mousedown', mouseclick)
 myapp.listenMouseEvent('mousemove', drag)
 myapp.listenKeyEvent('keydown', 'space', spacekey)
+
 
 myapp = App()
 myapp.run(run)
