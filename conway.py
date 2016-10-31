@@ -99,7 +99,8 @@ def run():
                     neighbors=int(colors.get('0'+'0'+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+'0'+'0'+str(y+1)))+int(colors.get('0'+'0'+'0'+str(y-1)))
                 if y==scrh/10:
                 
-                neighbors=int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
+                if x!=0 and y!=0 and y!=scrh/10 x!=scrw/10:
+                    neighbors=int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
                 if neighbors==3:
                     print(y)
                     colors1['0'+str(x)+'0'+str(y)]=1
