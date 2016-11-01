@@ -22,8 +22,8 @@ while z==0:
     
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
-scrw= 160
-scrh=120
+scrw= 100
+scrh=100
 SCREEN_WIDTH = scrw
 SCREEN_HEIGHT = scrh
 
