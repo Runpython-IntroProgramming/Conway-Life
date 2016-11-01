@@ -89,8 +89,9 @@ def run():
     global width
     global height
     while go == 1:
-        for x in width:
-            for y in height:
+        for x in range(0,width):
+            for y in range(0,height):
+                print(x,y)
                 if x==0:
                     neighbors = int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(scrw/10)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(scrw/10)+'0'+str(y+1)))+int(colors.get('0'+str(scrw/10)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
                 if y==0:
