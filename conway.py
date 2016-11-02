@@ -19,7 +19,8 @@ def mouseclick(event):
 
 
 while z==0:
-    
+
+int is missing in neighbors definitions    
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 scrw= 100
@@ -33,7 +34,8 @@ white = Color(0xffffff, 1.0)
 
 width=list(range(0,int((scrw/10))+1))
 height = list(range(0,int((scrh/10))+1))
-
+print(width)
+print(height)
 click = 0
 
 colors={"0101":"0"}
@@ -92,7 +94,7 @@ def spacekey(event):
             for y in height:
                 print(x,y)
                 if x==0 and y!=0:
-                    neighbors = int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(scrw/10)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(scrw/10)+'0'+str(y+1)))+int(colors.get('0'+str(scrw/10)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
+                    neighbors = int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(int(scrw/10))+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(int(scrw/10))+'0'+str(y+1)))+int(colors.get('0'+str(int(scrw/10))+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
                 if y==0 and x!=0:
                     neighbors =int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(scrh/10)))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(scrh/10)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(scrh/10)))
                 if x==scrw/10:
@@ -100,7 +102,6 @@ def spacekey(event):
                 if y==scrh/10:
                     neighbors=int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+'0'))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(x-1)+'0'+'0'))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+'0'))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
                 if x==0 and y==0:
-                    print(colors.get('0'+str(x)+'0'+str(scrh/10)))
                     neighbors = int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(scrw/10)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(scrh/10)))+int(colors.get('0'+str(scrw/10)+'0'+str(y+1)))+int(colors.get('0'+str(scrw/10)+'0'+str(scrh/10)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(scrh/10)))
                 if x==0 and y==scrh/10:
                     neighbors = int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(scrw/10)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+'0'))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(scrw/10)+'0'+'0'))+int(colors.get('0'+str(scrw/10)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+'0'))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
