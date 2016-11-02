@@ -23,6 +23,7 @@ while z==0:
 int is missing in neighbors definitions    
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+import time
 scrw= 100
 scrh=100
 SCREEN_WIDTH = scrw
