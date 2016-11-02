@@ -82,7 +82,7 @@ def drag(event):
 go=0
 def spacekey(event):
     global colors
-    colors1 =colors.deepcopy
+    colors1 =colors.copy()
     global go
     if go==0:
         go=1
@@ -94,7 +94,7 @@ def spacekey(event):
         for x in width:
             for y in height:
                 print(x,y)
-                if x==0 and y!=0:
+                if x==0 and y!=0 and y!=scrh/10:
                     neighbors = int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(int(scrw/10))+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(int(scrw/10))+'0'+str(y+1)))+int(colors.get('0'+str(int(scrw/10))+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
                 if y==0 and x!=0:
                     neighbors =int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(int(scrh/10))))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(int(scrh/10))))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(int(scrh/10))))
@@ -113,30 +113,18 @@ def spacekey(event):
                 if x!=0 and y!=0 and y!=scrh/10 and x!=scrw/10:
                     neighbors=int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
                 if neighbors==3:
-                    print(y)
                     colors1['0'+str(x)+'0'+str(y)]=1
-                    print(y)
                     Sprite(rsquare_asset,(x*10, y*10))
-                    print(y)
                 if neighbors==2:
-                    print(y)
                     colors1['0'+str(x)+'0'+str(y)]=1
-                    print(y)
                     Sprite(rsquare_asset,(x*10, y*10))
-                    print(y)
                 if neighbors<2:
-                    print(y)
                     colors1['0'+str(x)+'0'+str(y)]=0
-                    print(y)
                     Sprite(wsquare_asset,(x*10, y*10))
-                    print(y)
                 if neighbors>3:
-                    print(y)
                     colors1['0'+str(x)+'0'+str(y)]=0
-                    print(y)
                     Sprite(wsquare_asset,(x*10, y*10))
-                    print(y)
-        colors=colors1.deepcopy        
+        colors=colors1.copy() 
 
 def run():
     global width
