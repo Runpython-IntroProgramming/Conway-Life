@@ -82,6 +82,7 @@ def drag(event):
 go=0
 def spacekey(event):
     global colors
+    colors1 =colors.deepcopy
     global go
     if go==0:
         go=1
@@ -96,7 +97,7 @@ def spacekey(event):
                 if x==0 and y!=0:
                     neighbors = int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(int(scrw/10))+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(int(scrw/10))+'0'+str(y+1)))+int(colors.get('0'+str(int(scrw/10))+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
                 if y==0 and x!=0:
-                    neighbors =int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(int(scrh/10)))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(int(scrh/10))))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(scrh/10)))
+                    neighbors =int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(int(scrh/10))))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(int(scrh/10))))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(int(scrh/10))))
                 if x==scrw/10:
                     neighbors=int(colors.get('0'+'0'+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+'0'+'0'+str(y+1)))+int(colors.get('0'+'0'+'0'+str(y-1)))
                 if y==scrh/10:
