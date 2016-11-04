@@ -118,6 +118,7 @@ def run():
                     neighbors=int(colors.get('0'+'0'+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+'0'))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(x-1)+'0'+'0'))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+'0'+'0'+'0'))+int(colors.get('0'+'0'+'0'+str(y-1)))
                 if x!=0 and y!=0 and y!=scrh/10 and x!=scrw/10:
                     neighbors=int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
+                """
                 if neighbors==3:
                     print(3)
                     colors1['0'+str(x)+'0'+str(y)]=1
@@ -134,6 +135,7 @@ def run():
                     print('more')
                     colors1['0'+str(x)+'0'+str(y)]=0
                     Sprite(wsquare_asset,(x*10, y*10))
+                """
         colors=colors1.copy() 
 
 
