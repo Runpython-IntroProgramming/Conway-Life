@@ -92,7 +92,7 @@ def spacekey(event):
     global width
     global height
     
-def enter():
+def enter(event):
     global go
     global width
     global height
