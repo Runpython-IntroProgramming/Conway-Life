@@ -130,7 +130,6 @@ def spacekey(event):
                     colors1['0'+str(x)+'0'+str(y)]=0
                     Sprite(wsquare_asset,(x*10, y*10))
         colors=colors1.copy() 
-        time.sleep(5)
 
 def run():
     global width
