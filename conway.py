@@ -83,7 +83,7 @@ def drag(event):
 go=0
 def spacekey(event):
     global colors
-    colors1 =colors.copy()
+    
     global go
     if go==0:
         go=1
@@ -97,6 +97,7 @@ def enter(event):
     global go
     global width
     global height
+    colors1 =colors.copy()
     print(go)
     while go == 1:
         for x in width:
