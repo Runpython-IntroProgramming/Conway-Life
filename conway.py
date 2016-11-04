@@ -117,7 +117,7 @@ def spacekey(event):
                     print(3)
                     colors1['0'+str(x)+'0'+str(y)]=1
                     Sprite(rsquare_asset,(x*10, y*10))
-                if neighbors==2 and colors('0'+str(x)+'0'+str(y))!=1:
+                if neighbors==2 and colors['0'+str(x)+'0'+str(y)]!=1:
                     print(2)
                     colors1['0'+str(x)+'0'+str(y)]=0
                     Sprite(wsquare_asset,(x*10, y*10))
