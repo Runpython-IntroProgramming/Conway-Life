@@ -91,6 +91,11 @@ def spacekey(event):
         go=0
     global width
     global height
+    
+def run():
+    global go
+    global width
+    global height
     while go == 1:
         for x in width:
             for y in height:
@@ -130,58 +135,6 @@ def spacekey(event):
                     colors1['0'+str(x)+'0'+str(y)]=0
                     Sprite(wsquare_asset,(x*10, y*10))
         colors=colors1.copy() 
-
-def run():
-    global width
-    global height
-    while go == 1:
-        for x in width:
-            for y in height:
-                print(x,y)
-                if x==0:
-                    neighbors = int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(scrw/10)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(scrw/10)+'0'+str(y+1)))+int(colors.get('0'+str(scrw/10)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
-                if y==0:
-                    neighbors =int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(scrh/10)))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(scrh/10)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(scrh/10)))
-                if x==scrw/10:
-                    neighbors=int(colors.get('0'+'0'+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+'0'+'0'+str(y+1)))+int(colors.get('0'+'0'+'0'+str(y-1)))
-                if y==scrh/10:
-                    neighbors=int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+'0'))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(x-1)+'0'+'0'))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+'0'))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
-                if x==0 and y==0:
-                    neighbors = int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(scrw/10)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(scrh/10)))+int(colors.get('0'+str(scrw/10)+'0'+str(y+1)))+int(colors.get('0'+str(scrw/10)+'0'+str(scrh/10)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(scrh/10)))
-                if x==0 and y==scrh/10:
-                    neighbors = int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(scrw/10)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+'0'))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(scrw/10)+'0'+'0'))+int(colors.get('0'+str(scrw/10)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+'0'))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
-                if y==0 and x==scrw/10:
-                    neighbors =int(colors.get('0'+'0'+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(scrh/10)))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(scrh/10)))+int(colors.get('0'+'0'+'0'+str(y+1)))+int(colors.get('0'+'0'+'0'+str(scrh/10))) 
-                if y==scrh/10 and x==scrw/10:
-                    neighbors=int(colors.get('0'+'0'+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+'0'))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(x-1)+'0'+'0'))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+'0'+'0'+'0'))+int(colors.get('0'+'0'+'0'+str(y-1)))
-                if x!=0 and y!=0 and y!=scrh/10 and x!=scrw/10:
-                    neighbors=int(colors.get('0'+str(x+ 1)+'0'+str(y)))+int(colors.get('0'+str(x-1)+'0'+str(y)))+int(colors.get('0'+str(x)+'0'+str(y+1)))+int(colors.get('0'+str(x)+'0'+str(y-1)))+int(colors.get('0'+str(x-1)+'0'+str(y+1)))+int(colors.get('0'+str(x-1)+'0'+str(y-1)))+int(colors.get('0'+str(x+1)+'0'+str(y+1)))+int(colors.get('0'+str(x+1)+'0'+str(y-1)))
-                if neighbors==3:
-                    print(y)
-                    colors1['0'+str(x)+'0'+str(y)]=1
-                    print(y)
-                    Sprite(rsquare_asset,(x*10, y*10))
-                    print(y)
-                if neighbors==2:
-                    print(y)
-                    colors1['0'+str(x)+'0'+str(y)]=1
-                    print(y)
-                    Sprite(rsquare_asset,(x*10, y*10))
-                    print(y)
-                if neighbors<2:
-                    print(y)
-                    colors1['0'+str(x)+'0'+str(y)]=0
-                    print(y)
-                    Sprite(wsquare_asset,(x*10, y*10))
-                    print(y)
-                if neighbors>3:
-                    print(y)
-                    colors1['0'+str(x)+'0'+str(y)]=0
-                    print(y)
-                    Sprite(wsquare_asset,(x*10, y*10))
-                    print(y)
-                print(neighbors)
-        colors=colors1.deepcopy        
 
 
 
