@@ -7,7 +7,19 @@ Write and submit a program that plays Conway's Game of Life, per
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from collections import Counter
- 
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, MouseEvent
+
+red = Color(0xff0000, 1.0)
+green = Color(0x00ff00, 1.0)
+black = Color(0x000000, 1.0)
+white=Color(0xffffff,1.0)
+
+thinline = LineStyle(1, black)
+noline=LineStyle(0,white)
+
+new_cell=CircleAsset(10,thinline,red)
+old_cell=CircleAsset(10,thinline,green)
+
 def life(world, N):
     "Play Conway's game of life for N generations from initial world."
     for g in range(N+1):
@@ -40,3 +52,5 @@ toad    = {(1, 2), (0, 1), (0, 0), (0, 2), (1, 3), (1, 1)}
 glider  = {(0, 1), (1, 0), (0, 0), (0, 2), (2, 1)}
 world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
            | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
+           
+life(world, 5)           
