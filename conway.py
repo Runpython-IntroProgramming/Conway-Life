@@ -40,11 +40,12 @@ class Cell(Sprite):
         
     def ageCell(self):
         self.asset=Cell.oldasset
+        self.lastImage()
         print('aging')
 
     def step(self):
         self.ageCell()
-        #self.setImage(0)
+        self.setImage(0)
         
     def getPosition(self):
         return((self.x, self.y))
