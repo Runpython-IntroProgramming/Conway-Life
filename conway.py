@@ -71,18 +71,17 @@ class ConwayGame(App):
         self.listenMouseEvent(MouseEvent.mouseup, self.mouseup)
         self.listenMouseEvent(MouseEvent.mousemove, self.mousemove)
         self.dragging = False 
-
     def mousedown(self, event):
         # capture any mouse down within 50 pixels
         l=Cell((event.x,event.y))
-        l.step()
+        #l.step()
         print('mousedown '+str(event.x))
         # only drag one bunny at a time - consume the event
         event.consumed = True
 
     def mousemove(self, event):
         l=Cell((event.x,event.y))
-        l.step()
+        #l.step()
         if self.dragging:
             self.x = event.x - self.deltax - self.width//2
             self.y = event.y - self.deltay - self.height//2
@@ -103,6 +102,11 @@ class ConwayGame(App):
                       if counts[c] == 3 or (counts[c] == 2 and c in self.world)}
         print('world')
         print (self.world)
+
+    def newcell(self, position):
+        if position not in self.world:
+            Cell(position)
+            self.world.update(position)
                     
     def step(self):
         self.life()
