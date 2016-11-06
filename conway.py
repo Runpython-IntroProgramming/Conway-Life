@@ -51,7 +51,6 @@ class ConwayGame(App):
                         ( 0, -1),          ( 0, 1), 
                         ( 1, -1), ( 1, 0), ( 1, 1)]    
     
-  
 
     def __init__(self, width, height):
         super().__init__(width, height)
