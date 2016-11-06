@@ -74,14 +74,14 @@ class ConwayGame(App):
     def mousedown(self, event):
         # capture any mouse down within 50 pixels
         #l=Cell((event.x,event.y))
-        self.newcell((event.x,event.y))
+        self.newcell(event.x,event.y)
         #l.step()
         print('mousedown '+str(event.x))
         # only drag one bunny at a time - consume the event
         event.consumed = True
 
     def mousemove(self, event):
-        self.newcell((event.x,event.y))
+        self.newcell(event.x,event.y)
         #l.step()
         if self.dragging:
             self.x = event.x - self.deltax - self.width//2
@@ -104,10 +104,10 @@ class ConwayGame(App):
         print('world')
         print (self.world)
 
-    def newcell(self, position):
-        if position not in self.world:
-            Cell(position)
-            self.world.update(position)
+    def newcell(self, vx, vy):
+        if (vx,vy) not in self.world:
+            Cell((vx,vy))
+            self.world.update((vx,vy))
                     
     def step(self):
         self.life()
