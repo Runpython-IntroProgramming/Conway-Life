@@ -73,6 +73,7 @@ class ConwayGame(App):
                     if counts[c] == 3 or (counts[c] == 2 and c in world)}
                     
     def step(self):
+        self.generation+=1
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
 
