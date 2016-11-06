@@ -79,7 +79,7 @@ class ConwayGame(App):
 
     def mousemove(self, event):
         
-        #print('mousemove ('+str(event.x)+','+str(event.y)+')')
+        print('mousemove ('+str(event.x)+','+str(event.y)+')')
         if self.dragging:
             self.newcell(event.x,event.y)
             event.consumed = True
