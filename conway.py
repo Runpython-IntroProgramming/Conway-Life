@@ -21,6 +21,24 @@ new_cell=CircleAsset(1,thinline,red)
 old_cell=CircleAsset(1,thinline,green)
 
 
+class ConwayGame(App):
+    """
+    Tutorial4 space game example.
+    """
+    def __init__(self, width, height):
+        super().__init__(width, height)
+        black = Color(0, 1)
+        noline = LineStyle(0, black)
+        bg_asset = RectangleAsset(width, height, noline, black)
+        bg = Sprite(bg_asset, (0,0))
+        SpaceShip((100,100))
+        SpaceShip((150,150))
+        SpaceShip((200,50))
+
+    def step(self):
+        for ship in self.getSpritesbyClass(SpaceShip):
+            ship.step()
+
 def life(world, N):
     "Play Conway's game of life for N generations from initial world."
     for g in range(N+1):
