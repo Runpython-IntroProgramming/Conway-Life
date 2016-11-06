@@ -20,6 +20,23 @@ noline=LineStyle(0,white)
 new_cell=CircleAsset(1,thinline,red)
 old_cell=CircleAsset(1,thinline,green)
 
+neighboring_cells = [(-1, -1), (-1, 0), (-1, 1), 
+                     ( 0, -1),          ( 0, 1), 
+                     ( 1, -1), ( 1, 0), ( 1, 1)]
+
+class Cell(Sprite):
+    """
+    Animated space ship
+    """
+    asset = CircleAsset(1,noline,red)
+
+    def __init__(self, position):
+        super().__init__(Cell.asset, position)
+
+    def step(self):
+        self.setImage(0)
+
+
 
 class ConwayGame(App):
     """
@@ -36,8 +53,8 @@ class ConwayGame(App):
         SpaceShip((200,50))
 
     def step(self):
-        for ship in self.getSpritesbyClass(SpaceShip):
-            ship.step()
+        for cell in self.getSpritesbyClass(Cell):
+            cell.step()
 
 def life(world, N):
     "Play Conway's game of life for N generations from initial world."
@@ -48,9 +65,7 @@ def life(world, N):
         world = {c for c in counts 
                 if counts[c] == 3 or (counts[c] == 2 and c in world)}
  
-neighboring_cells = [(-1, -1), (-1, 0), (-1, 1), 
-                     ( 0, -1),          ( 0, 1), 
-                     ( 1, -1), ( 1, 0), ( 1, 1)]
+
  
 def offset(cells, delta):
     "Slide/offset all the cells by delta, a (dx, dy) vector."
