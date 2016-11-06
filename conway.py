@@ -76,7 +76,7 @@ class ConwayGame(App):
         #l=Cell((event.x,event.y))
         self.newcell(event.x,event.y)
         #l.step()
-        print('mousedown '+str(event.x))
+        print('mousedown ('+str(event.x)+','+str(event.y)+')')
         # only drag one bunny at a time - consume the event
         event.consumed = True
 
@@ -101,13 +101,15 @@ class ConwayGame(App):
 
         self.world = {c for c in counts 
                       if counts[c] == 3 or (counts[c] == 2 and c in self.world)}
-        print('world')
-        print (self.world)
+        #print('world')
+        #print (self.world)
 
     def newcell(self, vx, vy):
+        print((vx, vy))
         if (vx,vy) not in self.world:
             Cell((vx,vy))
-            self.world.update((vx,vy))
+            self.world.add((vx,vy))
+            print(self.world)
                     
     def step(self):
         self.life()
