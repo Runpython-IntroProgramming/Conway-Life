@@ -74,8 +74,11 @@ class ConwayGame(App):
                     
     def step(self):
         self.generation+=1
-        for cell in self.getSpritesbyClass(Cell):
-            cell.step()
+        for c in world:
+            Cell(c)
+            
+        #for cell in self.getSpritesbyClass(Cell):
+        #    cell.step()
 
  
 
