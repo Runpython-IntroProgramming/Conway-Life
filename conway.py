@@ -39,6 +39,9 @@ class Cell(Sprite):
 
     def step(self):
         self.setImage(0)
+        
+    def getPosition(self):
+        return((self.x, self.y))
 
 
 
@@ -47,8 +50,8 @@ class ConwayGame(App):
 
     """
     neighboring_cells = [(-1, -1), (-1, 0), (-1, 1), 
-                         ( 0, -1),          ( 0, 1), 
-                         ( 1, -1), ( 1, 0), ( 1, 1)]    
+                        ( 0, -1),          ( 0, 1), 
+                        ( 1, -1), ( 1, 0), ( 1, 1)]    
     
   
 
@@ -66,29 +69,31 @@ class ConwayGame(App):
         self.world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
                    | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
         
-        Cell((150,150))
-        Cell((250,250))
  
     
     def life(self):
         "Play Conway's game of life for N generations from initial world."
-        for g in range(N+1):
-            #display(world, g)
-            counts = Counter(n for c in world for n in self.offset(Cell.neighboring_cells, c))
-            self.world = {c for c in counts 
-                    if counts[c] == 3 or (counts[c] == 2 and c in world)}
+        
+        #display(world, g)
+        counts = Counter(n for c in self.world for n in offset(ConwayGame.neighboring_cells, c))
+
+        self.world = {c for c in counts 
+                      if counts[c] == 3 or (counts[c] == 2 and c in self.world)}
                     
     def step(self):
+        self.life()
         self.generation+=1
-        if self.generation<10:
-                print('cell')
-        Cell((150,150))
-        for c in world:
+        print('')
+        print('*********************************************************')
+        print('cells '+str(self.generation))
+        for c in self.world:
             Cell(c)
+            print(c)
             
             
         for cell in self.getSpritesbyClass(Cell):
-            cell.step()
+            if cell.getPosition() not in self.world:
+                cell.destroy()
 
 myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run() 
