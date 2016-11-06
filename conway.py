@@ -17,8 +17,6 @@ white=Color(0xffffff,1.0)
 thinline = LineStyle(1, black)
 noline=LineStyle(0,white)
 
-new_cell=CircleAsset(1,thinline,red)
-old_cell=CircleAsset(1,thinline,green)
 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
@@ -32,7 +30,7 @@ class Cell(Sprite):
     """
     Animated space ship
     """
-    asset = CircleAsset(2,noline,red)
+    asset = RectangleAsset(1,1,noline,red)
 
     def __init__(self, position):
         super().__init__(Cell.asset, position)
