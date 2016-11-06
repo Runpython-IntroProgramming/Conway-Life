@@ -101,7 +101,7 @@ class ConwayGame(App):
         #print (self.world)
 
     def newcell(self, vx, vy):
-        print((vx, vy))
+        #print((vx, vy))
         if (vx,vy) not in self.world:
             Cell((vx,vy))
             self.world.add((vx,vy))
