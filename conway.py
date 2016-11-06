@@ -32,7 +32,7 @@ class Cell(Sprite):
     """
     Animated space ship
     """
-    asset = CircleAsset(1,noline,red)
+    asset = CircleAsset(2,noline,red)
 
     def __init__(self, position):
         super().__init__(Cell.asset, position)
@@ -65,9 +65,9 @@ class ConwayGame(App):
         glider  = {(0, 1), (1, 0), (0, 0), (0, 2), (2, 1)}
         self.world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
                    | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
+        
         Cell((150,150))
-       
-
+        Cell((250,250))
  
     
     def life(self):
@@ -80,8 +80,12 @@ class ConwayGame(App):
                     
     def step(self):
         self.generation+=1
+        if self.generation<10:
+                print('cell')
+        Cell((150,150))
         for c in world:
             Cell(c)
+            
             
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
