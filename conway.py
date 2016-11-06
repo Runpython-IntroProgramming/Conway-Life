@@ -65,6 +65,7 @@ class ConwayGame(App):
         glider  = {(0, 1), (1, 0), (0, 0), (0, 2), (2, 1)}
         self.world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
                    | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
+        Cell((150,150))
        
 
  
