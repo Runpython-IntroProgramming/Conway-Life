@@ -73,14 +73,13 @@ class ConwayGame(App):
         self.dragging = False 
     def mousedown(self, event):
         self.newcell(event.x,event.y)
-        #print('mousedown ('+str(event.x)+','+str(event.y)+')')
+        print('mousedown ('+str(event.x)+','+str(event.y)+')')
         event.consumed = True
         self.dragging = True
 
     def mousemove(self, event):
-        
-        print('mousemove ('+str(event.x)+','+str(event.y)+')')
         if self.dragging:
+            print('mousemove ('+str(event.x)+','+str(event.y)+')')
             self.newcell(event.x,event.y)
             event.consumed = True
 
