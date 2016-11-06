@@ -96,21 +96,6 @@ class ConwayGame(App):
                 cell.destroy()
 
 myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
-myapp.run() 
-
- 
-def display(world, g):
-    "Display the world as a grid of characters."
-    print ('          GENERATION {}:'.format(g))
-    Xs, Ys = zip(*world)
-    Xrange = range(min(Xs), max(Xs)+1)
-    for y in range(min(Ys), max(Ys)+1):
-        print (''.join('#' if (x, y) in world else '.'
-                      for x in Xrange))
-
-def display_w(world):                     
-    for c in world:
-        Sprite(new_cell,c)
-    myapp.run()
+myapp.run()
     
  
