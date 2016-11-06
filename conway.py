@@ -48,22 +48,28 @@ class ConwayGame(App):
         noline = LineStyle(0, black)
         bg_asset = RectangleAsset(width, height, thinline, white)
         bg = Sprite(bg_asset, (0,0))
-        SpaceShip((100,100))
-        SpaceShip((150,150))
-        SpaceShip((200,50))
+        self.generation=0
+        blinker = {(1, 0), (1, 1), (1, 2)}
+        block   = {(0, 0), (1, 1), (0, 1), (1, 0)}
+        toad    = {(1, 2), (0, 1), (0, 0), (0, 2), (1, 3), (1, 1)}
+        glider  = {(0, 1), (1, 0), (0, 0), (0, 2), (2, 1)}
+        self.world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
+                   | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
 
+    def life(self):
+        "Play Conway's game of life for N generations from initial world."
+        for g in range(N+1):
+            #display(world, g)
+            display_w(world)
+            counts = Counter(n for c in world for n in offset(neighboring_cells, c))
+            world = {c for c in counts 
+                    if counts[c] == 3 or (counts[c] == 2 and c in world)}
+                    
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
 
-def life(world, N):
-    "Play Conway's game of life for N generations from initial world."
-    for g in range(N+1):
-        #display(world, g)
-        display_w(world)
-        counts = Counter(n for c in world for n in offset(neighboring_cells, c))
-        world = {c for c in counts 
-                if counts[c] == 3 or (counts[c] == 2 and c in world)}
+
  
 
  
@@ -86,14 +92,4 @@ def display_w(world):
         Sprite(new_cell,c)
     myapp.run()
     
-blinker = {(1, 0), (1, 1), (1, 2)}
-block   = {(0, 0), (1, 1), (0, 1), (1, 0)}
-toad    = {(1, 2), (0, 1), (0, 0), (0, 2), (1, 3), (1, 1)}
-glider  = {(0, 1), (1, 0), (0, 0), (0, 2), (2, 1)}
-world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
-           | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
-           
-
-
-           
-life(world, 50)    
+ 
