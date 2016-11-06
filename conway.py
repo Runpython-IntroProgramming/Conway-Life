@@ -23,6 +23,11 @@ old_cell=CircleAsset(1,thinline,green)
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
 
+def offset(cells, delta):
+        "Slide/offset all the cells by delta, a (dx, dy) vector."
+        (dx, dy) = delta
+        return {(x+dx, y+dy) for (x, y) in cells} 
+
 class Cell(Sprite):
     """
     Animated space ship
@@ -45,10 +50,7 @@ class ConwayGame(App):
                          ( 0, -1),          ( 0, 1), 
                          ( 1, -1), ( 1, 0), ( 1, 1)]    
     
-    def offset(cells, delta):
-        "Slide/offset all the cells by delta, a (dx, dy) vector."
-        (dx, dy) = delta
-        return {(x+dx, y+dy) for (x, y) in cells}   
+  
 
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -80,8 +82,8 @@ class ConwayGame(App):
         for c in world:
             Cell(c)
             
-        #for cell in self.getSpritesbyClass(Cell):
-        #    cell.step()
+        for cell in self.getSpritesbyClass(Cell):
+            cell.step()
 
 myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run() 
