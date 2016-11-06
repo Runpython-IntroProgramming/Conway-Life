@@ -31,7 +31,7 @@ class Cell(Sprite):
     """
     Animated space ship
     """
-    asset = RectangleAsset(1,1,noline,red)
+    asset = RectangleAsset(3,3,noline,red)
 
     def __init__(self, position):
         super().__init__(Cell.asset, position)
@@ -74,8 +74,9 @@ class ConwayGame(App):
 
     def mousedown(self, event):
         # capture any mouse down within 50 pixels
-        Cell((event.x,event.y))
-        print('mousedown')
+        l=Cell((event.x,event.y))
+        l.step()
+        print('mousedown '+str(event.x))
         # only drag one bunny at a time - consume the event
         event.consumed = True
 
