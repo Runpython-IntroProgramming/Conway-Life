@@ -20,7 +20,8 @@ noline=LineStyle(0,white)
 new_cell=CircleAsset(1,thinline,red)
 old_cell=CircleAsset(1,thinline,green)
 
-
+SCREEN_WIDTH = 640
+SCREEN_HEIGHT = 480
 
 class Cell(Sprite):
     """
