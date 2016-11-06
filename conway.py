@@ -31,7 +31,7 @@ class Cell(Sprite):
     """
     Animated space ship
     """
-    asset = RectangleAsset(3,3,noline,red)
+    asset = RectangleAsset(1,1,noline,green)
 
     def __init__(self, position):
         super().__init__(Cell.asset, position)
@@ -57,7 +57,7 @@ class ConwayGame(App):
         super().__init__(width, height)
         black = Color(0, 1)
         noline = LineStyle(0, black)
-        bg_asset = RectangleAsset(width, height, thinline, white)
+        bg_asset = RectangleAsset(width, height, thinline, black)
         bg = Sprite(bg_asset, (0,0))
         self.generation=0
         blinker = {(1, 0), (1, 1), (1, 2)}
