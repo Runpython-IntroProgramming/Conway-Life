@@ -20,9 +20,7 @@ noline=LineStyle(0,white)
 new_cell=CircleAsset(1,thinline,red)
 old_cell=CircleAsset(1,thinline,green)
 
-neighboring_cells = [(-1, -1), (-1, 0), (-1, 1), 
-                     ( 0, -1),          ( 0, 1), 
-                     ( 1, -1), ( 1, 0), ( 1, 1)]
+
 
 class Cell(Sprite):
     """
@@ -40,8 +38,12 @@ class Cell(Sprite):
 
 class ConwayGame(App):
     """
-    Tutorial4 space game example.
+
     """
+    neighboring_cells = [(-1, -1), (-1, 0), (-1, 1), 
+                         ( 0, -1),          ( 0, 1), 
+                         ( 1, -1), ( 1, 0), ( 1, 1)]    
+    
     def __init__(self, width, height):
         super().__init__(width, height)
         black = Color(0, 1)
@@ -55,28 +57,27 @@ class ConwayGame(App):
         glider  = {(0, 1), (1, 0), (0, 0), (0, 2), (2, 1)}
         self.world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
                    | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
+       
 
+    def offset(cells, delta):
+        "Slide/offset all the cells by delta, a (dx, dy) vector."
+        (dx, dy) = delta
+        return {(x+dx, y+dy) for (x, y) in cells}    
+    
     def life(self):
         "Play Conway's game of life for N generations from initial world."
         for g in range(N+1):
             #display(world, g)
-            display_w(world)
-            counts = Counter(n for c in world for n in offset(neighboring_cells, c))
-            world = {c for c in counts 
+            counts = Counter(n for c in world for n in self.offset(Cell.neighboring_cells, c))
+            self.world = {c for c in counts 
                     if counts[c] == 3 or (counts[c] == 2 and c in world)}
                     
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
 
-
  
 
- 
-def offset(cells, delta):
-    "Slide/offset all the cells by delta, a (dx, dy) vector."
-    (dx, dy) = delta
-    return {(x+dx, y+dy) for (x, y) in cells}
  
 def display(world, g):
     "Display the world as a grid of characters."
