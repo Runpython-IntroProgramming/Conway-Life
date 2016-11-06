@@ -14,6 +14,7 @@ red = Color(0xff0000, 1.0)
 green = Color(0x00ff00, 1.0)
 black = Color(0x000000, 1.0)
 white=Color(0xffffff,1.0)
+yellow=Color(0xffff00,1.0)
 
 thinline = LineStyle(1, black)
 noline=LineStyle(0,white)
@@ -31,13 +32,15 @@ class Cell(Sprite):
     """
     Animated space ship
     """
-    asset = RectangleAsset(1,1,noline,green)
+    newasset = RectangleAsset(1,1,noline,green)
+    oldasset = RectangleAsset(1,1,noline,yellow)
 
     def __init__(self, position):
-        super().__init__(Cell.asset, position)
+        super().__init__(Cell.newasset, position)
 
     def step(self):
-        self.setImage(0)
+        self.__init__(Cell.oldasset,self.getPosition())
+        #self.setImage(0)
         
     def getPosition(self):
         return((self.x, self.y))
