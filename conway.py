@@ -56,8 +56,8 @@ class ConwayGame(App):
         block   = {(0, 0), (1, 1), (0, 1), (1, 0)}
         toad    = {(1, 2), (0, 1), (0, 0), (0, 2), (1, 3), (1, 1)}
         glider  = {(0, 1), (1, 0), (0, 0), (0, 2), (2, 1)}
-        self.world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
-                   | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
+        self.world   = (block | self.offset(blinker, (5, 2)) | self.offset(glider, (15, 5)) | self.offset(toad, (25, 5))
+                   | {(18, 2), (19, 2), (20, 2), (21, 2)} | self.offset(block, (35, 7)))
        
 
     def offset(cells, delta):
