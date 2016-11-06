@@ -80,7 +80,8 @@ class ConwayGame(App):
         #for cell in self.getSpritesbyClass(Cell):
         #    cell.step()
 
- 
+myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp.run() 
 
  
 def display(world, g):
