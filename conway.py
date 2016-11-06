@@ -81,6 +81,8 @@ class ConwayGame(App):
         event.consumed = True
 
     def mousemove(self, event):
+        l=Cell((event.x,event.y))
+        l.step()
         if self.dragging:
             self.x = event.x - self.deltax - self.width//2
             self.y = event.y - self.deltay - self.height//2
@@ -99,16 +101,14 @@ class ConwayGame(App):
 
         self.world = {c for c in counts 
                       if counts[c] == 3 or (counts[c] == 2 and c in self.world)}
+        print('world')
+        print (self.world)
                     
     def step(self):
         self.life()
         self.generation+=1
-        print('')
-        print('*********************************************************')
-        print('cells '+str(self.generation))
         for c in self.world:
             Cell(c)
-            print(c)
             
             
         for cell in self.getSpritesbyClass(Cell):
