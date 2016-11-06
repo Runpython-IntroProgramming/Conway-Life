@@ -119,6 +119,8 @@ class ConwayGame(App):
         for cell in self.getSpritesbyClass(Cell):
             if cell.getPosition() not in self.world:
                 cell.destroy()
+            else:
+                cell.step()
 
 myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
