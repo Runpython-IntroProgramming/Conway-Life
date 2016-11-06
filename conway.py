@@ -77,14 +77,13 @@ class ConwayGame(App):
         #print('mousedown ('+str(event.x)+','+str(event.y)+')')
         # only drag one bunny at a time - consume the event
         event.consumed = True
+        self.dragging = True
 
     def mousemove(self, event):
-        self.newcell(event.x,event.y)
-        print('mousemove ('+str(event.x)+','+str(event.y)+')')
-        #l.step()
+        
+        #print('mousemove ('+str(event.x)+','+str(event.y)+')')
         if self.dragging:
-            self.x = event.x - self.deltax - self.width//2
-            self.y = event.y - self.deltay - self.height//2
+            self.newcell(event.x,event.y)
             event.consumed = True
 
     def mouseup(self, event):
