@@ -37,9 +37,12 @@ class Cell(Sprite):
 
     def __init__(self, position):
         super().__init__(Cell.newasset, position)
+        
+    def ageCell(self)
+        super().__init__(Cell.oldasset, (self.x, self.y))
 
     def step(self):
-        self.__init__(Cell.oldasset,self.getPosition())
+        self.ageCell()
         #self.setImage(0)
         
     def getPosition(self):
