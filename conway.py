@@ -67,7 +67,30 @@ class ConwayGame(App):
         self.world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
                    | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
         
- 
+        self.listenMouseEvent(MouseEvent.mousedown, self.mousedown)
+        self.listenMouseEvent(MouseEvent.mouseup, self.mouseup)
+        self.listenMouseEvent(MouseEvent.mousemove, self.mousemove)
+        self.dragging = False 
+
+    def mousedown(self, event):
+        # capture any mouse down within 50 pixels
+        self.deltax = event.x - (self.x + self.width//2) 
+        self.deltay = event.y - (self.y + self.height//2)
+        if abs(self.deltax) < 50 and abs(self.deltay) < 50:
+            self.dragging = True
+            # only drag one bunny at a time - consume the event
+            event.consumed = True
+
+    def mousemove(self, event):
+        if self.dragging:
+            self.x = event.x - self.deltax - self.width//2
+            self.y = event.y - self.deltay - self.height//2
+            event.consumed = True
+
+    def mouseup(self, event):
+        if self.dragging:
+            self.dragging = False
+            event.consumed = True
     
     def life(self):
         "Play Conway's game of life for N generations from initial world."
