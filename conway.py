@@ -40,7 +40,7 @@ class Cell(Sprite):
         
     def ageCell(self):
         #self.asset[0]=Cell.oldasset
-        self.GFX = Cell.oldasset.GFX.clone()
+        self.asset = Cell.oldasset
         print('aging')
 
     def step(self):
@@ -72,23 +72,28 @@ class ConwayGame(App):
         block   = {(5, 5), (6, 6), (5, 6), (6, 5)}
         toad    = {(1, 2), (0, 1), (0, 0), (0, 2), (1, 3), (1, 1)}
         glider  = {(10, 11), (11, 10), (10, 10), (10, 12), (12, 11)}
-        self.world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
-                   | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
+      
         self.isOldCell=False
         
         self.listenMouseEvent(MouseEvent.mousedown, self.mousedown)
         self.listenMouseEvent(MouseEvent.mouseup, self.mouseup)
         self.listenMouseEvent(MouseEvent.mousemove, self.mousemove)
-        self.dragging = False 
+        self.dragging = False
+        
+        startWith = input('Enter B to start wth blank screen, P with predefined setup: ')
+        if startWith in {'P','p'}:
+            self.world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
+                               | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
+        else:
+           self.world={} 
+                               
     def mousedown(self, event):
         self.newcell(event.x,event.y)
-        print('mousedown ('+str(event.x)+','+str(event.y)+')')
         event.consumed = True
         self.dragging = True
 
     def mousemove(self, event):
         if self.dragging:
-            print('mousemove ('+str(event.x)+','+str(event.y)+')')
             self.newcell(event.x,event.y)
             event.consumed = True
 
@@ -121,6 +126,7 @@ class ConwayGame(App):
                 cell_y=cell_p[1]
                 if ((cell_x==c[0]) and (cell_y==c[1])):
                     self.isOldCell=True
+                    cell.ageCell()
                     break
             if not self.isOldCell:
                 Cell(c)
@@ -129,8 +135,6 @@ class ConwayGame(App):
         for cell in self.getSpritesbyClass(Cell):
             if cell.getPosition() not in self.world:
                 cell.destroy()
-            #else:
-            #    cell.step()
 
 myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
