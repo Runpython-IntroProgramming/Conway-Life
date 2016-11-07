@@ -121,7 +121,7 @@ class ConwayGame(App):
         for c in self.world:
             self.isOldCell=False
             for cell in self.getSpritesbyClass(Cell):
-                if cell.getPosition[0]==c[0]&&cell.getPosition[1]==c[1]:
+                if cell.getPosition[0]==c[0] & cell.getPosition[1]==c[1]:
                     print ('old cell')
                     self.isOldCell=True
                     break
