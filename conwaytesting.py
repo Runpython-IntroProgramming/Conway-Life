@@ -73,7 +73,7 @@ class Cell(Sprite):
             
     def countneighbors(self):
         s = 0
-        if self.col+1 <= 29 and self.row+1 <= 29 and self.col-1 >= 0 and self.row-1 >= 0: # center
+        if self.col+1 <= 9 and self.row+1 <= 9 and self.col-1 >= 0 and self.row-1 >= 0: # center
             if spritelist[self.row-1][self.col-1] == 1 or spritelist[self.row-1][self.col-1] == 2: #7
                 s += 1
             if spritelist[self.row-1][self.col] == 1 or spritelist[self.row-1][self.col] == 2: #8
@@ -90,7 +90,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.row+1][self.col+1] == 1 or spritelist[self.row+1][self.col+1] == 2: #3
                 s += 1
-        elif self.col+1 <= 29 and self.row+1 <= 29 and self.col-1 >=0 and self.row-1 < 0: #top middle
+        elif self.col+1 <= 9 and self.row+1 <= 9 and self.col-1 >=0 and self.row-1 < 0: #top middle
             if spritelist[self.row+1][self.col-1] == 1 or spritelist[self.row+1][self.col-1] == 2: #1
                 s += 1
             if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #2
@@ -101,7 +101,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.row][self.col+1] == 1 or spritelist[self.row][self.col+1] == 2: #6
                 s += 1
-        elif self.col+1 <= 29 and self.row+1 <= 29 and self.col-1 < 0 and self.row-1 >= 0: #left middle
+        elif self.col+1 <= 9 and self.row+1 <= 9 and self.col-1 < 0 and self.row-1 >= 0: #left middle
             if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #2
                 s += 1
             if spritelist[self.row+1][self.col+1] == 1 or spritelist[self.row+1][self.col+1] == 2: #3
@@ -112,7 +112,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.row-1][self.col+1] == 1 or spritelist[self.row-1][self.col+1] == 2: #9
                 s += 1
-        elif self.col+1 <= 29 and self.row+1 > 29 and self.col-1 >= 0 and self.row-1 >= 0: #bottom middle
+        elif self.col+1 <= 9 and self.row+1 > 9 and self.col-1 >= 0 and self.row-1 >= 0: #bottom middle
             if spritelist[self.row][self.col-1] == 1 or spritelist[self.row][self.col-1] == 2: #4
                 s += 1
             if spritelist[self.row][self.col+1] == 1 or spritelist[self.row][self.col+1] == 2: #6
@@ -123,7 +123,7 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.row-1][self.col+1] == 1 or spritelist[self.row-1][self.col+1] == 2: #9
                 s += 1
-        elif self.col+1 > 29 and self.row+1 <= 29 and self.col-1 >= 0 and self.row-1 >= 0: #right middle
+        elif self.col+1 > 9 and self.row+1 <= 9 and self.col-1 >= 0 and self.row-1 >= 0: #right middle
             if spritelist[self.row+1][self.col-1] == 1 or spritelist[self.row+1][self.col-1] == 2: #1
                 s += 1
             if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #2
@@ -134,28 +134,28 @@ class Cell(Sprite):
                 s += 1
             if spritelist[self.row-1][self.col] == 1 or spritelist[self.row-1][self.col] == 2: #8
                 s += 1
-        elif self.col+1 <= 29 and self.row+1 <= 29 and self.col-1 < 0 and self.row-1 < 0: #left upper corner
+        elif self.col+1 <= 9 and self.row+1 <= 9 and self.col-1 < 0 and self.row-1 < 0: #left upper corner
             if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #2
                 s += 1
             if spritelist[self.row+1][self.col+1] == 1 or spritelist[self.row+1][self.col+1] == 2: #3
                 s += 1
             if spritelist[self.row][self.col+1] == 1 or spritelist[self.row][self.col+1] == 2: #6
                 s += 1
-        elif self.col+1 > 29 and self.row+1 <= 29 and self.col-1 >= 0 and self.row-1 < 0: #right upper corner
+        elif self.col+1 > 9 and self.row+1 <= 9 and self.col-1 >= 0 and self.row-1 < 0: #right upper corner
             if spritelist[self.row+1][self.col-1] == 1 or spritelist[self.row+1][self.col-1] == 2: #1
                 s += 1
             if spritelist[self.row+1][self.col] == 1 or spritelist[self.row+1][self.col] == 2: #2
                 s += 1
             if spritelist[self.row][self.col-1] == 1 or spritelist[self.row][self.col-1] == 2: #4
                 s += 1
-        elif self.col+1 > 29 and self.row+1 > 29 and self.col-1 >= 0 and self.row-1 >= 0: #right lower corner
+        elif self.col+1 > 9 and self.row+1 > 9 and self.col-1 >= 0 and self.row-1 >= 0: #right lower corner
             if spritelist[self.row-1][self.col-1] == 1 or spritelist[self.row-1][self.col-1] == 2: #7
                 s += 1
             if spritelist[self.row-1][self.col] == 1 or spritelist[self.row-1][self.col] == 2: #8
                 s += 1
             if spritelist[self.row][self.col-1] == 1 or spritelist[self.row][self.col-1] == 2: #4
                 s += 1
-        elif self.col+1 <= 29 and self.row+1 > 29 and self.col-1 < 0 and self.row-1 >= 0: #left lower corner
+        elif self.col+1 <= 9 and self.row+1 > 9 and self.col-1 < 0 and self.row-1 >= 0: #left lower corner
             if spritelist[self.row-1][self.col+1] == 1 or spritelist[self.row-1][self.col+1] == 2: #9
                 s += 1
             if spritelist[self.row][self.col+1] == 1 or spritelist[self.row][self.col+1] == 2: #6
@@ -169,13 +169,13 @@ class Cell(Sprite):
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        for y in range(0,30):
-            for x in range(0,30):
+        for y in range(0,10):
+            for x in range(0,10):
                 Cell((10*x,10*y))
         global spritelist
         global spritelistfinal
-        spritelist = [[(0) for x in range(0,30)] for y in range(0,30)]
-        spritelistfinal = [[(0) for x in range(0,30)] for y in range(0,30)]
+        spritelist = [[(0) for x in range(0,10)] for y in range(0,10)]
+        spritelistfinal = [[(0) for x in range(0,10)] for y in range(0,10)]
 
     def mousedown(self, event):
         global createlife
