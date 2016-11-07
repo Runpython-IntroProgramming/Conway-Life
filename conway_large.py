@@ -29,6 +29,9 @@ def offset(cells, delta):
         (dx, dy) = delta
         return {(x+dx, y+dy) for (x, y) in cells} 
 
+def toGrid(mpos):
+    return ((floor(mpos[0]/4),floor(mpos[1]/4)))
+
 class Cell(Sprite):
     """
     Animated space ship
