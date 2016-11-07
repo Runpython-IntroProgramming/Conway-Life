@@ -74,6 +74,7 @@ class ConwayGame(App):
         glider  = {(10, 11), (11, 10), (10, 10), (10, 12), (12, 11)}
         self.world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
                    | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
+        self.isOldCell=False
         
         self.listenMouseEvent(MouseEvent.mousedown, self.mousedown)
         self.listenMouseEvent(MouseEvent.mouseup, self.mouseup)
@@ -118,7 +119,15 @@ class ConwayGame(App):
         self.life()
         self.generation+=1
         for c in self.world:
-            Cell(c)
+            self.isOldCell=False
+            for cell in self.getSpritesbyClass(Cell):
+                if cell.getPosition[0]==c[0]&&cell.getPosition[1]==c[1]:
+                    print ('old cell')
+                    self.isOldCell=True
+                    break
+            if not self.isOldCell:
+                Cell(c)
+                print ('new cell')
             
             
         for cell in self.getSpritesbyClass(Cell):
