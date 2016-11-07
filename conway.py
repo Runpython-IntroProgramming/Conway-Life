@@ -39,8 +39,8 @@ class Cell(Sprite):
         super().__init__(Cell.newasset, position)
         
     def ageCell(self):
-        self.asset=Cell.oldasset
-        self.lastImage()
+        #self.asset[0]=Cell.oldasset
+        self.GFX = Cell.oldasset.GFX.clone()
         print('aging')
 
     def step(self):
@@ -124,8 +124,8 @@ class ConwayGame(App):
         for cell in self.getSpritesbyClass(Cell):
             if cell.getPosition() not in self.world:
                 cell.destroy()
-            else:
-                cell.step()
+            #else:
+            #    cell.step()
 
 myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
