@@ -1,5 +1,5 @@
 """
-conway.py
+conway_large.py
 Author: <your name here>
 Credit: <list sources used, if any>
 http://rosettacode.org/wiki/Conway%27s_Game_of_Life#Using_defaultdict
@@ -8,6 +8,7 @@ Write and submit a program that plays Conway's Game of Life, per
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from collections import Counter
+from math import floor
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, MouseEvent
 myapp = App()
 red = Color(0xff0000, 1.0)
@@ -32,8 +33,8 @@ class Cell(Sprite):
     """
     Animated space ship
     """
-    newasset = RectangleAsset(1,1,noline,green)
-    oldasset = RectangleAsset(1,1,noline,yellow)
+    newasset = RectangleAsset(4,4,noline,green)
+    oldasset = RectangleAsset(4,4,noline,yellow)
 
     def __init__(self, position):
         super().__init__(Cell.newasset, position)
@@ -54,10 +55,11 @@ class Cell(Sprite):
 
 class ConwayGame(App):
     """
+
     """
-    neighboring_cells = [(-1, -1), (-1, 0), (-1, 1), 
-                        ( 0, -1),          ( 0, 1), 
-                        ( 1, -1), ( 1, 0), ( 1, 1)]    
+    neighboring_cells = [(-4, -4), (-4, 0), (-4, 4), 
+                        ( 0, -4),          ( 0, 4), 
+                        ( 4, -4), ( 4, 0), ( 4, 4)]    
     
 
     def __init__(self, width, height):
@@ -85,7 +87,8 @@ class ConwayGame(App):
                                | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
         else:
            self.world={} 
-                               
+    def toGrid((mx, my)):
+        return ((floor(mx/4),floor(my/4))
     def mousedown(self, event):
         self.newcell(event.x,event.y)
         event.consumed = True
@@ -138,3 +141,4 @@ class ConwayGame(App):
 myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
     
+ 
