@@ -98,22 +98,17 @@ class ConwayGame(App):
             event.consumed = True
     
     def life(self):
-        "Play Conway's game of life for N generations from initial world."
-        
-        #display(world, g)
         counts = Counter(n for c in self.world for n in offset(ConwayGame.neighboring_cells, c))
 
         self.world = {c for c in counts 
                       if counts[c] == 3 or (counts[c] == 2 and c in self.world)}
-        #print('world')
-        #print (self.world)
+
 
     def newcell(self, vx, vy):
-        #print((vx, vy))
         if (vx,vy) not in self.world:
             Cell((vx,vy))
             self.world.add((vx,vy))
-            #print(self.world)
+
                     
     def step(self):
         self.life()
@@ -121,14 +116,15 @@ class ConwayGame(App):
         for c in self.world:
             self.isOldCell=False
             for cell in self.getSpritesbyClass(Cell):
-                if cell.getPosition[0]==c[0] & cell.getPosition[1]==c[1]:
-                    print ('old cell')
+                cell_p=cell.getPosition()
+                cell_x=cell_p[0]
+                cell_y=cell_p[1]
+                if ((cell_x==c[0]) and (cell_y==c[1])):
                     self.isOldCell=True
                     break
             if not self.isOldCell:
                 Cell(c)
-                print ('new cell')
-            
+
             
         for cell in self.getSpritesbyClass(Cell):
             if cell.getPosition() not in self.world:
