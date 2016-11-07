@@ -92,14 +92,14 @@ def spacekey(event):
     global width
     global height
     
-def enter(event):
+def enter():
     global colors
     global go
     global width
     global height
     colors1 =colors.copy()
     print(go)
-    while go == 1:
+    if go == 1:
         for x in width:
             for y in height:
                 print(x,y)
@@ -146,8 +146,8 @@ myapp.listenMouseEvent('mouseup', mouseup)
 myapp.listenMouseEvent('mousedown', mouseclick)
 myapp.listenMouseEvent('mousemove', drag)
 myapp.listenKeyEvent('keydown', 'space', spacekey)
-myapp.listenKeyEvent('keydown', 'enter', enter)
+
 
 
 myapp = App()
-myapp.run()
+myapp.run(enter)
