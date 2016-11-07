@@ -60,9 +60,10 @@ class ConwayGame(App):
     """
 
     """
-    neighboring_cells = [(-4, -4), (-4, 0), (-4, 4), 
-                        ( 0, -4),          ( 0, 4), 
-                        ( 4, -4), ( 4, 0), ( 4, 4)]    
+    cell_size=4
+    neighboring_cells = [(-cell_size, -cell_size), (-cell_size, 0), (-cell_size, cell_size), 
+                        ( 0, -cell_size),                           ( 0, cell_size), 
+                        ( cell_size, -cell_size), ( cell_size, 0), ( cell_size, cell_size)]    
     
 
     def __init__(self, width, height):
