@@ -90,8 +90,7 @@ class ConwayGame(App):
                                | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
         else:
            self.world={} 
-    def toGrid((mx, my)):
-        return ((floor(mx/4),floor(my/4))
+
     def mousedown(self, event):
         self.newcell(event.x,event.y)
         event.consumed = True
