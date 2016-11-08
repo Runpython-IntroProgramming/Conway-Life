@@ -27,7 +27,7 @@ cell_size=1
 
 def offset(cells, delta):
         "Slide/offset all the cells by delta, a (dx, dy) vector."
-        (dx, dy) = delta
+        (dx, dy) = (delta[0]*cell_size,delta[1]*cell_size)
         return {(x+dx, y+dy) for (x, y) in cells} 
 
 def toGrid(mpos):
@@ -144,7 +144,7 @@ class ConwayGame(App):
             if cell.getPosition() not in self.world:
                 cell.destroy()
 
-myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
-myapp.run()
+#myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
+#myapp.run()
 
- 
+print((5,5)*4)
