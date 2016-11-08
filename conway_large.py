@@ -23,7 +23,7 @@ noline=LineStyle(0,white)
 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
-cell_size=1
+cell_size=10
 
 def offset(cells, delta):
         "Slide/offset all the cells by delta, a (dx, dy) vector."
@@ -31,7 +31,7 @@ def offset(cells, delta):
         return {(x+dx, y+dy) for (x, y) in cells} 
 
 def toGrid(mpos):
-    return ((floor(mpos[0]/4),floor(mpos[1]/4)))
+    return ((floor(mpos[0]/cell_size),floor(mpos[1]/cell_size)))
 
 class Cell(Sprite):
     """
@@ -46,7 +46,7 @@ class Cell(Sprite):
     def ageCell(self):
         #self.asset[0]=Cell.oldasset
         self.asset = Cell.oldasset
-        print('aging')
+        #print('aging')
 
     def step(self):
         self.ageCell()
