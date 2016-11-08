@@ -53,9 +53,7 @@ class Cell(Sprite):
         self.setImage(0)
         
     def ageCell(self):
-        #self.asset[0]=Cell.oldasset
         self.setImage(1)
-        #print('aging')
 
     def step(self):
         self.ageCell()
@@ -90,13 +88,11 @@ class ConwayGame(App):
         self.listenMouseEvent(MouseEvent.mouseup, self.mouseup)
         self.listenMouseEvent(MouseEvent.mousemove, self.mousemove)
         self.dragging = False
-        #self.world   = (glider)
         
         startWith = input('Enter B to start wth blank screen, P with predefined setup: ')
         if startWith in {'P','p'}:
             self.world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
                                | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
-            #self.world   = (blinker)
         else:
            self.world={}
         
