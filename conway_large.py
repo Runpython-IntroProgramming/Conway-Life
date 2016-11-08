@@ -79,7 +79,7 @@ class ConwayGame(App):
         blinker = {(cell_size, 0), (cell_size, cell_size), (cell_size, 2*cell_size)}
         block   = {(5*cell_size, 5*cell_size), (5*cell_size, 6*cell_size), (6*cell_size, 5*cell_size), (6*cell_size, 6*cell_size)}
         toad    = {(0, 0), (0, cell_size), (0, 2*cell_size), (cell_size, cell_size), (cell_size, 2*cell_size), (cell_size, 3*cell_size)}
-        glider  = {(10, 11), (11, 10), (10, 10), (10, 12), (12, 11)}
+        glider  = {(10*cell_size, 10*cell_size),(10*cell_size, 11*cell_size), (10*cell_size, 12*cell_size),(11*cell_size, 10*cell_size), (12*cell_size, 11*cell_size)}
       
         self.isOldCell=False
         
