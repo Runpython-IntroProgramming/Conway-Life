@@ -9,7 +9,7 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from collections import Counter
 from math import floor
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, MouseEvent
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, MouseEvent, Frame
 myapp = App()
 red = Color(0xff0000, 1.0)
 green = Color(0x00ff00, 1.0)
