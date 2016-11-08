@@ -75,9 +75,10 @@ class ConwayGame(App):
         bg = Sprite(bg_asset, (0,0))
         self.generation=0
         #blinker = {(1, 0), (1, 1), (1, 2)}
+        #toad    = {(1, 2), (0, 1), (0, 0), (0, 2), (1, 3), (1, 1)}
         blinker = {(cell_size, 0), (cell_size, cell_size), (cell_size, 2*cell_size)}
-        block   = {(5, 5), (6, 6), (5, 6), (6, 5)}
-        toad    = {(1, 2), (0, 1), (0, 0), (0, 2), (1, 3), (1, 1)}
+        block   = {(5*cell_size, 5*cell_size), (5*cell_size, 6*cell_size), (6*cell_size, 5*cell_size), (6*cell_size, 6*cell_size)}
+        toad    = {(0, 0), (0, cell_size), (0, 2*cell_size), (cell_size, cell_size), (cell_size, 2*cell_size), (cell_size, 3*cell_size)}
         glider  = {(10, 11), (11, 10), (10, 10), (10, 12), (12, 11)}
       
         self.isOldCell=False
@@ -144,7 +145,5 @@ class ConwayGame(App):
             if cell.getPosition() not in self.world:
                 cell.destroy()
 
-#myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
-#myapp.run()
-
-print((5,5)*4)
+myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp.run()
