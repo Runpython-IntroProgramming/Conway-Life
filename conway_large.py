@@ -23,6 +23,7 @@ noline=LineStyle(0,white)
 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
+cell_size=1
 
 def offset(cells, delta):
         "Slide/offset all the cells by delta, a (dx, dy) vector."
@@ -36,8 +37,8 @@ class Cell(Sprite):
     """
     Animated space ship
     """
-    newasset = RectangleAsset(4,4,noline,green)
-    oldasset = RectangleAsset(4,4,noline,yellow)
+    newasset = RectangleAsset(cell_size,cell_size,noline,green)
+    oldasset = RectangleAsset(cell_size,cell_size,noline,yellow)
 
     def __init__(self, position):
         super().__init__(Cell.newasset, position)
@@ -60,7 +61,7 @@ class ConwayGame(App):
     """
 
     """
-    cell_size=4
+    
     neighboring_cells = [(-cell_size, -cell_size), (-cell_size, 0), (-cell_size, cell_size), 
                         ( 0, -cell_size),                           ( 0, cell_size), 
                         ( cell_size, -cell_size), ( cell_size, 0), ( cell_size, cell_size)]    
@@ -93,13 +94,13 @@ class ConwayGame(App):
            self.world={} 
 
     def mousedown(self, event):
-        self.newcell(event.x,event.y)
+        self.newcell((event.x,event.y))
         event.consumed = True
         self.dragging = True
 
     def mousemove(self, event):
         if self.dragging:
-            self.newcell(event.x,event.y)
+            self.newcell((event.x,event.y))
             event.consumed = True
 
     def mouseup(self, event):
@@ -114,10 +115,10 @@ class ConwayGame(App):
                       if counts[c] == 3 or (counts[c] == 2 and c in self.world)}
 
 
-    def newcell(self, vx, vy):
-        if (vx,vy) not in self.world:
-            Cell((vx,vy))
-            self.world.add((vx,vy))
+    def newcell(self, cell_position):
+        if cell_position not in self.world:
+            Cell(cell_position)
+            self.world.add(cell_position)
 
                     
     def step(self):
