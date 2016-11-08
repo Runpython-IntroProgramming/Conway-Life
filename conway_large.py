@@ -1,6 +1,6 @@
 """
 conway_large.py
-Author: <your name here>
+Author: Dan Melnikov
 Credit: <list sources used, if any>
 http://rosettacode.org/wiki/Conway%27s_Game_of_Life#Using_defaultdict
 Assignment:
@@ -10,7 +10,7 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 from collections import Counter
 from math import floor
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, MouseEvent, Frame
-myapp = App()
+
 red = Color(0xff0000, 1.0)
 green = Color(0x00ff00, 1.0)
 black = Color(0x000000, 1.0)
@@ -45,9 +45,6 @@ class Cell(Sprite):
     """
     
     """
-
-    newasset = RectangleAsset(cell_size,cell_size,noline,green)
-    oldasset = RectangleAsset(cell_size,cell_size,noline,yellow)
     asset = ImageAsset("greenandyellow.jpg", Frame(50,50,4,4), 1, 'horizontal')
     asset.append("greenandyellow.jpg", Frame(60,60,4,4), 1, 'horizontal')
 
