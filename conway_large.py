@@ -23,7 +23,7 @@ noline=LineStyle(0,white)
 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
-cell_size=10
+cell_size=5
 
 def offset(cells, delta):
         "Slide/offset all the cells by delta, a (dx, dy) vector."
@@ -74,7 +74,8 @@ class ConwayGame(App):
         bg_asset = RectangleAsset(width, height, thinline, black)
         bg = Sprite(bg_asset, (0,0))
         self.generation=0
-        blinker = {(1, 0), (1, 1), (1, 2)}
+        #blinker = {(1, 0), (1, 1), (1, 2)}
+        blinker = {(5, 0), (5, 5), (5, 10)}
         block   = {(5, 5), (6, 6), (5, 6), (6, 5)}
         toad    = {(1, 2), (0, 1), (0, 0), (0, 2), (1, 3), (1, 1)}
         glider  = {(10, 11), (11, 10), (10, 10), (10, 12), (12, 11)}
@@ -88,13 +89,14 @@ class ConwayGame(App):
         
         startWith = input('Enter B to start wth blank screen, P with predefined setup: ')
         if startWith in {'P','p'}:
-            self.world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
-                               | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
+            #self.world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
+            #                   | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
+            self.world   = (blinker)
         else:
            self.world={} 
 
     def mousedown(self, event):
-        self.newcell((event.x,event.y))
+        self.newcell(toGrid((event.x,event.y)))
         event.consumed = True
         self.dragging = True
 
