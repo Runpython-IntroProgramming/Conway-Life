@@ -45,8 +45,8 @@ class Cell(Sprite):
     """
     
     """
-    asset = ImageAsset("greenandyellow.jpg", Frame(50,50,4,4), 1, 'horizontal')
-    asset.append("greenandyellow.jpg", Frame(60,60,4,4), 1, 'horizontal')
+    asset = ImageAsset("greenandyellow.jpg", Frame(50,50,cell_size,cell_size), 1, 'horizontal')
+    asset.append("greenandyellow.jpg", Frame(60,60,cell_size,cell_size), 1, 'horizontal')
 
     def __init__(self, position):
         super().__init__(Cell.asset, position)
