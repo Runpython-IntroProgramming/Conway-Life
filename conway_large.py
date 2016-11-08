@@ -31,7 +31,7 @@ def offset(cells, delta):
         return {(x+dx, y+dy) for (x, y) in cells} 
 
 def toGrid(mpos):
-    return ((floor(mpos[0]/cell_size),floor(mpos[1]/cell_size)))
+    return ((mpos[0]-mpos[0]%cell_size),(mpos[1]-mpos[1]%cell_size)))
 
 class Cell(Sprite):
     """
@@ -97,6 +97,8 @@ class ConwayGame(App):
 
     def mousedown(self, event):
         self.newcell(toGrid((event.x,event.y)))
+        print ((event.x,event.y))
+        print (toGrid((event.x,event.y)))
         event.consumed = True
         self.dragging = True
 
@@ -146,5 +148,8 @@ class ConwayGame(App):
 
 myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
-    
+
+print(floor(368/5))
+print (73*5)
+print (368%5)
  
