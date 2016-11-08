@@ -25,6 +25,7 @@ SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
 cell_size=4
 
+
 def offset(cells, delta):
         "Slide/offset all the cells by delta, a (dx, dy) vector."
         (dx, dy) = (delta[0]*cell_size,delta[1]*cell_size)
@@ -42,22 +43,26 @@ def toGrid(mpos):
 
 class Cell(Sprite):
     """
-    Animated space ship
+    
     """
+
     newasset = RectangleAsset(cell_size,cell_size,noline,green)
     oldasset = RectangleAsset(cell_size,cell_size,noline,yellow)
+    asset = ImageAsset("greenandyellow.jpg", Frame(50,50,4,4), 1, 'horizontal')
+    asset.append("greenandyellow.jpg", Frame(60,60,4,4), 1, 'horizontal')
 
     def __init__(self, position):
-        super().__init__(Cell.newasset, position)
+        super().__init__(Cell.asset, position)
+        self.setImage(0)
         
     def ageCell(self):
         #self.asset[0]=Cell.oldasset
-        self.asset = Cell.oldasset
+        self.setImage(1)
         #print('aging')
 
     def step(self):
         self.ageCell()
-        self.setImage(0)
+        
         
     def getPosition(self):
         return((self.x, self.y))
