@@ -23,12 +23,19 @@ noline=LineStyle(0,white)
 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
-cell_size=1
+cell_size=4
 
 def offset(cells, delta):
         "Slide/offset all the cells by delta, a (dx, dy) vector."
         (dx, dy) = (delta[0]*cell_size,delta[1]*cell_size)
-        return {(x+dx, y+dy) for (x, y) in cells} 
+        return {(x+dx, y+dy) for (x, y) in cells}
+        
+def neighborhood(central_cell):
+        neighboring_cells = [(-1,-1), (0,-1), (1,-1),   
+                             (-1, 0),         (1, 0),
+                             (-1, 1), (0, 1), (1, 1)]
+        (cx, cy) = (central_cell[0],central_cell[1])
+        return {(cx+x*cell_size, cy+y*cell_size) for (x, y) in neighboring_cells}         
 
 def toGrid(mpos):
     return ((mpos[0]-mpos[0]%cell_size),(mpos[1]-mpos[1]%cell_size))
@@ -61,12 +68,6 @@ class ConwayGame(App):
     """
 
     """
-    
-    neighboring_cells = [(-cell_size, -cell_size), (-cell_size, 0), (-cell_size, cell_size), 
-                        ( 0, -cell_size),                           ( 0, cell_size), 
-                        ( cell_size, -cell_size), ( cell_size, 0), ( cell_size, cell_size)]    
-    
-
     def __init__(self, width, height):
         super().__init__(width, height)
         black = Color(0, 1)
@@ -87,6 +88,7 @@ class ConwayGame(App):
         self.listenMouseEvent(MouseEvent.mouseup, self.mouseup)
         self.listenMouseEvent(MouseEvent.mousemove, self.mousemove)
         self.dragging = False
+        #self.world   = (glider)
         
         startWith = input('Enter B to start wth blank screen, P with predefined setup: ')
         if startWith in {'P','p'}:
@@ -94,7 +96,8 @@ class ConwayGame(App):
                                | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
             #self.world   = (blinker)
         else:
-           self.world={} 
+           self.world={}
+        
 
     def mousedown(self, event):
         self.newcell(toGrid((event.x,event.y)))
@@ -112,8 +115,7 @@ class ConwayGame(App):
             event.consumed = True
     
     def life(self):
-        counts = Counter(n for c in self.world for n in offset(ConwayGame.neighboring_cells, c))
-
+        counts = Counter(n for c in self.world for n in neighborhood(c))
         self.world = {c for c in counts 
                       if counts[c] == 3 or (counts[c] == 2 and c in self.world)}
 
