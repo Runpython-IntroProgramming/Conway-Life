@@ -21,9 +21,8 @@ thinline = LineStyle(1, black)
 noline=LineStyle(0,white)
 
 
-SCREEN_WIDTH = 640
-SCREEN_HEIGHT = 480
-cell_size=4
+Screen_Radius=300
+cell_size=3
 
 
 def offset(cells, delta):
@@ -45,11 +44,14 @@ class Cell(Sprite):
     """
     
     """
-    asset = ImageAsset("greenandyellow.jpg", Frame(50,50,cell_size,cell_size), 1, 'horizontal')
-    asset.append("greenandyellow.jpg", Frame(60,60,cell_size,cell_size), 1, 'horizontal')
+    cellsprite=CircleAsset(cell_size,thinline,white)
+    cellsprite_New=CircleAsset(cell_size,thinline,green)
+    cellsprite_Old=CircleAsset(cell_size,thinline,yellow)
+    #asset = ImageAsset("greenandyellow.jpg", Frame(50,50,cell_size,cell_size), 1, 'horizontal')
+    #asset.append("greenandyellow.jpg", Frame(60,60,cell_size,cell_size), 1, 'horizontal')
 
     def __init__(self, position):
-        super().__init__(Cell.asset, position)
+        super().__init__(Cell.cellsprite, position)
         self.setImage(0)
         
     def ageCell(self):
@@ -72,11 +74,11 @@ class ConwayGame(App):
         super().__init__(width, height)
         black = Color(0, 1)
         noline = LineStyle(0, black)
-        bg_asset = RectangleAsset(width, height, thinline, black)
+        bg_asset = RectangleAsset(width, height, noline, black)
         bg = Sprite(bg_asset, (0,0))
         self.generation=0
-        #blinker = {(1, 0), (1, 1), (1, 2)}
-        #toad    = {(1, 2), (0, 1), (0, 0), (0, 2), (1, 3), (1, 1)}
+        blinker = {(1, 0), (1, 1), (1, 2)}
+        toad    = {(1, 2), (0, 1), (0, 0), (0, 2), (1, 3), (1, 1)}
         blinker = {(cell_size, 0), (cell_size, cell_size), (cell_size, 2*cell_size)}
         block   = {(5*cell_size, 5*cell_size), (5*cell_size, 6*cell_size), (6*cell_size, 5*cell_size), (6*cell_size, 6*cell_size)}
         toad    = {(0, 0), (0, cell_size), (0, 2*cell_size), (cell_size, cell_size), (cell_size, 2*cell_size), (cell_size, 3*cell_size)}
@@ -90,7 +92,7 @@ class ConwayGame(App):
         self.dragging = False
         
         startWith = input('Enter B to start wth blank screen, P with predefined setup: ')
-        if startWith in {'P','p'}:
+        if startWith in ['P','p']:
             self.world   = (block | offset(blinker, (5, 2)) | offset(glider, (15, 5)) | offset(toad, (25, 5))
                                | {(18, 2), (19, 2), (20, 2), (21, 2)} | offset(block, (35, 7)))
         else:
@@ -145,5 +147,11 @@ class ConwayGame(App):
             if cell.getPosition() not in self.world:
                 cell.destroy()
 
-myapp = ConwayGame(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp = ConwayGame(600,600)
 myapp.run()
+
+        
+        
+        
+        
+        
