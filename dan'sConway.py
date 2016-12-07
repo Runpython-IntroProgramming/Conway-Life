@@ -22,7 +22,7 @@ noline=LineStyle(0,white)
 
 
 Screen_Radius=300
-cell_size=4
+cell_size=3
 
 
 def offset(cells, delta):
@@ -70,11 +70,11 @@ class ConwayGame(App):
     """
 
     """
-    def __init__(self, radius):
-        super().__init__(radius)
+    def __init__(self, width, height):
+        super().__init__(width, height)
         black = Color(0, 1)
         noline = LineStyle(0, black)
-        bg_asset = CircleAsset(radius, noline, black)
+        bg_asset = RectangleAsset(width, height, noline, black)
         bg = Sprite(bg_asset, (0,0))
         self.generation=0
         blinker = {(1, 0), (1, 1), (1, 2)}
@@ -147,7 +147,7 @@ class ConwayGame(App):
             if cell.getPosition() not in self.world:
                 cell.destroy()
 
-myapp = ConwayGame(Screen_Radius)
+myapp = ConwayGame(600,600)
 myapp.run()
 
         
