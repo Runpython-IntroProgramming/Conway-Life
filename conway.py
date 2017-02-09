@@ -25,8 +25,7 @@ bg = Sprite(bg_asset, (0,0))
 
 cf = RectangleAsset(20, 30, thinline, gray)
 
-
-celllist = list(range(1, 497))
+celllist = list(range(1, 600))
 i = 0
 x = 0
 y = 0
