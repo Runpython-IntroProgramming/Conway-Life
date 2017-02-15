@@ -7,11 +7,12 @@ Write and submit a program that plays Conway's Game of Life, per
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+
 #Set Up
 SCREEN_WIDTH = 660
 SCREEN_HEIGHT = 510
-myapp.listenKeyEvent('keydown', 'space', spaceKey)
-myapp.listenMouseEvent('click', mouseClick)
+myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
+generation = True
 
 # Colors
 black = Color(0, 1)
@@ -30,7 +31,7 @@ cf = RectangleAsset(20, 30, thinline, gray)
 #Cell Class
 class Cell(Sprite):
     def __init__(self, position, state):
-        super().__init__(RectangleAsset, position)
+        super().__init__(cf, position)
         self.s = state
 celllist =list(range(1, 563))
 i = 0
@@ -38,7 +39,7 @@ x = 0
 y = 0
 c = 0
 while i != 1:
-    celllist[c] = Cell(cf, (x, y), 0)
+    celllist[c] = Cell((x, y), 0)
     if y > (SCREEN_HEIGHT - 30):
         i=1
     elif x > (SCREEN_WIDTH - 20):
@@ -47,10 +48,14 @@ while i != 1:
     else:
         x=x+20
         c= c+1
-#User Inpu
+#User Input
+
+def gen():
+    generation = not generation
 def spaceKey(event):
-    
+    gen()
+
+# generations
 
 
-myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
