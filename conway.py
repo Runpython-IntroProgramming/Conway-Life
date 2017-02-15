@@ -29,15 +29,16 @@ cf = RectangleAsset(20, 30, thinline, gray)
 
 #Cell Class
 class Cell(Sprite):
-    def _init_(self, position, state)
-    super()._init_(
-celllist = list(range(1, 563))
+    def __init__(self, position, state)
+    super().__init__(RectangleAsset, position)
+    self.s = state
+celllist =list(range(1, 563))
 i = 0
 x = 0
 y = 0
 c = 0
 while i != 1:
-    celllist[c] = Sprite(cf, (x, y))
+    celllist[c] = Cell(cf, (x, y), 0)
     if y > (SCREEN_HEIGHT - 30):
         i=1
     elif x > (SCREEN_WIDTH - 20):
