@@ -29,9 +29,9 @@ cf = RectangleAsset(20, 30, thinline, gray)
 
 #Cell Class
 class Cell(Sprite):
-    def __init__(self, position, state)
-    super().__init__(RectangleAsset, position)
-    self.s = state
+    def __init__(self, position, state):
+        super().__init__(RectangleAsset, position)
+        self.s = state
 celllist =list(range(1, 563))
 i = 0
 x = 0
