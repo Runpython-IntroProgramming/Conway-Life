@@ -12,7 +12,7 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 SCREEN_WIDTH = 660
 SCREEN_HEIGHT = 510
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
-generation = True
+generation = False
 
 # Colors
 black = Color(0, 1)
@@ -30,7 +30,7 @@ cf = RectangleAsset(20, 30, thinline, gray)
 
 #Cell Class
 class Cell(Sprite):
-    def __init__(self, position, state):
+    def __init__(self, position, listposition, state):
         super().__init__(cf, position)
         self.s = state
 celllist =list(range(1, 563))
@@ -39,7 +39,7 @@ x = 0
 y = 0
 c = 0
 while i != 1:
-    celllist[c] = Cell((x, y), 0)
+    celllist[c] = Cell((x, y), c, 0)
     if y > (SCREEN_HEIGHT - 30):
         i=1
     elif x > (SCREEN_WIDTH - 20):
@@ -56,6 +56,8 @@ def spaceKey(event):
     gen()
 
 # generations
+
+    
 
 
 myapp.run()
