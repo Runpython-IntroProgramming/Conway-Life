@@ -57,7 +57,9 @@ def spaceKey(event):
 
 # generations
 
-    
-
+myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)   
+class Conway(App):
+    def __init__(self, width, height):
+        super().__init__(width, height)
 
 myapp.run()
