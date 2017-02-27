@@ -15,15 +15,7 @@ myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 generation = False
 
 # Colors
-black = Color(0, 1)
-white = Color(0xffffff, 1)
-gray = Color(0x8c8c8c, 1)
-# Background
 
-noline = LineStyle(0, black)
-thinline = LineStyle(1, black)
-bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, noline, white)
-bg = Sprite(bg_asset, (0,0))
 
 
 cf = RectangleAsset(20, 30, thinline, gray)
@@ -57,9 +49,20 @@ def spaceKey(event):
 
 # generations
 
-myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)   
+ 
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
+        black = Color(0, 1)
+        white = Color(0xffffff, 1)
+        gray = Color(0x8c8c8c, 1)
+# Background
+
+        noline = LineStyle(0, black)
+        thinline = LineStyle(1, black)
+        bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, noline, white)
+        bg = Sprite(bg_asset, (0,0))
+myapp=Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
+        
 
 myapp.run()
