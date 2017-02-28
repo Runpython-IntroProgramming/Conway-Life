@@ -39,7 +39,7 @@ i = 0
 x = 0
 y = 0
 c = 0
-Cell Class
+#Cell Class
 class Cell(Sprite):
     def __init__(self, position, listposition, state):
         super().__init__(cf, position)
