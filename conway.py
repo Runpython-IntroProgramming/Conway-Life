@@ -1,7 +1,7 @@
 """
 conway.py
-Author: <your name here>
-Credit: <list sources used, if any>
+Author: Brendan
+Credit: Mr. Dennison
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
@@ -32,11 +32,8 @@ gray = Color(0x8c8c8c, 1)
 cf = RectangleAsset(20, 30, thinline, gray)
 
 
-#Cell Class
-class Cell(Sprite):
-    def __init__(self, position, listposition, state):
-        super().__init__(cf, position)
-        self.s = state
+
+    
 celllist =list(range(1, 563))
 i = 0
 x = 0
@@ -52,12 +49,31 @@ while i != 1:
     else:
         x=x+20
         c= c+1
+#Cell Class
+class Cell(Sprite):
+    def __init__(self, position, listposition, state):
+        super().__init__(cf, position)
+        self.s = state
+        self.l = listposition
+    def step(self):
+        alive = 0
+        if celllist[self.l-22].s == 1 or celllist[self.l-22].s == 2:
+            alive += 1
+        elif celllist[self.l-23].s == 1 or celllist[self.l-23].s == 2
+            alive += 1
+        elif celllist[self.l-21].s == 1 or celllist[self.l-21].s == 2
+            alive += 1
 #User Input
-
 def gen():
     generation = not generation
 def spaceKey(event):
     gen()
+def mouseClick(event):
+    dd
+    
+myapp.listenKeyEvent('keydown', 'space', spaceKey)
+myapp.listenMouseEvent('click', mouseClick)
+
 
 # generations
 
