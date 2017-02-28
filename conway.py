@@ -57,6 +57,15 @@ class Cell(Sprite):
             alive += 1
         elif celllist[self.l+1].s in [1, 2]:
             alive += 1
+        elif celllist[self.l+23].s in [1, 2]:
+            alive += 1
+        elif celllist[self.l+22].s in [1, 2]:
+            alive += 1
+        elif celllist[self.l+21].s in [1, 2]:
+            alive +=1
+        else:
+            alive = alive
+        
 
 while i != 1:
     celllist[c] = Cell((x, y), c, 0)
@@ -91,7 +100,12 @@ class Cell(Sprite):
         elif celllist[self.l+23].s in [1, 2]:
             alive += 1
         else:
-            alive += 1
+            alive = alive
+        if alive>3 or alive<2:
+            self.s = 0
+        else:
+            self.s = self.s
+        
 #User Input
 def gen():
     generation = not generation
