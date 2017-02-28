@@ -39,6 +39,25 @@ i = 0
 x = 0
 y = 0
 c = 0
+Cell Class
+class Cell(Sprite):
+    def __init__(self, position, listposition, state):
+        super().__init__(cf, position)
+        self.s = state
+        self.l = int(listposition)
+    def step(self):
+        alive = 0
+        if celllist[self.l-22].s in [1, 2]:
+            alive += 1
+        elif celllist[self.l-23].s in [1, 2]:
+            alive += 1
+        elif celllist[self.l-21].s in [1, 2]:
+            alive += 1
+        elif celllist[self.l-1].s in [1, 2]:
+            alive += 1
+        elif celllist[self.l+1].s in [1, 2]:
+            alive += 1
+
 while i != 1:
     celllist[c] = Cell((x, y), c, 0)
     if y > (SCREEN_HEIGHT - 30):
