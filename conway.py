@@ -54,14 +54,18 @@ class Cell(Sprite):
     def __init__(self, position, listposition, state):
         super().__init__(cf, position)
         self.s = state
-        self.l = listposition
+        self.l = int(listposition)
     def step(self):
         alive = 0
-        if celllist[self.l-22].s == 1 or celllist[self.l-22].s == 2:
+        if celllist[self.l-22].s in [1, 2]:
             alive += 1
-        elif celllist[self.l-23].s == 1 or celllist[self.l-23].s == 2
+        elif celllist[self.l-23].s in [1, 2]:
             alive += 1
-        elif celllist[self.l-21].s == 1 or celllist[self.l-21].s == 2
+        elif celllist[self.l-21].s in [1, 2]:
+            alive += 1
+        elif celllist[self.l-1].s in [1, 2]:
+            alive += 1
+        elif celllist[self.l+1].s in [1, 2]:
             alive += 1
 #User Input
 def gen():
