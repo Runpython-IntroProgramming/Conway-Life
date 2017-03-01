@@ -133,7 +133,7 @@ myapp.listenKeyEvent('keydown', 'space', spaceKey)
 myapp.listenMouseEvent('click', mouseClick)
 # generations
 
- 
+Cell((10, 10), c, 0, 0)
 
         
 
