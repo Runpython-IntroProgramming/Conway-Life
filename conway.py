@@ -52,24 +52,24 @@ class Cell(Sprite):
         surround = [celllist[self.l-32], celllist[self.l-33], celllist[self.l-34], celllist[self.l+32], celllist[self.l+33], celllist[self.l+34], celllist[self.l-1], celllist[self.l+1]]
         if self.checked == 0:
             print(self.s, self.l)
-            alive = 0
+            alive = 8
             self.checked = 1
-            if celllist[self.l-32].s in [1, 2]:
-                alive += 1
-            if celllist[self.l-33].s in [1, 2]:
-                alive += 1
-            if celllist[self.l-34].s in [1, 2]:
-                alive += 1
-            if celllist[self.l-1].s in [1, 2]:
-                alive += 1
-            if celllist[self.l+1].s in [1, 2]:
-                alive += 1
-            if celllist[self.l+32].s in [1, 2]:
-                alive += 1
-            if celllist[self.l+33].s in [1, 2]:
-                alive += 1
-            if celllist[self.l+34].s in [1, 2]:
-                alive += 1
+            if celllist[self.l-32].s in [0, IndexError]:
+                alive -= 1
+            if celllist[self.l-33].s in [0, IndexError]:
+                alive -= 1
+            if celllist[self.l-34].s in [0, IndexError]:
+                alive -= 1
+            if celllist[self.l-1].s in [0, IndexError]:
+                alive -= 1
+            if celllist[self.l+1].s in [0, IndexError]:
+                alive -= 1
+            if celllist[self.l+32].s in [0, IndexError]:
+                alive -= 1
+            if celllist[self.l+33].s in [0, IndexError]:
+                alive -= 1
+            if celllist[self.l+34].s in [0, IndexError]:
+                alive -= 1
             else:
                 alive = alive
             if alive>=4 or alive<=1:
