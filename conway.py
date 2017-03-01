@@ -68,11 +68,10 @@ class Cell(Sprite):
             alive = alive
         if alive>=4 or alive<=1:
             self.s = 0
-            print("why")
+            print(celllist[43].s)
         else:
             self.s = self.s
-            
-
+            print(celllist[77].s)
     
 celllist =list(range(1, 563))
 i = 0
@@ -96,6 +95,7 @@ while i != 1:
 celllist[43].s=1
 celllist[44].s=1
 celllist[77].s=1
+celllist[42].s=1
 alivelist=[celllist[43], celllist[44], celllist[77]]
 print(celllist[43].s)
 
