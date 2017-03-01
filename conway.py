@@ -29,6 +29,7 @@ class Conway(App):
         if generation == True:
             for Cell in alivelist:
                 Cell.step()
+                print("WHY")
 myapp=Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 # Colors
@@ -67,7 +68,7 @@ class Cell(Sprite):
             alive = alive
         if alive>=4 or alive<=1:
             self.s = 0
-            self.p = (700, 700)
+            print("why"
         else:
             self.s = self.s
             self.p = (700, 700)
