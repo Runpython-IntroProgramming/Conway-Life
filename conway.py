@@ -68,7 +68,6 @@ class Cell(Sprite):
             alive = alive
         if alive>=4 or alive<=1:
             self.s = 0
-            
         else:
             self.s = self.s
             print(celllist[77].s)
