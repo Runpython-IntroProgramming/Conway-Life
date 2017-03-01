@@ -86,12 +86,9 @@ class Cell(Sprite):
                 if self.s == 0:
                     self.gen = 1
                     alivelist.append(celllist[self.l])
-                    
                 else:
-                    
                     self.gen = 2
             else:
-                
                 if celllist[self.l] in alivelist:
                     alivelist.remove(celllist[self.l])
                 self.gen = 0       
@@ -99,20 +96,12 @@ class Cell(Sprite):
         if self.gen == 1:
             self.s = 1
             self.setImage(1)
-            
-
         elif self.gen == 0:
             self.s = 0
             self.setImage(0)
-           
         else:
             self.s = 2
             self.setImage(2)
-            
-            
-            
-                
-            
     
 celllist =list(range(1, 563))
 i = 0
@@ -149,7 +138,11 @@ def spaceKey(event):
     gen()
     print("0th step")
 def mouseClick(event):
-    print(celllist[76].s)
+    for x in celllist:
+        if (x.x + 20)> event.x > (x.x) and (x.y)>event.y>(x.y-30):
+            alivelist.append(x)
+            x.s = 1
+            x.setImage(1)
     
 myapp.listenKeyEvent('keydown', 'space', spaceKey)
 myapp.listenMouseEvent('click', mouseClick)
