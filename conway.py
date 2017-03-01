@@ -76,29 +76,25 @@ class Cell(Sprite):
                 alive += 1
             else:
                 alive = alive
-            if alive>=4 or alive<=1:
-                if self.s != 0:
+            if alive == 2:
+                if self.s == 0:
+                    gen = 0
+                else:
+                    gen = 2
                     for x in surround:
                         x.step()
-                self.gen = 0
+            elif alive == 3:
+                if self.s == 0:
+                    gen = 1
+                    alivelist.append(celllist[self.l])
+                else:
+                    gen = 2
+                    for x in surround:
+                        x.step()
+            else:
                 if celllist[self.l] in alivelist:
                     alivelist.remove(celllist[self.l])
-            elif self.s==2:
-                if self.s != 0:
-                    for x in surround:
-                        x.step()
-                self.gen = 2
-            elif self.s ==1:
-                if self.s != 0:
-                    for x in surround:
-                        x.step()
-                self.gen = 2
-            elif alive == 3 and self.s == 0:
-                alivelist.append(celllist[self.l])
-                self.gen = 1
-            else:
-                self.s = self.s
-                self.gen = 2
+                    gen = 0       
     def update(self):
         if self.gen == 1:
             self.s = 1
