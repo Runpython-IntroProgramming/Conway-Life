@@ -42,8 +42,11 @@ cf = RectangleAsset(20, 30, thinline, gray)
 
 #Cell Class
 class Cell(Sprite):
+    #self, url, frame=None, qty=1, direction='horizontal', margin=0)
+    asset = ImageAsset("Animationonway.png", Frame(50, 10, 50-70, 10-40), 3, vertical)
     def __init__(self, position, listposition, state, step):
-        super().__init__(cf, position)
+        
+        super().__init__(asset, position)
         self.p = position
         self.s = state
         self.l = int(listposition)
