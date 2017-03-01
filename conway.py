@@ -52,6 +52,7 @@ class Cell(Sprite):
             alive += 1
         elif celllist[self.l-33].s in [1, 2]:
             alive += 1
+            print("True")
         elif celllist[self.l-34].s in [1, 2]:
             alive += 1
         elif celllist[self.l-1].s in [1, 2]:
@@ -71,7 +72,7 @@ class Cell(Sprite):
             print("why")
         else:
             self.s = self.s
-            print(celllist[43].s)
+            
 
     
 celllist =list(range(1, 563))
