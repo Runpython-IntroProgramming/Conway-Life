@@ -93,6 +93,7 @@ celllist[43].s=1
 celllist[44].s=1
 celllist[77].s=1
 alivelist=[celllist[43], celllist[44], celllist[77]]
+print(celllist[43].s)
 
 #User Input
 generation = False
