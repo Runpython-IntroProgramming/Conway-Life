@@ -74,24 +74,27 @@ class Cell(Sprite):
                 alive += 1
             if celllist[self.l+34].s in [1,2]:
                 alive += 1
-            else:
-                alive = alive
+            if self.s !=0:
+                print(self.l, "Checking Others")
+                for x in surround:
+                    x.step
             if alive == 2:
                 if self.s == 0:
                     gen = 0
+                    print(self.l, "I'm dead")
                 else:
                     gen = 2
-                    for x in surround:
-                        x.step()
+                    print(self.l, "I'm Alive at 2")
             elif alive == 3:
                 if self.s == 0:
                     gen = 1
                     alivelist.append(celllist[self.l])
+                    print(self.l, "I'm born")
                 else:
+                    print(self.l, "I'm alive at 3")
                     gen = 2
-                    for x in surround:
-                        x.step()
             else:
+                print(self.l, "I'm dying/dead")
                 if celllist[self.l] in alivelist:
                     alivelist.remove(celllist[self.l])
                 gen = 0       
