@@ -81,8 +81,9 @@ class Cell(Sprite):
             else:
                 alivelist.append(celllist[self.l])
                 self.s = 1
-            for x in surround:
-                x.step()
+            if celllist[self.l] in alivelist:
+                for x in surround:
+                    x.step()
             
     
 celllist =list(range(1, 563))
