@@ -50,6 +50,7 @@ class Cell(Sprite):
         self.s = state
         self.l = int(listposition)
         self.checked = step
+        self.gen = 0
     def step(self):
         surround = [celllist[self.l-33], celllist[self.l-32], celllist[self.l-34], celllist[self.l+32], celllist[self.l+33], celllist[self.l+34], celllist[self.l-1], celllist[self.l+1]]
         if self.checked == 0:
@@ -77,7 +78,7 @@ class Cell(Sprite):
                 if self.s != 0:
                     for x in surround:
                         x.step()
-                self.s = 0
+                self.gen = 0
                 self.setImage(0)
                 if celllist[self.l] in alivelist:
                     alivelist.remove(celllist[self.l])
@@ -86,19 +87,30 @@ class Cell(Sprite):
                     for x in surround:
                         x.step()
                 self.s=2
+                self.gen = 2
                 self.setImage(2)
             elif self.s ==1:
                 if self.s != 0:
                     for x in surround:
                         x.step()
                 self.s +=1
+                self.gen = 2
                 self.setImage(2)
             elif alive == 3 and self.s == 0:
                 alivelist.append(celllist[self.l])
-                self.s = 1
+                self.gen = 1
                 self.setImage(1)
             else:
                 self.s = self.s
+                self.gen = 2
+    def update(self):
+        if self.gen == 1:
+            self.s = 1
+        elif self.gen == 0:
+            self.s = 0
+        else:
+            self.s = 2
+            
             
                 
             
