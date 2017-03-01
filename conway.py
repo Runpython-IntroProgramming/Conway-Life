@@ -103,7 +103,7 @@ while i != 1:
 
 
 celllist[43].s=1
-celllist[42].s=1
+celllist[44].s=1
 celllist[77].s=1
 
 alivelist=[celllist[43], celllist[44], celllist[77]]
@@ -118,7 +118,7 @@ def spaceKey(event):
     gen()
     print("0th step")
 def mouseClick(event):
-    d
+    print(celllist[76].s)
     
 myapp.listenKeyEvent('keydown', 'space', spaceKey)
 myapp.listenMouseEvent('click', mouseClick)
