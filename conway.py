@@ -85,6 +85,7 @@ class Cell(Sprite):
             elif alive == 3:
                 alivelist.append(celllist[self.l])
                 self.s = 1
+                print(self.l "YAY")
             else:
                 self.s = self.s
                 
