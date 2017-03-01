@@ -42,6 +42,7 @@ cf = RectangleAsset(20, 30, thinline, gray)
 class Cell(Sprite):
     def __init__(self, position, listposition, state):
         super().__init__(cf, position)
+        self.p = position
         self.s = state
         self.l = int(listposition)
     def step(self):
@@ -66,6 +67,7 @@ class Cell(Sprite):
             alive = alive
         if alive>=4 or alive<=1:
             self.s = 0
+            self.p = (700, 700)
         else:
             self.s = self.s
 
@@ -101,7 +103,6 @@ def gen():
     global generation
     generation = not generation
 def spaceKey(event):
-    
     gen()
 def mouseClick(event):
     print(celllist[43].s)
