@@ -74,8 +74,6 @@ class Cell(Sprite):
                 alive = alive
             if alive>=4 or alive<=1:
                 self.s = 0
-                for x in surround:
-                    x.step()
             elif self.s==2:
                 self.s=2
                 for x in surround:
