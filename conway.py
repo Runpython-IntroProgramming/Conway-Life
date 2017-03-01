@@ -28,6 +28,7 @@ class Conway(App):
     def step(self):
         if generation == True:
             for Cell in alivelist:
+                checked = True
                 Cell.step()
 myapp=Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 
@@ -47,8 +48,8 @@ class Cell(Sprite):
         self.l = int(listposition)
     def step(self):
         checked = False
-        if checked == False:
-            checked = True
+        if checked == True:
+            checked = False
             alive = 0
             if celllist[self.l-32].s in [1, 2]:
                 alive += 1
