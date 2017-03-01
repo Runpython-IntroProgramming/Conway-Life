@@ -94,7 +94,7 @@ class Cell(Sprite):
             else:
                 if celllist[self.l] in alivelist:
                     alivelist.remove(celllist[self.l])
-                    gen = 0       
+                gen = 0       
     def update(self):
         if self.gen == 1:
             self.s = 1
