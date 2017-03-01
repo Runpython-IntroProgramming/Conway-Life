@@ -70,6 +70,7 @@ class Cell(Sprite):
             self.p = (700, 700)
         else:
             self.s = self.s
+            self.p = (700, 700)
 
     
 celllist =list(range(1, 563))
