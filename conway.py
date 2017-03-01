@@ -77,6 +77,7 @@ class Cell(Sprite):
             if alive>=4 or alive<=1:
                 self.s = 0
                 self.setImage(0)
+                alivelist.remove(celllist[self.l])
             elif self.s==2:
                 self.s=2
                 self.setImage(2)
