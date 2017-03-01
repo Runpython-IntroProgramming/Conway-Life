@@ -53,7 +53,6 @@ class Cell(Sprite):
     def step(self):
         surround = [celllist[self.l-33], celllist[self.l-32], celllist[self.l-34], celllist[self.l+32], celllist[self.l+33], celllist[self.l+34], celllist[self.l-1], celllist[self.l+1]]
         if self.checked == 0:
-            print(self.s, self.l)
             alive = 0
             self.checked = 1
             if celllist[self.l-32].s in [1,2]:
@@ -94,6 +93,7 @@ class Cell(Sprite):
                 self.setImage(1)
             else:
                 self.s = self.s
+             print(self.s, self.l)
             
                 
             
