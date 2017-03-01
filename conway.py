@@ -79,7 +79,7 @@ class Cell(Sprite):
             if self.s !=0:
                 print(self.l, "Checking Others")
                 for x in surround:
-                    x.step
+                    x.step()
             if alive == 2:
                 if self.s == 0:
                     self.gen = 0
