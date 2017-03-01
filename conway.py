@@ -25,9 +25,9 @@ class Conway(App):
         bg = Sprite(bg_asset, (0,0))
 #Step Function
     def step(self):
-        if generation == True
-        for Cell in alivelist:
-            Cell.step()
+        if generation == True:
+            for Cell in alivelist:
+                Cell.step()
 myapp=Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 # Colors
 black = Color(0, 1)
@@ -36,24 +36,6 @@ white = Color(0xffffff, 1)
 gray = Color(0x8c8c8c, 1)
 cf = RectangleAsset(20, 30, thinline, gray)
 
-
-
-    
-celllist =list(range(1, 563))
-i = 0
-x = 0
-y = 0
-c = 0
-while i != 1:
-    celllist[c] = Cell((x, y), c, 0)
-    if y > (SCREEN_HEIGHT - 30):
-        i=1
-    elif x > (SCREEN_WIDTH - 20):
-        x=0
-        y=y+30
-    else:
-        x=x+20
-        c= c+1
 #Cell Class
 class Cell(Sprite):
     def __init__(self, position, listposition, state):
@@ -84,10 +66,28 @@ class Cell(Sprite):
             self.s = 0
         else:
             self.s = self.s
+
+    
+celllist =list(range(1, 563))
+i = 0
+x = 0
+y = 0
+c = 0
+while i != 1:
+    celllist[c] = Cell((x, y), c, 0)
+    if y > (SCREEN_HEIGHT - 30):
+        i=1
+    elif x > (SCREEN_WIDTH - 20):
+        x=0
+        y=y+30
+    else:
+        x=x+20
+        c= c+1
+
 celllist[43].s=1
 celllist[44].s=1
 celllist[77].s=1
-alivelist=[celllist[43], celllist[44], celllist[77]}
+alivelist=[celllist[43], celllist[44], celllist[77]]
 #User Input
 def gen():
     generation = not generation
