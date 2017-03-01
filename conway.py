@@ -129,14 +129,15 @@ def spaceKey(event):
     print("0th step")
 def mouseClick(event):
     for x in celllist:
-        if (x.x + 10)> event.x > (x.x) and (x.y)<event.y<(x.y+30) and x.s == 0:
-            alivelist.append(x)
-            x.s = 1
-            x.setImage(1)
-        else:
-            x.s = 0
-            x.setImage(0)
-            if celllist[x.l] in alivelist:
+        if (x.x + 20)> (event.x -10) > (x.x) and (x.y)<(event.y - 10)<(x.y+30):
+            if x.s == 0:
+                alivelist.append(x)
+                x.s = 1
+                x.setImage(1)
+            else:
+                x.s = 0
+                x.setImage(0)
+                if celllist[x.l] in alivelist:
                     alivelist.remove(celllist[x.l])
             
     
