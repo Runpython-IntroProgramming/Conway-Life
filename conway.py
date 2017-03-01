@@ -76,24 +76,28 @@ class Cell(Sprite):
                 alive = alive
             if alive>=4 or alive<=1:
                 self.s = 0
+                self.setImage(1)
             elif self.s==2:
                 self.s=2
+                self.setImage(3)
                 for x in surround:
                     x.step()
             elif self.s ==1:
                 self.s +=1
+                self.setImage(3)
                 for x in surround:
                     x.step()
             elif alive == 3:
                 alivelist.append(celllist[self.l])
                 self.s = 1
+                self.setImage(2)
             else:
                 self.s = self.s
                 
             
     
 celllist =list(range(1, 563))
-i = 1
+i = 0
 x = 0
 y = 0
 c = 0
@@ -133,7 +137,6 @@ myapp.listenKeyEvent('keydown', 'space', spaceKey)
 myapp.listenMouseEvent('click', mouseClick)
 # generations
 
-Cell((10, 10), c, 0, 0)
 
         
 
