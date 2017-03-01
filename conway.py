@@ -81,37 +81,37 @@ class Cell(Sprite):
                     for x in surround:
                         x.step()
                 self.gen = 0
-                self.setImage(0)
                 if celllist[self.l] in alivelist:
                     alivelist.remove(celllist[self.l])
             elif self.s==2:
                 if self.s != 0:
                     for x in surround:
                         x.step()
-                self.s=2
                 self.gen = 2
-                self.setImage(2)
             elif self.s ==1:
                 if self.s != 0:
                     for x in surround:
                         x.step()
-                self.s +=1
                 self.gen = 2
-                self.setImage(2)
             elif alive == 3 and self.s == 0:
                 alivelist.append(celllist[self.l])
                 self.gen = 1
-                self.setImage(1)
             else:
                 self.s = self.s
                 self.gen = 2
     def update(self):
         if self.gen == 1:
             self.s = 1
+            self.setImage(1)
+            self.gen = 0
         elif self.gen == 0:
             self.s = 0
+            self.setImage(0)
+            self.gen = 0
         else:
             self.s = 2
+            self.setImage(2)
+            self.gen = 0
             
             
                 
