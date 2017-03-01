@@ -32,7 +32,7 @@ class Conway(App):
             for x in alivelist:
                 x.step()
             for x in celllist:
-                x.gen()
+                x.update()
 myapp=Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 # Colors
