@@ -74,16 +74,20 @@ class Cell(Sprite):
                 alive = alive
             if alive>=4 or alive<=1:
                 self.s = 0
+                for x in surround:
+                    x.step()
             elif self.s==2:
                 self.s=2
+                for x in surround:
+                    x.step()
             elif self.s ==1:
                 self.s +=1
+                for x in surround:
+                    x.step()
             else:
                 alivelist.append(celllist[self.l])
                 self.s = 1
-            if celllist[self.l] in alivelist:
-                for x in surround:
-                    x.step()
+                
             
     
 celllist =list(range(1, 563))
@@ -105,11 +109,11 @@ while i != 1:
 
 
 
-celllist[43].s=1
-celllist[44].s=1
+celllist[76].s=1
 celllist[77].s=1
+celllist[110].s=1
 
-alivelist=[celllist[43], celllist[44], celllist[77]]
+alivelist=[celllist[76], celllist[77], celllist[110]]
 print(celllist[43].s)
 
 #User Input
