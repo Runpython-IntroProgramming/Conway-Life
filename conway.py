@@ -25,7 +25,9 @@ class Conway(App):
         bg = Sprite(bg_asset, (0,0))
 #Step Function
     def step(self):
-        for Cell in 
+        if generation == True
+        for Cell in alivelist:
+            Cell.step()
 myapp=Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 # Colors
 black = Color(0, 1)
@@ -82,14 +84,16 @@ class Cell(Sprite):
             self.s = 0
         else:
             self.s = self.s
-celllist[30].s=1
-celllist[31].s=1
-celllist[].s=1
+celllist[43].s=1
+celllist[44].s=1
+celllist[77].s=1
+alivelist=[celllist[43], celllist[44], celllist[77]}
 #User Input
 def gen():
     generation = not generation
 def spaceKey(event):
     gen()
+    print(celllist[43].s)
 def mouseClick(event):
     dd
     
