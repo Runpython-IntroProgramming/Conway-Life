@@ -137,7 +137,7 @@ def mouseClick(event):
             x.s = 0
             x.setImage(0)
             if celllist[x.l] in alivelist:
-                    alivelist.remove(celllist[x.l]
+                    alivelist.remove(celllist[x.l])
             
     
 myapp.listenKeyEvent('keydown', 'space', spaceKey)
