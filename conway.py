@@ -49,7 +49,9 @@ class Cell(Sprite):
         self.l = int(listposition)
         self.checked = step
     def step(self):
+        surround = [celllist[self.l-32], celllist[self.l-33], celllist[self.l-34], celllist[self.l+32], celllist[self.l+33], celllist[self.l+34], celllist[self.l-1], celllist[self.l+1]]
         if self.checked == 0:
+            alive = 0
             self.checked = 1
             if celllist[self.l-32].s in [1, 2]:
                 alive += 1
@@ -71,12 +73,15 @@ class Cell(Sprite):
                 alive = alive
             if alive>=4 or alive<=1:
                 self.s = 0
-                print("I died")
             elif self.s==2:
                 self.s=2
-                print("YAY")
+            elif self.s ==1:
+                self.s +=1
             else:
-                self.s += 1
+                alivelist.append(celllist[self.l])
+            for x in surround:
+                x.step()
+            
     
 celllist =list(range(1, 563))
 i = 0
