@@ -27,10 +27,8 @@ class Conway(App):
 #Step Function
     def step(self):
         if generation == True:
-            print("This is the big step")
             for x in celllist:
                 x.checked = 0
-            print("Is this when the step ends?")
             for x in alivelist:
                 x.step()
             for x in celllist:
@@ -82,7 +80,6 @@ class Cell(Sprite):
             if alive == 2:
                 if self.s == 0:
                     self.gen = 0
-                    print(self.l, "I'm dead")
                 else:
                     self.gen = 2
             elif alive == 3:
