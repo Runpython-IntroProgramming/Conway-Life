@@ -87,7 +87,7 @@ class Cell(Sprite):
                 self.setImage(2)
                 for x in surround:
                     x.step()
-            elif alive == 3:
+            elif alive == 3 and self.s == 0:
                 alivelist.append(celllist[self.l])
                 self.s = 1
                 self.setImage(1)
@@ -117,9 +117,9 @@ while i != 1:
 
 celllist[76].s=1
 celllist[77].s=1
-celllist[110].s=1
+celllist[78].s=1
 
-alivelist=[celllist[76], celllist[77], celllist[110]]
+alivelist=[celllist[76], celllist[77], celllist[78]]
 print(celllist[43].s)
 
 #User Input
