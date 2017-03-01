@@ -121,7 +121,7 @@ celllist[76].s=1
 celllist[77].s=1
 celllist[78].s=1
 
-alivelist=[celllist[76], celllist[77], celllist[78]]
+alivelist=[celllist[77], celllist[76], celllist[78]]
 print(celllist[43].s)
 
 #User Input
