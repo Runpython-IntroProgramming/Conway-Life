@@ -27,10 +27,10 @@ class Conway(App):
 #Step Function
     def step(self):
         if generation == True:
-            for Cell in celllist:
-                self.checked = 0
-            for Cell in alivelist:
-                Cell.step()
+            for x in celllist:
+                x.checked = 0
+            for x in alivelist:
+                x.step()
 myapp=Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 # Colors
