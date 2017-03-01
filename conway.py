@@ -31,6 +31,8 @@ class Conway(App):
                 x.checked = 0
             for x in alivelist:
                 x.step()
+            for x in celllist:
+                x.gen()
 myapp=Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 # Colors
