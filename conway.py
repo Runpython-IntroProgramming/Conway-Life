@@ -64,7 +64,7 @@ class Cell(Sprite):
             alive += 1
         else:
             alive = alive
-        if alive>3 or alive<2:
+        if alive>=4 or alive<=1:
             self.s = 0
         else:
             self.s = self.s
