@@ -27,8 +27,9 @@ class Conway(App):
 #Step Function
     def step(self):
         if generation == True:
+            for Cell in celllist:
+                self.checked = 0
             for Cell in alivelist:
-                checked = True
                 Cell.step()
 myapp=Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 
@@ -41,16 +42,15 @@ cf = RectangleAsset(20, 30, thinline, gray)
 
 #Cell Class
 class Cell(Sprite):
-    def __init__(self, position, listposition, state):
+    def __init__(self, position, listposition, state, step):
         super().__init__(cf, position)
         self.p = position
         self.s = state
         self.l = int(listposition)
+        self.checked = step
     def step(self):
-        checked = False
-        if checked == True:
-            checked = False
-            alive = 0
+        if self.checked == 0:
+            self.checked = 1
             if celllist[self.l-32].s in [1, 2]:
                 alive += 1
             if celllist[self.l-33].s in [1, 2]:
@@ -71,8 +71,10 @@ class Cell(Sprite):
                 alive = alive
             if alive>=4 or alive<=1:
                 self.s = 0
+                print("I died")
             elif self.s==2:
                 self.s=2
+                print("YAY")
             else:
                 self.s += 1
     
@@ -82,7 +84,7 @@ x = 0
 y = 0
 c = 0
 while i != 1:
-    celllist[c] = Cell((x, y), c, 0)
+    celllist[c] = Cell((x, y), c, 0, 0)
     if y > (SCREEN_HEIGHT - 30):
         i=1
     elif x > (SCREEN_WIDTH - 20):
@@ -109,6 +111,7 @@ def gen():
     generation = not generation
 def spaceKey(event):
     gen()
+    print("0th step")
 def mouseClick(event):
     d
     
