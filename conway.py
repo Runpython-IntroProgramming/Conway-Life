@@ -87,25 +87,26 @@ while i != 1:
         c= c+1
 
 
-#User Input
-generation = False
-def gen():
-    global generation
-    generation = not generation
-def spaceKey(event):
-    gen()
-def mouseClick(event):
-    print(celllist[43].s)
-    
-myapp.listenKeyEvent('keydown', 'space', spaceKey)
-myapp.listenMouseEvent('click', mouseClick)
+
 
 celllist[43].s=1
 celllist[44].s=1
 celllist[77].s=1
 alivelist=[celllist[43], celllist[44], celllist[77]]
 
-
+#User Input
+generation = False
+def gen():
+    global generation
+    generation = not generation
+def spaceKey(event):
+    
+    gen()
+def mouseClick(event):
+    print(celllist[43].s)
+    
+myapp.listenKeyEvent('keydown', 'space', spaceKey)
+myapp.listenMouseEvent('click', mouseClick)
 # generations
 
  
