@@ -68,10 +68,10 @@ class Cell(Sprite):
             alive = alive
         if alive>=4 or alive<=1:
             self.s = 0
-            print("why"
+            print("why")
         else:
             self.s = self.s
-            self.p = (700, 700)
+            print(celllist[43].s)
 
     
 celllist =list(range(1, 563))
@@ -107,7 +107,7 @@ def gen():
 def spaceKey(event):
     gen()
 def mouseClick(event):
-    print(celllist[43].s)
+    d
     
 myapp.listenKeyEvent('keydown', 'space', spaceKey)
 myapp.listenMouseEvent('click', mouseClick)
