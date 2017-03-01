@@ -93,7 +93,7 @@ class Cell(Sprite):
                 self.setImage(1)
             else:
                 self.s = self.s
-             print(self.s, self.l)
+            print(self.s, self.l, alivelist)
             
                 
             
@@ -117,11 +117,11 @@ while i != 1:
 
 
 
-celllist[76].s=1
+celllist[44].s=1
 celllist[77].s=1
 celllist[78].s=1
 
-alivelist=[celllist[77], celllist[76], celllist[78]]
+alivelist=[celllist[77], celllist[44], celllist[78]]
 print(celllist[43].s)
 
 #User Input
