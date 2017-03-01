@@ -45,8 +45,7 @@ class Cell(Sprite):
     #self, url, frame=None, qty=1, direction='horizontal', margin=0)
     asset = ImageAsset("Animationonway.png", Frame(50, 10, 50-70, 10-40), 3, 'vertical')
     def __init__(self, position, listposition, state, step):
-        
-        super().__init__(asset, position)
+        super().__init__(Cell.asset, position)
         self.p = position
         self.s = state
         self.l = int(listposition)
