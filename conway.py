@@ -11,7 +11,7 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 #Set Up
 SCREEN_WIDTH = 660
 SCREEN_HEIGHT = 510
-generation = False
+
 class Conway(App):
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -23,21 +23,22 @@ class Conway(App):
         
         bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, noline, white)
         bg = Sprite(bg_asset, (0,0))
-        
+    #User Input
+    generation = False
+    def gen():
+        generation = generation
+        generation = not generation
+    def spaceKey(event):
+        gen()
+    def mouseClick(event):
+        print(celllist[43].s)
 #Step Function
     def step(self):
         if generation == True:
             for Cell in alivelist:
                 Cell.step()
 myapp=Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
-#User Input
-def gen():
-    generation = not generation
-def spaceKey(event):
-    gen()
-    print(celllist[43].s)
-def mouseClick(event):
-    dd
+
     
 myapp.listenKeyEvent('keydown', 'space', spaceKey)
 myapp.listenMouseEvent('click', mouseClick)
