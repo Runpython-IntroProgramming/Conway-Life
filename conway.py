@@ -51,11 +51,8 @@ class Cell(Sprite):
         self.l = int(listposition)
         self.checked = step
     def step(self):
-        surround = [celllist[self.l-32], celllist[self.l-33], celllist[self.l-34], celllist[self.l+32], celllist[self.l+33], celllist[self.l+34], celllist[self.l-1], celllist[self.l+1]]
+        surround = [celllist[self.l-33], celllist[self.l-32], celllist[self.l-34], celllist[self.l+32], celllist[self.l+33], celllist[self.l+34], celllist[self.l-1], celllist[self.l+1]]
         if self.checked == 0:
-            if self.s != 0:
-                for x in surround:
-                    x.step()
             print(self.s, self.l)
             alive = 8
             self.checked = 1
@@ -77,6 +74,9 @@ class Cell(Sprite):
                 alive -= 1
             else:
                 alive = alive
+            if self.s != 0:
+                for x in surround:
+                    x.step()
             if alive>=4 or alive<=1:
                 self.s = 0
                 self.setImage(0)
@@ -94,6 +94,7 @@ class Cell(Sprite):
                 self.setImage(1)
             else:
                 self.s = self.s
+            
                 
             
     
