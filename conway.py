@@ -76,21 +76,21 @@ class Cell(Sprite):
                 alive = alive
             if alive>=4 or alive<=1:
                 self.s = 0
-                self.setImage(1)
+                self.setImage(0)
             elif self.s==2:
                 self.s=2
-                self.setImage(3)
+                self.setImage(2)
                 for x in surround:
                     x.step()
             elif self.s ==1:
                 self.s +=1
-                self.setImage(3)
+                self.setImage(2)
                 for x in surround:
                     x.step()
             elif alive == 3:
                 alivelist.append(celllist[self.l])
                 self.s = 1
-                self.setImage(2)
+                self.setImage(1)
             else:
                 self.s = self.s
                 
