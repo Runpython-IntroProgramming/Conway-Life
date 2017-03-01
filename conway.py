@@ -29,7 +29,6 @@ class Conway(App):
         if generation == True:
             for Cell in alivelist:
                 Cell.step()
-                print("WHY")
 myapp=Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 # Colors
@@ -50,20 +49,20 @@ class Cell(Sprite):
         alive = 0
         if celllist[self.l-32].s in [1, 2]:
             alive += 1
-        elif celllist[self.l-33].s in [1, 2]:
+        if celllist[self.l-33].s in [1, 2]:
             alive += 1
             print("True")
-        elif celllist[self.l-34].s in [1, 2]:
+        if celllist[self.l-34].s in [1, 2]:
             alive += 1
-        elif celllist[self.l-1].s in [1, 2]:
+        if celllist[self.l-1].s in [1, 2]:
             alive += 1
-        elif celllist[self.l+1].s in [1, 2]:
+        if celllist[self.l+1].s in [1, 2]:
             alive += 1
-        elif celllist[self.l+32].s in [1, 2]:
+        if celllist[self.l+32].s in [1, 2]:
             alive += 1
-        elif celllist[self.l+33].s in [1, 2]:
+        if celllist[self.l+33].s in [1, 2]:
             alive += 1
-        elif celllist[self.l+34].s in [1, 2]:
+        if celllist[self.l+34].s in [1, 2]:
             alive += 1
         else:
             alive = alive
