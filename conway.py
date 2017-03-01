@@ -80,6 +80,7 @@ class Cell(Sprite):
                 self.s +=1
             else:
                 alivelist.append(celllist[self.l])
+                self.s = 1
             for x in surround:
                 x.step()
             
