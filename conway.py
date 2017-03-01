@@ -118,17 +118,7 @@ while i != 1:
     else:
         x=x+20
         c= c+1
-
-
-
-
-celllist[76].s=1
-celllist[77].s=1
-celllist[78].s=1
-
-alivelist=[celllist[77], celllist[76], celllist[78]]
-print(celllist[43].s)
-
+alivelist=[]
 #User Input
 generation = False
 def gen():
@@ -139,7 +129,7 @@ def spaceKey(event):
     print("0th step")
 def mouseClick(event):
     for x in celllist:
-        if (x.x + 20)> event.x > (x.x) and (x.y)>event.y>(x.y-30):
+        if (x.x + 20)> event.x > (x.x) and (x.y)<event.y<(x.y+30):
             alivelist.append(x)
             x.s = 1
             x.setImage(1)
