@@ -23,25 +23,13 @@ class Conway(App):
         
         bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, noline, white)
         bg = Sprite(bg_asset, (0,0))
-    #User Input
-    generation = False
-    def gen():
-        generation = generation
-        generation = not generation
-    def spaceKey(event):
-        gen()
-    def mouseClick(event):
-        print(celllist[43].s)
+        
 #Step Function
     def step(self):
         if generation == True:
             for Cell in alivelist:
                 Cell.step()
 myapp=Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
-
-    
-myapp.listenKeyEvent('keydown', 'space', spaceKey)
-myapp.listenMouseEvent('click', mouseClick)
 
 # Colors
 black = Color(0, 1)
@@ -97,6 +85,20 @@ while i != 1:
     else:
         x=x+20
         c= c+1
+
+
+#User Input
+generation = False
+def gen():
+    global generation
+    generation = not generation
+def spaceKey(event):
+    gen()
+def mouseClick(event):
+    print(celllist[43].s)
+    
+myapp.listenKeyEvent('keydown', 'space', spaceKey)
+myapp.listenMouseEvent('click', mouseClick)
 
 celllist[43].s=1
 celllist[44].s=1
