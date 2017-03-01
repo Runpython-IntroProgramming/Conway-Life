@@ -82,9 +82,11 @@ class Cell(Sprite):
                 self.s +=1
                 for x in surround:
                     x.step()
-            else:
+            elif alive == 3:
                 alivelist.append(celllist[self.l])
                 self.s = 1
+            else:
+                self.s = self.s
                 
             
     
