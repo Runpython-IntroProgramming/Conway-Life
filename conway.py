@@ -9,8 +9,8 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
 #Set Up
-SCREEN_WIDTH = 660
-SCREEN_HEIGHT = 510
+SCREEN_WIDTH = 740
+SCREEN_HEIGHT = 570
 
 class Conway(App):
     def __init__(self, width, height):
@@ -54,25 +54,26 @@ class Cell(Sprite):
         self.checked = step
         self.gen = 0
     def step(self):
-        surround = [celllist[self.l-33], celllist[self.l-32], celllist[self.l-34], celllist[self.l+32], celllist[self.l+33], celllist[self.l+34], celllist[self.l-1], celllist[self.l+1]]
+        surround = [celllist[self.l-37], celllist[self.l-36], celllist[self.l-38], celllist[self.l+36], celllist[self.l+37], celllist[self.l+38], celllist[self.l-1], celllist[self.l+1]]
         if self.checked == 0:
             alive = 0
             self.checked = 1
-            if celllist[self.l-32].s in [1,2]:
+            
+            if celllist[self.l-36].s in [1,2]:
                 alive += 1
-            if celllist[self.l-33].s in [1,2]:
+            if celllist[self.l-37].s in [1,2]:
                 alive += 1
-            if celllist[self.l-34].s in [1,2]:
+            if celllist[self.l-38].s in [1,2]:
                 alive += 1
             if celllist[self.l-1].s in [1,2]:
                 alive += 1
             if celllist[self.l+1].s in [1,2]:
                 alive += 1
-            if celllist[self.l+32].s in [1,2]:
+            if celllist[self.l+36].s in [1,2]:
                 alive += 1
-            if celllist[self.l+33].s in [1,2]:
+            if celllist[self.l+37].s in [1,2]:
                 alive += 1
-            if celllist[self.l+34].s in [1,2]:
+            if celllist[self.l+38].s in [1,2]:
                 alive += 1
             if self.s !=0:
                 for x in surround:
@@ -103,7 +104,7 @@ class Cell(Sprite):
             self.s = 2
             self.setImage(2)
     
-celllist =list(range(1, 563))
+celllist =list(range(1, 704))
 i = 0
 x = 0
 y = 0
