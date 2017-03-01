@@ -74,20 +74,23 @@ class Cell(Sprite):
             else:
                 alive = alive
             if alive>=4 or alive<=1:
-                for x in surround:
-                    x.step()
+                if self.s != 0:
+                    for x in surround:
+                        x.step()
                 self.s = 0
                 self.setImage(0)
                 if celllist[self.l] in alivelist:
                     alivelist.remove(celllist[self.l])
             elif self.s==2:
-                for x in surround:
-                    x.step()
+                if self.s != 0:
+                    for x in surround:
+                        x.step()
                 self.s=2
                 self.setImage(2)
             elif self.s ==1:
-                for x in surround:
-                    x.step()
+                if self.s != 0:
+                    for x in surround:
+                        x.step()
                 self.s +=1
                 self.setImage(2)
             elif alive == 3 and self.s == 0:
