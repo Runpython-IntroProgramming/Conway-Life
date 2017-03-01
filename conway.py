@@ -23,6 +23,9 @@ class Conway(App):
         
         bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, noline, white)
         bg = Sprite(bg_asset, (0,0))
+#Step Function
+    def step(self):
+        for Cell in 
 myapp=Conway(SCREEN_WIDTH, SCREEN_HEIGHT)
 # Colors
 black = Color(0, 1)
@@ -39,34 +42,6 @@ i = 0
 x = 0
 y = 0
 c = 0
-#Cell Class
-class Cell(Sprite):
-    def __init__(self, position, listposition, state):
-        super().__init__(cf, position)
-        self.s = state
-        self.l = int(listposition)
-    def step(self):
-        alive = 0
-        if celllist[self.l-22].s in [1, 2]:
-            alive += 1
-        elif celllist[self.l-23].s in [1, 2]:
-            alive += 1
-        elif celllist[self.l-21].s in [1, 2]:
-            alive += 1
-        elif celllist[self.l-1].s in [1, 2]:
-            alive += 1
-        elif celllist[self.l+1].s in [1, 2]:
-            alive += 1
-        elif celllist[self.l+23].s in [1, 2]:
-            alive += 1
-        elif celllist[self.l+22].s in [1, 2]:
-            alive += 1
-        elif celllist[self.l+21].s in [1, 2]:
-            alive +=1
-        else:
-            alive = alive
-        
-
 while i != 1:
     celllist[c] = Cell((x, y), c, 0)
     if y > (SCREEN_HEIGHT - 30):
@@ -85,19 +60,21 @@ class Cell(Sprite):
         self.l = int(listposition)
     def step(self):
         alive = 0
-        if celllist[self.l-22].s in [1, 2]:
+        if celllist[self.l-32].s in [1, 2]:
             alive += 1
-        elif celllist[self.l-23].s in [1, 2]:
+        elif celllist[self.l-33].s in [1, 2]:
             alive += 1
-        elif celllist[self.l-21].s in [1, 2]:
+        elif celllist[self.l-34].s in [1, 2]:
             alive += 1
         elif celllist[self.l-1].s in [1, 2]:
             alive += 1
         elif celllist[self.l+1].s in [1, 2]:
             alive += 1
-        elif celllist[self.l+22].s in [1, 2]:
+        elif celllist[self.l+32].s in [1, 2]:
             alive += 1
-        elif celllist[self.l+23].s in [1, 2]:
+        elif celllist[self.l+33].s in [1, 2]:
+            alive += 1
+        elif celllist[self.l+34].s in [1, 2]:
             alive += 1
         else:
             alive = alive
@@ -105,7 +82,9 @@ class Cell(Sprite):
             self.s = 0
         else:
             self.s = self.s
-        
+celllist[30].s=1
+celllist[31].s=1
+celllist[].s=1
 #User Input
 def gen():
     generation = not generation
