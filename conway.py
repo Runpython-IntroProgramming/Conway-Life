@@ -54,26 +54,26 @@ class Cell(Sprite):
         self.checked = step
         self.gen = 0
     def step(self):
-        surround = [celllist[self.l-37], celllist[self.l-36], celllist[self.l-38], celllist[self.l+36], celllist[self.l+37], celllist[self.l+38], celllist[self.l-1], celllist[self.l+1]]
+        surround = [celllist[(self.l-37)%len(celllist)], celllist[(self.l-36)%len(celllist)], celllist[(self.l-38)%len(celllist)], celllist[(self.l+36)%len(celllist)], celllist[(self.l+37)%len(celllist)], celllist[(self.l+38)%len(celllist)], celllist[(self.l-1)%len(celllist)], celllist[(self.l+1)%len(celllist)]]
         if self.checked == 0:
             alive = 0
             self.checked = 1
             
-            if celllist[(self.l-36)%704].s in [1,2]:
+            if celllist[(self.l-36)%len(celllist)].s in [1,2]:
                 alive += 1
-            if celllist[(self.l-37)%704].s in [1,2]:
+            if celllist[(self.l-37)%len(celllist)].s in [1,2]:
                 alive += 1
-            if celllist[(self.l-38)%704].s in [1,2]:
+            if celllist[(self.l-38)%len(celllist)].s in [1,2]:
                 alive += 1
-            if celllist[(self.l-1)%704].s in [1,2]:
+            if celllist[(self.l-1)%len(celllist)].s in [1,2]:
                 alive += 1
-            if celllist[(self.l+1)%704].s in [1,2]:
+            if celllist[(self.l+1)%len(celllist)].s in [1,2]:
                 alive += 1
-            if celllist[(self.l+36)%704].s in [1,2]:
+            if celllist[(self.l+36)%len(celllist)].s in [1,2]:
                 alive += 1
-            if celllist[(self.l+37)%704].s in [1,2]:
+            if celllist[(self.l+37)%len(celllist)].s in [1,2]:
                 alive += 1
-            if celllist[(self.l+38)%704].s in [1,2]:
+            if celllist[(self.l+38)%len(celllist)].s in [1,2]:
                 alive += 1
             if self.s !=0:
                 for x in surround:
@@ -90,8 +90,7 @@ class Cell(Sprite):
                 else:
                     self.gen = 2
             else:
-                if celllist[self.l] in alivelist:
-                    alivelist.remove(celllist[self.l])
+                
                 self.gen = 0       
     def update(self):
         if self.gen == 1:
@@ -100,6 +99,8 @@ class Cell(Sprite):
         elif self.gen == 0:
             self.s = 0
             self.setImage(0)
+            if celllist[self.l] in alivelist:
+                    alivelist.remove(celllist[self.l])
         else:
             self.s = 2
             self.setImage(2)
