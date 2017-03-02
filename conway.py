@@ -61,7 +61,7 @@ class Cell(Sprite):
             if self.l+37>len(celllist):
                 if self.l+38>len(celllist):
                     if self.l+1>len(celllist):
-                        surround = [celllist[self.l-37], celllist[self.l-36], celllist[self.l-38], celllist[(self.l+36)-704], celllist[(self.l+37)-704], celllist[(self.l+38)-704], celllist[self.l-1], celllist[(self.l+1])-704]
+                        surround = [celllist[self.l-37], celllist[self.l-36], celllist[self.l-38], celllist[(self.l+36)-704], celllist[(self.l+37)-704], celllist[(self.l+38)-704], celllist[self.l-1], celllist[(self.l+1)-704]]
                         if celllist[self.l-36].s in [1,2]:
                             alive += 1
                         if celllist[self.l-37].s in [1,2]:
