@@ -236,7 +236,7 @@ class Cell(Sprite):
                 alive += 1
             self.check()
     def check(self):
-        if self.check == 0:
+        if self.check == 1:
             if self.s !=0:
                 for x in self.surround:
                     x.step()
