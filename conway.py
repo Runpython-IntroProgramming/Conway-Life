@@ -53,17 +53,12 @@ class Cell(Sprite):
         self.l = int(listposition)
         self.checked = step
         self.gen = 0
-        self.surround = []
     def step(self):
+        surround = [celllist[self.l-37], celllist[self.l-36], celllist[self.l-38], celllist[self.l+36], celllist[self.l+37], celllist[self.l+38], celllist[self.l-1], celllist[self.l+1]]
         if self.checked == 0:
+            alive = 0
             self.checked = 1
-            self.alive1()
-    
-        
-    def alive(self):
-        self.surround = [celllist[self.l-37], celllist[self.l-36], celllist[self.l-38], celllist[self.l+36], celllist[self.l+37], celllist[self.l+38], celllist[self.l-1], celllist[self.l+1]]
-        alive = 0
-        if alive == 0:
+            
             if celllist[self.l-36].s in [1,2]:
                 alive += 1
             if celllist[self.l-37].s in [1,2]:
@@ -80,11 +75,8 @@ class Cell(Sprite):
                 alive += 1
             if celllist[self.l+38].s in [1,2]:
                 alive += 1
-            self.check()
-    def check(self):
-        if self.check == 1:
             if self.s !=0:
-                for x in self.surround:
+                for x in surround:
                     x.step()
             if alive == 2:
                 if self.s == 0:
@@ -148,12 +140,13 @@ def mouseClick(event):
                 x.setImage(0)
                 if celllist[x.l] in alivelist:
                     alivelist.remove(celllist[x.l])
+            
+    
 myapp.listenKeyEvent('keydown', 'space', spaceKey)
 myapp.listenMouseEvent('click', mouseClick)
 # generations
 
 
-    
         
 
 myapp.run()
