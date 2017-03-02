@@ -59,21 +59,21 @@ class Cell(Sprite):
             alive = 0
             self.checked = 1
             
-            if celllist[self.l-36].s in [1,2]:
+            if celllist[(self.l-36)%704].s in [1,2]:
                 alive += 1
-            if celllist[self.l-37].s in [1,2]:
+            if celllist[(self.l-37)%704].s in [1,2]:
                 alive += 1
-            if celllist[self.l-38].s in [1,2]:
+            if celllist[(self.l-38)%704].s in [1,2]:
                 alive += 1
-            if celllist[self.l-1].s in [1,2]:
+            if celllist[(self.l-1)%704].s in [1,2]:
                 alive += 1
-            if celllist[self.l+1].s in [1,2]:
+            if celllist[(self.l+1)%704].s in [1,2]:
                 alive += 1
-            if celllist[self.l+36].s in [1,2]:
+            if celllist[(self.l+36)%704].s in [1,2]:
                 alive += 1
-            if celllist[self.l+37].s in [1,2]:
+            if celllist[(self.l+37)%704].s in [1,2]:
                 alive += 1
-            if celllist[self.l+38].s in [1,2]:
+            if celllist[(self.l+38)%704].s in [1,2]:
                 alive += 1
             if self.s !=0:
                 for x in surround:
