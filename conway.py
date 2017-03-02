@@ -116,7 +116,7 @@ class Cell(Sprite):
                     if celllist[(self.l+38)].s in [1,2]:
                         alive +=1
             else:
-                surround = [celllist[self.l-37], celllist[self.l-36], celllist[self.l-38], celllist[(self.l+36)-704], celllist[(self.l+37)], celllist[(self.l+38)], celllist[self.l-1], celllist[(self.l+1])]
+                surround = [celllist[self.l-37], celllist[self.l-36], celllist[self.l-38], celllist[(self.l+36)-704], celllist[(self.l+37)], celllist[(self.l+38)], celllist[self.l-1], celllist[(self.l+1)]]
                 if celllist[self.l-36].s in [1,2]:
                         alive += 1
                 if celllist[self.l-37].s in [1,2]:
@@ -137,7 +137,7 @@ class Cell(Sprite):
             if self.1 - 37 < len(celllist):
                 self.1 - 38 < len(celllist):
                     if self.l-1 < len(celllist):
-                        surround = [(celllist[self.l-37)+704], celllist[(self.l-36)+704], celllist[(self.l-38)+704], celllist[(self.l+36)], celllist[(self.l+37)], celllist[(self.l+38)], celllist[(self.l-1)+704], celllist[(self.l+1])]
+                        surround = [(celllist[self.l-37)+704], celllist[(self.l-36)+704], celllist[(self.l-38)+704], celllist[(self.l+36)], celllist[(self.l+37)], celllist[(self.l+38)], celllist[(self.l-1)+704], celllist[(self.l+1)]]
                         if celllist[(self.l-36)+704].s in [1,2]:
                             alive += 1
                         if celllist[(self.l-37)+704].s in [1,2]:
@@ -155,7 +155,7 @@ class Cell(Sprite):
                         if celllist[self.l+38].s in [1,2]:
                             alive += 1
                     else:
-                        surround = [(celllist[self.l-37)+704], celllist[(self.l-36)+704], celllist[(self.l-38)+704], celllist[(self.l+36)], celllist[(self.l+37)], celllist[(self.l+38)], celllist[(self.l-1)], celllist[(self.l+1])]
+                        surround = [(celllist[self.l-37)+704], celllist[(self.l-36)+704], celllist[(self.l-38)+704], celllist[(self.l+36)], celllist[(self.l+37)], celllist[(self.l+38)], celllist[(self.l-1)], celllist[(self.l+1)]]
                         if celllist[(self.l-36)+704].s in [1,2]:
                             alive += 1
                         if celllist[(self.l-37)+704].s in [1,2]:
@@ -173,7 +173,7 @@ class Cell(Sprite):
                         if celllist[self.l+38].s in [1,2]:
                             alive += 1
                 else:
-                    surround = [(celllist[self.l-37)+704], celllist[(self.l-36)+704], celllist[(self.l-38)], celllist[(self.l+36)], celllist[(self.l+37)], celllist[(self.l+38)], celllist[(self.l-1)], celllist[(self.l+1])]
+                    surround = [(celllist[self.l-37)+704], celllist[(self.l-36)+704], celllist[(self.l-38)], celllist[(self.l+36)], celllist[(self.l+37)], celllist[(self.l+38)], celllist[(self.l-1)], celllist[(self.l+1)]]
                     if celllist[(self.l-36)+704].s in [1,2]:
                         alive += 1
                     if celllist[(self.l-37)+704].s in [1,2]:
@@ -191,7 +191,7 @@ class Cell(Sprite):
                     if celllist[self.l+38].s in [1,2]:
                             alive += 1
             else:
-                surround = [(celllist[self.l-37)], celllist[(self.l-36)+704], celllist[(self.l-38)], celllist[(self.l+36)], celllist[(self.l+37)], celllist[(self.l+38)], celllist[(self.l-1)], celllist[(self.l+1])]
+                surround = [(celllist[self.l-37)], celllist[(self.l-36)+704], celllist[(self.l-38)], celllist[(self.l+36)], celllist[(self.l+37)], celllist[(self.l+38)], celllist[(self.l-1)], celllist[(self.l+1)]]
                 if celllist[(self.l-36)+704].s in [1,2]:
                         alive += 1
                     if celllist[(self.l-37)].s in [1,2]:
