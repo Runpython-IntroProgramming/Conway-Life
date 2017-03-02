@@ -56,6 +56,7 @@ class Cell(Sprite):
     def step(self):
         if self.checked == 0:
             self.checked = 1
+            self.alive1
     def alive1(self):
         if self.l+36>len(celllist):
             if self.l+37>len(celllist):
@@ -233,7 +234,7 @@ class Cell(Sprite):
             if celllist[self.l+38].s in [1,2]:
                 alive += 1
             self.check()
-    def check(self)
+    def check(self):
         if self.check == 0:
             if self.s !=0:
                 for x in surround:
