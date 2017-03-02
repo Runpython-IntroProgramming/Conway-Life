@@ -54,11 +54,16 @@ class Cell(Sprite):
         self.checked = step
         self.gen = 0
     def step(self):
-        surround = [celllist[self.l-37], celllist[self.l-36], celllist[self.l-38], celllist[self.l+36], celllist[self.l+37], celllist[self.l+38], celllist[self.l-1], celllist[self.l+1]]
         if self.checked == 0:
-            alive = 0
             self.checked = 1
+    def alive1(self):
+        if:
             
+        
+    def alive(self):
+        surround = [celllist[self.l-37], celllist[self.l-36], celllist[self.l-38], celllist[self.l+36], celllist[self.l+37], celllist[self.l+38], celllist[self.l-1], celllist[self.l+1]]
+        alive = 0
+        if alive == 0:
             if celllist[self.l-36].s in [1,2]:
                 alive += 1
             if celllist[self.l-37].s in [1,2]:
@@ -75,6 +80,9 @@ class Cell(Sprite):
                 alive += 1
             if celllist[self.l+38].s in [1,2]:
                 alive += 1
+            self.check()
+    def check(self)
+        if self.check == 0:
             if self.s !=0:
                 for x in surround:
                     x.step()
@@ -104,7 +112,7 @@ class Cell(Sprite):
             self.s = 2
             self.setImage(2)
     
-celllist =list(range(1, 704))
+celllist =list(range(1, 705))
 i = 0
 x = 0
 y = 0
@@ -147,6 +155,7 @@ myapp.listenMouseEvent('click', mouseClick)
 # generations
 
 
+    
         
 
 myapp.run()
