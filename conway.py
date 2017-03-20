@@ -28,11 +28,5 @@ class Conwaygame(App):
         noline = LineStyle(0, black)
         bg_asset = RectangleAsset(width, height, noline, black)
         bg = Sprite(bg_asset, (0,0))
-    cell((100,100))
-    
+
 myapp = Conwaygame(700,800)
-myapp.listenKeyEvent('keydown', 'space', rightkey)
-myapp.listenKeyEvent('keydown', 'r', leftkey)
-myapp.listenKeyEvent('keydown', 'space', upkey)
-myapp.listenKeyEvent('keydown', 'r', downkey)
-myapp.listenMouseEvent('click', mouseClick)
