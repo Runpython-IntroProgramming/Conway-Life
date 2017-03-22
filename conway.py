@@ -17,10 +17,12 @@ purple=Color(0x7b68ee, 1)
 line=LineStyle(1,blue)
 
 class cell(Sprite):
-    asset=RectangleAsset(100,100,line, blue)
+    asset=RectangleAsset(10,10,line, blue)
     def __init__(self, position):
         super().__init__(cell.asset, position)
         
+
+
 class Conwaygame(App):
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -28,5 +30,7 @@ class Conwaygame(App):
         noline = LineStyle(0, black)
         bg_asset = RectangleAsset(width, height, noline, black)
         bg = Sprite(bg_asset, (0,0))
+        cell((100,10))
 
 myapp = Conwaygame(700,800)
+myapp.run()
