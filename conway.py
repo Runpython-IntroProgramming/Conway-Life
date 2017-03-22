@@ -27,7 +27,7 @@ class cell(Sprite):
         super().__init__(cell.asset, position)
         
 def mouseClick(event):
-    cell((tens(event.x),tens(event.y)))
+    cell((tens(event.x-12),tens(event.y-15)))
 
 
         
