@@ -28,9 +28,7 @@ class cell(Sprite):
         
 def mouseClick(event):
     cell((tens(event.x-12),tens(event.y-15)))
-
-
-        
+    
 
 myapp = App()
 myapp.run()
