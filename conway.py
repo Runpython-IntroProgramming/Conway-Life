@@ -12,25 +12,22 @@ from ggame import LineStyle, Color, Sprite, Sound
 
 x=1
 
+
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
 line=LineStyle(1,blue)
 
 class cell(Sprite):
-    asset=RectangleAsset(10,10,line, blue)
+    asset=RectangleAsset(11,11,line, blue)
     def __init__(self, position):
         super().__init__(cell.asset, position)
         
+def mouseClick(event):
+    cell((round(event.x,-1),round(event.y,-1)))
 
 
-class Conwaygame(App):
-    def __init__(self, width, height):
-        super().__init__(width, height)
-        black = Color(0, 1)
-        noline = LineStyle(0, black)
-        bg_asset = RectangleAsset(width, height, noline, black)
-        bg = Sprite(bg_asset, (0,0))
-        cell((100,10))
+        
 
-myapp = Conwaygame(700,800)
+myapp = App()
 myapp.run()
+myapp.listenMouseEvent('click', mouseClick)
