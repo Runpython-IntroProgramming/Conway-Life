@@ -9,21 +9,25 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 
 from ggame import App, RectangleAsset, ImageAsset, SoundAsset
 from ggame import LineStyle, Color, Sprite, Sound
+import time
 
 x=1
 
+tens=lambda x: round(x,-1)
 
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
-line=LineStyle(1,blue)
+line=LineStyle(0,blue)
 
 class cell(Sprite):
     asset=RectangleAsset(11,11,line, blue)
+    
+    asset=RectangleAsset(11,11,line,purple)
     def __init__(self, position):
         super().__init__(cell.asset, position)
         
 def mouseClick(event):
-    cell((round(event.x,-1),round(event.y,-1)))
+    cell((tens(event.x),tens(event.y)))
 
 
         
