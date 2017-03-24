@@ -10,12 +10,12 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 from ggame import App, RectangleAsset, ImageAsset, SoundAsset
 from ggame import LineStyle, Color, Sprite, Sound
 import time
-xs=list(range(1,81))
-ys=list(range(1,101))
+xs=list(range(0,10))
+ys=list(range(0,8))
 
 x=1
-SCREEN_WIDTH = 1000
-SCREEN_HEIGHT = 800
+SCREEN_WIDTH = 100
+SCREEN_HEIGHT = 80
 
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
@@ -28,13 +28,10 @@ bg = Sprite(bg_asset, (0,0))
 
 tens=lambda x: round(x,-1)
 
-
-
 class notcell(Sprite):
-    asset=RectangleAsset(11,11,line,blue)
+    asset=RectangleAsset(11,11,line,green)
     def __init__(self, position):
-        super().__init__(cell.asset, position)
-
+        super().__init__(notcell.asset, position)
 
 class cell(Sprite):
     asset=RectangleAsset(11,11,line, blue)
@@ -48,7 +45,7 @@ def mouseClick(event):
 
 for x in xs:
     for y in ys:
-        notcell((x,y))    
+        notcell((10*x,10*y))    
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
