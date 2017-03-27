@@ -14,6 +14,9 @@ import time
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
 
+xs=range(0,21)
+ys=range(0,21)
+
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
 line=LineStyle(0,blue)
@@ -26,10 +29,13 @@ bg = Sprite(bg_asset, (0,0))
 tens=lambda x: round(x,-1)
 
 class notcell(Sprite):
-    asset=RectangleAsset(11,11,line,white)
+    asset=RectangleAsset(11,11,line,green)
     def __init__(self, position):
         super().__init__(notcell.asset, position)
 
+for x in xs:
+    for y in ys:
+        notcell((10*x,10*y))
 class cell(Sprite):
     asset=RectangleAsset(11,11,line, blue)
     
