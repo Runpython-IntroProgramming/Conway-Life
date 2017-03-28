@@ -11,8 +11,9 @@ from ggame import App, RectangleAsset, ImageAsset, SoundAsset
 from ggame import LineStyle, Color, Sprite, Sound
 import time
 
-SCREEN_WIDTH = 300
-SCREEN_HEIGHT = 200
+SCREEN_WIDTH = 1000
+SCREEN_HEIGHT = 800
+z=0 
 
 xs=range(0,31)
 ys=range(0,21)
@@ -23,7 +24,7 @@ line=LineStyle(0,blue)
 white = Color(0xfffafa,1)
 green = Color(0x00ff00, 1)
 black = Color(0, 1)
-bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, line, green)
+bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, line, white)
 bg = Sprite(bg_asset, (0,0))
 
 tens=lambda x: round(x,-1)
@@ -33,9 +34,6 @@ class notcell(Sprite):
     def __init__(self, position):
         super().__init__(notcell.asset, position)
 
-for x in xs:
-    for y in ys:
-        notcell((10*x,10*y))
 class cell(Sprite):
     asset=RectangleAsset(11,11,line, blue)
     
@@ -44,7 +42,11 @@ class cell(Sprite):
         super().__init__(cell.asset, position)
         
 def mousebuttondown(event):
-    cell((tens(event.x-12),tens(event.y-15)))
+    z=1
+    xx=tens(event.x-12)
+    yy=tens(event.y-15)
+    if z==1:
+        cell((xx,yy))
 
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
