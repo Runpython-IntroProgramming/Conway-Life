@@ -1,12 +1,11 @@
 """
 conway.py
 Author: Abby Feyrer
-Credit: None
+Credit: Mr. Dennison
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
-
 from ggame import App, RectangleAsset, ImageAsset, SoundAsset
 from ggame import LineStyle, Color, Sprite, Sound
 import time
@@ -15,8 +14,7 @@ SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
 z=0 
 
-xs=range(0,31)
-ys=range(0,21)
+allthecells=[]
 
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
@@ -29,26 +27,34 @@ bg = Sprite(bg_asset, (0,0))
 
 tens=lambda x: round(x,-1)
 
-class notcell(Sprite):
-    asset=RectangleAsset(11,11,line,white)
-    def __init__(self, position):
-        super().__init__(notcell.asset, position)
-
 class cell(Sprite):
     asset=RectangleAsset(11,11,line, blue)
-    
-    asset=RectangleAsset(11,11,line,purple)
     def __init__(self, position):
         super().__init__(cell.asset, position)
         
 def mousebuttondown(event):
+    global z
     z=1
-    xx=tens(event.x-12)
-    yy=tens(event.y-15)
+    
+def mousemove(event):
+    global allthecells
     if z==1:
-        cell((xx,yy))
+        a=0
+        cell((tens(event.x-12),tens(event.y-15)))
+        coordinates=[((tens(event.x-12)/10),(tens(event.y-15)/10))]
+        allthecells.append(((tens(event.x-12)/10),(tens(event.y-15)/10)))
+        for (x,y) in coordinates:
+            for (h,k) in allthecells:
+                if x-h<=1 and x-h>=-1 and y-k<=1 and y-k>=-1:
+                    print(x,y)
+            
+def mousebuttonup(event):
+    global z
+    z=0
 
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
 myapp.listenMouseEvent('mousedown', mousebuttondown)
+myapp.listenMouseEvent('mouseup', mousebuttonup)
+myapp.listenMouseEvent('mousemove', mousemove)
