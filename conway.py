@@ -13,8 +13,8 @@ import time
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
 z=0 
-
-allthecells=[]
+f=0
+allthecells=[(0,0)]
 
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
@@ -32,27 +32,43 @@ class cell(Sprite):
     def __init__(self, position):
         super().__init__(cell.asset, position)
         
+class notcell(Sprite):
+    asset=RectangleAsset(11,11,line, white)
+    def __init__(self, position):
+        super().__init__(notcell.asset, position)
+        
+        
+class cell1(Sprite):
+    asset=RectangleAsset(11,11,line, purple)
+    def __init__(self, position):
+        super().__init__(cell1.asset, position)
+
 def mousebuttondown(event):
     global z
     z=1
     
 def mousemove(event):
-    global allthecells
+    global allthecells, f
     if z==1:
-        a=0
         cell((tens(event.x-12),tens(event.y-15)))
-        coordinates=[((tens(event.x-12)/10),(tens(event.y-15)/10))]
-        allthecells.append(((tens(event.x-12)/10),(tens(event.y-15)/10)))
+        coordinates=[(tens(event.x-12),tens(event.y-15))]
         for (x,y) in coordinates:
-            for (h,k) in allthecells:
-                if x-h<=1 and x-h>=-1 and y-k<=1 and y-k>=-1:
-                    print(x,y)
-            
+            if (x,y) not in allthecells:
+                allthecells.append((x,y))
+        print(allthecells)
+    f=0
+                    
+        
 def mousebuttonup(event):
     global z
     z=0
 
 
+"""for (x,y) in coordinates:
+            for (h,k) in allthecells:
+                if x-h<=1 and x-h>=-1 and y-k<=1 and y-k>=-1:
+                  """
+            
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
 myapp.listenMouseEvent('mousedown', mousebuttondown)
