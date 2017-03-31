@@ -13,8 +13,13 @@ import time
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
 z=0 
-f=0
 allthecells=[(0,0)]
+xs=list(range(101))
+ys=list(range(81))
+grid=[(0,0)]
+for x in xs:
+    for y in ys: 
+        grid.append((10*x,10*y))
 
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
@@ -36,8 +41,7 @@ class notcell(Sprite):
     asset=RectangleAsset(11,11,line, white)
     def __init__(self, position):
         super().__init__(notcell.asset, position)
-        
-        
+
 class cell1(Sprite):
     asset=RectangleAsset(11,11,line, purple)
     def __init__(self, position):
@@ -46,28 +50,28 @@ class cell1(Sprite):
 def mousebuttondown(event):
     global z
     z=1
+def mousebuttonup(event):
+    global z
+    z=0
     
 def mousemove(event):
-    global allthecells, f
+    global allthecells 
     if z==1:
         cell((tens(event.x-12),tens(event.y-15)))
         coordinates=[(tens(event.x-12),tens(event.y-15))]
         for (x,y) in coordinates:
             if (x,y) not in allthecells:
                 allthecells.append((x,y))
-        print(allthecells)
-    f=0
-                    
-        
-def mousebuttonup(event):
-    global z
-    z=0
-
-
-"""for (x,y) in coordinates:
+        for (x,y) in allthecells:
+            a=0
             for (h,k) in allthecells:
                 if x-h<=1 and x-h>=-1 and y-k<=1 and y-k>=-1:
-                  """
+                    a=a+1
+            if a<3:
+                print(x,y)            
+
+        
+    
             
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
