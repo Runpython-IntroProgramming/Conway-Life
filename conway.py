@@ -67,6 +67,7 @@ def mousemove(event):
 def spaceKey(event):
     global space
     space=1
+    print("yay")
     
 if space==1:
     for (h,k) in allthecells:
