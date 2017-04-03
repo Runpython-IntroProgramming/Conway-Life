@@ -12,7 +12,8 @@ import time
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
-z=0 
+z=0
+space=0
 allthecells=[(0,0)]
 xs=list(range(101))
 ys=list(range(81))
@@ -62,6 +63,12 @@ def mousemove(event):
         for (x,y) in coordinates:
             if (x,y) not in allthecells:
                 allthecells.append((x,y))
+    
+def spaceKey(event):
+    global space
+    space=1
+    
+if space==1:
     for (h,k) in allthecells:
         a=0
         b=0
@@ -86,3 +93,4 @@ myapp.run()
 myapp.listenMouseEvent('mousedown', mousebuttondown)
 myapp.listenMouseEvent('mouseup', mousebuttonup)
 myapp.listenMouseEvent('mousemove', mousemove)
+myapp.listenKeyEvent('keydown', 'space', spaceKey)
