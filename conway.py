@@ -64,14 +64,19 @@ def mousemove(event):
                 allthecells.append((x,y))
     for (h,k) in allthecells:
         a=0
+        b=0
         for (x,y) in allthecells:
             if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
                 a=a+1
-                print(a)
-    if a==4 or a==3:
+        print(a)
+    """if a==4 or a==3:
         cell1((h,k))
     if a==2 or a==1 or a>3:
-        notcell((h,k))
+        notcell((h,k))"""
+        for (x,y) in grid:
+            if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
+                b=b+1
+            
 
 
         
