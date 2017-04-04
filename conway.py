@@ -81,6 +81,9 @@ def spaceKey(event):
             for (x,y) in grid:
                 if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
                     b=b+1
+                if b==4:
+                    cell((x,y))
+                    allthecells.append(x,y)
             
 
     
