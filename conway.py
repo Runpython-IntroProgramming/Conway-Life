@@ -66,7 +66,7 @@ def mousemove(event):
 
 def spaceKey(event):
     space=1
-    while space==1:
+    if space==1:
         for (h,k) in allthecells:
             a=0
             b=0
@@ -78,12 +78,12 @@ def spaceKey(event):
             if a==2 or a==1 or a>4:
                 notcell((h,k))
                 allthecells.remove((h,k))
-            for (x,y) in grid:
+            """for (x,y) in grid:
                 if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
                     b=b+1
                 if b==4:
                     cell((x,y))
-                    allthecells.append((x,y))
+                    allthecells.append((x,y))"""
             
 
     
