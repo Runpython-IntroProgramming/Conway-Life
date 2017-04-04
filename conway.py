@@ -12,8 +12,8 @@ import time
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
-z=0
 space=0
+z=0
 allthecells=[(0,0)]
 xs=list(range(101))
 ys=list(range(81))
@@ -69,7 +69,8 @@ def spaceKey(event):
     space=1
     print("yay")
     
-if space==1:
+while space==1:
+    print("ok")
     for (h,k) in allthecells:
         a=0
         b=0
