@@ -10,13 +10,13 @@ from ggame import App, RectangleAsset, ImageAsset, SoundAsset
 from ggame import LineStyle, Color, Sprite, Sound
 import time
 
-SCREEN_WIDTH = 1000
-SCREEN_HEIGHT = 800
+SCREEN_WIDTH = 500
+SCREEN_HEIGHT = 400
 space=0
 z=0
 allthecells=[(0,0)]
-xs=list(range(101))
-ys=list(range(81))
+xs=list(range(51))
+ys=list(range(41))
 grid=[(0,0)]
 for x in xs:
     for y in ys: 
@@ -63,30 +63,27 @@ def mousemove(event):
         for (x,y) in coordinates:
             if (x,y) not in allthecells:
                 allthecells.append((x,y))
-    
+
 def spaceKey(event):
-    global space
     space=1
-    print("yay")
-    
-while space==1:
-    print("ok")
-    for (h,k) in allthecells:
-        a=0
-        b=0
-        for (x,y) in allthecells:
-            if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
-                a=a+1
-        print(a)
-        for (x,y) in grid:
-            if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
-                b=b+1
+    while space==1:
+        for (h,k) in allthecells:
+            a=0
+            b=0
+            for (x,y) in allthecells:
+                if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
+                    a=a+1
+            if a==4 or a==3:
+                cell1((h,k))
+            if a==2 or a==1 or a>4:
+                notcell((h,k))
+                allthecells.remove(h,k)
+            for (x,y) in grid:
+                if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
+                    b=b+1
             
 
-    """if a==4 or a==3:
-        cell1((h,k))
-    if a==2 or a==1 or a>3:
-        notcell((h,k))"""
+    
         
     
             
