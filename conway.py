@@ -72,7 +72,7 @@ def spaceKey(event):
     if space==1:
         for (h,k) in allthecells:
             a=0
-            b=0
+
             for (x,y) in allthecells:
                 if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
                     a=a+1
@@ -83,19 +83,16 @@ def spaceKey(event):
                 grid.append((h,k))
                 allthecells.remove((h,k))
         for (x,y) in grid:
+            b=0
             for (h,k) in allthecells:
                 if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
                     b=b+1
-                if b==4:
-                    cell((x,y))
-                    allthecells.append((x,y))
-                    grid.remove((x,y))
+            if b==3:
+                cell((x,y))
+                allthecells.append((x,y))
+                grid.remove((x,y))
             
-
-    
-        
-    
-            
+  
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
 myapp.listenMouseEvent('mousedown', mousebuttondown)
