@@ -18,6 +18,7 @@ allthecells=[(0,0)]
 xs=list(range(7))
 ys=list(range(6))
 grid=[(0,0)]
+removal=[(0,0)]
 for x in xs:
     for y in ys: 
         grid.append((10*x,10*y))
@@ -64,25 +65,12 @@ def mousemove(event):
             if (x,y) not in allthecells:
                 allthecells.append((x,y))
                 coordinates.remove((x,y))
-
 def spaceKey(event):
     global allthecells
-    global grid
+    global grid, removal
     space=1
     if space==1:
-        for (h,k) in allthecells:
-            a=0
-
-            for (x,y) in allthecells:
-                if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
-                    a=a+1
-            if a==4 or a==3:
-                cell1((h,k))
-            if a==2 or a==1 or a>4:
-                notcell((h,k))
-                grid.append((h,k))
-                allthecells.remove((h,k))
-        for (x,y) in grid:
+        """for (x,y) in grid:
             b=0
             for (h,k) in allthecells:
                 if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
@@ -90,8 +78,25 @@ def spaceKey(event):
             if b==3:
                 cell((x,y))
                 allthecells.append((x,y))
-                grid.remove((x,y))
+                grid.remove((x,y))"""
             
+        for (h,k) in allthecells:
+            a=0
+            for (x,y) in allthecells:
+                if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
+                    a=a+1
+            if a==4 or a==3:
+                cell1((h,k))
+            if a==2 or a==1 or a>4:
+                grid.append((h,k))
+                removal.append((h,k))
+        space=0
+
+for (x,y) in removal:
+    notcell((x,y))
+    allthecells.remove(x,y)
+        
+        
   
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
