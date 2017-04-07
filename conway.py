@@ -10,13 +10,13 @@ from ggame import App, RectangleAsset, ImageAsset, SoundAsset
 from ggame import LineStyle, Color, Sprite, Sound
 import time
 
-SCREEN_WIDTH = 500
-SCREEN_HEIGHT = 400
+SCREEN_WIDTH = 60
+SCREEN_HEIGHT = 50
 space=0
 z=0
 allthecells=[(0,0)]
-xs=list(range(51))
-ys=list(range(41))
+xs=list(range(7))
+ys=list(range(6))
 grid=[(0,0)]
 for x in xs:
     for y in ys: 
