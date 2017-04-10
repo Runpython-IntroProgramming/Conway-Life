@@ -14,12 +14,14 @@ SCREEN_WIDTH = 60
 SCREEN_HEIGHT = 50
 space=0
 z=0
+g=1
 allthecells=[(10000,10000)]
 xs=list(range(7))
 ys=list(range(6))
 grid=[(10000,10000)]
 removal=[(0,0)]
 addition=[(10000,10000)]
+seconddays=[(10000,10000)]
 for x in xs:
     for y in ys: 
         grid.append((10*x,10*y))
@@ -69,9 +71,9 @@ def mousemove(event):
                 coordinates.remove((x,y))
 
 def spaceKey(event):
-    global grid, removal, allthecells, addition
+    global grid, removal, allthecells, addition, g
     space=1
-    if space==1:
+    if space==1and g==1:
         for (x,y) in grid:
             b=0
             for (h,k) in allthecells:
@@ -85,22 +87,29 @@ def spaceKey(event):
                 if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
                     a=a+1
             if a==4 or a==3:
-                cell1((h,k))
+                seconddays.append((h,k))
             if a==2 or a==1 or a>4:
                 removal.append((h,k))
-        for (x,y) in removal:
-            if (x,y) in allthecells:
-                notcell((x,y))
-                grid.append((x,y))
-                allthecells.remove((x,y))
-                removal.remove((x,y))
-        for (x,y) in addition:
-            if (x,y) in grid:
-                cell((x,y))
-                allthecells.append((x,y))
-                grid.remove((x,y))
-                addition.remove((x,y))
-        
+        g=0
+        if g==0:
+            for (x,y) in removal:
+                if (x,y) in allthecells:
+                    notcell((x,y))
+                    grid.append((x,y))
+                    allthecells.remove((x,y))
+                    removal.remove((x,y))
+            for (x,y) in addition:
+                if (x,y) in grid:
+                    cell((x,y))
+                    allthecells.append((x,y))
+                    grid.remove((x,y))
+                    addition.remove((x,y))
+            for (x,y) in seconddays: 
+                if (x,y) in allthecells:
+                    cell1((x,y))
+                    
+            g=1
+            
         
   
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
