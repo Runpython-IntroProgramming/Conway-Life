@@ -65,9 +65,9 @@ def mousemove(event):
             if (x,y) not in allthecells:
                 allthecells.append((x,y))
                 coordinates.remove((x,y))
+
 def spaceKey(event):
-    global allthecells
-    global grid, removal
+    global grid, removal, allthecells
     space=1
     if space==1:
         """for (x,y) in grid:
@@ -90,11 +90,10 @@ def spaceKey(event):
             if a==2 or a==1 or a>4:
                 grid.append((h,k))
                 removal.append((h,k))
-        space=0
-
-for (x,y) in removal:
-    notcell((x,y))
-    allthecells.remove(x,y)
+        for (x,y) in removal:
+            notcell((x,y))
+            allthecells.remove((x,y))
+            g=1
         
         
   
