@@ -18,7 +18,8 @@ allthecells=[(10000,10000)]
 xs=list(range(7))
 ys=list(range(6))
 grid=[(10000,10000)]
-removal=[(10000,10000)]
+removal=[(0,0)]
+addition=[(10000,10000)]
 for x in xs:
     for y in ys: 
         grid.append((10*x,10*y))
@@ -68,19 +69,16 @@ def mousemove(event):
                 coordinates.remove((x,y))
 
 def spaceKey(event):
-    global grid, removal, allthecells
+    global grid, removal, allthecells, addition
     space=1
     if space==1:
-        """for (x,y) in grid:
+        for (x,y) in grid:
             b=0
             for (h,k) in allthecells:
                 if (x-h)<=10 and (x-h)>=-10 and (y-k)<=10 and (y-k)>=-10:
                     b=b+1
             if b==3:
-                cell((x,y))
-                allthecells.append((x,y))
-                grid.remove((x,y))"""
-            
+                addition.append((x,y))
         for (h,k) in allthecells:
             a=0
             for (x,y) in allthecells:
@@ -96,7 +94,12 @@ def spaceKey(event):
                 grid.append((x,y))
                 allthecells.remove((x,y))
                 removal.remove((x,y))
-            
+        for (x,y) in addition:
+            if (x,y) in grid:
+                cell((x,y))
+                allthecells.append((x,y))
+                grid.remove((x,y))
+                addition.remove((x,y))
         
         
   
