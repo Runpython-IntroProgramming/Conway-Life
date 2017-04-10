@@ -14,14 +14,15 @@ SCREEN_WIDTH = 60
 SCREEN_HEIGHT = 50
 space=0
 z=0
-allthecells=[(0,0)]
+allthecells=[(10000,10000)]
 xs=list(range(7))
 ys=list(range(6))
-grid=[(0,0)]
-removal=[(0,0)]
+grid=[(10000,10000)]
+removal=[(10000,10000)]
 for x in xs:
     for y in ys: 
         grid.append((10*x,10*y))
+grid.remove((10000,10000))
 
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
@@ -88,12 +89,14 @@ def spaceKey(event):
             if a==4 or a==3:
                 cell1((h,k))
             if a==2 or a==1 or a>4:
-                grid.append((h,k))
                 removal.append((h,k))
         for (x,y) in removal:
-            notcell((x,y))
-            allthecells.remove((x,y))
-            g=1
+            if (x,y) in allthecells:
+                notcell((x,y))
+                grid.append((x,y))
+                allthecells.remove((x,y))
+                removal.remove((x,y))
+            
         
         
   
