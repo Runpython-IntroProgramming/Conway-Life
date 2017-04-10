@@ -93,7 +93,7 @@ def spaceKey(event):
         g=0
         if g==0:
             for (x,y) in removal:
-                if (x,y) in allthecells:
+                if (x,y)!=(0,0):
                     notcell((x,y))
                     grid.append((x,y))
                     allthecells.remove((x,y))
