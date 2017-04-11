@@ -73,7 +73,7 @@ def mousemove(event):
 def spaceKey(event):
     global grid, removal, allthecells, addition, g
     space=1
-    if space==1 and g==1:
+    if g==1:
         for (x,y) in grid:
             b=0
             for (h,k) in allthecells:
@@ -100,7 +100,6 @@ def spaceKey(event):
                 grid.remove((x,y))
                 addition.remove((x,y))
         for (x,y) in seconddays: 
-            if (x,y) in allthecells:
                 cell1((x,y))
         for (x,y) in removal:
             if (x,y) in allthecells:
