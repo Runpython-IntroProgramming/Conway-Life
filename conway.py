@@ -14,7 +14,7 @@ SCREEN_WIDTH = 100
 SCREEN_HEIGHT = 80
 space=0
 z=0
-g=1
+g=0
 allthecells=[(10000,10000)]
 xs=list(range(11))
 ys=list(range(9))
@@ -72,7 +72,6 @@ def mousemove(event):
 
 def spaceKey(event):
     global grid, removal, allthecells, addition, g
-    space=1
     if g==1:
         for (x,y) in grid:
             b=0
@@ -88,9 +87,10 @@ def spaceKey(event):
                     a=a+1
             if a==4 or a==3:
                 seconddays.append((h,k))
-            if a==2 or a==1 or a>4:
-                if (h,k)!=(10000,10000):
-                    removal.append((h,k))
+            elif a==2 or a==1 or a>4:
+                removal.append((h,k))
+            else:
+                print("no")
         g=0
     if g==0:
         for (x,y) in addition:
