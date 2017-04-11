@@ -10,16 +10,16 @@ from ggame import App, RectangleAsset, ImageAsset, SoundAsset
 from ggame import LineStyle, Color, Sprite, Sound
 import time
 
-SCREEN_WIDTH = 60
-SCREEN_HEIGHT = 50
+SCREEN_WIDTH = 100
+SCREEN_HEIGHT = 80
 space=0
 z=0
 g=1
 allthecells=[(10000,10000)]
-xs=list(range(7))
-ys=list(range(6))
+xs=list(range(11))
+ys=list(range(9))
 grid=[(10000,10000)]
-removal=[(0,0)]
+removal=[(10000,10000)]
 addition=[(10000,10000)]
 seconddays=[(10000,10000)]
 for x in xs:
@@ -73,7 +73,7 @@ def mousemove(event):
 def spaceKey(event):
     global grid, removal, allthecells, addition, g
     space=1
-    if space==1and g==1:
+    if space==1 and g==1:
         for (x,y) in grid:
             b=0
             for (h,k) in allthecells:
@@ -89,28 +89,26 @@ def spaceKey(event):
             if a==4 or a==3:
                 seconddays.append((h,k))
             if a==2 or a==1 or a>4:
-                removal.append((h,k))
+                if (h,k)!=(10000,10000):
+                    removal.append((h,k))
         g=0
-        if g==0:
-            for (x,y) in removal:
-                if (x,y)!=(0,0):
-                    notcell((x,y))
-                    grid.append((x,y))
-                    allthecells.remove((x,y))
-                    removal.remove((x,y))
-            for (x,y) in addition:
-                if (x,y) in grid:
-                    cell((x,y))
-                    allthecells.append((x,y))
-                    grid.remove((x,y))
-                    addition.remove((x,y))
-            for (x,y) in seconddays: 
-                if (x,y) in allthecells:
-                    cell1((x,y))
-                    
-            g=1
-            
-        
+    if g==0:
+        for (x,y) in addition:
+            if (x,y) in grid:
+                cell((x,y))
+                allthecells.append((x,y))
+                grid.remove((x,y))
+                addition.remove((x,y))
+        for (x,y) in seconddays: 
+            if (x,y) in allthecells:
+                cell1((x,y))
+        for (x,y) in removal:
+            if (x,y) in allthecells:
+                notcell((x,y))
+                grid.append((x,y))
+                allthecells.remove((x,y))
+                removal.remove((x,y))
+        g=1
   
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
