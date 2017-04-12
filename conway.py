@@ -61,13 +61,14 @@ def mousebuttonup(event):
     z=0
     
 def mousemove(event):
-    global allthecells 
+    global allthecells, grid
     if z==1:
         cell((tens(event.x-12),tens(event.y-15)))
         coordinates=[(tens(event.x-12),tens(event.y-15))]
         for (x,y) in coordinates:
             if (x,y) not in allthecells:
                 allthecells.append((x,y))
+                grid.remove((x,y))
                 coordinates.remove((x,y))
 
 def spaceKey(event):
@@ -87,10 +88,9 @@ def spaceKey(event):
                     a=a+1
             if a==4 or a==3:
                 seconddays.append((h,k))
-            elif a==2 or a==1 or a>4:
+            if a==2 or a==1 or a>4:
                 removal.append((h,k))
-            else:
-                print("no")
+        print("ok")
         g=0
     if g==0:
         for (x,y) in addition:
@@ -102,11 +102,12 @@ def spaceKey(event):
         for (x,y) in seconddays: 
                 cell1((x,y))
         for (x,y) in removal:
-            if (x,y) in allthecells:
+            if (x,y) !=(10000,10000):
                 notcell((x,y))
                 grid.append((x,y))
                 allthecells.remove((x,y))
                 removal.remove((x,y))
+        print("well")
         g=1
   
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
