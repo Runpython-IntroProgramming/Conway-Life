@@ -10,14 +10,14 @@ from ggame import App, RectangleAsset, ImageAsset, SoundAsset
 from ggame import LineStyle, Color, Sprite, Sound
 import time
 
-SCREEN_WIDTH = 100
-SCREEN_HEIGHT = 80
+SCREEN_WIDTH = 200
+SCREEN_HEIGHT = 160
 space=0
 z=0
 g=0
 allthecells=[]
-xs=list(range(11))
-ys=list(range(9))
+xs=list(range(21))
+ys=list(range(17))
 grid=[]
 removal=[]
 addition=[]
