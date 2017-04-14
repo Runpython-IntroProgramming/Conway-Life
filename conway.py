@@ -15,17 +15,17 @@ SCREEN_HEIGHT = 80
 space=0
 z=0
 g=0
-allthecells=[(10000,10000)]
+allthecells=[]
 xs=list(range(11))
 ys=list(range(9))
-grid=[(10000,10000)]
-removal=[(10000,10000)]
-addition=[(10000,10000)]
-seconddays=[(10000,10000)]
+grid=[]
+removal=[]
+addition=[]
+seconddays=[]
 for x in xs:
     for y in ys: 
         grid.append((10*x,10*y))
-grid.remove((10000,10000))
+#grid.remove((10000,10000))
 
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
@@ -102,13 +102,12 @@ def spaceKey(event):
         for (x,y) in seconddays: 
                 cell1((x,y))
         for (x,y) in removal:
-            if (x,y) !=(10000,10000):
-                notcell((x,y))
-                grid.append((x,y))
-                allthecells.remove((x,y))
-                removal.remove((x,y))
+            notcell((x,y))
+            grid.append((x,y))
+            allthecells.remove((x,y))
+            removal.remove((x,y))
         print("well")
-        g=1
+    g=1
   
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
