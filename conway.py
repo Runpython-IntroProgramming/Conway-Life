@@ -25,7 +25,6 @@ seconddays=[]
 for x in xs:
     for y in ys: 
         grid.append((10*x,10*y))
-#grid.remove((10000,10000))
 
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
@@ -91,7 +90,7 @@ def spaceKey(event):
                 seconddays.append((h,k))
             if a==2 or a==1 or a>4:
                 removal.append((h,k))
-        g=0
+    g=0
     if g==0:
         for (x,y) in addition:
             cell((x,y))
