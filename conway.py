@@ -12,11 +12,23 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 #Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 from ggame import App, Color, LineStyle, Sprite, CircleAsset, Frame, RectangleAsset
 
-wdith = 640
-height = 640
+
+class GameOfLife(App):
+    
+    def __init__(self):
+        super().__init__()
+        red = Color(0xff0000, 1.0)
+        blue = Color(0x0000ff, 1.0)
+        black = Color(0x000000, 1.0)
+        noLine  = LineStyle(0, black)
+        bg = RectangleAsset(self.width, self.height, noLine, black)
+        Sprite(bg, (0,0))
+        cell = CircleAsset(10, noLine, blue)
+        Sprite(cell, (0,0))
+
+    
 
 
 
-
-myapp = App(width, height)
+myapp = GameOfLife()
 myapp.run()
