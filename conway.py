@@ -29,15 +29,22 @@ class GameOfLife(App):
         #cell = CircleAsset(10, noLine, blue)
         cell((0, 0))
         
+    def step(self):
+        for cell in self.getSpritesbyClass():
+            cell.survival()
+    
+    
+    
 class cell(Sprite):
     box = CircleAsset(5, noLine, blue)
 
     def __init__(self, position):
         super().__init__(cell.box, position)
 
+
     
 
 
 
-myapp = GameOfLife(800, 800)
+myapp = GameOfLife(505, 505)
 myapp.run()
