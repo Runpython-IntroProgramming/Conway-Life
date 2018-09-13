@@ -17,14 +17,14 @@ blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 noLine  = LineStyle(0, black)
 
-frameSide = 100
-
+frameSide = 5000
+cellSide = 5
 
 class GameOfLife(App):
     
     def __init__(self, width, height):
         super().__init__(width, height)
-        bg = RectangleAsset(width, height, noLine, black)
+        bg = RectangleAsset(cellSide, cellSide, noLine, black)
         Sprite(bg, (0,0))
         #cell = CircleAsset(10, noLine, blue)
         cell((0, 0))
@@ -46,5 +46,5 @@ class cell(Sprite):
 
 
 
-myapp = GameOfLife(505, 505)
+myapp = GameOfLife(frameSide, frameSide)
 myapp.run()
