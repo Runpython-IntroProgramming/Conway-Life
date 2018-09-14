@@ -17,34 +17,31 @@ blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 noLine  = LineStyle(0, black)
 
-frameSide = 5000
+frameWidth = 500
+frameHeight = 500
 cellSide = 5
+cells = {}
+for i in range(0, int(frameHeight / cellSide)):
+    for k in range(0, int(freameWidth / cellSide)):
+        cells[(k,i)] = "zombieCell"
+print(cells)
+        
 
 class GameOfLife(App):
     
     def __init__(self, width, height):
         super().__init__(width, height)
-        bg = RectangleAsset(cellSide, cellSide, noLine, black)
+        bg = RectangleAsset(frameWidth, frameHeight, noLine, black)
         Sprite(bg, (0,0))
         #cell = CircleAsset(10, noLine, blue)
         cell((0, 0))
-        
-    def step(self):
-        for cell in self.getSpritesbyClass():
-            cell.survival()
     
-    
-    
+
 class cell(Sprite):
     box = CircleAsset(5, noLine, blue)
 
     def __init__(self, position):
         super().__init__(cell.box, position)
 
-
-    
-
-
-
-myapp = GameOfLife(frameSide, frameSide)
+myapp = GameOfLife(frameWidth, frameHeight)
 myapp.run()
