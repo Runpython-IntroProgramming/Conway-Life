@@ -22,11 +22,8 @@ frameHeight = 500
 cellSide = 5
 cells = {}
 for i in range(0, int(frameHeight / cellSide)):
-    for k in range(0, int(freameWidth / cellSide)):
+    for k in range(0, int(frameWidth / cellSide)):
         cells[(k,i)] = "zombieCell"
-print(cells)
-        
-
 class GameOfLife(App):
     
     def __init__(self, width, height):
@@ -34,7 +31,8 @@ class GameOfLife(App):
         bg = RectangleAsset(frameWidth, frameHeight, noLine, black)
         Sprite(bg, (0,0))
         #cell = CircleAsset(10, noLine, blue)
-        cell((0, 0))
+        for l in cells.keys():
+            cell(l)
     
 
 class cell(Sprite):
