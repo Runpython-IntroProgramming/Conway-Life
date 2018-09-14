@@ -15,15 +15,17 @@ from ggame import App, Color, LineStyle, Sprite, CircleAsset, Frame, RectangleAs
 red = Color(0xff0000, 1.0)
 blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
+white = Color(0xffffff, 1.0)
 noLine  = LineStyle(0, black)
+outline = LineStyle(1, white)
 
 frameWidth = 500
 frameHeight = 500
 cellSide = 5
 cells = {}
-for i in range(0, int(frameHeight / cellSide)):
-    for k in range(0, int(frameWidth / cellSide)):
-        cells[(k,i)] = "zombieCell"
+for i in range(0, 20):
+    for k in range(0, 20):
+        cells[(k * 10,i * 10)] = "zombieCell"
 class GameOfLife(App):
     
     def __init__(self, width, height):
