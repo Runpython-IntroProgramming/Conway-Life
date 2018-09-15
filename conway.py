@@ -26,6 +26,8 @@ cells = {}
 for i in range(0, 20):
     for k in range(0, 20):
         cells[(k * 10,i * 10)] = "zombieCell"
+print(cells)
+"""
 class GameOfLife(App):
     
     def __init__(self, width, height):
@@ -46,3 +48,4 @@ class cell(Sprite):
 
 myapp = GameOfLife(frameWidth, frameHeight)
 myapp.run()
+"""
