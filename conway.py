@@ -27,25 +27,27 @@ frameWidth = 800
 frameHeight = 800
 cellSide = 5
 cells = {}
-for i in range(0, 10):
-    for k in range(0, 10):
+for i in range(0, 50):
+    for k in range(0, 50):
         """
         if randint(0,5) == 4:
             cells[(k * 10,i * 10)] = "alive"
         else:
             cells[(k * 10,i * 10)] = "dead"
         """
+        Sprite(RectangleAsset(10, 10, outLine, black), (k * 10,i * 10))
         cells[(k * 10, i * 10)] = "dead"
 #-----------------------------------------------------
 class cell(Sprite):
-    deadCell = RectangleAsset(10,10, outLine, black)
-    liveCell = CircleAsset(5, outLive, blue)
+    Cell = CircleAsset(5, outLive, blue)
 
     def __init__(self, position, state):
         if state == "alive":
             super().__init__(cell.liveCell, position)
+            self.visible = True
         else:
             super().__init__(cell.deadCell, position)
+            self.visible = False
 
    
 #-----------------------------------------------------
