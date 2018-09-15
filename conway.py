@@ -56,31 +56,35 @@ class GameOfLife(App):
     def __init__(self, width, height):
         super().__init__(width, height)
         GameOfLife.listenKeyEvent("keydown", "space",self.spacePressed)
+        self.isActive = False
         #ConwayGame.listenMouseEvent("click",self.----)
         for l in cells.keys():
             cell(l,cells[l])
+            
+    def spacePressed(self, event):
+        self.isActive = not self.isActive
+        print("Space pressed", self.isActive)
 
     def step(self):
-        for sprite in self.getSpritesbyClass(cell):
-            cellsNearby = 0
-            for i in range(-1,2):
-                for k in range(-1,2):
-                    if (i,k) != (sprite.x, sprite.y):
-                        if cells[(i,k)] == "alive":
-                            cellsNearby += 1
-            if cellsNearby < 2:
-                cells[sprite.x, sprite.y] = "dead"
-            elif cellsNearby > 3:
-                cells[sprite.x, sprite,y] = "dead"
-            else:
-                cells[sprite.x, sprite,y] = "alive"
-                sprite.visible = True
-                Sprite(sprite)
-            print("ran")
-        
-    def spacePressed(self, event):
-        step()
-        
+        if self.isActive == True:
+            for sprite in self.getSpritesbyClass(cell):
+                cellsNearby = 0
+                for i in range(-1,2):
+                    for k in range(-1,2):
+                        if i != 0 and k != 0:
+                            if cells[(sprite.x + i * 10,sprite.y + k * 10)] == "alive":
+                                cellsNearby += 1
+                print(sprite.x, sprite.y, cellsNearby)
+                if cellsNearby < 2:
+                    cells[sprite.x, sprite.y] = "dead"
+                elif cellsNearby > 3:
+                    cells[sprite.x, sprite,y] = "dead"
+                else:
+                    cells[sprite.x, sprite,y] = "alive"
+                    sprite.visible = True
+                    Sprite(sprite, (sprite.x, sprite.y))
+                Sprite(CircleAsset(5,outLine, red), (sprite.x, sprite.y))
+                print("ran")
 #-----------------------------------------------------
 myapp = GameOfLife(frameWidth, frameHeight)
 myapp.run()
