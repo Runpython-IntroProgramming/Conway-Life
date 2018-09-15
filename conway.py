@@ -30,8 +30,8 @@ cells = {}
 
 bg = RectangleAsset(frameWidth, frameHeight, noLine, black)
 Sprite(bg, (0,0))
-for i in range(0, 30):
-    for k in range(0, 30):
+for i in range(0, 10):
+    for k in range(0, 10):
         if randint(0,5) == 4:
             cells[(k * 10,i * 10)] = "alive"
         else:
@@ -44,7 +44,7 @@ class cell(Sprite):
 
     def __init__(self, position, state):
         super().__init__(cell.Cell, position)
-        if cells[cell.x, cell.y] == "dead":
+        if cells[self.x, self.y] == "dead":
             self.visible = False
         else:
             self.visible = True
@@ -55,11 +55,11 @@ class GameOfLife(App):
     
     def __init__(self, width, height):
         super().__init__(width, height)
-        #GameOfLife.listenKeyEvent("keydown", "space",self.spacePressed)
+        GameOfLife.listenKeyEvent("keydown", "space",self.spacePressed)
         #ConwayGame.listenMouseEvent("click",self.----)
         for l in cells.keys():
             cell(l,cells[l])
-    """
+
     def step(self):
         for sprite in self.getSpritesbyClass(cell):
             cellsNearby = 0
@@ -76,10 +76,11 @@ class GameOfLife(App):
                 cells[sprite.x, sprite,y] = "alive"
                 sprite.visible = True
                 Sprite(sprite)
-    #def spacePressed(self, event):
-    #    cells[(20, 20)] = "alive"
+            print("ran")
         
-    """    
+    def spacePressed(self, event):
+        step()
+        
 #-----------------------------------------------------
 myapp = GameOfLife(frameWidth, frameHeight)
 myapp.run()
