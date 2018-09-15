@@ -17,10 +17,10 @@ blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 white = Color(0xffffff, 1.0)
 noLine  = LineStyle(0, black)
-outline = LineStyle(1, white)
+outLine = LineStyle(1, white)
 
-frameWidth = 500
-frameHeight = 500
+frameWidth = 800
+frameHeight = 800
 cellSide = 5
 cells = {}
 for i in range(0, 20):
@@ -38,10 +38,11 @@ class GameOfLife(App):
     
 
 class cell(Sprite):
-    box = CircleAsset(5, noLine, blue)
+    deadCell = RectangleAsset(10,10, outLine, blue)
+    liveCell = CircleAsset(5, outLine, blue)
 
     def __init__(self, position):
-        super().__init__(cell.box, position)
+        super().__init__(cell.deadCell, position)
 
 myapp = GameOfLife(frameWidth, frameHeight)
 myapp.run()
