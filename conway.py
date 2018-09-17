@@ -59,7 +59,7 @@ class GameOfLife(App):
         GameOfLife.listenKeyEvent("keydown", "space",self.spacePressed)
         self.isActive = False
         print(self.isActive)
-        ConwayGame.listenMouseEvent("click",self.----)
+        GameOfLife.listenMouseEvent("click",self.mouseClick)
         for l in cells.keys():
             cell(l,cells[l])
     def spacePressed(self, event):
@@ -67,7 +67,8 @@ class GameOfLife(App):
         print("Space pressed", self.isActive)
 
     def mouseClick(self, event):
-        
+        position = (round(event.x / 10, 0), round(event.y / 10, 0))
+        print(position)
 
 
     def step(self):
