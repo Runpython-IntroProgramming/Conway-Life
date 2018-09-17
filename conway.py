@@ -11,13 +11,16 @@ from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, El
 green=Color(0x00ff00, 1.0)
 blue=Color(0x0000ff, 1.0)
 black=Color(0x000000, 1.0)
-line=LineStyle(1, black)
+tline=LineStyle(1, black)
 
-life1=(RectangleAsset(3,3,line,green))
-life2=(RectangleAsset,(3,3,line,blue))
+life1=(RectangleAsset(3, 3, tline, green))
+life2=(RectangleAsset(3, 3, tline, blue))
 
-Sprite(life1,(30,30))
-Sprite(life2,(40,40))
+
+for x in range (0,400,3):
+    Sprite(life1,(x,1))
+#Sprite(life2,(400, 400))
+
 
 myapp = App()
 myapp.run()
