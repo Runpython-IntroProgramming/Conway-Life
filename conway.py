@@ -24,8 +24,8 @@ x=list(x)
 y=list(y)
 
 #in a period it has to assess all the pixels and do something for each pixel in the grid
-for x in range (0,400,3):
-    Sprite(life1,(x,400))
+#for x in range (0,400,3):
+    #Sprite(life1,(x,400))
 #Sprite(life2,(400, 400))
 
 
