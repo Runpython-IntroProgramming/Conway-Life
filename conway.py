@@ -27,17 +27,18 @@ frameWidth = 800
 frameHeight = 800
 cellSide = 5
 cells = {}
+cellsLongTerm = cells
 
 bg = RectangleAsset(frameWidth, frameHeight, noLine, black)
 Sprite(bg, (0,0))
 for i in range(0, 10):
     for k in range(0, 10):
-        if randint(0,5) == 4:
+        if randint(0,5) >= 2:
             cells[(k * 10,i * 10)] = "alive"
         else:
             cells[(k * 10,i * 10)] = "dead"
         Sprite(RectangleAsset(10, 10, outLine, black), (k * 10,i * 10))
-        #cells[(k * 10, i * 10)] = "dead"
+cellsLongTerm = cells
 #-----------------------------------------------------
 class cell(Sprite):
     Cell = CircleAsset(5, outLive, blue)
@@ -57,24 +58,47 @@ class GameOfLife(App):
         super().__init__(width, height)
         GameOfLife.listenKeyEvent("keydown", "space",self.spacePressed)
         self.isActive = False
+        print(self.isActive)
         #ConwayGame.listenMouseEvent("click",self.----)
         for l in cells.keys():
             cell(l,cells[l])
-            
     def spacePressed(self, event):
         self.isActive = not self.isActive
         print("Space pressed", self.isActive)
-
-    def step(self):
+        
         if self.isActive == True:
+            cellsLongTerm = cells
             for sprite in self.getSpritesbyClass(cell):
                 cellsNearby = 0
                 for i in range(-1,2):
                     for k in range(-1,2):
-                        if i != 0 and k != 0:
+                        if (i,k) != (0,0):
+                            if i >= 0 and k >= 0:
+                                if cellsLongTerm[(i * 10, k * 10)] == "alive":
+                                    cellsNearby += 1
+                if cellsNearby < 2:
+                    cells[sprite.x, sprite.y] = "dead"
+                elif cellsNearby > 3:
+                    cells[sprite.x, sprite.y] = "dead"
+                else:
+                    cells[sprite.x, sprite.y] = "alive"
+                    sprite.visible = True
+
+                print("ran", cellsNearby)
+
+"""
+    def step(self):
+        if self.isActive == True:
+            
+            for sprite in self.getSpritesbyClass(cell):
+                print("running")
+                cellsNearby = 0
+                for i in range(-1,2):
+                    for k in range(-1,2):
+                        if (i,k) != (0,0):
                             if cells[(sprite.x + i * 10,sprite.y + k * 10)] == "alive":
                                 cellsNearby += 1
-                print(sprite.x, sprite.y, cellsNearby)
+                print("k")
                 if cellsNearby < 2:
                     cells[sprite.x, sprite.y] = "dead"
                 elif cellsNearby > 3:
@@ -84,7 +108,8 @@ class GameOfLife(App):
                     sprite.visible = True
                     Sprite(sprite, (sprite.x, sprite.y))
                 Sprite(CircleAsset(5,outLine, red), (sprite.x, sprite.y))
-                print("ran")
+            print("ran")
+"""
 #-----------------------------------------------------
 myapp = GameOfLife(frameWidth, frameHeight)
 myapp.run()
