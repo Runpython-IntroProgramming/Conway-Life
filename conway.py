@@ -18,14 +18,16 @@ life2=(RectangleAsset(3, 3, tline, blue))
 
 #infinity=float'inf'
 
-x=range(0,400,3)
-y=range(0,400,3)
-print(x)
+x=range(0,401,3)
+y=range(0,401,3)
+x=list(x)
+y=list(y)
+
 #in a period it has to assess all the pixels and do something for each pixel in the grid
-#for x in range (0,400,3):
-    #Sprite(life1,(x,1))
+for x in range (0,400,3):
+    Sprite(life1,(x,400))
 #Sprite(life2,(400, 400))
 
 
-myapp = App()
-myapp.run()
+#myapp = App()
+#myapp.run()
