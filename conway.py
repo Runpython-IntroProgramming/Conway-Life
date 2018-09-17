@@ -16,9 +16,14 @@ tline=LineStyle(1, black)
 life1=(RectangleAsset(3, 3, tline, green))
 life2=(RectangleAsset(3, 3, tline, blue))
 
+#infinity=float'inf'
 
-for x in range (0,400,3):
-    Sprite(life1,(x,1))
+x=range(0,400,3)
+y=range(0,400,3)
+print(x)
+#in a period it has to assess all the pixels and do something for each pixel in the grid
+#for x in range (0,400,3):
+    #Sprite(life1,(x,1))
 #Sprite(life2,(400, 400))
 
 
