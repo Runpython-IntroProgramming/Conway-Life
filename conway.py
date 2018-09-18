@@ -95,12 +95,16 @@ class GameOfLife(App):
 '''
 
     def step(self):
-        '''
+
         if self.isActive == True:
             for sprite in self.getSpritesbyClass(cell):
-                sprite.visible = sprite.nearbyCells()
-                print(sprite.nearbyCells())
-            
+                print("hi")
+                if cellsLongTerm[(sprite.x + 10 * 10,sprite.y + 10 * 10)] == "dead":
+                    print("hey")
+                    sprite.visible = True
+                else:
+                    sprite.visible = False
+
         '''
         if self.isActive == True:   
             for sprite in self.getSpritesbyClass(cell):
@@ -111,14 +115,15 @@ class GameOfLife(App):
                             if cellsLongTerm[(sprite.x + 10 * i,sprite.y + 10 * k)] == "alive":
                                 cellsNearby = 1
                                 print('yoy')
-                if cellsNearby > 2 or cellsNearby > 3:
+                print("ayo")
+                if randint(1,2) == 1:
                     cells[(sprite.x, sprite.y)] = "dead"
                     sprite.visible = False
                 else:
                     cells[(sprite.x, sprite.y)] = "alive"
                     sprite.visible = True
             
-
+'''
 #-----------------------------------------------------
 myapp = GameOfLife(frameWidth, frameHeight)
 myapp.run()
