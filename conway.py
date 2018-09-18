@@ -42,12 +42,26 @@ cellsLongTerm = cells
 class cell(Sprite):
     Cell = CircleAsset(5, outLive, blue)
 
-    def __init__(self, position, state):
+    def __init__(self, position):
         super().__init__(cell.Cell, position)
-        if cells[self.x, self.y] == "dead":
-            self.visible = False
+        self.visible = False
+
+    def nearbyCells(self):
+        cellsNearby = 0
+        for i in range(-1,2):
+            for k in range(-1,2):
+                if (i,k) != (0,0):
+                    if cellsLongTerm[(self.x + 10 * i,self.y + 10 * k)] == "alive":
+                        cellsNearby += 1
+        if cellsNearby < 2 or cellsNearby > 3:
+            cells[(self.x, self.y)] = "dead"
+            return False
         else:
-            self.visible = True
+            cells[(self.x, self.y)] = "alive"
+            return True
+        
+        
+        
 class tempCell(Sprite):
     Cell = CircleAsset(5, outLive, blue)
 
@@ -65,7 +79,7 @@ class GameOfLife(App):
         print(self.isActive)
         GameOfLife.listenMouseEvent("click",self.mouseClick)
         for l in cells.keys():
-            cell(l,cells[l])
+            cell(l)
     def spacePressed(self, event):
         self.isActive = not self.isActive
         print("Space pressed", self.isActive)
@@ -74,34 +88,36 @@ class GameOfLife(App):
         if self.isActive == False:
             position = (int(10 * round(event.x / 10, 0)), int(10 * round(event.y / 10, 0)))
             cells[position] = "alive"
-    
-
+        '''
+        for sprite in self.getSpritesbyClass(cell):
+                sprite.visible = sprite.nearbyCells()
+                print(sprite.nearbyCells())
+'''
 
     def step(self):
+        '''
         if self.isActive == True:
-            if cellsLongTerm[(sprite.x,sprite.y)] == "alive":
-                cells[(sprite.x, sprite.y)] = "dead"
-                sprite.visible = False
-            else:
-                cells[(sprite.x, sprite.y)] = "alive"
-                sprite.visible = True
-            """
-            print("activated")
             for sprite in self.getSpritesbyClass(cell):
-                print("check")
+                sprite.visible = sprite.nearbyCells()
+                print(sprite.nearbyCells())
+            
+        '''
+        if self.isActive == True:   
+            for sprite in self.getSpritesbyClass(cell):
                 cellsNearby = 0
                 for i in range(-1,2):
                     for k in range(-1,2):
                         if (i,k) != (0,0):
                             if cellsLongTerm[(sprite.x + 10 * i,sprite.y + 10 * k)] == "alive":
-                                cellsNearby += 1
-                if cellsNearby < 2 or cellsNearby > 3:
+                                cellsNearby = 1
+                                print('yoy')
+                if cellsNearby > 2 or cellsNearby > 3:
                     cells[(sprite.x, sprite.y)] = "dead"
                     sprite.visible = False
                 else:
                     cells[(sprite.x, sprite.y)] = "alive"
                     sprite.visible = True
-            """
+            
 
 #-----------------------------------------------------
 myapp = GameOfLife(frameWidth, frameHeight)
