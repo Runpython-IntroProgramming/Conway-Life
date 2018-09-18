@@ -38,7 +38,6 @@ for i in range(0, 5):
             cells[(k * 10,i * 10)] = "dead"
         Sprite(RectangleAsset(10, 10, outLine, black), (k * 10,i * 10))
 cellsLongTerm = cells
-print(cellsLongTerm)
 #-----------------------------------------------------
 class cell(Sprite):
     Cell = CircleAsset(5, outLive, blue)
@@ -49,7 +48,12 @@ class cell(Sprite):
             self.visible = False
         else:
             self.visible = True
+class tempCell(Sprite):
+    Cell = CircleAsset(5, outLive, blue)
 
+    def __init__(self, position):
+        super().__init__(tempCell.Cell, position)
+        
    
 #-----------------------------------------------------
 class GameOfLife(App):
@@ -67,14 +71,24 @@ class GameOfLife(App):
         print("Space pressed", self.isActive)
 
     def mouseClick(self, event):
-        position = (round(event.x / 10, 0), round(event.y / 10, 0))
-        print(position)
+        if self.isActive == False:
+            position = (int(10 * round(event.x / 10, 0)), int(10 * round(event.y / 10, 0)))
+            cells[position] = "alive"
+    
 
 
     def step(self):
         if self.isActive == True:
+            if cellsLongTerm[(sprite.x,sprite.y)] == "alive":
+                cells[(sprite.x, sprite.y)] = "dead"
+                sprite.visible = False
+            else:
+                cells[(sprite.x, sprite.y)] = "alive"
+                sprite.visible = True
+            """
             print("activated")
             for sprite in self.getSpritesbyClass(cell):
+                print("check")
                 cellsNearby = 0
                 for i in range(-1,2):
                     for k in range(-1,2):
@@ -87,6 +101,7 @@ class GameOfLife(App):
                 else:
                     cells[(sprite.x, sprite.y)] = "alive"
                     sprite.visible = True
+            """
 
 #-----------------------------------------------------
 myapp = GameOfLife(frameWidth, frameHeight)
