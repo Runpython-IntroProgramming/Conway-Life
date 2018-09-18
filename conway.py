@@ -22,6 +22,19 @@ life2=(RectangleAsset(3, 3, tline, blue))
 #y=range(0,401,3)
 #x=list(x)
 #y=list(y)
+x=30
+y=50
+
+def createlife():
+    Sprite(life1,(x,y))
+    return
+def staylife():
+    Sprite(life2,(x,y))
+    return
+#def death():
+    
+
+staylife()
 
 #in a period it has to assess all the pixels and do something for each pixel in the grid
 #for x in range (0,400,3):
