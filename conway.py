@@ -27,18 +27,18 @@ frameWidth = 800
 frameHeight = 800
 cellSide = 5
 cells = {}
-cellsLongTerm = cells
 
 bg = RectangleAsset(frameWidth, frameHeight, noLine, black)
 Sprite(bg, (0,0))
-for i in range(0, 10):
-    for k in range(0, 10):
+for i in range(0, 5):
+    for k in range(0, 5):
         if randint(0,5) >= 2:
             cells[(k * 10,i * 10)] = "alive"
         else:
             cells[(k * 10,i * 10)] = "dead"
         Sprite(RectangleAsset(10, 10, outLine, black), (k * 10,i * 10))
 cellsLongTerm = cells
+print(cellsLongTerm)
 #-----------------------------------------------------
 class cell(Sprite):
     Cell = CircleAsset(5, outLive, blue)
@@ -73,26 +73,20 @@ class GameOfLife(App):
 
     def step(self):
         if self.isActive == True:
-            
+            print("activated")
             for sprite in self.getSpritesbyClass(cell):
-                print("running")
                 cellsNearby = 0
                 for i in range(-1,2):
                     for k in range(-1,2):
                         if (i,k) != (0,0):
-                            if cells[(sprite.x + i * 10,sprite.y + k * 10)] == "alive":
+                            if cellsLongTerm[(sprite.x + 10 * i,sprite.y + 10 * k)] == "alive":
                                 cellsNearby += 1
-                print("k")
-                if cellsNearby < 2:
-                    cells[sprite.x, sprite.y] = "dead"
-                elif cellsNearby > 3:
-                    cells[sprite.x, sprite,y] = "dead"
+                if cellsNearby < 2 or cellsNearby > 3:
+                    cells[(sprite.x, sprite.y)] = "dead"
+                    sprite.visible = False
                 else:
-                    cells[sprite.x, sprite,y] = "alive"
+                    cells[(sprite.x, sprite.y)] = "alive"
                     sprite.visible = True
-                    Sprite(sprite, (sprite.x, sprite.y))
-                Sprite(CircleAsset(5,outLine, red), (sprite.x, sprite.y))
-            print("ran")
 
 #-----------------------------------------------------
 myapp = GameOfLife(frameWidth, frameHeight)
