@@ -1,6 +1,6 @@
 """
 conway.py
-Author: <your name here>
+Author: Emma Dunbar
 Credit: <list sources used, if any>
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
@@ -10,11 +10,13 @@ from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, El
 
 green=Color(0x00ff00, 1.0)
 blue=Color(0x0000ff, 1.0)
+white=Color(0xffffff, 1.0)
 black=Color(0x000000, 1.0)
 tline=LineStyle(0, black)
 
 life1=(RectangleAsset(2, 2, tline, green))
 life2=(RectangleAsset(2, 2, tline, blue))
+none=(RectangleAsset(2, 2, tline, white))
 
 #infinity=float'inf'
 
@@ -31,10 +33,11 @@ def createlife():
 def staylife():
     Sprite(life2,(x,y))
     return
-#def death():
-    
+def death():
+    Sprite(none,(x,y))
 
 staylife()
+death()
 
 #in a period it has to assess all the pixels and do something for each pixel in the grid
 #for x in range (0,400,3):
