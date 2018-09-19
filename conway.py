@@ -25,18 +25,17 @@ outLive = LineStyle(1, green)
 #-----------------------------------------------------
 frameWidth = 800
 frameHeight = 800
-cellNum = 4
+cellNum = 50
 #cellSide = int(frameWidth / (cellNum * 2))
 cellSide = 30
 cells = {}
-
+cellsLongTerm = {}
 #-----------------------------------------------------
 class cell(Sprite):
     Cell = CircleAsset(cellSide / 2, outLive, blue)
 
     def __init__(self, position):
         super().__init__(cell.Cell, position)
-        self.visible = False
         if cells[(position)] == "alive":
             self.visible = True
         else:
@@ -65,12 +64,20 @@ class GameOfLife(App):
         super().__init__(width, height)
         GameOfLife.listenKeyEvent("keydown", "space",self.spacePressed)
         self.isActive = False
-        print(self.isActive)
         bg = RectangleAsset(frameWidth, frameHeight, noLine, black)
         Sprite(bg, (0,0))
+        '''
         for i in range(0, cellNum):
             for k in range(0, cellNum):
                 cells[(k * cellSide,i * cellSide)] = "alive"
+                Sprite(RectangleAsset(cellSide, cellSide, outLine, black), (k * cellSide,i * cellSide))
+        '''
+        for i in range(0, cellNum):
+            for k in range(0, cellNum):
+                if randint(0,2) == 1:
+                    cells[(k * cellSide,i * cellSide)] = "alive"
+                else:
+                    cells[(k * cellSide,i * cellSide)] = "dead"
                 Sprite(RectangleAsset(cellSide, cellSide, outLine, black), (k * cellSide,i * cellSide))
         cellsLongTerm = cells
         GameOfLife.listenMouseEvent("click",self.mouseClick)
@@ -90,19 +97,26 @@ class GameOfLife(App):
 
     def step(self):
 
-        if self.isActive == True:   
+        if self.isActive == True: 
+            cellsLongTerm = cells
             for sprite in self.getSpritesbyClass(cell):
                 cellsNearby = 0
                 for i in range(-1,2):
                     for k in range(-1,2):
                         if (i,k) != (0,0):
                             if i * cellSide + sprite.x >= 0 and k * cellSide + sprite.y >= 0:
-                                if i <= cellNum - 1 and k <= cellNum -1:
-                                    if cells[(i,k)] == "alive":
+                                if i + sprite.x / cellSide <= cellNum - 1 and k + sprite.y / cellSide <= cellNum -1:
+                                    if cellsLongTerm[(sprite.x + i * cellSide, sprite.y + k * cellSide)] == "alive":
                                         cellsNearby += 1
-                print(cellsNearby)
 
-            
+                if cellsNearby == 3:
+                    cells[(sprite.x, sprite.y)] = "alive"
+                    sprite.visible = True
+                else:
+                    cells[(sprite.x, sprite.y)] = "dead"
+                    sprite.visible = False
+                
+
 
 #-----------------------------------------------------
 myapp = GameOfLife(frameWidth, frameHeight)
