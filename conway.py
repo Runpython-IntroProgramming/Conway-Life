@@ -23,16 +23,17 @@ noLine  = LineStyle(0, black)
 outLine = LineStyle(1, white)
 outLive = LineStyle(1, green)
 #-----------------------------------------------------
-frameWidth = 800
-frameHeight = 800
+frameWidth = 80
+frameHeight = 80
 cellSide = 5
+cellNum = int(frameWidth / (2 * cellSide))
 cells = {}
 
 bg = RectangleAsset(frameWidth, frameHeight, noLine, black)
 Sprite(bg, (0,0))
-for i in range(0, 5):
-    for k in range(0, 5):
-        if randint(0,5) >= 2:
+for i in range(0, cellNum):
+    for k in range(0, cellNum):
+        if randint(0, cellNum) >= 2:
             cells[(k * 10,i * 10)] = "alive"
         else:
             cells[(k * 10,i * 10)] = "dead"
@@ -96,25 +97,16 @@ class GameOfLife(App):
 
     def step(self):
 
-        if self.isActive == True:
-            for sprite in self.getSpritesbyClass(cell):
-                print("hi")
-                if cellsLongTerm[(sprite.x + 10 * 10,sprite.y + 10 * 10)] == "dead":
-                    print("hey")
-                    sprite.visible = True
-                else:
-                    sprite.visible = False
-
-        '''
         if self.isActive == True:   
             for sprite in self.getSpritesbyClass(cell):
                 cellsNearby = 0
                 for i in range(-1,2):
                     for k in range(-1,2):
                         if (i,k) != (0,0):
-                            if cellsLongTerm[(sprite.x + 10 * i,sprite.y + 10 * k)] == "alive":
-                                cellsNearby = 1
-                                print('yoy')
+                            if sprite.x + i * 10 >= 0 and sprite.y + k * 10 >= 0 and sprite.x/10 + i <= cellNumb and sprite.y/10 + k <= cellNumb:
+                                if cellsLongTerm[(sprite.x + 10 * i,sprite.y + 10 * k)] == "alive":
+                                    cellsNearby = 1
+                                    print('yoy')
                 print("ayo")
                 if randint(1,2) == 1:
                     cells[(sprite.x, sprite.y)] = "dead"
@@ -123,7 +115,7 @@ class GameOfLife(App):
                     cells[(sprite.x, sprite.y)] = "alive"
                     sprite.visible = True
             
-'''
+
 #-----------------------------------------------------
 myapp = GameOfLife(frameWidth, frameHeight)
 myapp.run()
