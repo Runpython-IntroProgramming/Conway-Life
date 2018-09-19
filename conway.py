@@ -23,25 +23,26 @@ noLine  = LineStyle(0, black)
 outLine = LineStyle(1, white)
 outLive = LineStyle(1, green)
 #-----------------------------------------------------
-frameWidth = 80
-frameHeight = 80
-cellSide = 5
-cellNum = int(frameWidth / (2 * cellSide))
+frameWidth = 800
+frameHeight = 800
+cellNum = 10
+cellSide = int(frameWidth / (cellNum * 2))
+print(cellSide)
 cells = {}
 
 bg = RectangleAsset(frameWidth, frameHeight, noLine, black)
 Sprite(bg, (0,0))
 for i in range(0, cellNum):
     for k in range(0, cellNum):
-        if randint(0, cellNum) >= 2:
+        if randint(0, 5) >= 2:
             cells[(k * 10,i * 10)] = "alive"
         else:
             cells[(k * 10,i * 10)] = "dead"
-        Sprite(RectangleAsset(10, 10, outLine, black), (k * 10,i * 10))
+        Sprite(RectangleAsset(cellSide, cellSide, outLine, black), (k * cellSide,i * cellSide))
 cellsLongTerm = cells
 #-----------------------------------------------------
 class cell(Sprite):
-    Cell = CircleAsset(5, outLive, blue)
+    Cell = CircleAsset(cellSide, outLive, blue)
 
     def __init__(self, position):
         super().__init__(cell.Cell, position)
