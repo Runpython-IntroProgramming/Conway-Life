@@ -25,9 +25,9 @@ outLive = LineStyle(1, green)
 #-----------------------------------------------------
 frameWidth = 800
 frameHeight = 800
-cellNum = 50
+cellNum = 10
 #cellSide = int(frameWidth / (cellNum * 2))
-cellSide = 30
+cellSide = 10
 cells = {}
 cellsLongTerm = {}
 #-----------------------------------------------------
@@ -40,23 +40,8 @@ class cell(Sprite):
             self.visible = True
         else:
             self.visible = False
-'''
-    def nearbyCells(self):
-        cellsNearby = 0
-        for i in range(-1,2):
-            for k in range(-1,2):
-                if (i,k) != (0,0):
-                    if cellsLongTerm[(self.x + cellSide * i,self.y + cellSide * k)] == "alive":
-                        cellsNearby += 1
-        if cellsNearby < 2 or cellsNearby > 3:
-            cells[(self.x, self.y)] = "dead"
-            return False
-        else:
-            cells[(self.x, self.y)] = "alive"
-            return True
-        
-'''      
-   
+  
+
 #-----------------------------------------------------
 class GameOfLife(App):
     
@@ -66,12 +51,9 @@ class GameOfLife(App):
         self.isActive = False
         bg = RectangleAsset(frameWidth, frameHeight, noLine, black)
         Sprite(bg, (0,0))
-        '''
-        for i in range(0, cellNum):
-            for k in range(0, cellNum):
-                cells[(k * cellSide,i * cellSide)] = "alive"
-                Sprite(RectangleAsset(cellSide, cellSide, outLine, black), (k * cellSide,i * cellSide))
-        '''
+        frame = 0
+        change = ()
+        
         for i in range(0, cellNum):
             for k in range(0, cellNum):
                 if randint(0,2) == 1:
@@ -92,11 +74,13 @@ class GameOfLife(App):
         if self.isActive == False:
             position = (int(10 * round(event.x / cellSide, 0)), int(10 * round(event.y / cellSide, 0)))
             cells[position] = "alive"
+            cellsLongTerm[position] = "alive"
+            change
         
 
 
     def step(self):
-
+        if self.isActive == False:
         if self.isActive == True: 
             cellsLongTerm = cells
             for sprite in self.getSpritesbyClass(cell):
@@ -115,7 +99,7 @@ class GameOfLife(App):
                 else:
                     cells[(sprite.x, sprite.y)] = "dead"
                     sprite.visible = False
-                
+            
 
 
 #-----------------------------------------------------
