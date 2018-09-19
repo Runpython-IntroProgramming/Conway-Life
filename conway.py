@@ -25,7 +25,7 @@ outLive = LineStyle(1, green)
 #-----------------------------------------------------
 frameWidth = 800
 frameHeight = 800
-cellNum = 10
+cellNum = 20
 #cellSide = int(frameWidth / (cellNum * 2))
 cellSide = 10
 cells = {}
@@ -52,7 +52,6 @@ class GameOfLife(App):
         bg = RectangleAsset(frameWidth, frameHeight, noLine, black)
         Sprite(bg, (0,0))
         frame = 0
-        change = ()
         
         for i in range(0, cellNum):
             for k in range(0, cellNum):
@@ -75,12 +74,10 @@ class GameOfLife(App):
             position = (int(10 * round(event.x / cellSide, 0)), int(10 * round(event.y / cellSide, 0)))
             cells[position] = "alive"
             cellsLongTerm[position] = "alive"
-            change
         
 
 
     def step(self):
-        if self.isActive == False:
         if self.isActive == True: 
             cellsLongTerm = cells
             for sprite in self.getSpritesbyClass(cell):
