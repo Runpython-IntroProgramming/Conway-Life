@@ -34,12 +34,16 @@ cellsLongTerm = {}
 #-----------------------------------------------------
 class cell(Sprite):
     Cell = CircleAsset(cellSide / 2, outLive, blue)
-
+    oldCell = CircleAsset(cellSide / 2, outLive, red)
     def __init__(self, position):
-        super().__init__(cell.Cell, position)
         if cells[(position)] == "alive":
+            super().__init__(cell.Cell, position)
+            self.visible = True
+        elif cells[position] == "old":
+            super().__init__(cell.oldCell, position)
             self.visible = True
         else:
+            super().__init__(cell.Cell, position)
             self.visible = False
   
 
@@ -48,7 +52,7 @@ class GameOfLife(App):
     
     def __init__(self, width, height):
         super().__init__(width, height)
-        GameOfLife.listenKeyEvent("keydown", "space",self.spacePressed)
+        GameOfLife.listenKeyEvent("keydown", "d",self.spacePressed)
         self.isActive = False
         bg = RectangleAsset(frameWidth, frameHeight, noLine, black)
         Sprite(bg, (0,0))
@@ -77,27 +81,25 @@ class GameOfLife(App):
     def mouseClick(self, event):
         if self.isActive == False:
             #position = (int(event.x / cellSide, 0),)
-            print(event.x, event.y, "real")
             #position = (int(cellSide * round(event.x / cellSide, 0)), int(cellSide * round(event.y / cellSide, 0)))
-            position = (floor(cellSide * round(event.x / cellSide, 0)),floor(cellSide * round(event.y / cellSide, 0)))
             x = floor(cellSide * round(event.x / cellSide, 0))
             y = floor(cellSide * round(event.y / cellSide, 0))
-            print(position, "position")
-            if cells[position] == "alive":
-                cells[position] = "dead"
-                cellsLongTerm[position] = "dead"
-                for sprite in self.getSpritesbyClass(cell):
-                    if sprite.x == x and sprite.y == y:
-                        sprite.visible = False
-            else:
-                cells[position] = "alive"
-                cellsLongTerm[position] = "alive"
-                for sprite in self.getSpritesbyClass(cell):
-                    if sprite.x == x and sprite.y == y:
-                        sprite.visible = True
-        
-
-
+            position = (x,y)
+            if x >= 0 and y >= 0:
+                if x / cellSide <= cellNum - 1 and y / cellSide <= cellNum -1:
+                    if cells[position] == "alive":
+                        cells[position] = "dead"
+                        cellsLongTerm[position] = "dead"
+                        for sprite in self.getSpritesbyClass(cell):
+                            if sprite.x == x and sprite.y == y:
+                                sprite.visible = False
+                    else:
+                        cells[position] = "alive"
+                        cellsLongTerm[position] = "alive"
+                        for sprite in self.getSpritesbyClass(cell):
+                            if sprite.x == x and sprite.y == y:
+                                sprite.visible = True
+        Sprite(RectangleAsset(3,3,outLine, red), (event.x, event.y))
     def step(self):
         if self.isActive == True: 
             for i in cells:
@@ -109,11 +111,14 @@ class GameOfLife(App):
                        # if (i,k) != (0,0):
                         if i * cellSide + sprite.x >= 0 and k * cellSide + sprite.y >= 0:
                             if i + sprite.x / cellSide <= cellNum - 1 and k + sprite.y / cellSide <= cellNum -1:
-                                if cellsLongTerm[(sprite.x + i * cellSide, sprite.y + k * cellSide)] == "alive":
+                                if cellsLongTerm[(sprite.x + i * cellSide, sprite.y + k * cellSide)] == "alive" or cellsLongTerm[(sprite.x + i * cellSide, sprite.y + k * cellSide)] == "old":
                                     cellsNearby += 1
-
+                
                 if cellsNearby == 3:
-                    cells[(sprite.x, sprite.y)] = "alive"
+                    if cellsLongTerm[(sprite.x, sprite.y)] == "alive":
+                        cells[(sprite.x, sprite.y)] = "old"
+                    else:
+                        cells[(sprite.x, sprite.y)] = "alive"
                     sprite.visible = True
                 else:
                     cells[(sprite.x, sprite.y)] = "dead"
