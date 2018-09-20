@@ -114,10 +114,10 @@ class GameOfLife(App):
                                     cellsNearby += 1
                 
                 if cellsNearby == 3:
-                    if cellsLongTerm[(sprite.x, sprite.y)] == "alive":
-                        cells[(sprite.x, sprite.y)] = "old"
-                    else:
-                        cells[(sprite.x, sprite.y)] = "alive"
+                    #if cellsLongTerm[(sprite.x, sprite.y)] == "alive":
+                    cells[(sprite.x, sprite.y)] = "old"
+                    #else:
+                    #    cells[(sprite.x, sprite.y)] = "alive"
                     sprite.visible = True
                 else:
                     cells[(sprite.x, sprite.y)] = "dead"
