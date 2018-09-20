@@ -13,6 +13,7 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 #-----------------------------------------------------
 from ggame import App, Color, LineStyle, Sprite, CircleAsset, Frame, RectangleAsset
 from random import randint
+from math import floor
 #-----------------------------------------------------
 red = Color(0xff0000, 1.0)
 blue = Color(0x0000ff, 1.0)
@@ -76,10 +77,24 @@ class GameOfLife(App):
     def mouseClick(self, event):
         if self.isActive == False:
             #position = (int(event.x / cellSide, 0),)
-            position = (int(cellSide * round(event.x / cellSide, 0)), int(cellSide * round(event.y / cellSide, 0)))
-            cells[position] = "alive"
-            cellsLongTerm[position] = "alive"
-            cell(position).visible = True
+            print(event.x, event.y, "real")
+            #position = (int(cellSide * round(event.x / cellSide, 0)), int(cellSide * round(event.y / cellSide, 0)))
+            position = (floor(cellSide * round(event.x / cellSide, 0)),floor(cellSide * round(event.y / cellSide, 0)))
+            x = floor(cellSide * round(event.x / cellSide, 0))
+            y = floor(cellSide * round(event.y / cellSide, 0))
+            print(position, "position")
+            if cells[position] == "alive":
+                cells[position] = "dead"
+                cellsLongTerm[position] = "dead"
+                for sprite in self.getSpritesbyClass(cell):
+                    if sprite.x == x and sprite.y == y:
+                        sprite.visible = False
+            else:
+                cells[position] = "alive"
+                cellsLongTerm[position] = "alive"
+                for sprite in self.getSpritesbyClass(cell):
+                    if sprite.x == x and sprite.y == y:
+                        sprite.visible = True
         
 
 
