@@ -27,7 +27,7 @@ frameWidth = 800
 frameHeight = 800
 cellNum = 20
 #cellSide = int(frameWidth / (cellNum * 2))
-cellSide = 10
+cellSide = 20
 cells = {}
 cellsLongTerm = {}
 #-----------------------------------------------------
@@ -55,10 +55,13 @@ class GameOfLife(App):
         
         for i in range(0, cellNum):
             for k in range(0, cellNum):
+                '''
                 if randint(0,2) == 1:
                     cells[(k * cellSide,i * cellSide)] = "alive"
                 else:
                     cells[(k * cellSide,i * cellSide)] = "dead"
+                '''
+                cells[(k * cellSide,i * cellSide)] = "dead"
                 Sprite(RectangleAsset(cellSide, cellSide, outLine, black), (k * cellSide,i * cellSide))
         cellsLongTerm = cells
         GameOfLife.listenMouseEvent("click",self.mouseClick)
@@ -71,9 +74,11 @@ class GameOfLife(App):
 
     def mouseClick(self, event):
         if self.isActive == False:
-            position = (int(10 * round(event.x / cellSide, 0)), int(10 * round(event.y / cellSide, 0)))
+            #position = (int(event.x / cellSide, 0),)
+            position = (int(cellSide * round(event.x / cellSide, 0)), int(cellSide * round(event.y / cellSide, 0)))
             cells[position] = "alive"
             cellsLongTerm[position] = "alive"
+            cell(position).visible = True
         
 
 
@@ -82,6 +87,7 @@ class GameOfLife(App):
             cellsLongTerm = cells
             for sprite in self.getSpritesbyClass(cell):
                 cellsNearby = 0
+                print(sprite.x, sprite.y)
                 for i in range(-1,2):
                     for k in range(-1,2):
                         if (i,k) != (0,0):
