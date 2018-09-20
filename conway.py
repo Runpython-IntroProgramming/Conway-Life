@@ -55,15 +55,16 @@ class GameOfLife(App):
         
         for i in range(0, cellNum):
             for k in range(0, cellNum):
-                '''
+                
                 if randint(0,2) == 1:
                     cells[(k * cellSide,i * cellSide)] = "alive"
                 else:
                     cells[(k * cellSide,i * cellSide)] = "dead"
-                '''
-                cells[(k * cellSide,i * cellSide)] = "dead"
+                
+                #cells[(k * cellSide,i * cellSide)] = "dead"
                 Sprite(RectangleAsset(cellSide, cellSide, outLine, black), (k * cellSide,i * cellSide))
-        cellsLongTerm = cells
+        for i in cells:
+            cellsLongTerm[i] = cells[i]
         GameOfLife.listenMouseEvent("click",self.mouseClick)
         for l in cells.keys():
             cell(l)
@@ -84,17 +85,17 @@ class GameOfLife(App):
 
     def step(self):
         if self.isActive == True: 
-            cellsLongTerm = cells
+            for i in cells:
+                cellsLongTerm[i] = cells[i]
             for sprite in self.getSpritesbyClass(cell):
                 cellsNearby = 0
-                print(sprite.x, sprite.y)
                 for i in range(-1,2):
                     for k in range(-1,2):
-                        if (i,k) != (0,0):
-                            if i * cellSide + sprite.x >= 0 and k * cellSide + sprite.y >= 0:
-                                if i + sprite.x / cellSide <= cellNum - 1 and k + sprite.y / cellSide <= cellNum -1:
-                                    if cellsLongTerm[(sprite.x + i * cellSide, sprite.y + k * cellSide)] == "alive":
-                                        cellsNearby += 1
+                       # if (i,k) != (0,0):
+                        if i * cellSide + sprite.x >= 0 and k * cellSide + sprite.y >= 0:
+                            if i + sprite.x / cellSide <= cellNum - 1 and k + sprite.y / cellSide <= cellNum -1:
+                                if cellsLongTerm[(sprite.x + i * cellSide, sprite.y + k * cellSide)] == "alive":
+                                    cellsNearby += 1
 
                 if cellsNearby == 3:
                     cells[(sprite.x, sprite.y)] = "alive"
