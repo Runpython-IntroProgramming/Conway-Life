@@ -82,8 +82,8 @@ class GameOfLife(App):
         if self.isActive == False:
             #position = (int(event.x / cellSide, 0),)
             #position = (int(cellSide * round(event.x / cellSide, 0)), int(cellSide * round(event.y / cellSide, 0)))
-            x = floor(cellSide * round(event.x / cellSide, 0))
-            y = floor(cellSide * round(event.y / cellSide, 0))
+            x = floor(event.x / cellSide) * cellSide
+            y = floor(event.y / cellSide) * cellSide
             position = (x,y)
             if x >= 0 and y >= 0:
                 if x / cellSide <= cellNum - 1 and y / cellSide <= cellNum -1:
@@ -99,7 +99,6 @@ class GameOfLife(App):
                         for sprite in self.getSpritesbyClass(cell):
                             if sprite.x == x and sprite.y == y:
                                 sprite.visible = True
-        Sprite(RectangleAsset(3,3,outLine, red), (event.x, event.y))
     def step(self):
         if self.isActive == True: 
             for i in cells:
