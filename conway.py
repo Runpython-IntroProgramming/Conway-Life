@@ -18,26 +18,25 @@ life1=(RectangleAsset(2, 2, tline, green))
 life2=(RectangleAsset(2, 2, tline, blue))
 none=(RectangleAsset(2, 2, tline, white))
 
-#infinity=float'inf'
+l1=[]
+n=10
 
-#x=range(0,401,3)
-#y=range(0,401,3)
-#x=list(x)
-#y=list(y)
-x=30
-y=50
+for x in range(0,n):
+    l1=l1+[x]
 
-def createlife():
-    Sprite(life1,(x,y))
-    return
-def staylife():
-    Sprite(life2,(x,y))
-    return
-def death():
-    Sprite(none,(x,y))
 
-staylife()
-death()
+
+#def createlife():
+    #Sprite(life1,(x,y))
+    #return
+#def staylife():
+    #Sprite(life2,(x,y))
+    #return
+#def death():
+    #Sprite(none,(x,y))
+
+#staylife()
+#death()
 
 #in a period it has to assess all the pixels and do something for each pixel in the grid
 #for x in range (0,400,3):
@@ -45,5 +44,5 @@ death()
 #Sprite(life2,(400, 400))
 
 
-myapp = App()
-myapp.run()
+#myapp = App()
+#myapp.run()
