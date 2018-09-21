@@ -19,22 +19,26 @@ life2=(RectangleAsset(2, 2, tline, blue))
 none=(RectangleAsset(2, 2, tline, white))
 
 l1=[]
-n=10
+n=400
 
-for x in range(0,n):
-    l1=l1+[x]
-print(l1)
+#for i in range(0,n):
+    #i=none
+    #l1=l1+[i]
+#print(l1)
 
 
-
-#def createlife():
-    #Sprite(life1,(x,y))
-    #return
+def createlife():
+    Sprite(life1,(x,y))
+    return
 #def staylife():
     #Sprite(life2,(x,y))
     #return
 #def death():
     #Sprite(none,(x,y))
+
+for x in range(0,20,2):
+    for y in range(0,20,2):
+        createlife()
 
 #staylife()
 #death()
@@ -45,5 +49,5 @@ print(l1)
 #Sprite(life2,(400, 400))
 
 
-#myapp = App()
-#myapp.run()
+myapp = App()
+myapp.run()
