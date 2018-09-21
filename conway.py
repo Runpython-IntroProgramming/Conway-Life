@@ -23,6 +23,7 @@ n=10
 
 for x in range(0,n):
     l1=l1+[x]
+print(l1)
 
 
 
