@@ -46,7 +46,7 @@ class oldCell(Sprite):
     oldcell = CircleAsset(cellSide / 2, outLive, red)
     def __init__(self, position):
         super().__init__(oldCell.oldcell, position)
-        self.visible = True
+        self.visible = False
   
 #-----------------------------------------------------
 class GameOfLife(App):
@@ -116,14 +116,21 @@ class GameOfLife(App):
                                     cellsNearby += 1
                 
                 if cellsNearby == 3:
-                    #if cellsLongTerm[(sprite.x, sprite.y)] == "alive":
+                    if cellsLongTerm[(sprite.x, sprite.y)] == "alive":
+                        sprite.visible = False
+                        for oldSprite in self.getSpritesbyClass(oldCell):
+                            if sprite.x == oldSprite.x and sprite.y == oldSprite.y:
+                               oldSprite.visible = True
+                    else:
+                        sprite.visible = True
                     cells[(sprite.x, sprite.y)] = "alive"
-                    #else:
-                    #    cells[(sprite.x, sprite.y)] = "alive"
-                    sprite.visible = True
+                    
                 else:
                     cells[(sprite.x, sprite.y)] = "dead"
                     sprite.visible = False
+                    for oldSprite in self.getSpritesbyClass(oldCell):
+                            if sprite.x == oldSprite.x and sprite.y == oldSprite.y:
+                                oldSprite.visible = False
             
 
 
