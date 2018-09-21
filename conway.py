@@ -18,6 +18,7 @@ myapp = App()
 #bg_asset = RectangleAsset(myapp.width, myapp.height, noline, black)
 #bg = Sprite(bg_asset, (0,0))
 
+#making list of grid coordinates
 width=myapp.width
 height=myapp.height
 grid=[]
@@ -27,9 +28,14 @@ for x in x_coordinates:
     for y in y_coordinates:
         grid.append(x,y)
 
+#colors for game#
+black=Color(0,1)
+pink= Color(0xee1289,1)
+green=Color(0x66cdaa4,1)
+line=LineStyle(1,black)
 
-
-
+Rectangle=RectangleAsset(30,40,line,green)
+Sprite(Rectangle)
 myapp.run()
 
 
