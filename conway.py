@@ -14,39 +14,33 @@ white=Color(0xffffff, 1.0)
 black=Color(0x000000, 1.0)
 tline=LineStyle(0, black)
 
-life1=(RectangleAsset(2, 2, tline, green))
-life2=(RectangleAsset(2, 2, tline, blue))
-none=(RectangleAsset(2, 2, tline, white))
+life1=(RectangleAsset(6, 6, tline, green))
+life2=(RectangleAsset(6, 6, tline, blue))
+none=(RectangleAsset(6, 6, tline, white))
 
 l1=[]
-n=400
+n=2500
 
-#for i in range(0,n):
-    #i=none
-    #l1=l1+[i]
-#print(l1)
+for i in range(0,n):
+    i=none
+    l1=l1+[i]
 
 
 def createlife():
     Sprite(life1,(x,y))
     return
-#def staylife():
-    #Sprite(life2,(x,y))
-    #return
-#def death():
-    #Sprite(none,(x,y))
+def staylife():
+    Sprite(life2,(x,y))
+    return
+def death():
+    Sprite(none,(x,y))
 
-for x in range(0,50,2):
-    for y in range(0,50,2):
-        createlife()
-
-#staylife()
-#death()
-
-#in a period it has to assess all the pixels and do something for each pixel in the grid
-#for x in range (0,400,3):
-    #Sprite(life1,(x,400))
-#Sprite(life2,(400, 400))
+for x in range(0,300,6):
+    for y in range(0,300,6):
+        death()
+        for i in range(0,n):
+            i=none
+            l1=l1+[i]
 
 
 myapp = App()
