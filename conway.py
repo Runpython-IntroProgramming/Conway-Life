@@ -34,6 +34,16 @@ pink= Color(0xee1289,1)
 green=Color(0x66cdaa4,1)
 line=LineStyle(1,black)
 
+class NewCell(Sprite):
+    def __init__(self,position):
+        super().__init__()
+
+class DeadCell(Sprite)
+    def __init__(self,position):
+        super().__init__()
+
+class 
+
 Rectangle=RectangleAsset(30,40,line,green)
 Sprite(Rectangle)
 myapp.run()
