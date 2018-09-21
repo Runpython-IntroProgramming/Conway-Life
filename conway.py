@@ -36,8 +36,8 @@ def createlife():
 #def death():
     #Sprite(none,(x,y))
 
-for x in range(0,20,2):
-    for y in range(0,20,2):
+for x in range(0,50,2):
+    for y in range(0,50,2):
         createlife()
 
 #staylife()
