@@ -29,9 +29,9 @@ outLive = LineStyle(1, green)
 #-----------------------------------------------------
 frameWidth = 800
 frameHeight = 800
-cellNum = 20
+cellNum = 50
 #cellSide = int(frameWidth / (cellNum * 2))
-cellSide = 20
+cellSide = 5
 cells = {}
 cellsLongTerm = {}
 oldCells = {}
@@ -64,13 +64,13 @@ class GameOfLife(App):
         for i in range(0, cellNum):
             for k in range(0, cellNum):
                 Sprite(RectangleAsset(cellSide, cellSide, outLine, black), (k * cellSide,i * cellSide))
-                cells[(k * cellSide,i * cellSide)] = "dead"
-                '''
-                if randint(0,2) == 1:
+                #cells[(k * cellSide,i * cellSide)] = "dead"
+                
+                if randint(0,4) == 1:
                     cells[(k * cellSide,i * cellSide)] = "alive"
                 else:
                     cells[(k * cellSide,i * cellSide)] = "dead"
-                '''
+                
         
         
         for i in cells:
