@@ -29,14 +29,32 @@ for i in range(0,n):
     i=none
     l1=l1+[i]
 
+def coor(u):
+    a=u % xsize
+    b=int((u-a)/xsize)
+    return[a,b]
+
 def nei(r):
-    if r==0 or r==xsize-1 or r==(xsize*ysize-1) or r==(xsize*ysize-xsize):
-        d=3
+    mycoor=coor(r)
+    rx= mycoor[0]
+    ry=mycoor[1]
+    if rx==0 or rx==xsize-1 or ry==0 or ry==ysize-1:
+        if rx==ry or (rx==0 and ry==9) or (rx==9 and ry==0):
+            d=3
+        else:
+            d=5
+    else:
+        d=8
+    
+    
+for j in range(0,len(l1)):
+    nei(j)
+    if d==3:
+        
+    if d==5:
+        
     else:
         
-    
-#for j in range(0,len(l1)):
-    #nei(j)
 
 def createlife():
     Sprite(life1,(x*pixelsize,y*pixelsize))
@@ -45,10 +63,10 @@ def staylife():
 def death():
     Sprite(none,(x*pixelsize,y*pixelsize))
 
-for x in range(0,xsize):
-    for y in range(0,ysize):
-        staylife()
+#for x in range(0,xsize):
+    #for y in range(0,ysize):
+        #staylife()
 
 
-myapp = App()
-myapp.run()
+#myapp = App()
+#myapp.run()
