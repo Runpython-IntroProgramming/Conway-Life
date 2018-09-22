@@ -38,9 +38,6 @@ def death():
 for x in range(0,300,6):
     for y in range(0,300,6):
         death()
-        for i in range(0,n):
-            i=none
-            l1=l1+[i]
 
 
 myapp = App()
