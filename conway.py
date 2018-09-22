@@ -32,6 +32,7 @@ frameHeight = 800
 cellNum = 25 #The number of cells in one side of the game - the total number of cells will be this number squared
 pctOfScreen = 60 #I recommend 60
 cellSide = floor(float(frameWidth * pctOfScreen / 100)/float(cellNum))
+generationType = 5 #0 for all dead at start, any other number for chance of birth (3 would yield a 1/3 chance of birth) 
 cells = {}
 cellsLongTerm = {}
 oldCells = {}
@@ -64,12 +65,14 @@ class GameOfLife(App):
         for i in range(0, cellNum):
             for k in range(0, cellNum):
                 Sprite(RectangleAsset(cellSide, cellSide, outLine, black), (k * cellSide,i * cellSide))
-                #cells[(k * cellSide,i * cellSide)] = "dead"
                 
-                if randint(0,10) == 1:
-                    cells[(k * cellSide,i * cellSide)] = "alive"
-                else:
+                if generationType == 0:
                     cells[(k * cellSide,i * cellSide)] = "dead"
+                else:
+                    if randint(1, generationType) == 1:
+                        cells[(k * cellSide,i * cellSide)] = "alive"
+                    else:
+                        cells[(k * cellSide,i * cellSide)] = "dead"
                 
         
         
