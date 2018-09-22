@@ -29,9 +29,9 @@ outLive = LineStyle(1, green)
 #-----------------------------------------------------
 frameWidth = 800
 frameHeight = 800
-cellNum = 25
-#cellSide = int(frameWidth / (cellNum * 2))
-cellSide = 20
+cellNum = 25 #The number of cells in one side of the game - the total number of cells will be this number squared
+pctOfScreen = 60 #I recommend 60
+cellSide = floor(float(frameWidth * pctOfScreen / 100)/float(cellNum))
 cells = {}
 cellsLongTerm = {}
 oldCells = {}
