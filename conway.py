@@ -6,10 +6,13 @@ Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
-#Any live cell with fewer than two live neighbors dies, as if by under population.
-#Any live cell with two or three live neighbors lives on to the next generation.
-#Any live cell with more than three live neighbors dies, as if by overpopulation.
-#Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
+'''
+Any live cell with fewer than two live neighbours dies (referred to as underpopulation or exposure[1]).
+Any live cell with more than three live neighbours dies (referred to as overpopulation or overcrowding).
+Any live cell with two or three live neighbours lives, unchanged, to the next generation.
+Any dead cell with exactly three live neighbours will come to life.
+'''
+
 #-----------------------------------------------------
 from ggame import App, Color, LineStyle, Sprite, CircleAsset, Frame, RectangleAsset
 from random import randint
@@ -57,13 +60,19 @@ class GameOfLife(App):
         bg = RectangleAsset(frameWidth, frameHeight, noLine, black)
         Sprite(bg, (0,0))
         frame = 0
+        
         for i in range(0, cellNum):
             for k in range(0, cellNum):
                 Sprite(RectangleAsset(cellSide, cellSide, outLine, black), (k * cellSide,i * cellSide))
+                cells[(k * cellSide,i * cellSide)] = "dead"
+                '''
                 if randint(0,2) == 1:
                     cells[(k * cellSide,i * cellSide)] = "alive"
                 else:
                     cells[(k * cellSide,i * cellSide)] = "dead"
+                '''
+        
+        
         for i in cells:
             cellsLongTerm[i] = cells[i]
         GameOfLife.listenMouseEvent("click",self.mouseClick)
@@ -105,14 +114,14 @@ class GameOfLife(App):
                 cellsNearby = 0
                 for i in range(-1,2):
                     for k in range(-1,2):
-                       # if (i,k) != (0,0):
-                        if i * cellSide + sprite.x >= 0 and k * cellSide + sprite.y >= 0:
-                            if i + sprite.x / cellSide <= cellNum - 1 and k + sprite.y / cellSide <= cellNum -1:
-                                if cellsLongTerm[(sprite.x + i * cellSide, sprite.y + k * cellSide)] == "alive":
-                                    cellsNearby += 1
+                        if (i,k) != (0,0):
+                            if i * cellSide + sprite.x >= 0 and k * cellSide + sprite.y >= 0:
+                                if i + sprite.x / cellSide <= cellNum - 1 and k + sprite.y / cellSide <= cellNum -1:
+                                    if cellsLongTerm[(sprite.x + i * cellSide, sprite.y + k * cellSide)] == "alive":
+                                        cellsNearby += 1
                                     
-                
-                if cellsNearby == 3:
+                """
+                if cellsNearby == 3 or cellsNearby == 2:
                     if cellsLongTerm[(sprite.x, sprite.y)] == "alive":
                         sprite.visible = False
                         oldCells[(sprite.x, sprite.y)].visible = True
@@ -124,7 +133,23 @@ class GameOfLife(App):
                     cells[(sprite.x, sprite.y)] = "dead"
                     sprite.visible = False
                     oldCells[(sprite.x, sprite.y)].visible = False
-
+                """
+                if cellsLongTerm[sprite.x, sprite.y] == "alive":
+                    if cellsNearby == 3 or cellsNearby == 2:
+                        cells[(sprite.x, sprite.y)] = "alive"
+                        if cellsLongTerm[(sprite.x, sprite.y)] == "alive":
+                            sprite.visible = False
+                            oldCells[(sprite.x, sprite.y)].visible = True
+                        else:
+                            sprite.visible = True
+                    else:
+                        cells[(sprite.x, sprite.y)] = "dead"
+                        sprite.visible = False
+                        oldCells[(sprite.x, sprite.y)].visible = False
+                else:
+                    if cellsNearby == 3:
+                        sprite.visible = True
+                        cells[(sprite.x, sprite.y)] = "alive"
 #-----------------------------------------------------
 myapp = GameOfLife(frameWidth, frameHeight)
 myapp.run()
