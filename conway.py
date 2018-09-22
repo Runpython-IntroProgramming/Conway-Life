@@ -45,8 +45,7 @@ def nei(r):
             d=5
     else:
         d=8
-    
-    
+
 for j in range(0,len(l1)):
     nei(j)
     if d==3:
