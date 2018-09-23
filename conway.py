@@ -9,7 +9,7 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 
 xsize=10
-ysize=20
+ysize=10
 pixelsize=6
 
 green=Color(0x00ff00, 1.0)
@@ -47,13 +47,17 @@ def nei(r):
         d=8
 
 for j in range(0,len(l1)):
-    nei(j)
+    f=nei(j)
+    print(f)
     if d==3:
-        
+        print("hello")
     if d==5:
-        
+        print("hi")
     else:
-        
+        s=coor(j)
+        jx=[0]
+        jy=[1]
+        print(s)
 
 def createlife():
     Sprite(life1,(x*pixelsize,y*pixelsize))
