@@ -8,8 +8,8 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 
-xsize=3
-ysize=3
+xsize=4
+ysize=4
 pixelsize=6
 
 green=Color(0x00ff00, 1.0)
@@ -48,11 +48,6 @@ def nei(r):
         d=8
     return(d)
 
-l3=[]
-for e in range(0,len(l1)):
-    coor(e)
-    print(e)
-
 for j in range(0,len(l1)):
     w=nei(j)
     if w==8:
@@ -67,6 +62,7 @@ for j in range(0,len(l1)):
         six=[jx-1,jy+1]
         seven=[jx,jy+1]
         eight=[jx+1,jy+1]
+        l3=[one]+[two]+[three]+[four]+[five]+[six]+[seven]+[eight]
     
 
 def createlife():
