@@ -72,7 +72,7 @@ for j in range(0,len(l1)):
             for m in l2:
                 if m==o:
                     l4+=[m]
-                print(l4)
+        print(l4)
     
 
 def createlife():
