@@ -23,12 +23,12 @@ life2=(RectangleAsset(pixelsize-1, pixelsize-1, tline, blue))
 none=(RectangleAsset(pixelsize-1, pixelsize-1, tline, white))
 
 l1=[]
+l2=[]
 n=xsize*ysize
 
 for i in range(0,n):
+    l2 += [i]
     i=none
-    l1=l2
-    print(l2)
     l1=l1+[i]
 
 def coor(u):
@@ -51,6 +51,7 @@ def nei(r):
 
 l3=[]
 for e in l2:
+    coor(e)
     l3 += [e]
 print(l3)
 
