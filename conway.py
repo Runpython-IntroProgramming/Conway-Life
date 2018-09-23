@@ -51,7 +51,6 @@ for i in range(0,n):
     i=none
     l1=l1+[i]
 
-l4=[]
 for j in range(0,len(l1)):
     w=nei(j)
     if w==8:
@@ -67,7 +66,6 @@ for j in range(0,len(l1)):
         seven=[jx,jy+1]
         eight=[jx+1,jy+1]
         l3=[one]+[two]+[three]+[four]+[five]+[six]+[seven]+[eight]
-        
     
 
 def createlife():
@@ -76,10 +74,6 @@ def staylife():
     Sprite(life2,(x*pixelsize,y*pixelsize))
 def death():
     Sprite(none,(x*pixelsize,y*pixelsize))
-
-#for x in range(0,xsize):
-    #for y in range(0,ysize):
-        #staylife()
 
 
 #myapp = App()
