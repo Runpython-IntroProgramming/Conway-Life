@@ -67,11 +67,7 @@ for j in range(0,len(l1)):
         seven=[jx,jy+1]
         eight=[jx+1,jy+1]
         l3=[one]+[two]+[three]+[four]+[five]+[six]+[seven]+[eight]
-        for o in l3:
-            for m in l2:
-                if o==m:
-                    l4+=[o]
-                print(l4)
+        
     
 
 def createlife():
