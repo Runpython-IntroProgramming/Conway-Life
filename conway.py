@@ -27,7 +27,6 @@ l2=[]
 n=xsize*ysize
 
 for i in range(0,n):
-    l2 += [i]
     i=none
     l1=l1+[i]
 
@@ -50,10 +49,9 @@ def nei(r):
     return(d)
 
 l3=[]
-for e in l2:
+for e in range(0,len(l1)):
     coor(e)
-    l3 += [e]
-print(l3)
+    print(e)
 
 for j in range(0,len(l1)):
     w=nei(j)
