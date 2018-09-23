@@ -8,8 +8,8 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 
-xsize=10
-ysize=10
+xsize=3
+ysize=3
 pixelsize=6
 
 green=Color(0x00ff00, 1.0)
@@ -27,6 +27,8 @@ n=xsize*ysize
 
 for i in range(0,n):
     i=none
+    l1=l2
+    print(l2)
     l1=l1+[i]
 
 def coor(u):
@@ -36,28 +38,37 @@ def coor(u):
 
 def nei(r):
     mycoor=coor(r)
-    rx= mycoor[0]
-    ry=mycoor[1]
+    rx=int(mycoor[0])
+    ry=int(mycoor[1])
     if rx==0 or rx==xsize-1 or ry==0 or ry==ysize-1:
-        if rx==ry or (rx==0 and ry==9) or (rx==9 and ry==0):
+        if rx==ry or (rx==0 and ry==xsize-1) or (rx==xsize-1 and ry==0):
             d=3
         else:
             d=5
     else:
         d=8
+    return(d)
+
+l3=[]
+for e in l2:
+    l3 += [e]
+print(l3)
 
 for j in range(0,len(l1)):
-    f=nei(j)
-    print(f)
-    if d==3:
-        print("hello")
-    if d==5:
-        print("hi")
-    else:
+    w=nei(j)
+    if w==8:
         s=coor(j)
-        jx=[0]
-        jy=[1]
-        print(s)
+        jx=(s[0])
+        jy=(s[1])
+        one=[jx-1,jy-1]
+        two=[jx,jy-1]
+        three=[jx+1,jy-1]
+        four=[jx-1,jy]
+        five=[jx+1,jy]
+        six=[jx-1,jy+1]
+        seven=[jx,jy+1]
+        eight=[jx+1,jy+1]
+    
 
 def createlife():
     Sprite(life1,(x*pixelsize,y*pixelsize))
