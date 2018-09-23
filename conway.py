@@ -50,7 +50,6 @@ for i in range(0,n):
     l2+=[k]
     i=none
     l1=l1+[i]
-print(l2)    
 
 l4=[]
 for j in range(0,len(l1)):
@@ -70,9 +69,9 @@ for j in range(0,len(l1)):
         l3=[one]+[two]+[three]+[four]+[five]+[six]+[seven]+[eight]
         for o in l3:
             for m in l2:
-                if m==o:
-                    l4+=[m]
-        print(l4)
+                if o==m:
+                    l4+=[o]
+                print(l4)
     
 
 def createlife():
