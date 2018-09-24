@@ -72,21 +72,16 @@ for j in range(0,len(l1)):
         eight=[jx+1,jy+1]
         l3=[one]+[two]+[three]+[four]+[five]+[six]+[seven]+[eight]
         for z in l3:
-            for g in l2:
-                if g==z:
-                    pos=l2.index(g)
-                    for h in l1:
-                        pox=l1.index(h)
-                        print(pox)
-#                    for pox in range(0, len(l1)):
-#                        h=l1[pox]
-                        if pos==pox:
-                            if h=="none":
-                                ldeath+=[h]
-                            if h=="life1":
-                                llife+=[h]
-                            if h=="life2":
-                                lstay+=[h]
+            pos=l2.index(z)
+            for pox in range(0, len(l1)):
+                h=l1[pox]
+                if pos==pox:
+                    if h=="none":
+                        ldeath+=[h]
+                    if h=="life1":
+                        llife+=[h]
+                    if h=="life2":
+                        lstay+=[h]
         print(ldeath)
         print(" ")
     
