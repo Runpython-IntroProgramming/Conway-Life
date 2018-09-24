@@ -29,7 +29,7 @@ outLive = LineStyle(1, green)
 #-----------------------------------------------------
 frameWidth = 800
 frameHeight = 800
-cellNum = 25 #The number of cells in one side of the game - the total number of cells will be this number squared
+cellNum = 20 #The number of cells in one side of the game - the total number of cells will be this number squared
 pctOfScreen = 60 #I recommend 60
 cellSide = floor(float(frameWidth * pctOfScreen / 100)/float(cellNum))
 generationType = 5 #0 for all dead at start, any other number for chance of birth (3 would yield a 1/3 chance of birth) 
@@ -37,6 +37,11 @@ cells = {}
 cellsLongTerm = {}
 oldCells = {}
 #-----------------------------------------------------
+print("Press the space bar to pause or play simulation.")
+print("When the simulation is paused, click to remove or add cells.")
+print("Blue Cells are new, and red cells are old (1 or more steps).")
+print("A cell will survive if it has 2-3 neighbors.")
+print("A dead cell will create life if it has 3 neighbors.")
 class cell(Sprite):
     Cell = CircleAsset(cellSide / 2, outLive, blue)
     def __init__(self, position):
@@ -56,7 +61,7 @@ class GameOfLife(App):
     
     def __init__(self, width, height):
         super().__init__(width, height)
-        GameOfLife.listenKeyEvent("keydown", "d",self.spacePressed)
+        GameOfLife.listenKeyEvent("keydown", "space",self.spacePressed)
         self.isActive = False
         bg = RectangleAsset(frameWidth, frameHeight, noLine, black)
         Sprite(bg, (0,0))
@@ -86,7 +91,7 @@ class GameOfLife(App):
 
     def spacePressed(self, event):
         self.isActive = not self.isActive
-        print("Space pressed", self.isActive)
+        print("Game is running: ", self.isActive)
 
     def mouseClick(self, event):
         if self.isActive == False:
