@@ -37,14 +37,48 @@ deadcell = RectangleAsset(10, 10, line, darkgrey)
 newcell = RectangleAsset(10, 10, line, white)
 oldcell = RectangleAsset(10, 10, line, lightgrey)
 
-coordinates = {}
-for x in range(10):
-    for y in range(10):
-        coordinates[(x,y)] = "G"
-        print(coordinates[(x,y)] , end = "")
-    else:
-        print("")
 
+mapsize = 10
+
+# Creates coordinate plane and sets all cells to dead
+coordinates = {}
+for x in range(mapsize+1):
+    for y in range(mapsize+1):
+        coordinates[(x,y)] = 0
+
+# Function that checks and compiles cells to change
+def ticker():
+    birthcell = []
+    agecell = []
+    killcell = []
+    for x in range(1,mapsize):
+        for y in range(1,mapsize):
+            
+            liveneigh = 0
+            for xneigh in range(x-1,x+1):
+                for yneigh in range(y-1,y+1):
+                    if coordinates[(xneigh,yneigh)] != 0:
+                        liveneigh += 1
+            if coordinates[(x,y)] == 0 and liveneigh == 3:
+                birthcell.append((x,y))
+            elif coordinates[(x,y)] == 1 and liveneigh == 2  or liveneigh == 3:
+                agecell.append((x,y))
+            elif coordinates[(x,y)] != 0 and liveneigh != 2  or liveneigh != 3:
+                killcell.append((x,y))
+            
+    for birth in birthcell:
+        coordinates[birth] = 1
+    for age in birthcell:
+        coordinates[age] += 1
+    for kill in killcell:
+        coordinates[kill] = 0
+    
+    for x in range(1,mapsize):
+        for y in range(1,mapsize):
+            Sprite(deadcell,(x*10,y*10))
+            Sprite(newcell,(x*10,y*10))
+    
+ticker():
 
 
 
@@ -61,7 +95,7 @@ Sprite(cell,(10,0))
 
 
 
-app = App()
-app.run()
+#app = App()
+#app.run()
 
     
