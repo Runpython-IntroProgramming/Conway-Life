@@ -75,7 +75,7 @@ for j in range(0,len(l1)):
                     pos=l2.index(g)
                     for h in l1:
                         pox=l1.index(h)
-                        if pox==pos:
+                        if pos==pox:
                             if h=="none":
                                 ldeath+=[h]
                             if h=="life1":
