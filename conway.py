@@ -82,7 +82,7 @@ for j in range(0,len(l1)):
                                 llife+=[h]
                             if h=="life2":
                                 lstay+=[h]
-                    print(ldeath)
+        print(ldeath)
         print(" ")
     
 
