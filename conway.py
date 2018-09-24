@@ -48,9 +48,12 @@ l2=[]
 for i in range(0,n):
     k=coor(i)
     l2+=[k]
-    i=none
+    i="none"
     l1=l1+[i]
 
+ldeath=[]
+llife=[]
+lstay=[]
 for j in range(0,len(l1)):
     w=nei(j)
     if w==8:
@@ -66,6 +69,22 @@ for j in range(0,len(l1)):
         seven=[jx,jy+1]
         eight=[jx+1,jy+1]
         l3=[one]+[two]+[three]+[four]+[five]+[six]+[seven]+[eight]
+        for z in l3:
+            for g in l2:
+                if g==z:
+                    pos=l2.index(g)
+                    for h in (l1):
+                        print(h)
+                        pox=l1.index(h)
+                        if pox==pos:
+                            if h=="none":
+                                ldeath+=[h]
+                            if h=="life1":
+                                llife+=[h]
+                            if h=="life2":
+                                lstay+=[h]
+                        print(ldeath)
+        print(" ")
     
 
 def createlife():
