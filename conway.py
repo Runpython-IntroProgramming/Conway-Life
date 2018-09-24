@@ -73,8 +73,7 @@ for j in range(0,len(l1)):
             for g in l2:
                 if g==z:
                     pos=l2.index(g)
-                    for h in (l1):
-                        print(h)
+                    for h in l1:
                         pox=l1.index(h)
                         if pox==pos:
                             if h=="none":
@@ -83,7 +82,7 @@ for j in range(0,len(l1)):
                                 llife+=[h]
                             if h=="life2":
                                 lstay+=[h]
-                        print(ldeath)
+                    print(ldeath)
         print(" ")
     
 
