@@ -21,28 +21,36 @@ myapp = App()
 #making list of grid coordinates
 width=myapp.width
 height=myapp.height
-grid=[]
-x_coordinates=list(range(width,20))
-y_coordinates=list(range(height,20))
+grid=[1,2,3]
+x_coordinates=list(range(0,width,20))
+y_coordinates=list(range(0,height,20))
 for x in x_coordinates:
     for y in y_coordinates:
-        grid.append(x,y)
+        grid.append((x,y))
 
 #colors for game#
 black=Color(0,1)
 pink= Color(0xee1289,1)
 green=Color(0x66cdaa4,1)
+nocolor=Color(0,0)
 line=LineStyle(1,black)
+noline=LineStyle(1,nocolor)
 
 class NewCell(Sprite):
+    asset=RectangleAsset(7,7,line,green)
     def __init__(self,position):
-        super().__init__()
+        super().__init__(NewCell.asset,position)
 
-class DeadCell(Sprite)
+class DeadCell(Sprite):
+    asset=RectangleAsset(7,7,noline,nocolor)
     def __init__(self,position):
-        super().__init__()
+        super().__init__(DeadCell.asset,position)
 
-class 
+for i in grid:
+    x,y=i
+    new=list(x,y)
+    print (new)
+
 
 Rectangle=RectangleAsset(30,40,line,green)
 Sprite(Rectangle)
