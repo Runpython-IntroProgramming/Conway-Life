@@ -26,7 +26,7 @@ Your live cells should be two different colors: one for its first day of “life
 3. utilize reference system each tick to check every point and its neighbors simultaneously
 4. actvate changes and restart
 """
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, KeyEvent, MouseEvent
 black = Color(0x000000, 1.0)
 darkgrey = Color(0x2C3E40, 1.0)
 lightgrey = Color(0xEAECEE, 1.0)
@@ -72,7 +72,10 @@ def ticker():
         coordinates[age] += 1
     for kill in killcell:
         coordinates[kill] = 0
-    
+    display():
+
+# Function that displays cell grid
+def display():
     for x in range(1,mapsize):
         for y in range(1,mapsize):
             if coordinates[(x,y)] == 0:
@@ -81,7 +84,17 @@ def ticker():
                 Sprite(newcell,(x*10,y*10))
             else:
                 Sprite(oldcell,(x*10,y*10))
-    
+    userinput()
+
+def userinput():
+    go = int(input("go or no? Answer 1 or 0."))
+    if go == 1:
+        ticker()
+    else:
+        exit()
+display(): 
+
+#ggame.App.listenKeyEvent
 ticker():
 
 app = App()
