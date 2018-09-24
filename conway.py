@@ -21,7 +21,8 @@ myapp = App()
 #making list of grid coordinates
 width=myapp.width
 height=myapp.height
-grid=[1,2,3]
+grid=[]
+cells=[]
 x_coordinates=list(range(0,width,20))
 y_coordinates=list(range(0,height,20))
 for x in x_coordinates:
@@ -37,23 +38,27 @@ line=LineStyle(1,black)
 noline=LineStyle(1,nocolor)
 
 class NewCell(Sprite):
+    asset=RectangleAsset(7,7,noline,nocolor)
+    if self.color==1:
+        asset=RectangleAsset(7,7,line,green)
     asset=RectangleAsset(7,7,line,green)
     def __init__(self,position):
         super().__init__(NewCell.asset,position)
+        self.color=0
+        myapp.listenMouseEvent('mousedown', self.add)
+    def add(self,event):
+        self.color=1
 
 class DeadCell(Sprite):
-    asset=RectangleAsset(7,7,noline,nocolor)
+    asset=RectangleAsset(7,7,line,nocolor)
     def __init__(self,position):
         super().__init__(DeadCell.asset,position)
 
-for i in grid:
-    x,y=i
-    new=list(x,y)
-    print (new)
 
 
-Rectangle=RectangleAsset(30,40,line,green)
-Sprite(Rectangle)
+NewCell((100,100))
+
+
 myapp.run()
 
 
