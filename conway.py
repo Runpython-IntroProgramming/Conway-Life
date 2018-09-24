@@ -75,27 +75,16 @@ def ticker():
     
     for x in range(1,mapsize):
         for y in range(1,mapsize):
-            Sprite(deadcell,(x*10,y*10))
-            Sprite(newcell,(x*10,y*10))
+            if coordinates[(x,y)] == 0:
+                Sprite(deadcell,(x*10,y*10))
+            if coordinates[(x,y)] == 1:
+                Sprite(newcell,(x*10,y*10))
+            else:
+                Sprite(oldcell,(x*10,y*10))
     
 ticker():
 
-
-
-
-
-
-Sprite(cell,(10,10))
-Sprite(cell,(10,0))
-
-
-
-
-
-
-
-
-#app = App()
-#app.run()
+app = App()
+app.run()
 
     
