@@ -51,12 +51,14 @@ for i in range(0,n):
     i="none"
     l1=l1+[i]
 
-ldeath=[]
-llife=[]
-lstay=[]
+print(l1)
+print(l2)
 for j in range(0,len(l1)):
     w=nei(j)
     if w==8:
+        ldeath=[]
+        llife=[]
+        lstay=[]
         s=coor(j)
         jx=(s[0])
         jy=(s[1])
@@ -75,6 +77,9 @@ for j in range(0,len(l1)):
                     pos=l2.index(g)
                     for h in l1:
                         pox=l1.index(h)
+                        print(pox)
+#                    for pox in range(0, len(l1)):
+#                        h=l1[pox]
                         if pos==pox:
                             if h=="none":
                                 ldeath+=[h]
