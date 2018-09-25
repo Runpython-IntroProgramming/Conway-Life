@@ -108,7 +108,7 @@ def ticker(test):
 def change(info):
     x = int(info.x/10)
     y = int(info.y/10)
-    if x == mapsize or y == mapsize or x == 0 or y == 0:
+    if x >= mapsize or y >= mapsize or x == 0 or y == 0:
         return
     elif coord[(x,y)] == 0:
         coord[(x,y)] = 1
