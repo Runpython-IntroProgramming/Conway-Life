@@ -84,13 +84,16 @@ def ticker():
         coord[kill] = 0
     display():
 
-#    App.listenMouseEvent("mousedown", change)
-
-def step():
+def change(info):
+    if coord[(int(info.x/10),int(info.y/10))] == 0:
+        coord[(int(info.x/10),int(info.y/10))] = 1
+    else:
+        coord[(int(info.x/10),int(info.y/10))] = 0
     ticker()
-
+        
 display():
-App.listenKeyEvent("keydown", "space", step)
+#App.listenKeyEvent("keydown", "space", ticker)
+App.listenMouseEvent("mousedown", change)
 
 app = App()
 app.run()
