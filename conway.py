@@ -23,8 +23,9 @@ width = myapp.width
 height = myapp.height
 grid = []
 cells = []
-x_coordinates = list(range(0, width, 20))
-y_coordinates = list(range(0, height, 20))
+click = []
+x_coordinates = list(range(0, width, 7))
+y_coordinates = list(range(0, height, 7))
 for x in x_coordinates:
     for y in y_coordinates:
         grid.append((x, y))
@@ -37,49 +38,34 @@ nocolor = Color(0, 0)
 line = LineStyle(1, black)
 noline = LineStyle(1,nocolor)
 
+    
+
 class NewCell(Sprite):
-    asset = RectangleAsset(7, 7, line, nocolor)
+    asset = RectangleAsset(7, 7, line, green)
     # if self.color==1:
     #     asset=RectangleAsset(7,7,line,green)
     # asset=RectangleAsset(7,7,line,green)
     def __init__(self,  position):
         super().__init__(NewCell.asset, position)
-        self.color=0
-        myapp.listenMouseEvent('mousedown', self.add)
-    def add(self,event):
-        self.color=1
-        self.asset=RectangleAsset(7,7,line,green)
+        # myapp.listenMouseEvent('mousedown', self.add)
+    # def add(self,event):
+    #     self.color=1
+    #     self.asset=RectangleAsset(7,7,line,green)
 
 class DeadCell(Sprite):
     asset=RectangleAsset(7, 7, line, nocolor)
     def __init__(self,position):
         super().__init__(DeadCell.asset, position)
 
+# for (x, y) in grid:
+#     NewCell((x,y))
 
-
-NewCell((100, 100))
-
+def Click(event):
+    NewCell((event.x,event.y))
 
 myapp.run()
+myapp.listenMouseEvent('click',Click)
 
 
 
 
-#class ConwayGame(App):
-    #def __init__(self):
-        #super().__init__()
-        #x=self.width
-        #y=self.height
-        #x_coordinates=list(range(x,20))
-        #y_coordinates=list(range(y,20))
-        #black = Color(0,1)
-        #nocolor = Color(0,0)
-        #thinline=LineStyle(2,black)
-        #grid_asset=RectangleAsset(20,20,thinline,nocolor)
-        #grid=[Sprite(grid_asset, (x,x)) for x in x_coordinates]
-        #print(x_coordinates)
-        
-        
-
-#myapp = ConwayGame()
-#myapp.run()
