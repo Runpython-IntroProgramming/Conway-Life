@@ -56,14 +56,13 @@ for i in range(0,n):
     k=coor(i)
     l2+=[k]
     l1=["none", "life1", "life1", "life1", "none", "none", "life1", "none", "life1", "life2", "none", "life1", "life1", "life1", "none", "none"]
-
 #    i="none"
 #    l1=l1+[i]
 
 #while True:
 for c in range(0,10):
     for j in range(0,len(l1)):
-        mcoor=coor(j)
+#        mcoor=coor(j)
         w=nei(j)
         if w==8:
             ldeath=[]
@@ -105,6 +104,7 @@ for c in range(0,10):
                     l1.remove(h)
                     l1.insert(h,u)
             for sprite in l1:
+                mcoor=coor(j)
                 if sprite=="none":
                     x=mcoor[0]
                     y=mcoor[1]
