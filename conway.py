@@ -71,7 +71,7 @@ def display():
             elif coord[(x,y)] == 2:
                 Sprite(oldcell,(x*10,y*10))
 
-# Function that checks and compiles cells to change
+# Function called by space press that checks and compiles cells to change
 def ticker(test):
     birthcell = []
     agecell = []
@@ -79,11 +79,14 @@ def ticker(test):
     for x in range(1,mapsize):
         for y in range(1,mapsize):
             
+#Records number of live cells within 3x3 checking radius
             liveneigh = 0
             for xneigh in range(x-1,x+2):
                 for yneigh in range(y-1,y+2):
                     if coord[(xneigh,yneigh)] == 1 or coord[(xneigh,yneigh)] == 2:
                         liveneigh += 1
+
+#Judges number of live cells nearby and adds to appropriate action lists
             if coord[(x,y)] == 0 and liveneigh == 3:
                 birthcell.append((x,y))
             elif coord[(x,y)] == 1 or coord[(x,y)] == 2:
@@ -91,21 +94,29 @@ def ticker(test):
                     agecell.append((x,y))
                 else:
                     killcell.append((x,y))
-    for birth in birthcell:
-        coord[birth] = 1
-    for age in agecell:
-        coord[age] = 2
-    for kill in killcell:
-        coord[kill] = 0
+
+#Acts on actions lists to accomplish changes simultaneously
+    for cell in birthcell:
+        coord[cell] = 1
+    for cell in agecell:
+        coord[cell] = 2
+    for cell in killcell:
+        coord[cell] = 0
     display():
 
+#Function called by mouse clicks to change cells manually
 def change(info):
-    if coord[(int(info.x/10),int(info.y/10))] == 1 or coord[(int(info.x/10),int(info.y/10))] == 2:
-        coord[(int(info.x/10),int(info.y/10))] = 0
-    elif coord[(int(info.x/10),int(info.y/10))] == 0:
-        coord[(int(info.x/10),int(info.y/10))] = 1
-    display()
-        
+    x = int(info.x/10)
+    y = int(info.y/10)
+    if x == mapsize or y == mapsize or x == 0 or y == 0:
+        return
+    elif coord[(x,y)] == 0:
+        coord[(x,y)] = 1
+        Sprite(newcell,(x*10,y*10))
+    else:
+        coord[(x,y)] = 0
+        Sprite(deadcell,(x*10,y*10))
+
 display():
 
 App.listenKeyEvent("keydown", "space", ticker)
