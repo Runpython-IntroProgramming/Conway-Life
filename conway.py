@@ -103,20 +103,21 @@ for c in range(0,10):
                     u="life2"
                     l1.remove(h)
                     l1.insert(h,u)
+            print(l1)
             for sprite in l1:
                 mcoor=coor(j)
                 if sprite=="none":
                     x=mcoor[0]
                     y=mcoor[1]
-                    death()
+                    #death()
                 if sprite=="life1":
                     x=mcoor[0]
                     y=mcoor[1]
-                    createlife()
+                    #createlife()
                 if sprite=="life2":
                     x=mcoor[0]
                     y=mcoor[1]
-                    staylife()
+                    #staylife()
 
 
 myapp = App()
