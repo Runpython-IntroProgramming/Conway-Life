@@ -51,7 +51,7 @@ for i in range(0,n):
     i="none"
     l1=l1+[i]
 
-for time in range(0,10):
+while True
     for j in range(0,len(l1)):
         w=nei(j)
         if w==8:
@@ -93,7 +93,6 @@ for time in range(0,10):
                     u="life2"
                     l1.remove(h)
                     l1.insert(h,u)
-    print(l1)
 
 def createlife():
     Sprite(life1,(x*pixelsize,y*pixelsize))
