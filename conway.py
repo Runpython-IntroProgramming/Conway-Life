@@ -86,18 +86,18 @@ def display():
                 Sprite(oldcell,(x*10,y*10))
     userinput()
 
+
 def userinput():
-    go = int(input("go or no? Answer 1 or 0."))
+    go = 
     if go == 1:
         ticker()
     else:
         exit()
+
+
+
 display(): 
-
-#ggame.App.listenKeyEvent
-ticker():
-
 app = App()
 app.run()
-
+#ggame.App.listenKeyEvent
     
