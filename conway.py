@@ -51,7 +51,7 @@ for i in range(0,n):
     i="none"
     l1=l1+[i]
 
-while True
+while True:
     for j in range(0,len(l1)):
         w=nei(j)
         if w==8:
