@@ -44,15 +44,26 @@ def nei(r):
         d=8
     return(d)
 
+def createlife():
+    Sprite(life1,(x*pixelsize,y*pixelsize))
+def staylife():
+    Sprite(life2,(x*pixelsize,y*pixelsize))
+def death():
+    Sprite(none,(x*pixelsize,y*pixelsize))
+
 l2=[]
 for i in range(0,n):
     k=coor(i)
     l2+=[k]
-    i="none"
-    l1=l1+[i]
+    l1=["none", "life1", "life1", "life1", "none", "none", "life1", "none", "life1", "life2", "none", "life1", "life1", "life1", "none", "none"]
 
-while True:
+#    i="none"
+#    l1=l1+[i]
+
+#while True:
+for c in range(0,10):
     for j in range(0,len(l1)):
+        mcoor=coor(j)
         w=nei(j)
         if w==8:
             ldeath=[]
@@ -93,14 +104,20 @@ while True:
                     u="life2"
                     l1.remove(h)
                     l1.insert(h,u)
+        for sprite in l1:
+            if sprite=="none":
+                x=mcoor[0]
+                y=mcoor[1]
+                death()
+            if sprite=="life1":
+                x=mcoor[0]
+                y=mcoor[1]
+                createlife()
+            if sprite=="life2":
+                x=mcoor[0]
+                y=mcoor[1]
+                staylife()
 
-def createlife():
-    Sprite(life1,(x*pixelsize,y*pixelsize))
-def staylife():
-    Sprite(life2,(x*pixelsize,y*pixelsize))
-def death():
-    Sprite(none,(x*pixelsize,y*pixelsize))
 
-
-#myapp = App()
-#myapp.run()
+myapp = App()
+myapp.run()
