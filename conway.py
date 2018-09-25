@@ -24,8 +24,8 @@ height = myapp.height
 grid = []
 cells = []
 click = []
-x_coordinates = list(range(0, width, 7))
-y_coordinates = list(range(0, height, 7))
+x_coordinates = list(range(0, width, 10))
+y_coordinates = list(range(0, height, 10))
 for x in x_coordinates:
     for y in y_coordinates:
         grid.append((x, y))
@@ -41,7 +41,7 @@ noline = LineStyle(1,nocolor)
     
 
 class NewCell(Sprite):
-    asset = RectangleAsset(7, 7, line, green)
+    asset = RectangleAsset(10, 10, line, green)
     # if self.color==1:
     #     asset=RectangleAsset(7,7,line,green)
     # asset=RectangleAsset(7,7,line,green)
@@ -61,7 +61,11 @@ class DeadCell(Sprite):
 #     NewCell((x,y))
 
 def Click(event):
-    NewCell((event.x,event.y))
+    global cells
+    close_x=(event.x//10)*10
+    close_y=(event.y//10)*10
+    NewCell((close_x,close_y))
+    cells.append((close_x,close_y))
 
 myapp.run()
 myapp.listenMouseEvent('click',Click)
