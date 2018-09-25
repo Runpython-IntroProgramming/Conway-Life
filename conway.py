@@ -33,7 +33,7 @@ lightgrey = Color(0xEAECEE, 1.0)
 white = Color(0xffffff, 1.0)
 line = LineStyle(1, black)
 
-deadcell = RectangleAsset(10, 10, line, darkgrey)
+deadcell = RectangleAsset(10, 10, line, black)
 newcell = RectangleAsset(10, 10, line, white)
 oldcell = RectangleAsset(10, 10, line, lightgrey)
 
@@ -89,10 +89,13 @@ def change(info):
         coord[(int(info.x/10),int(info.y/10))] = 1
     else:
         coord[(int(info.x/10),int(info.y/10))] = 0
+    display()
+
+def step(test):
     ticker()
         
 display():
-#App.listenKeyEvent("keydown", "space", ticker)
+App.listenKeyEvent("keydown", "space", step)
 App.listenMouseEvent("mousedown", change)
 
 app = App()
