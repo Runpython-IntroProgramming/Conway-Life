@@ -29,7 +29,7 @@ Your live cells should be two different colors: one for its first day of “life
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, KeyEvent, MouseEvent
 black = Color(0x000000, 1.0)
 darkgrey = Color(0x2C3E40, 1.0)
-lightgrey = Color(0xEAECEE, 1.0)
+lightgrey = Color(0x808080, 1.0)
 white = Color(0xffffff, 1.0)
 line = LineStyle(1, black)
 
@@ -43,7 +43,7 @@ mapsize = 10
 coord = {}
 for x in range(mapsize+1):
     for y in range(mapsize+1):
-        coord[(x,y)] = 0
+        coord[(x,y)] = 1
 
 # Function that displays cell grid
 def display():
@@ -53,7 +53,7 @@ def display():
                 Sprite(deadcell,(x*10,y*10))
             if coord[(x,y)] == 1:
                 Sprite(newcell,(x*10,y*10))
-            else:
+            if coord[(x,y)] == 2:
                 Sprite(oldcell,(x*10,y*10))
 
 # Function that checks and compiles cells to change
@@ -75,11 +75,10 @@ def ticker():
                 agecell.append((x,y))
             elif coord[(x,y)] != 0 and liveneigh != 2  or liveneigh != 3:
                 killcell.append((x,y))
-            
     for birth in birthcell:
         coord[birth] = 1
-    for age in birthcell:
-        coord[age] += 1
+    for age in agecell:
+        coord[age] = 2
     for kill in killcell:
         coord[kill] = 0
     display():
@@ -87,7 +86,7 @@ def ticker():
 def change(info):
     if coord[(int(info.x/10),int(info.y/10))] == 0:
         coord[(int(info.x/10),int(info.y/10))] = 1
-    else:
+    if coord[(int(info.x/10),int(info.y/10))] == 1 or coord[(int(info.x/10),int(info.y/10))] == 2:
         coord[(int(info.x/10),int(info.y/10))] = 0
     display()
 
