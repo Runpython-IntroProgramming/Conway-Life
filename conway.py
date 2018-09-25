@@ -51,48 +51,49 @@ for i in range(0,n):
     i="none"
     l1=l1+[i]
 
-for j in range(0,len(l1)):
-    w=nei(j)
-    if w==8:
-        ldeath=[]
-        llife=[]
-        lstay=[]
-        s=coor(j)
-        jx=(s[0])
-        jy=(s[1])
-        one=[jx-1,jy-1]
-        two=[jx,jy-1]
-        three=[jx+1,jy-1]
-        four=[jx-1,jy]
-        five=[jx+1,jy]
-        six=[jx-1,jy+1]
-        seven=[jx,jy+1]
-        eight=[jx+1,jy+1]
-        l3=[one]+[two]+[three]+[four]+[five]+[six]+[seven]+[eight]
-        for z in l3:
-            pos=l2.index(z)
-            for pox in range(0, len(l1)):
-                h=l1[pox]
-                if pos==pox:
-                    if h=="none":
-                        ldeath+=[h]
-                    if h=="life1":
-                        llife+=[h]
-                    if h=="life2":
-                        lstay+=[h]
-        if (len(ldeath)>=4) or (len(ldeath)<=1):
-            u="hi"
-            h=u
-            print(l1)
-        if (len(ldeath)==5) and (h=="none"):
-            u="life1"
-        if (len(ldeath)==5) or (len(ldeath)==6) and ((h=="life1") or (h=="life2")):
-            u="life2"
-            
-            
-            
-        
-    
+while True
+    for j in range(0,len(l1)):
+        w=nei(j)
+        if w==8:
+            ldeath=[]
+            llife=[]
+            lstay=[]
+            s=coor(j)
+            jx=(s[0])
+            jy=(s[1])
+            one=[jx-1,jy-1]
+            two=[jx,jy-1]
+            three=[jx+1,jy-1]
+            four=[jx-1,jy]
+            five=[jx+1,jy]
+            six=[jx-1,jy+1]
+            seven=[jx,jy+1]
+            eight=[jx+1,jy+1]
+            l3=[one]+[two]+[three]+[four]+[five]+[six]+[seven]+[eight]
+            for z in l3:
+                pos=l2.index(z)
+                for pox in range(0, len(l1)):
+                    h=l1[pox]
+                    if pos==pox:
+                        if h=="none":
+                            ldeath+=[h]
+                        if h=="life1":
+                            llife+=[h]
+                        if h=="life2":
+                            lstay+=[h]
+                if (len(ldeath)>=4) or (len(ldeath)<=1):
+                    u="none"
+                    l1.remove(h)
+                    l1.insert(h,u)
+                if (len(ldeath)==5) and (h=="none"):
+                    u="life1"
+                    l1.remove(h)
+                    l1.insert(h,u)
+                if (len(ldeath)==5) or (len(ldeath)==6) and ((h=="life1") or (h=="life2")):
+                    u="life2"
+                    l1.remove(h)
+                    l1.insert(h,u)
+    print(l1)
 
 def createlife():
     Sprite(life1,(x*pixelsize,y*pixelsize))
