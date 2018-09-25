@@ -51,8 +51,6 @@ for i in range(0,n):
     i="none"
     l1=l1+[i]
 
-print(l1)
-print(l2)
 for j in range(0,len(l1)):
     w=nei(j)
     if w==8:
@@ -82,8 +80,17 @@ for j in range(0,len(l1)):
                         llife+=[h]
                     if h=="life2":
                         lstay+=[h]
-        print(ldeath)
-        print(" ")
+                if (len(ldeath)>=4) or (len(ldeath)<=1):
+                    u="none"
+                    print("death")
+                if (len(ldeath)==5) and (h=="none"):
+                    u="life1"
+                if (len(ldeath)==5) or (len(ldeath)==6) and ((h=="life1") or (h=="life2")):
+                    u="life2"
+            
+            
+            
+        
     
 
 def createlife():
