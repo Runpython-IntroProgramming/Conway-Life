@@ -37,14 +37,24 @@ deadcell = RectangleAsset(10, 10, line, darkgrey)
 newcell = RectangleAsset(10, 10, line, white)
 oldcell = RectangleAsset(10, 10, line, lightgrey)
 
-
 mapsize = 10
 
 # Creates coordinate plane and sets all cells to dead
-coordinates = {}
+coord = {}
 for x in range(mapsize+1):
     for y in range(mapsize+1):
-        coordinates[(x,y)] = 0
+        coord[(x,y)] = 0
+
+# Function that displays cell grid
+def display():
+    for x in range(1,mapsize):
+        for y in range(1,mapsize):
+            if coord[(x,y)] == 0:
+                Sprite(deadcell,(x*10,y*10))
+            if coord[(x,y)] == 1:
+                Sprite(newcell,(x*10,y*10))
+            else:
+                Sprite(oldcell,(x*10,y*10))
 
 # Function that checks and compiles cells to change
 def ticker():
@@ -57,47 +67,31 @@ def ticker():
             liveneigh = 0
             for xneigh in range(x-1,x+1):
                 for yneigh in range(y-1,y+1):
-                    if coordinates[(xneigh,yneigh)] != 0:
+                    if coord[(xneigh,yneigh)] != 0:
                         liveneigh += 1
-            if coordinates[(x,y)] == 0 and liveneigh == 3:
+            if coord[(x,y)] == 0 and liveneigh == 3:
                 birthcell.append((x,y))
-            elif coordinates[(x,y)] == 1 and liveneigh == 2  or liveneigh == 3:
+            elif coord[(x,y)] == 1 and liveneigh == 2  or liveneigh == 3:
                 agecell.append((x,y))
-            elif coordinates[(x,y)] != 0 and liveneigh != 2  or liveneigh != 3:
+            elif coord[(x,y)] != 0 and liveneigh != 2  or liveneigh != 3:
                 killcell.append((x,y))
             
     for birth in birthcell:
-        coordinates[birth] = 1
+        coord[birth] = 1
     for age in birthcell:
-        coordinates[age] += 1
+        coord[age] += 1
     for kill in killcell:
-        coordinates[kill] = 0
+        coord[kill] = 0
     display():
 
-# Function that displays cell grid
-def display():
-    for x in range(1,mapsize):
-        for y in range(1,mapsize):
-            if coordinates[(x,y)] == 0:
-                Sprite(deadcell,(x*10,y*10))
-            if coordinates[(x,y)] == 1:
-                Sprite(newcell,(x*10,y*10))
-            else:
-                Sprite(oldcell,(x*10,y*10))
-    userinput()
+#    App.listenMouseEvent("mousedown", change)
 
+def step():
+    ticker()
 
-def userinput():
-    go = 
-    if go == 1:
-        ticker()
-    else:
-        exit()
+display():
+App.listenKeyEvent("keydown", "space", step)
 
-
-
-display(): 
 app = App()
 app.run()
-#ggame.App.listenKeyEvent
     
