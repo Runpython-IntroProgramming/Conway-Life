@@ -19,44 +19,45 @@ myapp = App()
 #bg = Sprite(bg_asset, (0,0))
 
 #making list of grid coordinates
-width=myapp.width
-height=myapp.height
-grid=[]
-cells=[]
-x_coordinates=list(range(0,width,20))
-y_coordinates=list(range(0,height,20))
+width = myapp.width
+height = myapp.height
+grid = []
+cells = []
+x_coordinates = list(range(0, width, 20))
+y_coordinates = list(range(0, height, 20))
 for x in x_coordinates:
     for y in y_coordinates:
-        grid.append((x,y))
+        grid.append((x, y))
 
 #colors for game#
-black=Color(0,1)
-pink= Color(0xee1289,1)
-green=Color(0x66cdaa4,1)
-nocolor=Color(0,0)
-line=LineStyle(1,black)
-noline=LineStyle(1,nocolor)
+black = Color(0, 1)
+pink = Color(0xee1289, 1)
+green = Color(0x66cdaa4, 1)
+nocolor = Color(0, 0)
+line = LineStyle(1, black)
+noline = LineStyle(1,nocolor)
 
 class NewCell(Sprite):
-    asset=RectangleAsset(7,7,noline,nocolor)
-    if self.color==1:
-        asset=RectangleAsset(7,7,line,green)
-    asset=RectangleAsset(7,7,line,green)
-    def __init__(self,position):
-        super().__init__(NewCell.asset,position)
+    asset = RectangleAsset(7, 7, line, nocolor)
+    # if self.color==1:
+    #     asset=RectangleAsset(7,7,line,green)
+    # asset=RectangleAsset(7,7,line,green)
+    def __init__(self,  position):
+        super().__init__(NewCell.asset, position)
         self.color=0
         myapp.listenMouseEvent('mousedown', self.add)
     def add(self,event):
         self.color=1
+        self.asset=RectangleAsset(7,7,line,green)
 
 class DeadCell(Sprite):
-    asset=RectangleAsset(7,7,line,nocolor)
+    asset=RectangleAsset(7, 7, line, nocolor)
     def __init__(self,position):
-        super().__init__(DeadCell.asset,position)
+        super().__init__(DeadCell.asset, position)
 
 
 
-NewCell((100,100))
+NewCell((100, 100))
 
 
 myapp.run()
