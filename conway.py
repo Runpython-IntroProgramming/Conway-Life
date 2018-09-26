@@ -23,6 +23,7 @@ width = myapp.width
 height = myapp.height
 grid = []
 cells = []
+z = 0
 x_coordinates = list(range(0, width, 10))
 y_coordinates = list(range(0, height, 10))
 for x in x_coordinates:
@@ -57,6 +58,23 @@ def Click(event):
     grid.remove((close_x,close_y))
     print(close_x)
 
+def Down(event):
+    global z
+    z = 1
+    
+def Up(event):
+    global z
+    z = 0
+    
+def MouseMove(event):
+    global cells, grid, z
+    close_x=round(event.x//10,0)*10
+    close_y=round(event.y//10,0)*10
+    print(close_x)
+    if z==1:
+        NewCell((close_x,close_y))
+        cells.append((close_x,close_y))
+        grid.remove((close_x,close_y))
     
 #def step():
     global cells, grid, newcells
@@ -100,6 +118,7 @@ myapp.run()
 myapp.listenMouseEvent('click',Click)
 myapp.listenMouseEvent('mousedown',Down)
 myapp.listenMouseEvent('mouseup',Up)
+myapp.listenMouseEvent('mousemove',MouseMove)
 # make a list newcells that puts the x,y coordinates of the mouse click
 # Need to make it draggable
 # Step function that transfers newcells list to old cells
