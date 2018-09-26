@@ -23,7 +23,6 @@ width = myapp.width
 height = myapp.height
 grid = []
 cells = []
-newcells = []
 x_coordinates = list(range(0, width, 10))
 y_coordinates = list(range(0, height, 10))
 for x in x_coordinates:
@@ -50,9 +49,6 @@ class OldCell(Sprite):
     def __init__(self,position):
         super().__init__(Old.asset, position)
 
-# for (x, y) in grid:
-#     NewCell((x,y))
-
 def Click(event):
     global cells, grid
     close_x=(event.x//10)*10
@@ -77,7 +73,8 @@ def step():
         
         if g >= 3:
             OldCell((m, n))
-            newcells.remove((m, n))
+        else:
+            cells.remove((m ,n))
     
     for (m, n) in grid:
         surrounding = []
@@ -94,7 +91,7 @@ def step():
         if g >= 3:
             NewCell((m, n))
             grid.remove((m, n))
-            newcells.append((m, n))
+            cells.append((m, n))
             
 
 myapp.run(step)
