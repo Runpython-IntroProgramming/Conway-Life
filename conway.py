@@ -97,7 +97,7 @@ def step():
             newcells.append((m, n))
             
 
-myapp.run()
+myapp.run(step)
 myapp.listenMouseEvent('click',Click)
 
 # make a list newcells that puts the x,y coordinates of the mouse click
