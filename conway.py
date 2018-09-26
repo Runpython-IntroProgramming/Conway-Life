@@ -37,7 +37,6 @@ nocolor = Color(0, 0)
 line = LineStyle(1, black)
 noline = LineStyle(1,nocolor)
 
-    
 
 class NewCell(Sprite):
     asset = RectangleAsset(10, 10, line, green)
@@ -56,19 +55,22 @@ def Click(event):
     NewCell((close_x,close_y))
     cells.append((close_x,close_y))
     grid.remove((close_x,close_y))
+    print(close_x)
+
     
-def step():
+#def step():
     global cells, grid, newcells
     for (m, n) in cells:
         surrounding = []
         g = 0
+        print(m-10)
         for x in range(m-10, m+10, 10):
             for y in range(n-10, n+10, 10):
                 surrounding.append((x, y))
         
         surrounding.remove((m, n))
-        for (m, n) in surroundings:
-            if (m, n) in cells:
+        for (p, r) in surroundings:
+            if (p, r) in cells:
                 g += 1
         
         if g >= 3:
@@ -84,8 +86,8 @@ def step():
                 surrounding.append((x, y))
         
         surrounding.remove((m, n))
-        for (m, n) in surroundings:
-            if (m, n) in cells:
+        for (p, r) in surroundings:
+            if (p, r) in cells:
                 g += 1
         
         if g >= 3:
@@ -94,9 +96,10 @@ def step():
             cells.append((m, n))
             
 
-myapp.run(step)
+myapp.run()
 myapp.listenMouseEvent('click',Click)
-
+myapp.listenMouseEvent('mousedown',Down)
+myapp.listenMouseEvent('mouseup',Up)
 # make a list newcells that puts the x,y coordinates of the mouse click
 # Need to make it draggable
 # Step function that transfers newcells list to old cells
