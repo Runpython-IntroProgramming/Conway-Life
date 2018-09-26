@@ -23,7 +23,7 @@ width = myapp.width
 height = myapp.height
 grid = []
 cells = []
-click = []
+newcells = []
 x_coordinates = list(range(0, width, 10))
 y_coordinates = list(range(0, height, 10))
 for x in x_coordinates:
@@ -42,34 +42,68 @@ noline = LineStyle(1,nocolor)
 
 class NewCell(Sprite):
     asset = RectangleAsset(10, 10, line, green)
-    # if self.color==1:
-    #     asset=RectangleAsset(7,7,line,green)
-    # asset=RectangleAsset(7,7,line,green)
     def __init__(self,  position):
         super().__init__(NewCell.asset, position)
-        # myapp.listenMouseEvent('mousedown', self.add)
-    # def add(self,event):
-    #     self.color=1
-    #     self.asset=RectangleAsset(7,7,line,green)
 
-class DeadCell(Sprite):
-    asset=RectangleAsset(7, 7, line, nocolor)
+class OldCell(Sprite):
+    asset=RectangleAsset(10, 10, line, pink)
     def __init__(self,position):
-        super().__init__(DeadCell.asset, position)
+        super().__init__(Old.asset, position)
 
 # for (x, y) in grid:
 #     NewCell((x,y))
 
 def Click(event):
-    global cells
+    global cells, grid
     close_x=(event.x//10)*10
     close_y=(event.y//10)*10
     NewCell((close_x,close_y))
     cells.append((close_x,close_y))
+    grid.remove((close_x,close_y))
+    
+def step():
+    global cells, grid, newcells
+    for (m, n) in cells:
+        surrounding = []
+        g = 0
+        for x in range(m-10, m+10, 10):
+            for y in range(n-10, n+10, 10):
+                surrounding.append((x, y))
+        
+        surrounding.remove((m, n))
+        for (m, n) in surroundings:
+            if (m, n) in cells:
+                g += 1
+        
+        if g >= 3:
+            OldCell((m, n))
+            newcells.remove((m, n))
+    
+    for (m, n) in grid:
+        surrounding = []
+        g = 0
+        for x in range(m-10, m+10, 10):
+            for y in range(n-10, n+10, 10):
+                surrounding.append((x, y))
+        
+        surrounding.remove((m, n))
+        for (m, n) in surroundings:
+            if (m, n) in cells:
+                g += 1
+        
+        if g >= 3:
+            NewCell((m, n))
+            grid.remove((m, n))
+            newcells.append((m, n))
+            
 
 myapp.run()
 myapp.listenMouseEvent('click',Click)
 
-
+# make a list newcells that puts the x,y coordinates of the mouse click
+# Need to make it draggable
+# Step function that transfers newcells list to old cells
+# checks all the surrounding cells and add 1 to a variable
+# if variable >3 make new cell
 
 
