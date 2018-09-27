@@ -23,6 +23,7 @@ width = myapp.width
 height = myapp.height
 grid = []
 cells = []
+newcells = []
 z = 0
 x_coordinates = list(range(0, width, 10))
 y_coordinates = list(range(0, height, 10))
@@ -49,14 +50,14 @@ class OldCell(Sprite):
     def __init__(self,position):
         super().__init__(Old.asset, position)
 
-def Click(event):
-    global cells, grid
-    close_x=(event.x//10)*10
-    close_y=(event.y//10)*10
-    NewCell((close_x,close_y))
-    cells.append((close_x,close_y))
-    grid.remove((close_x,close_y))
-    print(close_x)
+# def Click(event):
+#     global cells, grid
+#     close_x=(event.x//10)*10
+#     close_y=(event.y//10)*10
+#     NewCell((close_x,close_y))
+#     cells.append((close_x,close_y))
+#     grid.remove((close_x,close_y))
+#     print(close_x)
 
 def Down(event):
     global z
@@ -67,58 +68,65 @@ def Up(event):
     z = 0
     
 def MouseMove(event):
-    global cells, grid, z
-    close_x=round(event.x//10,0)*10
-    close_y=round(event.y//10,0)*10
-    print(close_x)
+    global newcells, grid, z
+    close_x=int(round(event.x,-1))
+    close_y=int(round(event.y,-1))
     if z==1:
         NewCell((close_x,close_y))
-        cells.append((close_x,close_y))
-        grid.remove((close_x,close_y))
+        if (close_x,close_y) not in newcells:
+            newcells.append((close_x,close_y))
+        if (close_x, close_y) in grid:
+            grid.remove((close_x,close_y))
     
-#def step():
+def Go(event):
     global cells, grid, newcells
+    cells = []
+    for (m, n) in newcells:
+        cells.append((m, n))
+    newcells = []
+    hi=[]
     for (m, n) in cells:
         surrounding = []
         g = 0
-        print(m-10)
-        for x in range(m-10, m+10, 10):
-            for y in range(n-10, n+10, 10):
+        for x in range(m-10, m+20, 10):
+            for y in range(n-10, n+20, 10):
                 surrounding.append((x, y))
         
         surrounding.remove((m, n))
-        for (p, r) in surroundings:
+        print(surrounding)
+        for (p, r) in surrounding:
             if (p, r) in cells:
-                g += 1
-        
+                g =+ 1
+                print("yes")
+        hi.append(g)
         if g >= 3:
             OldCell((m, n))
-        else:
-            cells.remove((m ,n))
-    
-    for (m, n) in grid:
-        surrounding = []
-        g = 0
-        for x in range(m-10, m+10, 10):
-            for y in range(n-10, n+10, 10):
-                surrounding.append((x, y))
+            newcells.append((m, n))
+    print(hi)
+    # for (m, n) in grid:
+    #     surrounding = []
+    #     g = 0
+    #     for x in range(m-10, m+10, 10):
+    #         for y in range(n-10, n+10, 10):
+    #             surrounding.append((x, y))
         
-        surrounding.remove((m, n))
-        for (p, r) in surroundings:
-            if (p, r) in cells:
-                g += 1
+    #     surrounding.remove((m, n))
+    #     for (p, r) in surrounding:
+    #         if (p, r) in cells:
+    #             g += 1
+    #     print(g)
+    #     if g >= 3:
+    #         NewCell((m, n))
+    #         grid.remove((m, n))
+    #         newcells.append((m, n))
         
-        if g >= 3:
-            NewCell((m, n))
-            grid.remove((m, n))
-            cells.append((m, n))
-            
 
 myapp.run()
-myapp.listenMouseEvent('click',Click)
+#myapp.listenMouseEvent('click',Click)
 myapp.listenMouseEvent('mousedown',Down)
 myapp.listenMouseEvent('mouseup',Up)
 myapp.listenMouseEvent('mousemove',MouseMove)
+myapp.listenKeyEvent('keydown','space',Go)
 # make a list newcells that puts the x,y coordinates of the mouse click
 # Need to make it draggable
 # Step function that transfers newcells list to old cells
