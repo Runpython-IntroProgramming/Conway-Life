@@ -88,7 +88,7 @@ def MouseMove(event):
 
 #----------------------------------------------------------------------------------------    
 def step():
-    if go == True
+    if go == True:
         global  newcells
         cells = []
         for (m, n) in newcells:
