@@ -85,16 +85,9 @@ def MouseMove(event):
     global newcells, z
     close_x=int((event.x//15)*15)
     close_y=int((event.y//15)*15)
-    if z==1 and close_x <= width and close_x >= 0 and close_y <= height and close_y >= 0:
+    if z==1 and close_x <= width and close_x >= 0 and close_y <= height and close_y >= 0 and (close_x,close_y) not in newcells:
         NewCell((close_x,close_y))
-        if (close_x,close_y) not in newcells:
-            newcells.append((close_x,close_y))
-
-def quit(event):
-    global newcells
-    for (m, n) in newcells:
-        NoCell((m, n))
-        newcells.remove((m, n))
+        newcells.append((close_x,close_y))
         
 def Go(event):
     global go
@@ -154,4 +147,3 @@ myapp.listenMouseEvent('mousedown',Down)
 myapp.listenMouseEvent('mouseup',Up)
 myapp.listenMouseEvent('mousemove',MouseMove)
 myapp.listenKeyEvent('keydown','space',Go)
-myapp.listenKeyEvent('keydown','q',quit)
