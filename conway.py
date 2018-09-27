@@ -30,6 +30,7 @@ Start and stop the game using the spacebar
 width = myapp.width
 height = myapp.height
 newcells = []
+go = False
 z = 0
 
 #colors for game#
@@ -86,43 +87,48 @@ def MouseMove(event):
             newcells.append((close_x,close_y))
 
 #----------------------------------------------------------------------------------------    
-def Go(event):
-    global  newcells
-    cells = []
-    for (m, n) in newcells:
-        cells.append((m, n))
-    newcells = []
-    
-    #create list of cells to check
-    check_cells = []
-    for (m, n) in cells:
-        for x in range(m-10, m+20, 10):
-            for y in range(n-10, n+20, 10):
-                if (x,y) not in check_cells:
-                    check_cells.append((x, y))
-    
-    #check cells if they have 3 alive cells around them            
-    for (m, n) in check_cells:
-        surrounding = []
-        g = 0
-        for x in range(m-10, m+20, 10):
-            for y in range(n-10, n+20, 10):
-                surrounding.append((x, y))
+def step():
+    if go == True
+        global  newcells
+        cells = []
+        for (m, n) in newcells:
+            cells.append((m, n))
+        newcells = []
         
-        surrounding.remove((m, n))
-        for (p, r) in surrounding:
-            if (p, r) in cells:
-                g += 1
-
-        if g == 3 and (m,n) not in cells:
-            NewCell((m, n))
-            newcells.append((m, n))
-        elif (m, n) in cells:
-            if g == 3 or g == 2:
-                OldCell((m, n))
+        #create list of cells to check
+        check_cells = []
+        for (m, n) in cells:
+            for x in range(m-10, m+20, 10):
+                for y in range(n-10, n+20, 10):
+                    if (x,y) not in check_cells:
+                        check_cells.append((x, y))
+        
+        #check cells if they have 3 alive cells around them            
+        for (m, n) in check_cells:
+            surrounding = []
+            g = 0
+            for x in range(m-10, m+20, 10):
+                for y in range(n-10, n+20, 10):
+                    surrounding.append((x, y))
+            
+            surrounding.remove((m, n))
+            for (p, r) in surrounding:
+                if (p, r) in cells:
+                    g += 1
+    
+            if g == 3 and (m,n) not in cells:
+                NewCell((m, n))
                 newcells.append((m, n))
-            else:
-                NoCell((m, n))
+            elif (m, n) in cells:
+                if g == 3 or g == 2:
+                    OldCell((m, n))
+                    newcells.append((m, n))
+                else:
+                    NoCell((m, n))
+
+def Go(event):
+    global go
+    go = not go
 
 myapp.run()
 myapp.listenMouseEvent('click',Click)
