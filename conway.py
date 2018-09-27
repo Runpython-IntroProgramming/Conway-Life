@@ -101,11 +101,11 @@ def step():
             if (p, r) in cells:
                 g += 1
     
-        if g <= 3:
-            NoCell((m, n))
-        else:
+        if g == 3 or g == 2:
             OldCell((m, n))
             newcells.append((m, n))
+        else:
+            NoCell((m, n))
     
     #create list of all surroundings cells of current alive cells
     scells = []
@@ -132,21 +132,17 @@ def step():
             if (p, r) in cells:
                 g += 1
 
-        if g >= 3:
+        if g == 3:
             NewCell((m, n))
             newcells.append((m, n))
         
 
 myapp.run(step)
-#myapp.listenMouseEvent('click',Click)
+myapp.listenMouseEvent('click',Click)
 myapp.listenMouseEvent('mousedown',Down)
 myapp.listenMouseEvent('mouseup',Up)
 myapp.listenMouseEvent('mousemove',MouseMove)
 myapp.listenKeyEvent('keydown','space',Go)
-# make a list newcells that puts the x,y coordinates of the mouse click
-# Need to make it draggable
-# Step function that transfers newcells list to old cells
-# checks all the surrounding cells and add 1 to a variable
-# if variable >3 make new cell
+
 
 
