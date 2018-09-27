@@ -12,11 +12,6 @@ from ggame import Color, Sound, SoundAsset
 
 myapp = App()
 
-# Background
-#black = Color(0, 1)
-#noline = LineStyle(0, black)
-#bg_asset = RectangleAsset(myapp.width, myapp.height, noline, black)
-#bg = Sprite(bg_asset, (0,0))
 
 #making list of grid coordinates
 width = myapp.width
@@ -36,10 +31,14 @@ black = Color(0, 1)
 pink = Color(0xee1289, 1)
 green = Color(0x66cdaa4, 1)
 nocolor = Color(0xfffafa,1)
-line = LineStyle(1, black)
+line = LineStyle(1, white)
 noline = LineStyle(1,nocolor)
 
+# Background
+bg_asset = RectangleAsset(myapp.width, myapp.height, noline, white)
+bg = Sprite(bg_asset, (0,0))
 
+#----------------------------------------------------------------------------------------
 class NewCell(Sprite):
     asset = RectangleAsset(10, 10, line, green)
     def __init__(self,  position):
@@ -55,14 +54,13 @@ class NoCell(Sprite):
     def __init__(self,  position):
         super().__init__(NoCell.asset, position)
 
-# def Click(event):
-#     global cells, grid
-#     close_x=(event.x//10)*10
-#     close_y=(event.y//10)*10
-#     NewCell((close_x,close_y))
-#     cells.append((close_x,close_y))
-#     grid.remove((close_x,close_y))
-#     print(close_x)
+#----------------------------------------------------------------------------------------
+def Click(event):
+    global newcells
+    close_x=int(round(event.x,-1))
+    close_y=int(round(event.y,-1))
+    NewCell((close_x,close_y))
+    newcells.append((close_x,close_y))
 
 def Down(event):
     global z
@@ -73,14 +71,15 @@ def Up(event):
     z = 0
     
 def MouseMove(event):
-    global newcells, grid, z
+    global newcells, z
     close_x=int(round(event.x,-1))
     close_y=int(round(event.y,-1))
     if z==1:
         NewCell((close_x,close_y))
         if (close_x,close_y) not in newcells:
             newcells.append((close_x,close_y))
-    
+
+#----------------------------------------------------------------------------------------    
 def step():
     global  newcells
     cells = []
