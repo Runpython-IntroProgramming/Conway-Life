@@ -90,6 +90,8 @@ def MouseMove(event):
         if (close_x,close_y) not in newcells:
             newcells.append((close_x,close_y))
 
+def quit(event):
+    
 def Go(event):
     global go
     go = not go
