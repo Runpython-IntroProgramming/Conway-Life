@@ -48,7 +48,12 @@ class NewCell(Sprite):
 class OldCell(Sprite):
     asset=RectangleAsset(10, 10, line, pink)
     def __init__(self,position):
-        super().__init__(Old.asset, position)
+        super().__init__(OldCell.asset, position)
+
+class NoCell(Sprite):
+    asset = RectangleAsset(10, 10, noline, nocolor)
+    def __init__(self,  position):
+        super().__init__(NoCell.asset, position)
 
 # def Click(event):
 #     global cells, grid
@@ -93,32 +98,40 @@ def Go(event):
                 surrounding.append((x, y))
         
         surrounding.remove((m, n))
-        print(surrounding)
         for (p, r) in surrounding:
             if (p, r) in cells:
-                g =+ 1
-                print("yes")
-        hi.append(g)
+                g += 1
+    
         if g >= 3:
             OldCell((m, n))
             newcells.append((m, n))
-    print(hi)
-    # for (m, n) in grid:
-    #     surrounding = []
-    #     g = 0
-    #     for x in range(m-10, m+10, 10):
-    #         for y in range(n-10, n+10, 10):
-    #             surrounding.append((x, y))
+        else:
+            NoCell((m, n))
+            grid.append((m, n))
+    
+    scells = []
+    for (m, n) in cells:
+        for x in range(m-10, m+20, 10):
+            for y in range(n-10, n+20, 10):
+                if (x,y) not in scells:
+                    scells.append((x, y))
+                
+    for (m, n) in scells:
+        surrounding = []
+        g = 0
+        for x in range(m-10, m+10, 10):
+            for y in range(n-10, n+10, 10):
+                surrounding.append((x, y))
         
-    #     surrounding.remove((m, n))
-    #     for (p, r) in surrounding:
-    #         if (p, r) in cells:
-    #             g += 1
-    #     print(g)
-    #     if g >= 3:
-    #         NewCell((m, n))
-    #         grid.remove((m, n))
-    #         newcells.append((m, n))
+        surrounding.remove((m, n))
+        for (p, r) in surrounding:
+            if (p, r) in cells:
+                g += 1
+
+        if g >= 3:
+            NewCell((m, n))
+            grid.remove((m, n))
+            newcells.append((m, n))
         
 
 myapp.run()
