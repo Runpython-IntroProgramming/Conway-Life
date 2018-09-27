@@ -31,11 +31,11 @@ black = Color(0, 1)
 pink = Color(0xee1289, 1)
 green = Color(0x66cdaa4, 1)
 nocolor = Color(0xfffafa,1)
-line = LineStyle(1, white)
+line = LineStyle(1, nocolor)
 noline = LineStyle(1,nocolor)
 
 # Background
-bg_asset = RectangleAsset(myapp.width, myapp.height, noline, white)
+bg_asset = RectangleAsset(myapp.width, myapp.height, noline, nocolor)
 bg = Sprite(bg_asset, (0,0))
 
 #----------------------------------------------------------------------------------------
