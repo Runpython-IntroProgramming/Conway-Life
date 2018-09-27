@@ -91,7 +91,11 @@ def MouseMove(event):
             newcells.append((close_x,close_y))
 
 def quit(event):
-    
+    global newcells
+    for (m, n) in newcells:
+        NoCell((m, n))
+        newcells.remove((m, n))
+        
 def Go(event):
     global go
     go = not go
@@ -150,3 +154,4 @@ myapp.listenMouseEvent('mousedown',Down)
 myapp.listenMouseEvent('mouseup',Up)
 myapp.listenMouseEvent('mousemove',MouseMove)
 myapp.listenKeyEvent('keydown','space',Go)
+myapp.listenKeyEvent('keydown','q',quit)
