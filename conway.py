@@ -80,7 +80,7 @@ def MouseMove(event):
             newcells.append((close_x,close_y))
 
 #----------------------------------------------------------------------------------------    
-def step():
+def Go(event):
     global  newcells
     cells = []
     for (m, n) in newcells:
@@ -136,7 +136,7 @@ def step():
             newcells.append((m, n))
         
 
-myapp.run(step)
+myapp.run()
 myapp.listenMouseEvent('click',Click)
 myapp.listenMouseEvent('mousedown',Down)
 myapp.listenMouseEvent('mouseup',Up)
