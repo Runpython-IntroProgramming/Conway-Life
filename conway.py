@@ -12,19 +12,25 @@ from ggame import Color, Sound, SoundAsset
 
 myapp = App()
 
+print ("""
+WELCOME TO CONWAY'S GAME OF LIFE!
 
-#making list of grid coordinates
+Rules:
+1. Any live cell with < 2 live neighbors dies
+2. Any live cell with 2 or 3 live neighbors lives
+3. Any live cell with > 3 live neighbors dies
+4. Any dead cell with 3 live neighbors becomes a live cell
+
+How to Play:
+Add live cells by dragging or clicking the screen using the mouse
+Start and stop the game using the spacebar
+""")
+
+#creating variables and blank lists
 width = myapp.width
 height = myapp.height
-grid = []
-cells = []
 newcells = []
 z = 0
-x_coordinates = list(range(0, width, 10))
-y_coordinates = list(range(0, height, 10))
-for x in x_coordinates:
-    for y in y_coordinates:
-        grid.append((x, y))
 
 #colors for game#
 black = Color(0, 1)
@@ -86,40 +92,17 @@ def Go(event):
     for (m, n) in newcells:
         cells.append((m, n))
     newcells = []
-
-    #check all alive cells if they have 3 alive cells around them
-    for (m, n) in cells:
-        surrounding = []
-        g = 0
-        for x in range(m-10, m+20, 10):
-            for y in range(n-10, n+20, 10):
-                surrounding.append((x, y))
-        
-        surrounding.remove((m, n))
-        for (p, r) in surrounding:
-            if (p, r) in cells:
-                g += 1
     
-        if g == 3 or g == 2:
-            OldCell((m, n))
-            newcells.append((m, n))
-        else:
-            NoCell((m, n))
-    
-    #create list of all surroundings cells of current alive cells
-    scells = []
+    #create list of cells to check
+    check_cells = []
     for (m, n) in cells:
         for x in range(m-10, m+20, 10):
             for y in range(n-10, n+20, 10):
-                if (x,y) not in scells:
-                    scells.append((x, y))
+                if (x,y) not in check_cells:
+                    check_cells.append((x, y))
     
-    for (m, n) in cells:
-        if (m, n) in scells:
-            scells.remove((m, n))
-    
-    #check all surrounding cells if they have 3 alive cells around them            
-    for (m, n) in scells:
+    #check cells if they have 3 alive cells around them            
+    for (m, n) in check_cells:
         surrounding = []
         g = 0
         for x in range(m-10, m+20, 10):
@@ -131,10 +114,15 @@ def Go(event):
             if (p, r) in cells:
                 g += 1
 
-        if g == 3:
+        if g == 3 and (m,n) not in cells:
             NewCell((m, n))
             newcells.append((m, n))
-        
+        elif (m, n) in cells:
+            if g == 3 or g == 2:
+                OldCell((m, n))
+                newcells.append((m, n))
+            else:
+                NoCell((m, n))
 
 myapp.run()
 myapp.listenMouseEvent('click',Click)
@@ -142,6 +130,3 @@ myapp.listenMouseEvent('mousedown',Down)
 myapp.listenMouseEvent('mouseup',Up)
 myapp.listenMouseEvent('mousemove',MouseMove)
 myapp.listenKeyEvent('keydown','space',Go)
-
-
-
