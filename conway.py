@@ -35,7 +35,7 @@ for x in x_coordinates:
 black = Color(0, 1)
 pink = Color(0xee1289, 1)
 green = Color(0x66cdaa4, 1)
-nocolor = Color(0, 0)
+nocolor = Color(0xfffafa,1)
 line = LineStyle(1, black)
 noline = LineStyle(1,nocolor)
 
@@ -80,16 +80,15 @@ def MouseMove(event):
         NewCell((close_x,close_y))
         if (close_x,close_y) not in newcells:
             newcells.append((close_x,close_y))
-        if (close_x, close_y) in grid:
-            grid.remove((close_x,close_y))
     
-def Go(event):
-    global cells, grid, newcells
+def step():
+    global  newcells
     cells = []
     for (m, n) in newcells:
         cells.append((m, n))
     newcells = []
-    hi=[]
+
+    #check all alive cells if they have 3 alive cells around them
     for (m, n) in cells:
         surrounding = []
         g = 0
@@ -102,25 +101,30 @@ def Go(event):
             if (p, r) in cells:
                 g += 1
     
-        if g >= 3:
+        if g <= 3:
+            NoCell((m, n))
+        else:
             OldCell((m, n))
             newcells.append((m, n))
-        else:
-            NoCell((m, n))
-            grid.append((m, n))
     
+    #create list of all surroundings cells of current alive cells
     scells = []
     for (m, n) in cells:
         for x in range(m-10, m+20, 10):
             for y in range(n-10, n+20, 10):
                 if (x,y) not in scells:
                     scells.append((x, y))
-                
+    
+    for (m, n) in cells:
+        if (m, n) in scells:
+            scells.remove((m, n))
+    
+    #check all surrounding cells if they have 3 alive cells around them            
     for (m, n) in scells:
         surrounding = []
         g = 0
-        for x in range(m-10, m+10, 10):
-            for y in range(n-10, n+10, 10):
+        for x in range(m-10, m+20, 10):
+            for y in range(n-10, n+20, 10):
                 surrounding.append((x, y))
         
         surrounding.remove((m, n))
@@ -130,11 +134,10 @@ def Go(event):
 
         if g >= 3:
             NewCell((m, n))
-            grid.remove((m, n))
             newcells.append((m, n))
         
 
-myapp.run()
+myapp.run(step)
 #myapp.listenMouseEvent('click',Click)
 myapp.listenMouseEvent('mousedown',Down)
 myapp.listenMouseEvent('mouseup',Up)
