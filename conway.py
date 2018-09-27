@@ -47,25 +47,25 @@ bg = Sprite(bg_asset, (0,0))
 
 #----------------------------------------------------------------------------------------
 class NewCell(Sprite):
-    asset = RectangleAsset(10, 10, line, green)
+    asset = RectangleAsset(15, 15, line, green)
     def __init__(self,  position):
         super().__init__(NewCell.asset, position)
 
 class OldCell(Sprite):
-    asset=RectangleAsset(10, 10, line, pink)
+    asset=RectangleAsset(15, 15, line, pink)
     def __init__(self,position):
         super().__init__(OldCell.asset, position)
 
 class NoCell(Sprite):
-    asset = RectangleAsset(10, 10, noline, nocolor)
+    asset = RectangleAsset(15, 15, noline, nocolor)
     def __init__(self,  position):
         super().__init__(NoCell.asset, position)
 
 #----------------------------------------------------------------------------------------
 def Click(event):
     global newcells
-    close_x=int(round(event.x,-1))
-    close_y=int(round(event.y,-1))
+    close_x=int((event.x//15)*15)
+    close_y=int((event.y//15)*15)
     NewCell((close_x,close_y))
     newcells.append((close_x,close_y))
 
@@ -79,15 +79,23 @@ def Up(event):
     
 def MouseMove(event):
     global newcells, z
-    close_x=int(round(event.x,-1))
-    close_y=int(round(event.y,-1))
+    close_x=int((event.x//15)*15)
+    close_y=int((event.y//15)*15)
     if z==1:
         NewCell((close_x,close_y))
         if (close_x,close_y) not in newcells:
             newcells.append((close_x,close_y))
 
+def Go(event):
+    global go
+    go = not go
+    if go == True:
+        print("Game is started")
+    else:
+        print("Game is stopped")
 #----------------------------------------------------------------------------------------    
 def step():
+    global go
     if go == True:
         global  newcells
         cells = []
@@ -98,8 +106,8 @@ def step():
         #create list of cells to check
         check_cells = []
         for (m, n) in cells:
-            for x in range(m-10, m+20, 10):
-                for y in range(n-10, n+20, 10):
+            for x in range(m-15, m+30, 15):
+                for y in range(n-15, n+30, 15):
                     if (x,y) not in check_cells:
                         check_cells.append((x, y))
         
@@ -107,8 +115,8 @@ def step():
         for (m, n) in check_cells:
             surrounding = []
             g = 0
-            for x in range(m-10, m+20, 10):
-                for y in range(n-10, n+20, 10):
+            for x in range(m-15, m+30, 15):
+                for y in range(n-15, n+30, 15):
                     surrounding.append((x, y))
             
             surrounding.remove((m, n))
@@ -126,11 +134,9 @@ def step():
                 else:
                     NoCell((m, n))
 
-def Go(event):
-    global go
-    go = not go
 
-myapp.run()
+
+myapp.run(step)
 myapp.listenMouseEvent('click',Click)
 myapp.listenMouseEvent('mousedown',Down)
 myapp.listenMouseEvent('mouseup',Up)
