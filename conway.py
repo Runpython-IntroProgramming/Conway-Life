@@ -45,3 +45,5 @@ Sprite(rectangle)
 myapp = App()
 myapp.run()
 bg_asset = RectangleAsset(myapp.width, myapp.height, noline, black)
+
+
