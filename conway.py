@@ -25,11 +25,17 @@ blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 #colors
 
+
+bg_asset = RectangleAsset(myapp.width, myapp.height, noline, black)
+
+
+
 thinline = LineStyle(1, black)
 #lines
 rectangle = RectangleAsset(50, 20, thinline, blue)
 
-
+width = 500
+height = 500
 
 Sprite(rectangle)
 
