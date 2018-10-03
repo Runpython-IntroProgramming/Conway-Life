@@ -38,8 +38,8 @@ thinline = LineStyle(1, black)
 rectangle = RectangleAsset(20, 20, thinline, blue)
 Sprite(rectangle)
 
-width = 40
-height = 40
+width = 500
+height = 500
 
 
 
@@ -55,3 +55,7 @@ def leftKey(event):
     width = width
     
 
+
+"""myapp.listenKeyEvent('keydown', 'space', spaceKey)
+myapp.listenKeyEvent('keydown', 'r', reverseKey)
+myapp.listenMouseEvent('click', mouseClick)"""
