@@ -42,10 +42,14 @@ height = 500
 
 
 
+
+
 class cell(object):
     def __init__(self,10,10)
-myapp = App()
+myapp = App(width,height)
 myapp.run()
-bg_asset = RectangleAsset(myapp.width, myapp.height, noline, black)
-bg = Sprite(bg_asset, (0,0))
+
+
+def leftKey(event):
+    
 
