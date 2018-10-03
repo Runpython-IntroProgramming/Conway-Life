@@ -44,8 +44,8 @@ height = 500
 
 
 
-class cell(object):
-    def __init__(self,10,10)
+#class cell(object):
+#    def __init__(self,10,10)
 myapp = App(width,height)
 myapp.run()
 
