@@ -38,8 +38,8 @@ thinline = LineStyle(1, black)
 rectangle = RectangleAsset(50, 20, thinline, blue)
 Sprite(rectangle)
 
-width = 400
-height = 400
+width = 50
+height = 20
 
 
 
