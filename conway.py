@@ -42,6 +42,12 @@ height = 500
 
 Sprite(rectangle)
 
+class SpaceGame(App):
+    """
+    Tutorial4 space game example.
+    """
+    def __init__(self):
+        super().__init__()
 myapp = App()
 myapp.run()
 bg_asset = RectangleAsset(myapp.width, myapp.height, noline, black)
