@@ -50,6 +50,6 @@ myapp = App(width,height)
 myapp.run()
 
 
-def leftKey(event):
+#def leftKey(event):
     
 
