@@ -35,11 +35,11 @@ noline = LineStyle(0, black)
 
 thinline = LineStyle(1, black)
 #lines
-rectangle = RectangleAsset(50, 20, thinline, blue)
+rectangle = RectangleAsset(20, 20, thinline, blue)
 Sprite(rectangle)
 
-width = 50
-height = 20
+width = 500
+height = 500
 
 
 
