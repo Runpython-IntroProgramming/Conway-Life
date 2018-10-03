@@ -35,11 +35,11 @@ noline = LineStyle(0, black)
 
 thinline = LineStyle(1, black)
 #lines
-rectangle = RectangleAsset(-20, -20, thinline, blue)
+rectangle = RectangleAsset(20, 20, thinline, blue)
 Sprite(rectangle)
 
-width = -500
-height = -500
+width = 500
+height = 500
 
 
 
@@ -51,8 +51,8 @@ myapp = App(width,height)
 myapp.run()
 
 
-def leftKey(event):
-    width = width
+#def leftKey(event):
+    #myapp.
     
 
 
