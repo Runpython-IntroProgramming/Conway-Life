@@ -42,12 +42,8 @@ height = 500
 
 
 
-class SpaceGame(App):
-    """
-    Tutorial4 space game example.
-    """
-    def __init__(self):
-        super().__init__()
+class cell(object):
+    def __init__(self,10,10)
 myapp = App()
 myapp.run()
 bg_asset = RectangleAsset(myapp.width, myapp.height, noline, black)
