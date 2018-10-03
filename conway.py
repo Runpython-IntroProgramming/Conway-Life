@@ -40,7 +40,7 @@ rectangle = RectangleAsset(50, 20, thinline, blue)
 width = 500
 height = 500
 
-Sprite(rectangle)
+
 
 class SpaceGame(App):
     """
