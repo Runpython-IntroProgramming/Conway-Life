@@ -48,7 +48,7 @@ height = 500
 #class cell(object):
 #    def __init__(self,10,10)
 myapp = App(width,height)
-myapp.run(-10,-10)
+myapp.run(-100,-100)
 
 
 """def leftKey(event):
