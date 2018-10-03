@@ -37,6 +37,7 @@ thinline = LineStyle(1, black)
 #lines
 rectangle = RectangleAsset(50, 20, thinline, blue)
 
+
 width = 500
 height = 500
 
