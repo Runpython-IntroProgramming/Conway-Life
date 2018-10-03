@@ -48,13 +48,13 @@ height = 500
 #class cell(object):
 #    def __init__(self,10,10)
 myapp = App(width,height)
-myapp.run()
+myapp.run(-10,-10)
 
 
-def leftKey(event):
+"""def leftKey(event):
     myapp.x = myapp.x - 5
 myapp.listenKeyEvent('keydown', 'left', leftKey)
-
+myapp.listenMouseEvent('click', mouseClick)"""
 
 """myapp.listenKeyEvent('keydown', 'space', spaceKey)
 myapp.listenKeyEvent('keydown', 'r', reverseKey)
