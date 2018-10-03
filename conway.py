@@ -26,7 +26,7 @@ black = Color(0x000000, 1.0)
 #colors
 
 
-bg_asset = RectangleAsset(myapp.width, myapp.height, noline, black)
+
 
 
 
@@ -41,3 +41,4 @@ Sprite(rectangle)
 
 myapp = App()
 myapp.run()
+bg_asset = RectangleAsset(myapp.width, myapp.height, noline, black)
