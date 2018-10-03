@@ -46,10 +46,11 @@ height = 500
 
 #class cell(object):
 #    def __init__(self,10,10)
-myapp = App(width,height)
+myapp = App(0,width,0,height)
 myapp.run()
 
 
-#def leftKey(event):
+def leftKey(event):
+    width = width
     
 
