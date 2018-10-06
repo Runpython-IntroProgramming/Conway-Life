@@ -12,6 +12,14 @@ xsize=4
 ysize=4
 pixelsize=6
 
+def emmaprint(mylist):
+    for y in range(0, ysize):
+        mystri=""
+        for x in range (0, xsize):
+            mystri+= mylist[l2.index([x,y])] +' '
+        print(mystri)
+    print("")
+
 green=Color(0x00ff00, 1.0)
 blue=Color(0x0000ff, 1.0)
 white=Color(0xf0f0f0, 1.0)
@@ -62,10 +70,11 @@ l1=["none","none","none","none","none","life1","life1","life1","none","none","no
 
 #while True:
 for c in range(1):
+    newl1=list.copy(l1)
     for j in range(0,len(l1)):
 #        mcoor=coor(j)
         w=nei(j)
-        print(str(j) + " " + str(l1))
+        emmaprint(newl1)
         if w==8:
             ldeath=[]
             llife=[]
@@ -91,12 +100,14 @@ for c in range(1):
                     llife+=[h]
                 if h=="life2":
                     lstay+=[h]
-                if (len(ldeath)>=4) or (len(ldeath)<=1):
-                    l1[j]="none"
-                if (len(ldeath)==5) and (h=="none"):
-                    l1[j]="life1"
-                if (len(ldeath)==5) or (len(ldeath)==6) and ((h=="life1") or (h=="life2")):
-                    l1[j]="life2"
+            if (len(ldeath)==5) and (l1[j]=="none"):
+                newl1[j]="life1"
+            elif ((len(ldeath)==5) or (len(ldeath)==6)) and ((l1[j]=="life1") or (l1[j]=="life2")):
+                newl1[j]="life2"
+            elif (len(ldeath)>=4) or (len(ldeath)<=1):
+                newl1[j]="none"
+    l1=newl1
+    emmaprint(l1)
 
 if(0 == 1):
             for sprite in l1:
