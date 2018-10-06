@@ -85,30 +85,18 @@ for c in range(1):
             for z in l3:
                 pos=l2.index(z)
                 h=l1[pos]
-                for pox in range(0, len(l1)):
-                    h=l1[pox]
-                    if pos==pox:
-                        if h=="none":
-                            ldeath+=[h]
-                        if h=="life1":
-                            llife+=[h]
-                        if h=="life2":
-                            lstay+=[h]
+                if h=="none":
+                    ldeath+=[h]
+                if h=="life1":
+                    llife+=[h]
+                if h=="life2":
+                    lstay+=[h]
                 if (len(ldeath)>=4) or (len(ldeath)<=1):
                     l1[j]="none"
-#                    u="none"
-#                    l1.remove(h)
-#                    l1.insert(h,u)
                 if (len(ldeath)==5) and (h=="none"):
                     l1[j]="life1"
-#                    u="life1"
-#                    l1.remove(h)
-#                    l1.insert(h,u)
                 if (len(ldeath)==5) or (len(ldeath)==6) and ((h=="life1") or (h=="life2")):
                     l1[j]="life2"
-#                    u="life2"
-#                    l1.remove(h)
-#                    l1.insert(h,u)
 
 if(0 == 1):
             for sprite in l1:
