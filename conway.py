@@ -55,15 +55,17 @@ l2=[]
 for i in range(0,n):
     k=coor(i)
     l2+=[k]
-    l1=["none","none","none","none","none","life1","life1","life1","none","none","none","none","none","none","none","none",]
 #    i="none"
 #    l1=l1+[i]
+    
+l1=["none","none","none","none","none","life1","life1","life1","none","none","none","none","none","none","none","none",]
 
 #while True:
 for c in range(1):
     for j in range(0,len(l1)):
 #        mcoor=coor(j)
         w=nei(j)
+        print(str(j) + " " + str(l1))
         if w==8:
             ldeath=[]
             llife=[]
@@ -82,6 +84,7 @@ for c in range(1):
             l3=[one]+[two]+[three]+[four]+[five]+[six]+[seven]+[eight]
             for z in l3:
                 pos=l2.index(z)
+                h=l1[pos]
                 for pox in range(0, len(l1)):
                     h=l1[pox]
                     if pos==pox:
@@ -92,17 +95,22 @@ for c in range(1):
                         if h=="life2":
                             lstay+=[h]
                 if (len(ldeath)>=4) or (len(ldeath)<=1):
-                    u="none"
-                    l1.remove(h)
-                    l1.insert(h,u)
+                    l1[j]="none"
+#                    u="none"
+#                    l1.remove(h)
+#                    l1.insert(h,u)
                 if (len(ldeath)==5) and (h=="none"):
-                    u="life1"
-                    l1.remove(h)
-                    l1.insert(h,u)
+                    l1[j]="life1"
+#                    u="life1"
+#                    l1.remove(h)
+#                    l1.insert(h,u)
                 if (len(ldeath)==5) or (len(ldeath)==6) and ((h=="life1") or (h=="life2")):
-                    u="life2"
-                    l1.remove(h)
-                    l1.insert(h,u)
+                    l1[j]="life2"
+#                    u="life2"
+#                    l1.remove(h)
+#                    l1.insert(h,u)
+
+if(0 == 1):
             for sprite in l1:
                 mcoor=coor(j)
                 if sprite=="none":
@@ -119,5 +127,5 @@ for c in range(1):
                     staylife(x,y)
 
 
-myapp = App()
-myapp.run()
+#myapp = App()
+#myapp.run()
