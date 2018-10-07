@@ -44,13 +44,32 @@ def nei(r):
     rx=int(mycoor[0])
     ry=int(mycoor[1])
     if rx==0 or rx==xsize-1 or ry==0 or ry==ysize-1:
-        if rx==ry or (rx==0 and ry==xsize-1) or (rx==xsize-1 and ry==0):
+        if rx==0 and ry==0:
+            d=1
+        elif rx==0 and ry==(ysize-1):
+            d=2
+        elif rx==(xsize-1) and ry==0:
             d=3
-        else:
+        elif rx==(xsize-1) and ry==(ysize-1):
+            d=4
+        elif rx==0:
             d=5
+        elif rx==(xsize-1):
+            d=6
+        elif ry==0:
+            d=7
+        elif ry==(ysize-1):
+            d=8
+#        if rx==ry or (rx==0 and ry==xsize-1) or (rx==xsize-1 and ry==0):
+#            d=3
+#        else:
+#            d=5
     else:
-        d=8
+        d=9
     return(d)
+
+def thegame():
+    
 
 def createlife(xx,yy):
     Sprite(life1,(xx*pixelsize,yy*pixelsize))
@@ -69,13 +88,13 @@ for i in range(0,n):
 l1=["none","none","none","none","none","life1","life1","life1","none","none","none","none","none","none","none","none",]
 
 #while True:
-for c in range(1):
+for c in range(0,5):
     newl1=list.copy(l1)
     for j in range(0,len(l1)):
 #        mcoor=coor(j)
         w=nei(j)
-        emmaprint(newl1)
-        if w==8:
+#        emmaprint(newl1)
+        if w==9:
             ldeath=[]
             llife=[]
             lstay=[]
