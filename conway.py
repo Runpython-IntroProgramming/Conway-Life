@@ -44,31 +44,15 @@ def nei(r):
     rx=int(mycoor[0])
     ry=int(mycoor[1])
     if rx==0 or rx==xsize-1 or ry==0 or ry==ysize-1:
-        if rx==0 and ry==0:
-            d=1
-        elif rx==0 and ry==(ysize-1):
-            d=2
-        elif rx==(xsize-1) and ry==0:
+        if rx==ry or (rx==0 and ry==xsize-1) or (rx==xsize-1 and ry==0):
             d=3
-        elif rx==(xsize-1) and ry==(ysize-1):
-            d=4
-        elif rx==0:
+        else:
             d=5
-        elif rx==(xsize-1):
-            d=6
-        elif ry==0:
-            d=7
-        elif ry==(ysize-1):
-            d=8
-#        if rx==ry or (rx==0 and ry==xsize-1) or (rx==xsize-1 and ry==0):
-#            d=3
-#        else:
-#            d=5
     else:
-        d=9
+        d=8
     return(d)
 
-def thegame():
+#def thegame():
     
 
 def createlife(xx,yy):
@@ -94,7 +78,7 @@ for c in range(0,5):
 #        mcoor=coor(j)
         w=nei(j)
 #        emmaprint(newl1)
-        if w==9:
+        if w==8:
             ldeath=[]
             llife=[]
             lstay=[]
