@@ -8,8 +8,8 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 
-xsize=4
-ysize=4
+xsize=5
+ysize=5
 pixelsize=6
 
 def emmaprint(mylist):
@@ -68,11 +68,12 @@ for i in range(0,n):
     l2+=[k]
 #    i="none"
 #    l1=l1+[i]
-doe=0    
-l1=["none","none","none","none","none","life1","life1","life1","none","none","none","none","none","none","none","none",]
+l1=["none","none","none","none","none","life1","life1","life1","none","life1","life1","life1","life1","life1","none","none","none","none","none","none","none","none","none","none","none"]
+
+doe=0
 
 #while True:
-for c in range(0,5):
+for c in range(3):
     newl1=list.copy(l1)
     for j in range(0,len(l1)):
 #        mcoor=coor(j)
@@ -107,10 +108,9 @@ for c in range(0,5):
                 newl1[j]="life1"
             elif ((len(ldeath)==5) or (len(ldeath)==6)) and ((l1[j]=="life1") or (l1[j]=="life2")):
                 newl1[j]="life2"
-            elif (len(ldeath)>=4) or (len(ldeath)<=1):
+            elif (len(ldeath)>=7) or (len(ldeath)<=3):
                 newl1[j]="none"
     for sprite in newl1:
-        print(newl1)
         if doe>=xsize*ysize:
             break
         else:
@@ -121,17 +121,14 @@ for c in range(0,5):
             if sprite=="none":
                 x=ucoor[0]
                 y=ucoor[1]
-                #print("n")
                 death(x,y)
             elif sprite=="life1":
                 x=ucoor[0]
                 y=ucoor[1]
-                #print("l")
                 createlife(x,y)
             elif sprite=="life2":
                 x=ucoor[0]
                 y=ucoor[1]
-                #print("s")
                 staylife(x,y)
     l1=newl1
     emmaprint(newl1)
