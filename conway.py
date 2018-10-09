@@ -109,29 +109,32 @@ for c in range(0,5):
                 newl1[j]="life2"
             elif (len(ldeath)>=4) or (len(ldeath)<=1):
                 newl1[j]="none"
-            for sprite in newl1:
-                print(sprite, doe, len(newl1), newl1)
-                what=newl1.index(sprite, doe)
-                doe=what+1
-                ucoor=coor(what)
-                print(ucoor)
-                if sprite=="none":
-                    x=ucoor[0]
-                    y=ucoor[1]
-                    #print("n")
-                    death(x,y)
-                elif sprite=="life1":
-                    x=ucoor[0]
-                    y=ucoor[1]
-                    #print("l")
-                    createlife(x,y)
-                elif sprite=="life2":
-                    x=ucoor[0]
-                    y=ucoor[1]
-                    #print("s")
-                    staylife(x,y)
+    for sprite in newl1:
+        print(newl1)
+        if doe>=xsize*ysize:
+            break
+        else:
+            what=newl1.index(sprite, doe)
+            doe=what+1
+            ucoor=coor(what)
+            print(ucoor)
+            if sprite=="none":
+                x=ucoor[0]
+                y=ucoor[1]
+                #print("n")
+                death(x,y)
+            elif sprite=="life1":
+                x=ucoor[0]
+                y=ucoor[1]
+                #print("l")
+                createlife(x,y)
+            elif sprite=="life2":
+                x=ucoor[0]
+                y=ucoor[1]
+                #print("s")
+                staylife(x,y)
     l1=newl1
-#    emmaprint(l1)
+    emmaprint(newl1)
 
 
 
