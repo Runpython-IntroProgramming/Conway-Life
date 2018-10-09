@@ -68,7 +68,7 @@ for i in range(0,n):
     l2+=[k]
 #    i="none"
 #    l1=l1+[i]
-    
+doe=0    
 l1=["none","none","none","none","none","life1","life1","life1","none","none","none","none","none","none","none","none",]
 
 #while True:
@@ -109,25 +109,31 @@ for c in range(0,5):
                 newl1[j]="life2"
             elif (len(ldeath)>=4) or (len(ldeath)<=1):
                 newl1[j]="none"
-    l1=newl1
-    emmaprint(l1)
-
-if(0 == 1):
-            for sprite in l1:
-                mcoor=coor(j)
+            for sprite in newl1:
+                print(sprite, doe, len(newl1), newl1)
+                what=newl1.index(sprite, doe)
+                doe=what+1
+                ucoor=coor(what)
+                print(ucoor)
                 if sprite=="none":
-                    x=mcoor[0]
-                    y=mcoor[1]
+                    x=ucoor[0]
+                    y=ucoor[1]
+                    #print("n")
                     death(x,y)
-                if sprite=="life1":
-                    x=mcoor[0]
-                    y=mcoor[1]
+                elif sprite=="life1":
+                    x=ucoor[0]
+                    y=ucoor[1]
+                    #print("l")
                     createlife(x,y)
-                if sprite=="life2":
-                    x=mcoor[0]
-                    y=mcoor[1]
+                elif sprite=="life2":
+                    x=ucoor[0]
+                    y=ucoor[1]
+                    #print("s")
                     staylife(x,y)
+    l1=newl1
+#    emmaprint(l1)
 
 
-#myapp = App()
-#myapp.run()
+
+myapp = App()
+myapp.run()
