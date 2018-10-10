@@ -108,7 +108,7 @@ for c in range(3):
                 newl1[j]="life1"
             elif ((len(ldeath)==5) or (len(ldeath)==6)) and ((l1[j]=="life1") or (l1[j]=="life2")):
                 newl1[j]="life2"
-            elif (len(ldeath)>=7) or (len(ldeath)<=3):
+            elif (len(ldeath)>=7) or (len(ldeath)<=4):
                 newl1[j]="none"
     for sprite in newl1:
         if doe>=xsize*ysize:
