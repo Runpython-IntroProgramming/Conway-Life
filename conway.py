@@ -1,8 +1,8 @@
 """
 conway.py
-Author: <your name here>
-Credit: <list sources used, if any>
-Assignment:
+Author: Eamon
+Credit: 
+Assignment:conway life game
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
@@ -65,17 +65,9 @@ height = 500
 
 
 
-#class cell(object):
-#    def __init__(self,10,10)
+
 myapp = App(width,height)
 myapp.run()
 
 
-"""def leftKey(event):
-    myapp.x = myapp.x - 5
-myapp.listenKeyEvent('keydown', 'left', leftKey)
-myapp.listenMouseEvent('click', mouseClick)"""
 
-"""myapp.listenKeyEvent('keydown', 'space', spaceKey)
-myapp.listenKeyEvent('keydown', 'r', reverseKey)
-myapp.listenMouseEvent('click', mouseClick)"""
