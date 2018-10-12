@@ -55,7 +55,7 @@ def mouseclick(event):
     clickx=int((event.x//20)*20)
     Cell1(clickx,clicky)
     clicks.append[(clickx,clicky)]
-
+    print(clicks)
 
 #dimensions
 width = 500
