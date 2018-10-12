@@ -66,7 +66,10 @@ def round(event):
 def step():
     global round, clicks
     if round == True:
-        
+        newcells = []
+        for x in clicks:
+            newcells.append(x)
+        clicks = []
 
 #dimensions
 width = 500
