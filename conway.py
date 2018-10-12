@@ -18,25 +18,38 @@ Your live cells should be two different colors: one for its first day of “life
 from ggame import App, Color, LineStyle, Sprite
 from ggame import RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 
-
+#colors
+invis = Color(0xfffafa,1)
 red = Color(0xff0000, 1.0)
 green = Color(0x00ff00, 1.0)
 blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
-#colors
+
 
 black = Color(0, 1)
 noline = LineStyle(0, black)
 
+#cells
+#cell on day 1
+class Cell1(sprite):
+    cll1 = RectangleAsset(20,20,noline,red)
+    def __init__(self,  position):
+        super().__init__(Cell1.cll1, position)
+       #cell after day 1 
+class Cell2(sprite):
+    cll2 = RectangleAsset(20,20,noline,blue)
+    def __init__(self,  position):
+        super().__init__(Cell2.cll2, position)
+
+#when there is no cell
+class Cell0(sprite):
+    cll1 = RectangleAsset(20,20,noline,invis)
+    def __init__(self,  position):
+        super().__init__(Cell1.cll1, position)
 
 
 
 
-
-thinline = LineStyle(1, black)
-#lines
-rectangle = RectangleAsset(20, 20, thinline, blue)
-Sprite(rectangle)
 
 width = 500
 height = 500
