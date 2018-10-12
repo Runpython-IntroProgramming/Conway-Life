@@ -57,6 +57,15 @@ def mouseclick(event):
     clicks.append[(clickx,clicky)]
     print(clicks)
 
+
+def round(event):
+    global round
+    round = not round
+    
+    
+def step():
+    global round, clicks
+
 #dimensions
 width = 500
 height = 500
