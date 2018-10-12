@@ -32,18 +32,18 @@ noline = LineStyle(0, black)
 
 #cells
 #cell on day 1
-class Cell1(sprite):
+class Cell1(Sprite):
     cll1 = RectangleAsset(20,20,noline,red)
     def __init__(self,  position):
         super().__init__(Cell1.cll1, position)
        #cell after day 1 
-class Cell2(sprite):
+class Cell2(Sprite):
     cll2 = RectangleAsset(20,20,noline,blue)
     def __init__(self,  position):
         super().__init__(Cell2.cll2, position)
 
 #when there is no cell
-class Cell0(sprite):
+class Cell0(Sprite):
     cll1 = RectangleAsset(20,20,noline,invis)
     def __init__(self,  position):
         super().__init__(Cell1.cll1, position)
