@@ -75,9 +75,8 @@ def step():
 width = 500
 height = 500
 
-myapp.run(round)
+myapp.run(step)
 myapp.listenMouseEvent('click',mouseclick)
-
 myapp.listenKeyEvent('keydown','space',round) 
 
 
