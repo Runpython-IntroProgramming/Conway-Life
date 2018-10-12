@@ -51,11 +51,14 @@ class Cell0(sprite):
 def mouseclick(event):
     global clicks
     clicky=int((event.y//20)*20)
+    clickx=int((event.x//20)*20)
+    Cell1(clickx,clicky)
+    clicks.append[(clickx,clicky)]
 
 
-
-width = 500
-height = 500
+#dimensions
+width = myapp.width
+height = myapp.height
 
 
 
