@@ -25,6 +25,7 @@ green = Color(0x00ff00, 1.0)
 blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 
+clicks = []
 
 black = Color(0, 1)
 noline = LineStyle(0, black)
@@ -47,7 +48,9 @@ class Cell0(sprite):
     def __init__(self,  position):
         super().__init__(Cell1.cll1, position)
 
-
+def mouseclick(event):
+    global clicks
+    clicky=int((event.y//20)*20)
 
 
 
