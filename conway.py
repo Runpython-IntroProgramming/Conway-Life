@@ -25,6 +25,7 @@ green = Color(0x00ff00, 1.0)
 blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 
+#list of coords of cells
 clicks = []
 
 black = Color(0, 1)
@@ -57,8 +58,8 @@ def mouseclick(event):
 
 
 #dimensions
-width = myapp.width
-height = myapp.height
+width = 500
+height = 500
 
 
 
