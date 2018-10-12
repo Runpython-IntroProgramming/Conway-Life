@@ -65,7 +65,8 @@ def round(event):
     
 def step():
     global round, clicks
-    if round == 
+    if round == True:
+        
 
 #dimensions
 width = 500
