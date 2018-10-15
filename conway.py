@@ -103,12 +103,12 @@ for c in range(3):
                 if h=="life1":
                     llife+=[h]
                 if h=="life2":
-                    lstay+=[h]
-            if (len(ldeath)==5) and (l1[j]=="none"):
+                    llife+=[h]
+            if (len(llife)==3) and (l1[j]=="none"):
                 newl1[j]="life1"
-            elif ((len(ldeath)==5) or (len(ldeath)==6)) and ((l1[j]=="life1") or (l1[j]=="life2")):
+            elif ((len(llife)==2) or (len(llife)==3)) and ((l1[j]=="life1") or (l1[j]=="life2")):
                 newl1[j]="life2"
-            elif (len(ldeath)>=7) or (len(ldeath)<=4):
+            elif (len(llife)>=4) or (len(llife)<=1):
                 newl1[j]="none"
     for sprite in newl1:
         if doe>=xsize*ysize:
