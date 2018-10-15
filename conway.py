@@ -38,7 +38,7 @@ class Cell1(Sprite):
     cll1 = RectangleAsset(20,20,noline,red)
     def __init__(self,  position):
         super().__init__(Cell1.cll1, position)
-       #cell after day 1 
+#cell after day 1 
 class Cell2(Sprite):
     cll2 = RectangleAsset(20,20,noline,blue)
     def __init__(self,  position):
@@ -53,12 +53,12 @@ class Cell0(Sprite):
 def mouseclick(event):
     global clickss
     clicky=int((event.y//20)*20)
-    print("clicky: " + clicky)
+    print("clicky: " + str(clicky))
     clickx=int((event.x//20)*20)
-    print("clickx: " + clickx)
+    print("clickx: " + str(clickx))
     Cell1(clickx,clicky)
     clicks.append[(clickx,clicky)]
-    print("list: " + clicks[])
+#    print("list: " + str(clicks[]))
 
 
 def round(event):
