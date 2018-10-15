@@ -38,6 +38,7 @@ class Cell1(Sprite):
     cll1 = RectangleAsset(20,20,noline,red)
     def __init__(self,  position):
         super().__init__(Cell1.cll1, position)
+
 #cell after day 1 
 class Cell2(Sprite):
     cll2 = RectangleAsset(20,20,noline,blue)
@@ -75,9 +76,8 @@ def step():
         clicks = []
 
 #dimensions
-width = 500
-height = 500
 
+#Cell1(10, 10)
 myapp = App()
 myapp.run()
 myapp.listenMouseEvent('click',mouseclick)
