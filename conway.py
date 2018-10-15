@@ -39,18 +39,73 @@ def coor(u):
     b=int((u-a)/xsize)
     return[a,b]
 
+def printing():
+    doe=0
+    for sprite in newl1:
+        if doe>=xsize*ysize:
+            break
+        else:
+            what=newl1.index(sprite, doe)
+            doe=what+1
+            ucoor=coor(what)
+            if sprite=="none":
+                x=ucoor[0]
+                y=ucoor[1]
+                death(x,y)
+            elif sprite=="life1":
+                x=ucoor[0]
+                y=ucoor[1]
+                createlife(x,y)
+            elif sprite=="life2":
+                x=ucoor[0]
+                y=ucoor[1]
+                staylife(x,y)
+
+def thegame():
+    ldeath=[]
+    llife=[]
+    lstay=[]
+    for z in l3:
+        pos=l2.index(z)
+        h=l1[pos]
+        if h=="none":
+            ldeath+=[h]
+        if h=="life1":
+            llife+=[h]
+        if h=="life2":
+            llife+=[h]
+    if (len(llife)==3) and (l1[j]=="none"):
+        newl1[j]="life1"
+    elif ((len(llife)==2) or (len(llife)==3)) and ((l1[j]=="life1") or (l1[j]=="life2")):
+        newl1[j]="life2"
+    elif (len(llife)>=4) or (len(llife)<=1):
+        newl1[j]="none"
+
 def nei(r):
     mycoor=coor(r)
     rx=int(mycoor[0])
     ry=int(mycoor[1])
     if rx==0 or rx==xsize-1 or ry==0 or ry==ysize-1:
-        if rx==ry or (rx==0 and ry==xsize-1) or (rx==xsize-1 and ry==0):
+        if rx==0 and ry==0:
+            d=1
+        elif rx==0 and ry==ysize-1:
+            d=2
+        elif rx==xsize-1 and ry==ysize-1:
             d=3
-        else:
+        elif rx==xsize-1 and ry==0:
+            d=4
+        elif rx==0:
             d=5
+        elif rx==xsize-1:
+            d=6
+        elif ry==0:
+            d=7
+        elif ry==ysize-1:
+            d=9
     else:
         d=8
     return(d)
+    
     
 def createlife(xx,yy):
     Sprite(life1,(xx*pixelsize,yy*pixelsize))
@@ -67,17 +122,93 @@ for i in range(0,n):
 #    l1=l1+[i]
 l1=["none","none","none","none","none","life1","life1","life1","none","life1","life1","life1","life1","life1","none","none","none","none","none","none","none","none","none","none","none"]
 
-doe=0
 
 #while True:
 for c in range(3):
     newl1=list.copy(l1)
     for j in range(0,len(l1)):
         w=nei(j)
+        if w==1:
+            s=coor(j)
+            jx=(s[0])
+            jy=(s[1])
+            five=[jx+1,jy]
+            seven=[jx,jy+1]
+            eight=[jx+1,jy+1]
+            l3=[five]+[seven]+[eight]
+            thegame()
+        if w==2:
+            s=coor(j)
+            jx=(s[0])
+            jy=(s[1])
+            two=[jx,jy-1]
+            three=[jx+1,jy-1]
+            five=[jx+1,jy]
+            l3=[two]+[three]+[five]
+            thegame()
+        if w==3:
+            s=coor(j)
+            jx=(s[0])
+            jy=(s[1])
+            one=[jx-1,jy-1]
+            two=[jx,jy-1]
+            four=[jx-1,jy]
+            l3=[one]+[two]+[four]
+            thegame()
+        if w==4:
+            s=coor(j)
+            jx=(s[0])
+            jy=(s[1])
+            four=[jx-1,jy]
+            six=[jx-1,jy+1]
+            seven=[jx,jy+1]
+            l3=[four]+[six]+[seven]
+            thegame()
+        if w==5:
+            s=coor(j)
+            jx=(s[0])
+            jy=(s[1])
+            two=[jx,jy-1]
+            three=[jx+1,jy-1]
+            five=[jx+1,jy]
+            seven=[jx,jy+1]
+            eight=[jx+1,jy+1]
+            l3=[two]+[three]+[five]+[seven]+[eight]
+            thegame()
+        if w==6:
+            s=coor(j)
+            jx=(s[0])
+            jy=(s[1])
+            one=[jx-1,jy-1]
+            two=[jx,jy-1]
+            four=[jx-1,jy]
+            six=[jx-1,jy+1]
+            seven=[jx,jy+1]
+            l3=[one]+[two]+[four]+[six]+[seven]
+            thegame()
+        if w==7:
+            s=coor(j)
+            jx=(s[0])
+            jy=(s[1])
+            four=[jx-1,jy]
+            five=[jx+1,jy]
+            six=[jx-1,jy+1]
+            seven=[jx,jy+1]
+            eight=[jx+1,jy+1]
+            l3=[four]+[five]+[six]+[seven]+[eight]
+            thegame()
+        if w==9:
+            s=coor(j)
+            jx=(s[0])
+            jy=(s[1])
+            one=[jx-1,jy-1]
+            two=[jx,jy-1]
+            three=[jx+1,jy-1]
+            four=[jx-1,jy]
+            five=[jx+1,jy]
+            l3=[one]+[two]+[three]+[four]+[five]
+            thegame()
         if w==8:
-            ldeath=[]
-            llife=[]
-            lstay=[]
             s=coor(j)
             jx=(s[0])
             jy=(s[1])
@@ -90,41 +221,8 @@ for c in range(3):
             seven=[jx,jy+1]
             eight=[jx+1,jy+1]
             l3=[one]+[two]+[three]+[four]+[five]+[six]+[seven]+[eight]
-            for z in l3:
-                pos=l2.index(z)
-                h=l1[pos]
-                if h=="none":
-                    ldeath+=[h]
-                if h=="life1":
-                    llife+=[h]
-                if h=="life2":
-                    llife+=[h]
-            if (len(llife)==3) and (l1[j]=="none"):
-                newl1[j]="life1"
-            elif ((len(llife)==2) or (len(llife)==3)) and ((l1[j]=="life1") or (l1[j]=="life2")):
-                newl1[j]="life2"
-            elif (len(llife)>=4) or (len(llife)<=1):
-                newl1[j]="none"
-    for sprite in newl1:
-        if doe>=xsize*ysize:
-            break
-        else:
-            what=newl1.index(sprite, doe)
-            doe=what+1
-            ucoor=coor(what)
-            print(ucoor)
-            if sprite=="none":
-                x=ucoor[0]
-                y=ucoor[1]
-                death(x,y)
-            elif sprite=="life1":
-                x=ucoor[0]
-                y=ucoor[1]
-                createlife(x,y)
-            elif sprite=="life2":
-                x=ucoor[0]
-                y=ucoor[1]
-                staylife(x,y)
+            thegame()
+    printing()
     l1=newl1
     emmaprint(newl1)
 
