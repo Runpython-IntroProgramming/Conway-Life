@@ -51,10 +51,7 @@ def nei(r):
     else:
         d=8
     return(d)
-
-#def thegame():
     
-
 def createlife(xx,yy):
     Sprite(life1,(xx*pixelsize,yy*pixelsize))
 def staylife(xx,yy):
@@ -76,9 +73,7 @@ doe=0
 for c in range(3):
     newl1=list.copy(l1)
     for j in range(0,len(l1)):
-#        mcoor=coor(j)
         w=nei(j)
-#        emmaprint(newl1)
         if w==8:
             ldeath=[]
             llife=[]
