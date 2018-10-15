@@ -122,9 +122,7 @@ for i in range(0,n):
 #    l1=l1+[i]
 l1=["none","none","none","none","none","life1","life1","life1","none","life1","life1","life1","life1","life1","none","none","none","none","none","none","none","none","none","none","none"]
 
-
-#while True:
-for c in range(3):
+for c in range (1):
     newl1=list.copy(l1)
     for j in range(0,len(l1)):
         w=nei(j)
@@ -225,8 +223,6 @@ for c in range(3):
     printing()
     l1=newl1
     emmaprint(newl1)
-
-
 
 myapp = App()
 myapp.run()
