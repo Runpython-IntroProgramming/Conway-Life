@@ -57,9 +57,9 @@ def mouseclick(event):
     print("clicky: " + str(clicky))
     clickx=int((event.x//20)*20)
     print("clickx: " + str(clickx))
-    Cell1(clickx,clicky)
-    clicks.append[(clickx,clicky)]
-#    print("list: " + str(clicks[]))
+    Cell1((clickx,clicky))
+    clicks.append[(str(clickx) + ", " + str(clicky))]
+    print("list: " + str(clicks[]))
 
 
 def round(event):
@@ -77,7 +77,7 @@ def step():
 
 #dimensions
 
-#Cell1(10, 10)
+#Cell1((10, 10))
 myapp = App()
 myapp.run()
 myapp.listenMouseEvent('click',mouseclick)
