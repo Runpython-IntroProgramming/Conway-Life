@@ -50,12 +50,12 @@ class Cell0(Sprite):
         super().__init__(Cell1.cll1, position)
 
 def mouseclick(event):
-    global clicks
+    global clickss
     clicky=int((event.y//20)*20)
     clickx=int((event.x//20)*20)
     Cell1(clickx,clicky)
     clicks.append[(clickx,clicky)]
-    print(clicks[])
+    print("list: " + clicks[])
 
 
 def round(event):
@@ -64,7 +64,7 @@ def round(event):
     
     
 def step():
-    global round, clicks
+    global round, clickss
     if round == True:
         newcells = []
         for x in clicks:
@@ -75,7 +75,8 @@ def step():
 width = 500
 height = 500
 
-myapp.run(step)
+myapp = App()
+myapp.run()
 myapp.listenMouseEvent('click',mouseclick)
 myapp.listenKeyEvent('keydown','space',round) 
 
