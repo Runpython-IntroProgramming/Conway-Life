@@ -53,12 +53,12 @@ class Cell0(Sprite):
 
 def mouseclick(event):
     global clickss
-    clicky=int((event.y//20)*20)
+    clicky = int((event.y//20)*20)
     print("clicky: " + str(clicky))
-    clickx=int((event.x//20)*20)
+    clickx = int((event.x//20)*20)
     print("clickx: " + str(clickx))
     Cell1((clickx,clicky))
-    clicks.append[int(clickx)]
+    clicks.append[clickx]
     clicks.append[clicky]
     print("list: " + str(clicks[]))
 
