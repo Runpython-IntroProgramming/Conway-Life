@@ -65,14 +65,11 @@ def round(event):
     global round
     round = not round
     
-def showlist(event):
-    print('hello')
-    print(clickx)
-    clicks.append(clicky)
-    print("clicks: " + clicks[])
+    
+
 
 def step():
-    global round, clickss
+    global round
     if round == True:
         newcells = []
         for x in clicks:
