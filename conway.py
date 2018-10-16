@@ -55,9 +55,8 @@ clicks = []
 def mouseclick(event):
     clicky = int((event.y//20)*20)
     print("clicky: " + str(clicky))
-    clicks.append(clicky)
     clickx = int((event.x//20)*20)
-    clicks.append(clickx)
+    clicks.append(clickx + ", " + clicky)
     print("clickx: " + str(clickx))
     Cell1((clickx,clicky))
     print("list: " + str(clicks))
