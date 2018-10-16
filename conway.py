@@ -66,7 +66,8 @@ def round(event):
     global round
     round = not round
     
-    
+def showlist(event):
+    print(clicks[])
 def step():
     global round, clickss
     if round == True:
@@ -81,7 +82,7 @@ def step():
 myapp = App()
 myapp.run()
 myapp.listenMouseEvent('click',mouseclick)
-myapp.listenKeyEvent('keydown','space',round) 
+myapp.listenKeyEvent('keydown','space',showlist) 
 
 
 
