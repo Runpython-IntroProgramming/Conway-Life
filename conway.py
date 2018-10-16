@@ -53,13 +53,13 @@ class Cell0(Sprite):
 
 def mouseclick(event):
     global clickss
-    clicky = int((event.y//20)*20)
+    clickyyy = int((event.y//20)*20)
     print("clicky: " + str(clicky))
-    clickx = int((event.x//20)*20)
+    clickxxx = int((event.x//20)*20)
     print("clickx: " + str(clickx))
-    Cell1((clickx,clicky))
-    clicks.append(clickx)
-    clicks.append(clicky)
+    Cell1((clickxxx,clickyyy))
+    clicks.append(clickxxx)
+    clicks.append(clickyyy)
     #print("list: " + str(clicks[]))
 
 def round(event):
@@ -67,8 +67,8 @@ def round(event):
     round = not round
     
 def showlist(event):
-    clicks.append(clickx)
-    clicks.append(clicky)
+    clicks.append(clickxxx)
+    clicks.append(clickyyy)
     print('hello')
     print("list: " + str(clicks[]))
 def step():
