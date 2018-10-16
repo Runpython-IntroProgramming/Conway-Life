@@ -51,10 +51,8 @@ class Cell0(Sprite):
     cll1 = RectangleAsset(20,20,thinline,invis)
     def __init__(self,  position):
         super().__init__(Cell1.cll1, position)
-
+clicks = []
 def mouseclick(event):
-    clicks = []
-    global clickss
     clicky = int((event.y//20)*20)
     print("clicky: " + str(clicky))
     clicks.append(clicky)
