@@ -57,9 +57,9 @@ def mouseclick(event):
     global clickss
     clicky = int((event.y//20)*20)
     print("clicky: " + str(clicky))
-    clicks.append(clicky)
+    clicks.append(int((event.y//20)*20))
     clickx = int((event.x//20)*20)
-    clicks.append(clickx)
+    clicks.append(int((event.x//20)*20))
     print("clickx: " + str(clickx))
     Cell1((clickx,clicky))
     print("list: " + str(clicks[]))
@@ -70,9 +70,9 @@ def round(event):
     
 def showlist(event):
     print('hello')
-    clicks.append(clickx)
-    clicks.append(clicky)
-    print("list: " + str(clicks[]))
+    #clicks.append(clickx)
+    #clicks.append(clicky)
+    print("clicks: " + clicks[])
 
 def step():
     global round, clickss
