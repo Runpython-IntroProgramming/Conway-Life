@@ -27,7 +27,7 @@ black = Color(0x000000, 1.0)
 
 #list of coords of cells
 clicks = []
-
+newcells = []
 
 black = Color(0, 1)
 noline = LineStyle(0, black)
@@ -56,7 +56,7 @@ def mouseclick(event):
     clicky = int((event.y//20)*20)
     print("clicky: " + str(clicky))
     clickx = int((event.x//20)*20)
-    clicks.append(str(clickx) + ", " + str(clicky))
+    newcells.append(str(clickx) + ", " + str(clicky))
     print("clickx: " + str(clickx))
     Cell1((clickx,clicky))
 #    print("list: " + str(clicks))
