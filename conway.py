@@ -26,7 +26,7 @@ blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 
 #list of coords of cells
-clicks = []
+oldcells = []
 newcells = []
 
 black = Color(0, 1)
@@ -51,7 +51,7 @@ class Cell0(Sprite):
     cll1 = RectangleAsset(20,20,thinline,invis)
     def __init__(self,  position):
         super().__init__(Cell1.cll1, position)
-clicks = []
+
 def mouseclick(event):
     clicky = int((event.y//20)*20)
     print("clicky: " + str(clicky))
@@ -70,10 +70,10 @@ def step():
     global round
     if round == round:
         newcells = []
-        for x in clicks:
-            newcells.append(x)
+        for x in newcells:
+            oldcells.append(x)
         print(str(newcells))
-        clicks = []
+        oldcells = []
 
 #dimensions
 
