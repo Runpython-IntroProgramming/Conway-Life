@@ -59,7 +59,7 @@ def mouseclick(event):
     newcells.append(str(clickx) + ", " + str(clicky))
     print("clickx: " + str(clickx))
     Cell1((clickx,clicky))
-#    print("list: " + str(clicks))
+    print("list: " + str(newcells))
 
 def round(event):
     global round
