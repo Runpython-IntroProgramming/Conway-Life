@@ -67,7 +67,7 @@ def round(event):
     round = not round
     
 def showlist(event):
-    print(clicks[])
+    print('hello')
 def step():
     global round, clickss
     if round == True:
