@@ -53,6 +53,7 @@ class Cell0(Sprite):
         super().__init__(Cell1.cll1, position)
 
 def mouseclick(event):
+    clicks = []
     global clickss
     clicky = int((event.y//20)*20)
     print("clicky: " + str(clicky))
