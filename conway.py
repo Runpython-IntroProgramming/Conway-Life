@@ -59,7 +59,7 @@ def mouseclick(event):
     clicks.append(str(clickx) + ", " + str(clicky))
     print("clickx: " + str(clickx))
     Cell1((clickx,clicky))
-    print("list: " + str(clicks))
+#    print("list: " + str(clicks))
 
 def round(event):
     global round
@@ -85,7 +85,7 @@ def step():
 myapp = App()
 myapp.run()
 myapp.listenMouseEvent('click',mouseclick)
-myapp.listenKeyEvent('keydown','space',showlist) 
+myapp.listenKeyEvent('keydown','space',round) 
 
 
 
