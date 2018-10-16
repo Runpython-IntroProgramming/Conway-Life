@@ -28,6 +28,8 @@ black = Color(0x000000, 1.0)
 #list of coords of cells
 oldcells = []
 newcells = []
+oldcellx = []
+oldcelly = []
 
 black = Color(0, 1)
 noline = LineStyle(0, black)
@@ -61,11 +63,16 @@ def mouseclick(event):
     print("clickx: " + str(clickx))
     Cell1((clickx,clicky))
     print("list: " + str(newcells))
+    oldcellx.append(clickx)
+    oldcelly.append(clicky)
+    print(oldcellx)
+    print(oldcelly)
 
 def round(event):
     global round
     round = not round
 nearby = []   
+
 
 def step(event):
     global newcells
