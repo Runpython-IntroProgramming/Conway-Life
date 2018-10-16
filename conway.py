@@ -55,7 +55,7 @@ def mouseclick(event):
     global clickss
     clicky = int((event.y//20)*20)
     print("clicky: " + str(clicky))
-    clicks.append(itn(clicky))
+    clicks.append(int(clicky))
     clickx = int((event.x//20)*20)
     clicks.append(clickx)
     print("clickx: " + str(clickx))
