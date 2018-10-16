@@ -67,8 +67,8 @@ def round(event):
     round = not round
     
 def showlist(event):
-"""    clicks.append([clickx])
-    clicks.append([clicky])"""
+    clicks.append(clickx)
+    clicks.append(clicky)
     print('hello')
     print("list: " + str(clicks[]))
 def step():
