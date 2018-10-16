@@ -64,16 +64,17 @@ def mouseclick(event):
 def round(event):
     global round
     round = not round
-    
+nearby = []   
 
-def step():
-    global round
+def step(event):
+    global newcells
     if round == round:
-        newcells = []
         for x in newcells:
             oldcells.append(x)
-        print(str(newcells))
-        oldcells = []
+        newcells = []
+        print(str(oldcells))
+        print(len(oldcells))
+            
 
 #dimensions
 
@@ -81,7 +82,7 @@ def step():
 myapp = App()
 myapp.run()
 myapp.listenMouseEvent('click',mouseclick)
-myapp.listenKeyEvent('keydown','space',round) 
+myapp.listenKeyEvent('keydown','space',step) 
 
 
 
