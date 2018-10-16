@@ -55,11 +55,12 @@ def mouseclick(event):
     global clickss
     clicky = int((event.y//20)*20)
     print("clicky: " + str(clicky))
+    clicks.append(clicky)
     clickx = int((event.x//20)*20)
+    clicks.append(clickx)
     print("clickx: " + str(clickx))
     Cell1((clickx,clicky))
-    clicks.append(clickx)
-    clicks.append(clicky)
+
     #print("list: " + str(clicks[]))
 
 def round(event):
