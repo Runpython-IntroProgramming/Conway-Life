@@ -61,18 +61,18 @@ def mouseclick(event):
     clicks.append(clickx)
     print("clickx: " + str(clickx))
     Cell1((clickx,clicky))
-
-    #print("list: " + str(clicks[]))
+    print("list: " + str(clicks[]))
 
 def round(event):
     global round
     round = not round
     
 def showlist(event):
+    print('hello')
     clicks.append(clickx)
     clicks.append(clicky)
-    print('hello')
     print("list: " + str(clicks[]))
+
 def step():
     global round, clickss
     if round == True:
