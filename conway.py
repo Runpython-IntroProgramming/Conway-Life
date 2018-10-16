@@ -28,6 +28,7 @@ black = Color(0x000000, 1.0)
 #list of coords of cells
 clicks = []
 
+
 black = Color(0, 1)
 noline = LineStyle(0, black)
 thinline = LineStyle(1,black)
