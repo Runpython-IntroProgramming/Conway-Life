@@ -65,15 +65,14 @@ def round(event):
     global round
     round = not round
     
-    
-
 
 def step():
     global round
-    if round == True:
+    if round == round:
         newcells = []
         for x in clicks:
             newcells.append(x)
+        print(str(newcells))
         clicks = []
 
 #dimensions
