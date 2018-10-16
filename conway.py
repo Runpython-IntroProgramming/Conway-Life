@@ -58,15 +58,17 @@ def mouseclick(event):
     clickx = int((event.x//20)*20)
     print("clickx: " + str(clickx))
     Cell1((clickx,clicky))
-    clicks.append([clickx])
-    clicks.append([clicky])
-    print("list: " + str(clicks[]))
+    clicks.append(clickx)
+    clicks.append(clicky)
+    #print("list: " + str(clicks[]))
 
 def round(event):
     global round
     round = not round
     
 def showlist(event):
+"""    clicks.append([clickx])
+    clicks.append([clicky])"""
     print('hello')
     print("list: " + str(clicks[]))
 def step():
