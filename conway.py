@@ -114,6 +114,8 @@ def staylife(xx,yy):
 def death(xx,yy):
     Sprite(none,(xx*pixelsize,yy*pixelsize))
 
+space=""
+
 l2=[]
 for i in range(0,n):
     k=coor(i)
@@ -122,107 +124,114 @@ for i in range(0,n):
 #    l1=l1+[i]
 l1=["none","none","none","none","none","life1","life1","life1","none","life1","life1","life1","life1","life1","none","none","none","none","none","none","none","none","none","none","none"]
 
-for c in range (1):
-    newl1=list.copy(l1)
-    for j in range(0,len(l1)):
-        w=nei(j)
-        if w==1:
-            s=coor(j)
-            jx=(s[0])
-            jy=(s[1])
-            five=[jx+1,jy]
-            seven=[jx,jy+1]
-            eight=[jx+1,jy+1]
-            l3=[five]+[seven]+[eight]
-            thegame()
-        if w==2:
-            s=coor(j)
-            jx=(s[0])
-            jy=(s[1])
-            two=[jx,jy-1]
-            three=[jx+1,jy-1]
-            five=[jx+1,jy]
-            l3=[two]+[three]+[five]
-            thegame()
-        if w==3:
-            s=coor(j)
-            jx=(s[0])
-            jy=(s[1])
-            one=[jx-1,jy-1]
-            two=[jx,jy-1]
-            four=[jx-1,jy]
-            l3=[one]+[two]+[four]
-            thegame()
-        if w==4:
-            s=coor(j)
-            jx=(s[0])
-            jy=(s[1])
-            four=[jx-1,jy]
-            six=[jx-1,jy+1]
-            seven=[jx,jy+1]
-            l3=[four]+[six]+[seven]
-            thegame()
-        if w==5:
-            s=coor(j)
-            jx=(s[0])
-            jy=(s[1])
-            two=[jx,jy-1]
-            three=[jx+1,jy-1]
-            five=[jx+1,jy]
-            seven=[jx,jy+1]
-            eight=[jx+1,jy+1]
-            l3=[two]+[three]+[five]+[seven]+[eight]
-            thegame()
-        if w==6:
-            s=coor(j)
-            jx=(s[0])
-            jy=(s[1])
-            one=[jx-1,jy-1]
-            two=[jx,jy-1]
-            four=[jx-1,jy]
-            six=[jx-1,jy+1]
-            seven=[jx,jy+1]
-            l3=[one]+[two]+[four]+[six]+[seven]
-            thegame()
-        if w==7:
-            s=coor(j)
-            jx=(s[0])
-            jy=(s[1])
-            four=[jx-1,jy]
-            five=[jx+1,jy]
-            six=[jx-1,jy+1]
-            seven=[jx,jy+1]
-            eight=[jx+1,jy+1]
-            l3=[four]+[five]+[six]+[seven]+[eight]
-            thegame()
-        if w==9:
-            s=coor(j)
-            jx=(s[0])
-            jy=(s[1])
-            one=[jx-1,jy-1]
-            two=[jx,jy-1]
-            three=[jx+1,jy-1]
-            four=[jx-1,jy]
-            five=[jx+1,jy]
-            l3=[one]+[two]+[three]+[four]+[five]
-            thegame()
-        if w==8:
-            s=coor(j)
-            jx=(s[0])
-            jy=(s[1])
-            one=[jx-1,jy-1]
-            two=[jx,jy-1]
-            three=[jx+1,jy-1]
-            four=[jx-1,jy]
-            five=[jx+1,jy]
-            six=[jx-1,jy+1]
-            seven=[jx,jy+1]
-            eight=[jx+1,jy+1]
-            l3=[one]+[two]+[three]+[four]+[five]+[six]+[seven]+[eight]
-            thegame()
-    printing()
-    l1=newl1
-    emmaprint(newl1)
+def spaceKey(event):
+    conway()
+    
+def conway():
+    for c in range(1):
+        newl1=list.copy(l1)
+        for j in range(0,len(l1)):
+            w=nei(j)
+            if w==1:
+                s=coor(j)
+                jx=(s[0])
+                jy=(s[1])
+                five=[jx+1,jy]
+                seven=[jx,jy+1]
+                eight=[jx+1,jy+1]
+                l3=[five]+[seven]+[eight]
+                thegame()
+            if w==2:
+                s=coor(j)
+                jx=(s[0])
+                jy=(s[1])
+                two=[jx,jy-1]
+                three=[jx+1,jy-1]
+                five=[jx+1,jy]
+                l3=[two]+[three]+[five]
+                thegame()
+            if w==3:
+                s=coor(j)
+                jx=(s[0])
+                jy=(s[1])
+                one=[jx-1,jy-1]
+                two=[jx,jy-1]
+                four=[jx-1,jy]
+                l3=[one]+[two]+[four]
+                thegame()
+            if w==4:
+                s=coor(j)
+                jx=(s[0])
+                jy=(s[1])
+                four=[jx-1,jy]
+                six=[jx-1,jy+1]
+                seven=[jx,jy+1]
+                l3=[four]+[six]+[seven]
+                thegame()
+            if w==5:
+                s=coor(j)
+                jx=(s[0])
+                jy=(s[1])
+                two=[jx,jy-1]
+                three=[jx+1,jy-1]
+                five=[jx+1,jy]
+                seven=[jx,jy+1]
+                eight=[jx+1,jy+1]
+                l3=[two]+[three]+[five]+[seven]+[eight]
+                thegame()
+            if w==6:
+                s=coor(j)
+                jx=(s[0])
+                jy=(s[1])
+                one=[jx-1,jy-1]
+                two=[jx,jy-1]
+                four=[jx-1,jy]
+                six=[jx-1,jy+1]
+                seven=[jx,jy+1]
+                l3=[one]+[two]+[four]+[six]+[seven]
+                thegame()
+            if w==7:
+                s=coor(j)
+                jx=(s[0])
+                jy=(s[1])
+                four=[jx-1,jy]
+                five=[jx+1,jy]
+                six=[jx-1,jy+1]
+                seven=[jx,jy+1]
+                eight=[jx+1,jy+1]
+                l3=[four]+[five]+[six]+[seven]+[eight]
+                thegame()
+            if w==9:
+                s=coor(j)
+                jx=(s[0])
+                jy=(s[1])
+                one=[jx-1,jy-1]
+                two=[jx,jy-1]
+                three=[jx+1,jy-1]
+                four=[jx-1,jy]
+                five=[jx+1,jy]
+                l3=[one]+[two]+[three]+[four]+[five]
+                thegame()
+            if w==8:
+                s=coor(j)
+                jx=(s[0])
+                jy=(s[1])
+                one=[jx-1,jy-1]
+                two=[jx,jy-1]
+                three=[jx+1,jy-1]
+                four=[jx-1,jy]
+                five=[jx+1,jy]
+                six=[jx-1,jy+1]
+                seven=[jx,jy+1]
+                eight=[jx+1,jy+1]
+                l3=[one]+[two]+[three]+[four]+[five]+[six]+[seven]+[eight]
+                thegame()
+        printing()
+        l1=newl1
+        emmaprint(newl1)
+        space=""
+
 
 myapp = App()
-myapp.run()
+myapp.listenKeyEvent('keydown', 'space', spaceKey)
+myapp.run(conway)
