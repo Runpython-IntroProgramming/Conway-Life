@@ -71,7 +71,7 @@ def round(event):
 def showlist(event):
     print('hello')
     print(clickx)
-    #clicks.append(clicky)
+    clicks.append(clicky)
     print("clicks: " + clicks[])
 
 def step():
