@@ -70,8 +70,8 @@ def mousemove(event):
     #print("list: " + str(newcells))
         oldcellx.append(clickx)
         oldcelly.append(clicky)
-        print(oldcellx)
-        print(oldcelly)
+        #print(oldcellx)
+        #print(oldcelly)
 
 def mousedown(event):
     o = 1
