@@ -71,7 +71,7 @@ def mousemove(event):
 
 def space(event):
     global newcells
-    print(str(newcells))
+    for (
 
 
 
