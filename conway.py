@@ -87,7 +87,6 @@ def step(event):
     if round == round:
         for x in newcells:
             oldcells.append(x)
-        
         print(str(oldcells))
         print(len(oldcells))
         b = len(oldcellx)
