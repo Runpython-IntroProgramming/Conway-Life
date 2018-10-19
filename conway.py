@@ -123,7 +123,7 @@ for i in range(0,n):
 #    i="none"
 #    l1=l1+[i]
 l1=["none","none","none","none","none","life1","life1","life1","none","life1","life1","life1","life1","life1","none","none","none","none","none","none","none","none","none","none","none"]
-    
+
 def conway(l1):
     newl1=list.copy(l1)
     for j in range(0,len(l1)):
@@ -225,10 +225,12 @@ def conway(l1):
     printing(newl1)
     l1=list.copy(newl1)
     emmaprint(l1)
+    return l1
+
 
 def spaceKey(event):
     conway(l1)
-
+    
 
 myapp = App()
 step=myapp.listenKeyEvent('keydown', 'space', spaceKey)
