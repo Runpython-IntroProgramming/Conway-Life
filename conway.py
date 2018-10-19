@@ -69,9 +69,9 @@ def mousemove(event):
         Cell1((clickx,clicky))
         newcells.append((clickx,clicky))
 
-def space:
+def space(event):
     global newcells
-    printstr(newcells)
+    print(str(newcells))
 
 
 
