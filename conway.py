@@ -79,7 +79,7 @@ def mouseclick(event):
 def round(event):
     global round
     round = not round
-nearby = []   
+  
 
 
 def step(event):
@@ -87,13 +87,16 @@ def step(event):
     if round == round:
         for x in newcells:
             oldcells.append(x)
+        
         print(str(oldcells))
         print(len(oldcells))
         b = len(oldcellx)
+        for m in range(b):
+            nearby.append(0)
         for p in range(b)
             for v in range(b):
-                if abs(oldcellx[v]-oldcell[p]) == 20:
-                    
+                if abs(oldcellx[v]-oldcellx[p]) == 20:
+                    nearby[p] += 1
 
 
 
