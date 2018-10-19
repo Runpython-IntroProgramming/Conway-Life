@@ -55,8 +55,10 @@ class Cell0(Sprite):
         super().__init__(Cell0.cll0, position)
 
 def mousedown(event):
+    global o
     o = 1
 def mouseup(event):
+    global o
     o = 0
 
 def mousemove(event):
