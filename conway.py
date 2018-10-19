@@ -57,7 +57,7 @@ class Cell0(Sprite):
 gamebegin = 7
 
 def mouseclick(event):
-    global gamebegin
+    global gamebegin, Cell0, Cell1
     if gamebegin == 7:
         for x in range(0,25):
             for y in range(0,25):
