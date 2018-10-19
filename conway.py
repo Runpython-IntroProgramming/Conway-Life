@@ -59,22 +59,24 @@ class Cell0(Sprite):
 
 def mousemove(event):
     global Cell1
-    clicky = int((event.y//20)*20)
-    print("clicky: " + str(clicky))
-    clickx = int((event.x//20)*20)
-    if str(clickx) + ", " + str(clicky) not in newcells:
-        newcells.append(str(clickx) + ", " + str(clicky))
+    while o == 1:
+        clicky = int((event.y//20)*20)
+    #print("clicky: " + str(clicky))
+        clickx = int((event.x//20)*20)
+        if str(clickx) + ", " + str(clicky) not in newcells:
+            newcells.append(str(clickx) + ", " + str(clicky))
     #print("clickx: " + str(clickx))
-    Cell1((clickx,clicky))
+        Cell1((clickx,clicky))
     #print("list: " + str(newcells))
-    oldcellx.append(clickx)
-    oldcelly.append(clicky)
-    print(oldcellx)
-    print(oldcelly)
+        oldcellx.append(clickx)
+        oldcelly.append(clicky)
+        print(oldcellx)
+        print(oldcelly)
 
 def mousedown(event):
     o = 1
-
+def mouseup(event):
+    o = 0
 
 
 
