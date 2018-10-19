@@ -60,7 +60,7 @@ def mouseup(event):
     o = 0
 
 def mousemove(event):
-    global Cell1, z
+    global Cell1, z, newcells
     clickx = int((event.x//20)*20)
     clicky = int((event.y//20)*20)
     if o==1 and (clickx,clicky) not in newcells:
