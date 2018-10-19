@@ -54,10 +54,11 @@ class Cell0(Sprite):
     def __init__(self,  position):
         super().__init__(Cell1.cll1, position)
 
-gamebegin = false
+gamebegin = 7
 
 def mouseclick(event):
-    if gamebegin == false:
+    global gamebegin
+    if gamebegin == 7:
         for x in range(0,25):
             for y in range(0,25):
                 Cell0(20*x,20*y)
@@ -73,7 +74,7 @@ def mouseclick(event):
     oldcelly.append(clicky)
     print(oldcellx)
     print(oldcelly)
-    gamebegin = true
+    gamebegin = 9
     
 def round(event):
     global round
