@@ -55,7 +55,10 @@ class Cell0(Sprite):
     def __init__(self,  position):
         super().__init__(Cell0.cll0, position)
 
-
+def mousedown(event):
+    o = 1
+def mouseup(event):
+    o = 0
 
 def mousemove(event):
     global Cell1, z
@@ -73,10 +76,7 @@ def mousemove(event):
         #print(oldcellx)
         #print(oldcelly)
 
-def mousedown(event):
-    o = 1
-def mouseup(event):
-    o = 0
+
 
 
 
