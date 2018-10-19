@@ -27,10 +27,9 @@ blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 
 #list of coords of cells
-oldcells = []
+
 newcells = []
-oldcellx = []
-oldcelly = []
+
 
 black = Color(0, 1)
 noline = LineStyle(0, black)
@@ -62,19 +61,16 @@ def mouseup(event):
 
 def mousemove(event):
     global Cell1, z
-    while o == 1:
+    clickx = int((event.x//20)*20)
+    clicky = int((event.y//20)*20)
+    if z==1 and (clickx,clicky) not in newcells:
+        NewCell((close_x,close_y))
+        newcells.append((close_x,close_y))
         clicky = int((event.y//20)*20)
-    #print("clicky: " + str(clicky))
         clickx = int((event.x//20)*20)
-        #if str(clickx) + ", " + str(clicky) not in newcells:
-            #newcells.append(str(clickx) + ", " + str(clicky))
-    #print("clickx: " + str(clickx))
         Cell1((clickx,clicky))
-    #print("list: " + str(newcells))
         oldcellx.append(clickx)
         oldcelly.append(clicky)
-        #print(oldcellx)
-        #print(oldcelly)
 
 
 
