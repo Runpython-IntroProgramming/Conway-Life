@@ -58,7 +58,7 @@ class Cell0(Sprite):
 
 
 def mousemove(event):
-    global Cell1
+    global Cell1, z
     while o == 1:
         clicky = int((event.y//20)*20)
     #print("clicky: " + str(clicky))
