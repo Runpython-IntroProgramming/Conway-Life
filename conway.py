@@ -92,7 +92,8 @@ def step(event):
         b = len(oldcellx)
         for p in range(b)
             for v in range(b):
-                if abs(oldcellx[v]-oldcell[p]) == 20
+                if abs(oldcellx[v]-oldcell[p]) == 20:
+                    
 
 
 
