@@ -82,22 +82,7 @@ def round(event):
   
 nearby = []
 
-def step(event):
-    global newcells, oldcellx, oldcelly, nearby
-    if round == round:
-        for x in newcells:
-            oldcells.append(x)
-        print("old: " + str(oldcells))
-        print("lenold : " + str(len(oldcells)))
-        b = len(oldcellx)
-        print("b: " + str(b))
-        for m in range(b):
-            nearby.append(0)
-        for p in range(b):
-            for v in range(b):
-                if abs(oldcellx[v]-oldcellx[p]) == 20:
-                    nearby[p] += 1
-        print("nearby: " + str(nearby))
+
 
 
 
