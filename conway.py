@@ -97,6 +97,7 @@ def step(event):
             for v in range(b):
                 if abs(oldcellx[v]-oldcellx[p]) == 20:
                     nearby[p] += 1
+        print("nearby: " + nearby)
 
 
 
