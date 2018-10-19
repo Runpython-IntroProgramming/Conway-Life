@@ -17,6 +17,7 @@ Your live cells should be two different colors: one for its first day of “life
 """
 from ggame import App, Color, LineStyle, Sprite
 from ggame import RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
+o = 0
 
 #colors
 invis = Color(0xffffff,1)
@@ -56,8 +57,8 @@ class Cell0(Sprite):
 
 
 
-def mouseclick(event):
-    global gamebegin, Cell1
+def mousemove(event):
+    global Cell1
     clicky = int((event.y//20)*20)
     print("clicky: " + str(clicky))
     clickx = int((event.x//20)*20)
@@ -71,9 +72,8 @@ def mouseclick(event):
     print(oldcellx)
     print(oldcelly)
 
-
-  
-nearby = []
+def mousedown(event):
+    o = 1
 
 
 
@@ -90,7 +90,9 @@ nearby = []
 myapp = App()
 myapp.run()
 myapp.listenMouseEvent('click',mouseclick)
-
+myapp.listenMouseEvent('mousedown',mousedown)
+myapp.listenMouseEvent('mouseup',mouseup)
+myapp.listenMouseEvent('mousemove',mousemove)
 
 
 
