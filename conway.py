@@ -29,7 +29,7 @@ black = Color(0x000000, 1.0)
 #list of coords of cells
 
 newcells = []
-
+oldcells = []
 
 black = Color(0, 1)
 noline = LineStyle(0, black)
