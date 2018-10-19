@@ -63,8 +63,8 @@ def mousemove(event):
         clicky = int((event.y//20)*20)
     #print("clicky: " + str(clicky))
         clickx = int((event.x//20)*20)
-        if str(clickx) + ", " + str(clicky) not in newcells:
-            newcells.append(str(clickx) + ", " + str(clicky))
+        #if str(clickx) + ", " + str(clicky) not in newcells:
+            #newcells.append(str(clickx) + ", " + str(clicky))
     #print("clickx: " + str(clickx))
         Cell1((clickx,clicky))
     #print("list: " + str(newcells))
