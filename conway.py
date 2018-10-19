@@ -54,31 +54,24 @@ class Cell0(Sprite):
     def __init__(self,  position):
         super().__init__(Cell0.cll0, position)
 
-gamebegin = 7
+
 
 def mouseclick(event):
-    global gamebegin, Cell0, Cell1
-    if gamebegin == 7:
-        for x in range(0,50):
-            for y in range(0,25):
-                Cell0((20*x,20*y))
+    global gamebegin, Cell1
     clicky = int((event.y//20)*20)
     print("clicky: " + str(clicky))
     clickx = int((event.x//20)*20)
     if str(clickx) + ", " + str(clicky) not in newcells:
         newcells.append(str(clickx) + ", " + str(clicky))
-    print("clickx: " + str(clickx))
+    #print("clickx: " + str(clickx))
     Cell1((clickx,clicky))
-    print("list: " + str(newcells))
+    #print("list: " + str(newcells))
     oldcellx.append(clickx)
     oldcelly.append(clicky)
     print(oldcellx)
     print(oldcelly)
-    gamebegin = 9
-    
-def round(event):
-    global round
-    round = not round
+
+
   
 nearby = []
 
@@ -97,7 +90,7 @@ nearby = []
 myapp = App()
 myapp.run()
 myapp.listenMouseEvent('click',mouseclick)
-myapp.listenKeyEvent('keydown','space',step) 
+
 
 
 
