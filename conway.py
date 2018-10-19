@@ -91,6 +91,7 @@ def step(event):
         print(str(oldcells))
         print(len(oldcells))
         b = len(oldcellx)
+        print(b)
         for m in range(b):
             nearby.append(0)
         for p in range(b):
