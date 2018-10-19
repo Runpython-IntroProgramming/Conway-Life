@@ -54,7 +54,7 @@ class Cell0(Sprite):
     def __init__(self,  position):
         super().__init__(Cell1.cll1, position)
 
-gamebegin == false
+gamebegin = false
 
 def mouseclick(event):
     if gamebegin == false:
