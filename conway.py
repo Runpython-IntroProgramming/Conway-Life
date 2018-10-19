@@ -64,13 +64,8 @@ def mousemove(event):
     clickx = int((event.x//20)*20)
     clicky = int((event.y//20)*20)
     if z==1 and (clickx,clicky) not in newcells:
-        NewCell((close_x,close_y))
+        Cell1((close_x,close_y))
         newcells.append((close_x,close_y))
-        clicky = int((event.y//20)*20)
-        clickx = int((event.x//20)*20)
-        Cell1((clickx,clicky))
-        oldcellx.append(clickx)
-        oldcelly.append(clicky)
 
 
 
