@@ -91,7 +91,6 @@ def mouseup(event):
 #Cell1((10, 10))
 myapp = App()
 myapp.run()
-myapp.listenMouseEvent('click',mouseclick)
 myapp.listenMouseEvent('mousedown',mousedown)
 myapp.listenMouseEvent('mouseup',mouseup)
 myapp.listenMouseEvent('mousemove',mousemove)
