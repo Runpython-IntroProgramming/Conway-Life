@@ -61,7 +61,7 @@ def mouseclick(event):
     if gamebegin == 7:
         for x in range(0,25):
             for y in range(0,25):
-                Cell0(20*x,20*y)
+                Cell0((20*x,20*y))
     clicky = int((event.y//20)*20)
     print("clicky: " + str(clicky))
     clickx = int((event.x//20)*20)
