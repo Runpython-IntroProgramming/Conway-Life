@@ -81,7 +81,7 @@ def round(event):
 nearby = []   
 
 
-def step(event):
+"""def step(event):
     global newcells
     if round == round:
         for x in newcells:
@@ -89,7 +89,7 @@ def step(event):
         print(str(oldcells))
         print(len(oldcells))
         b = len(oldcellx)
-        for v in range(b):
+        for v in range(b):"""
             
             
             
