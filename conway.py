@@ -52,7 +52,7 @@ class Cell2(Sprite):
 class Cell0(Sprite):
     cll0 = RectangleAsset(20,20,thinline,invis)
     def __init__(self,  position):
-        super().__init__(Cell1.cll1, position)
+        super().__init__(Cell0.cll0, position)
 
 gamebegin = 7
 
