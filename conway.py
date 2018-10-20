@@ -1,7 +1,7 @@
 """
 conway.py
 Author: Emma Dunbar
-Credit: <list sources used, if any>
+Credit: Geoff Dunbar, Stackoverflow, Python-textbok
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
