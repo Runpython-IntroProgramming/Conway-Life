@@ -8,8 +8,8 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 
-xsize=5
-ysize=5
+xsize=10
+ysize=10
 pixelsize=10
 
 def emmaprint(mylist):
@@ -224,7 +224,6 @@ def conway(l1):
             thegame(l1, l3, j, newl1)
     printing(newl1)
     l1=list.copy(newl1)
-    emmaprint(l1)
     return l1
 
 
@@ -244,6 +243,8 @@ def click(event):
     pixel=lifelist[place2]
     if pixel=="none":
         lifelist[place2]="life1"
+    if pixel=="life1" or pixel=="life2":
+        lifelist[place2]="none"
     printing(lifelist)
 
     
