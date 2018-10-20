@@ -10,7 +10,7 @@ from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, El
 
 xsize=10
 ysize=10
-pixelsize=10
+pixelsize=20
 
 def emmaprint(mylist):
     for y in range(0, ysize):
