@@ -10,7 +10,7 @@ from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, El
 
 xsize=5
 ysize=5
-pixelsize=6
+pixelsize=10
 
 def emmaprint(mylist):
     for y in range(0, ysize):
@@ -120,9 +120,9 @@ l2=[]
 for i in range(0,n):
     k=coor(i)
     l2+=[k]
-#    i="none"
-#    l1=l1+[i]
-lifelist=["none","none","none","none","none","life1","life1","life1","none","life1","life1","life1","life1","life1","none","none","none","none","none","none","none","none","none","none","none"]
+    i="none"
+    lifelist=lifelist+[i]
+#lifelist=["none","none","none","none","none","life1","life1","life1","none","life1","life1","life1","life1","life1","none","none","none","none","none","none","none","none","none","none","none"]
 
 def conway(l1):
     newl1=list.copy(l1)
@@ -231,8 +231,25 @@ def conway(l1):
 def spaceKey(event):
     global lifelist
     lifelist = conway(lifelist)
+
+def click(event):
+    mcx=int(event.x)
+    mcy=int(event.y)
+    acx=int(mcx/pixelsize)
+    acy=int(mcy/pixelsize)
+    if acx<0 or acy<0 or acx>xsize or acy>ysize:
+        return
+    place=[acx,acy]
+    place2=l2.index(place)
+    pixel=lifelist[place2]
+    if pixel=="none":
+        lifelist[place2]="life1"
+    printing(lifelist)
+
     
+printing(lifelist)
 
 myapp = App()
 step=myapp.listenKeyEvent('keydown', 'space', spaceKey)
+clickity=myapp.listenMouseEvent('click', click)
 myapp.run(step)
