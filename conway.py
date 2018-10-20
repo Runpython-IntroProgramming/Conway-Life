@@ -30,7 +30,7 @@ life1=(RectangleAsset(pixelsize-1, pixelsize-1, tline, green))
 life2=(RectangleAsset(pixelsize-1, pixelsize-1, tline, blue))
 none=(RectangleAsset(pixelsize-1, pixelsize-1, tline, white))
 
-l1=[]
+lifelist=[]
 l2=[]
 n=xsize*ysize
 
@@ -61,7 +61,7 @@ def printing(newl1):
                 y=ucoor[1]
                 staylife(x,y)
 
-def thegame(l3, j, newl1):
+def thegame(l1, l3, j, newl1):
     ldeath=[]
     llife=[]
     lstay=[]
@@ -122,7 +122,7 @@ for i in range(0,n):
     l2+=[k]
 #    i="none"
 #    l1=l1+[i]
-l1=["none","none","none","none","none","life1","life1","life1","none","life1","life1","life1","life1","life1","none","none","none","none","none","none","none","none","none","none","none"]
+lifelist=["none","none","none","none","none","life1","life1","life1","none","life1","life1","life1","life1","life1","none","none","none","none","none","none","none","none","none","none","none"]
 
 def conway(l1):
     newl1=list.copy(l1)
@@ -136,7 +136,7 @@ def conway(l1):
             seven=[jx,jy+1]
             eight=[jx+1,jy+1]
             l3=[five]+[seven]+[eight]
-            thegame(l3, j, newl1)
+            thegame(l1, l3, j, newl1)
         if w==2:
             s=coor(j)
             jx=(s[0])
@@ -145,7 +145,7 @@ def conway(l1):
             three=[jx+1,jy-1]
             five=[jx+1,jy]
             l3=[two]+[three]+[five]
-            thegame(l3, j, newl1)
+            thegame(l1, l3, j, newl1)
         if w==3:
             s=coor(j)
             jx=(s[0])
@@ -154,7 +154,7 @@ def conway(l1):
             two=[jx,jy-1]
             four=[jx-1,jy]
             l3=[one]+[two]+[four]
-            thegame(l3, j, newl1)
+            thegame(l1, l3, j, newl1)
         if w==4:
             s=coor(j)
             jx=(s[0])
@@ -163,7 +163,7 @@ def conway(l1):
             six=[jx-1,jy+1]
             seven=[jx,jy+1]
             l3=[four]+[six]+[seven]
-            thegame(l3, j, newl1)
+            thegame(l1, l3, j, newl1)
         if w==5:
             s=coor(j)
             jx=(s[0])
@@ -174,7 +174,7 @@ def conway(l1):
             seven=[jx,jy+1]
             eight=[jx+1,jy+1]
             l3=[two]+[three]+[five]+[seven]+[eight]
-            thegame(l3, j, newl1)
+            thegame(l1, l3, j, newl1)
         if w==6:
             s=coor(j)
             jx=(s[0])
@@ -185,7 +185,7 @@ def conway(l1):
             six=[jx-1,jy+1]
             seven=[jx,jy+1]
             l3=[one]+[two]+[four]+[six]+[seven]
-            thegame(l3, j, newl1)
+            thegame(l1, l3, j, newl1)
         if w==7:
             s=coor(j)
             jx=(s[0])
@@ -196,7 +196,7 @@ def conway(l1):
             seven=[jx,jy+1]
             eight=[jx+1,jy+1]
             l3=[four]+[five]+[six]+[seven]+[eight]
-            thegame(l3, j, newl1)
+            thegame(l1, l3, j, newl1)
         if w==9:
             s=coor(j)
             jx=(s[0])
@@ -207,7 +207,7 @@ def conway(l1):
             four=[jx-1,jy]
             five=[jx+1,jy]
             l3=[one]+[two]+[three]+[four]+[five]
-            thegame(l3, j, newl1)
+            thegame(l1, l3, j, newl1)
         if w==8:
             s=coor(j)
             jx=(s[0])
@@ -221,7 +221,7 @@ def conway(l1):
             seven=[jx,jy+1]
             eight=[jx+1,jy+1]
             l3=[one]+[two]+[three]+[four]+[five]+[six]+[seven]+[eight]
-            thegame(l3, j, newl1)
+            thegame(l1, l3, j, newl1)
     printing(newl1)
     l1=list.copy(newl1)
     emmaprint(l1)
@@ -229,7 +229,8 @@ def conway(l1):
 
 
 def spaceKey(event):
-    conway(l1)
+    global lifelist
+    lifelist = conway(lifelist)
     
 
 myapp = App()
