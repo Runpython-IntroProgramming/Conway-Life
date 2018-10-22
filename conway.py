@@ -100,6 +100,7 @@ def step():
                     for y in range(n-20, n+40, 20):
                         if y <= height and y >= 0 and (x,y) not in check_cells:
                             checkcells.append((x, y))
+        print(checkcells)
         for (m, n) in checkcells:
             for x in range(m-20, m+40, 20):
                 if x <=width and x >= 0:
