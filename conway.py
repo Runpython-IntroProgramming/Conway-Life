@@ -70,12 +70,14 @@ def mousemove(event):
         newcells.append((clickx,clicky))
 
 def pauseplay(event):
-    global go
+    global go, oldcells
     go = not go
+    print(oldcells)
     if go == True:
         print("Game is started")
     else:
         print("Game is stopped")
+    
     
 
 
@@ -84,8 +86,7 @@ def step():
     if go == True:
         for (m,n) in newcells:
             oldcells.append(m,n)
-    else:
-        print(oldcells)
+
 
 
 
