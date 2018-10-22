@@ -101,6 +101,7 @@ def step():
                         print("Hello")
                         if y <= height and y >= 0 and (x,y) not in check_cells:
                             checkcells.append((x, y))
+                            print("checkkk: " + checkcells)
 
 
         print("check: " + checkcells)
