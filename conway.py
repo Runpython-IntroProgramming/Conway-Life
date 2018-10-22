@@ -96,11 +96,13 @@ def step():
         #adjacentcells
         for (m, n) in oldcells:
             for x in range(m-20, m+40, 20):
-                print("hello")
                 if x <=width and x >= 0:
                     for y in range(n-20, n+40, 20):
+                        print("Hello")
                         if y <= height and y >= 0 and (x,y) not in check_cells:
                             checkcells.append((x, y))
+
+
         print("check: " + checkcells)
         for (m, n) in checkcells:
             for x in range(m-20, m+40, 20):
@@ -108,6 +110,8 @@ def step():
                     for y in range(n-20, n+40, 20):
                         if y <= height and y >= 0 and (x,y):
                             adjacent.append((x, y))
+
+
         adjacent.remove((m, n))
         for (a, b) in adjacent:
             if (a,b) in oldcells:
