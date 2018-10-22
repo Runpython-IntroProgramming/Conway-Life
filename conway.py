@@ -115,7 +115,7 @@ def step():
             newcells.append(m,n)
         elif (m,n) in cells:
             if g==3 or g==2:
-                Cell2((m, n)
+                Cell2((m, n))
         else:
             Cell0((m, n))
 
