@@ -106,7 +106,7 @@ def step():
                             adjacent.append((x, y))
         for (a, b) in adjacent:
             if (a,b) in oldcells:
-                nextto =+ 1
+                nextto += 1
 
 
 
