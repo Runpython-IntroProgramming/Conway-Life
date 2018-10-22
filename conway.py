@@ -53,7 +53,7 @@ class Cell2(Sprite):
 
 #when there is no cell
 class Cell0(Sprite):
-    cll0 = RectangleAsset(20,20,invis,invis)
+    cll0 = RectangleAsset(20,20,noline,invis)
     def __init__(self,  position):
         super().__init__(Cell0.cll0, position)
 
