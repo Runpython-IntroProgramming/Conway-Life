@@ -93,7 +93,7 @@ def step():
 
 
 myapp = App()
-myapp.run()
+myapp.run(step)
 myapp.listenMouseEvent('mousedown',mousedown)
 myapp.listenMouseEvent('mouseup',mouseup)
 myapp.listenMouseEvent('mousemove',mousemove)
