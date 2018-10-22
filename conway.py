@@ -103,7 +103,7 @@ def step():
                 if x <=width and x >= 0:
                     for y in range(n-20, n+40, 20):
                         if y <= height and y >= 0 and (x,y):
-                            checkcells.append((x, y))
+                            adjacent.append((x, y))
 
 
 
