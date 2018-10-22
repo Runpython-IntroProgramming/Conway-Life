@@ -79,10 +79,13 @@ def pauseplay(event):
     
 
 
-"""def step():
+def step():
     global pauseplay, newcells, oldcells
     if go == True:
-        oldcells """
+        for (m,n) in newcells:
+            oldcells.append(m,n)
+    else:
+        print(oldcells)
 
 
 
