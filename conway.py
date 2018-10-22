@@ -26,6 +26,8 @@ green = Color(0x00ff00, 1.0)
 blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 
+width = myapp.width
+height = myapp.height
 #list of coords of cells
 
 newcells = []
@@ -86,6 +88,11 @@ def step():
     if go == True:
         for (m,n) in newcells:
             oldcells.append((m, n))
+        newcells = []
+        checkcells = []
+        for (m, n) in oldcells:
+            for x in range(m-20, m+20, 20):
+                
 
 
 
