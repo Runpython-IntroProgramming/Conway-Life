@@ -84,7 +84,6 @@ def pauseplay(event):
 def step():
     global pauseplay, newcells, oldcells, go
     if go == True:
-        oldcells = []
         print("Hello")
         for x in newcells:
             oldcells.append((x))
