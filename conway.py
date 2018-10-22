@@ -53,7 +53,7 @@ class Cell2(Sprite):
 
 #when there is no cell
 class Cell0(Sprite):
-    cll0 = RectangleAsset(20,20,thinline,invis)
+    cll0 = RectangleAsset(20,20,invis,invis)
     def __init__(self,  position):
         super().__init__(Cell0.cll0, position)
 
@@ -106,13 +106,17 @@ def step():
                     for y in range(n-20, n+40, 20):
                         if y <= height and y >= 0 and (x,y):
                             adjacent.append((x, y))
+        adjacent.remove((m, n))
         for (a, b) in adjacent:
             if (a,b) in oldcells:
                 nextto += 1
         if nextto == 3 and (m,n) not in oldcells:
             Cell1((m,n))
             newcells.append(m,n)
-#        elif 
+        elif (m,n) in cells:
+            if g==3 or g==2:
+                Cell2((m, n)
+        else: 
 
 
 
