@@ -86,6 +86,7 @@ def pauseplay(event):
 def step():
     global pauseplay, newcells, oldcells, go
     adjacent = []
+    nextto = 0
     if go == True:
         for (m,n) in newcells:
             oldcells.append((m, n))
@@ -107,6 +108,8 @@ def step():
         for (a, b) in adjacent:
             if (a,b) in oldcells:
                 nextto += 1
+        if nextto == 3 and (m,n) not in oldcells:
+            Cell1(m,n)
 
 
 
