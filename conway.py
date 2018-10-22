@@ -18,7 +18,7 @@ Your live cells should be two different colors: one for its first day of “life
 from ggame import App, Color, LineStyle, Sprite
 from ggame import RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 o = 0
-
+go = False
 #colors
 invis = Color(0xffffff,1)
 red = Color(0xff0000, 1.0)
@@ -69,26 +69,24 @@ def mousemove(event):
         Cell1((clickx,clicky))
         newcells.append((clickx,clicky))
 
-"""def space(event):
-    global newcells
-    for ("""
+def pauseplay(event):
+    global go
+    go = not go
+    if go == True:
+        print("Game is started")
+    else:
+        print("Game is stopped")
 
 
 
 
-#def step(event):
-#    print("Hello")
-            
-            
 
-#dimensions
 
-#Cell1((10, 10))
 myapp = App()
 myapp.run()
 myapp.listenMouseEvent('mousedown',mousedown)
 myapp.listenMouseEvent('mouseup',mouseup)
 myapp.listenMouseEvent('mousemove',mousemove)
-#myapp.listenKeyEvent('keydown','space',space)
+myapp.listenKeyEvent('keydown','space',pauseplay)
 
 
