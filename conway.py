@@ -82,12 +82,12 @@ def pauseplay(event):
         print("Game is stopped")
     
     
-
+nextto = 0
 
 def step():
-    global pauseplay, newcells, oldcells, go
+    global pauseplay, newcells, oldcells, go, nextto
     adjacent = []
-    nextto = 0
+    print("hello")
     if go == True:
         for (m,n) in newcells:
             oldcells.append((m, n))
