@@ -110,6 +110,7 @@ def step():
                 nextto += 1
         if nextto == 3 and (m,n) not in oldcells:
             Cell1(m,n)
+            newcells.append(m,n)
 
 
 
