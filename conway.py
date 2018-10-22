@@ -85,7 +85,7 @@ def step():
     global pauseplay, newcells, oldcells
     if go == True:
         for (m, n) in newcells:
-            oldcells.append(m, n)
+            oldcells.append((m, n))
 
 
 
