@@ -104,6 +104,9 @@ def step():
                     for y in range(n-20, n+40, 20):
                         if y <= height and y >= 0 and (x,y):
                             adjacent.append((x, y))
+        for (a, b) in adjacent:
+            if (a,b) in oldcells:
+                nextto =+ 1
 
 
 
