@@ -85,7 +85,7 @@ def pauseplay(event):
 nextto = 0
 
 def step():
-    global pauseplay, newcells, oldcells, go, nextto
+    global pauseplay, newcells, oldcells, go, nextto, height, width
     adjacent = []
     if go == True:
         for (m,n) in newcells:
