@@ -85,6 +85,7 @@ def pauseplay(event):
 
 def step():
     global pauseplay, newcells, oldcells, go
+    adjacent = []
     if go == True:
         for (m,n) in newcells:
             oldcells.append((m, n))
@@ -97,7 +98,12 @@ def step():
                     for y in range(n-20, n+40, 20):
                         if y <= height and y >= 0 and (x,y) not in check_cells:
                             checkcells.append((x, y))
-        for (m, n) in checkcells
+        for (m, n) in checkcells:
+            for x in range(m-20, m+40, 20):
+                if x <=width and x >= 0:
+                    for y in range(n-20, n+40, 20):
+                        if y <= height and y >= 0 and (x,y):
+                            checkcells.append((x, y))
 
 
 
