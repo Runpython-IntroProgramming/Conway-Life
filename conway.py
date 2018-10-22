@@ -87,8 +87,8 @@ nextto = 0
 def step():
     global pauseplay, newcells, oldcells, go, nextto
     adjacent = []
-    print("hello")
     if go == True:
+        print("Hello")
         for (m,n) in newcells:
             oldcells.append((m, n))
         newcells = []
