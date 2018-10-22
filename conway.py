@@ -90,7 +90,7 @@ def step():
     if go == True:
         for (m,n) in newcells:
             oldcells.append((m, n))
-            print(oldcells)
+        print(oldcells)
         newcells = []
         checkcells = []
         #adjacentcells
