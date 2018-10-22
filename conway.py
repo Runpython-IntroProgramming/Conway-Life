@@ -72,12 +72,18 @@ def mousemove(event):
 def pauseplay(event):
     global go
     go = not go
+    print(newcells)
     if go == True:
         print("Game is started")
     else:
         print("Game is stopped")
+    
 
 
+"""def step():
+    global pauseplay, newcells, oldcells
+    if go == True:
+        oldcells """
 
 
 
