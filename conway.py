@@ -110,8 +110,9 @@ def step():
             if (a,b) in oldcells:
                 nextto += 1
         if nextto == 3 and (m,n) not in oldcells:
-            Cell1(m,n)
+            Cell1((m,n))
             newcells.append(m,n)
+#        elif 
 
 
 
