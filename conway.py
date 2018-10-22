@@ -69,9 +69,9 @@ def mousemove(event):
         Cell1((clickx,clicky))
         newcells.append((clickx,clicky))
 
-def space(event):
+"""def space(event):
     global newcells
-    for (
+    for ("""
 
 
 
@@ -89,6 +89,6 @@ myapp.run()
 myapp.listenMouseEvent('mousedown',mousedown)
 myapp.listenMouseEvent('mouseup',mouseup)
 myapp.listenMouseEvent('mousemove',mousemove)
-myapp.listenKeyEvent('keydown','space',space)
+#myapp.listenKeyEvent('keydown','space',space)
 
 
