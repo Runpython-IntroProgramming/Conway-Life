@@ -18,6 +18,7 @@ Your live cells should be two different colors: one for its first day of “life
 from ggame import App, Color, LineStyle, Sprite
 from ggame import RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 o = 0
+myapp = App()
 go = False
 #colors
 invis = Color(0xffffff,1)
@@ -116,7 +117,7 @@ def step():
 
 
 
-myapp = App()
+
 myapp.run(step)
 myapp.listenMouseEvent('mousedown',mousedown)
 myapp.listenMouseEvent('mouseup',mouseup)
