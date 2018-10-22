@@ -70,9 +70,8 @@ def mousemove(event):
         newcells.append((clickx,clicky))
 
 def pauseplay(event):
-    global go, oldcells
+    global go
     go = not go
-    print(oldcells)
     if go == True:
         print("Game is started")
     else:
