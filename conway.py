@@ -112,18 +112,18 @@ def step():
                             adjacent.append((x, y))
 
 
-#        adjacent.remove((m, n))
-        for (a, b) in adjacent:
-            if (a,b) in oldcells:
-                nextto += 1
-        if nextto == 3 and (m, n) not in oldcells:
-            Cell1((m, n))
-            newcells.append(m,n)
-        elif (m, n) in oldcells:
-            if g==3 or g==2:
-                Cell2((m, n))
-        else:
-            Cell0((m, n))
+#       adjacent.remove((m, n))
+            for (a, b) in adjacent:
+                if (a,b) in oldcells:
+                    nextto += 1
+            if nextto == 3 and (m, n) not in oldcells:
+                Cell1((m, n))
+                newcells.append(m,n)
+            elif (m, n) in oldcells:
+                if g==3 or g==2:
+                    Cell2((m, n))
+            else:
+                Cell0((m, n))
 
 
 
