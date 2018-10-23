@@ -93,6 +93,7 @@ def step():
         newcells = []
         checkcells = []
         #adjacentcells
+#cells which may be next to others
         for (m, n) in oldcells:
             for x in range(m-20, m+40, 20):
                 if x <=width and x >= 0:
