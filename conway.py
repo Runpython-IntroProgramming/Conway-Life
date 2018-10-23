@@ -64,8 +64,8 @@ class ConwayLife(App):
         Cell((111,111))
 
     def step(self):
-        for ship in self.getSpritesbyClass(SpaceShip):
-            ship.step()
+        for cell in self.getSpritesbyClass(Cell):
+            cell.step()
 
 
 myapp = ConwayLife()
