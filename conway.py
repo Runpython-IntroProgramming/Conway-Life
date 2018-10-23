@@ -100,7 +100,7 @@ def step():
                     for y in range(n-20, n+40, 20):
                         if y <= height and y >= 0 and (x, y) not in checkcells:
                             checkcells.append((x, y))
-        print("check: " + str(checkcells))
+        #print("check: " + str(checkcells))
 
 
 
@@ -114,19 +114,18 @@ def step():
                             adjacent.append((x, y))
 
             adjacent.remove(m, n)
-#check for 3 adjacent
-#        print("adjacent: " + str(adjacent) + str(len(adjacent)))
+
             for (a, b) in adjacent:
                 if (a, b) in oldcells:
                     nextto += 1
-                    if nextto == 3 and (a, b) not in oldcells:
-                        Cell1((a, b))
-                        newcells.append(a, b)
-                for (a, b) in oldcells:
-                    if g==3 or g==2:
-                        Cell2((a, b))
-                    else:
-                        Cell0((a, b))
+            if nextto == 3 and (a, b) not in oldcells:
+                    Cell1((a, b))
+                    newcells.append(a, b)
+            elif (m, n) in oldcells:
+                if nextto == 2 or nextto == 3:
+                    Cell2((m, n))
+            else:
+                    Cell0((a, b))
 #            print("nextto: " + str(nextto))
 
 
