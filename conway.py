@@ -68,5 +68,4 @@ class ConwayLife(App):
             cell.step()
 
 
-myapp = ConwayLife()
-myapp.run()
+ConwayLife().run()
