@@ -47,12 +47,9 @@ class Cell(Sprite):
         else:
             self.setImage(0)
 
-    def mouseClick(event):
+    def clone(self, event)
         self.x = event.x
         self.y = event.y
-
-    def clone(self, event)
-        
 
 
 class ConwayLife(App):
