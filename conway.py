@@ -87,7 +87,7 @@ def step():
     global pauseplay, newcells, oldcells, go, nextto, height, width, checkcells, Cell1, Cell2, Cell0
     adjacent = []
     if go == True:
-        for (m,n) in newcells:
+        for (m, n) in newcells:
             oldcells.append((m, n))
             cell2((m, n))
 #move newcells to oldcells
