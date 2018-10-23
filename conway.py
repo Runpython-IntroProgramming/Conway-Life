@@ -30,20 +30,64 @@ class grid(App):
         bg = Sprite(bg_asset, (0,0))
         grid((100,100))
 '''
-
-
+'''
 grid=[]
 for m in range(10):
     grey = Color(0x000000,.3)
     side = LineStyle(1,grey)
     square = RectangleAsset(8,8,side,grey)
-    a = sprite(square,(10,10+(8*m)))
+    a = Sprite(square,(10,10+(8*m)))
     m=m+1
     grid.append(a)
     
 moregrid=[]
 for m in range(10):
-    sprite(grid(m))
+    Sprite(grid(m))
+'''
+w = int(input("How wide would you like youre grid? "))
+l = int(input("How long would you like youre grid? "))
+
+grey = Color(0x000000,.3)
+side = LineStyle(1,grey)
+square = RectangleAsset(8,8,side,grey)
+    
+a = []
+x = []
+y = []
+
+b=[]
+
+for m in range(w):
+    x.append(10+(8*m))
+    y.append(10)
+    b.append(10+(8*m))
+    
+for m in b:
+    for n in range(l):
+        x.append(m)
+        y.append(18+(n*8))
+    
+print(x)
+print(y)
+
+for m in range(len(x)):
+    a.append(square)
+
+d = zip(x,y)
+e = zip(a,d)
+
+for m in d:
+    print(m[0],m[1])
+
+spritelist = []
+
+for m in e:
+    Sprite(m[0],m[1])
+    spritelist.append(Sprite(m[0],m[1]))
+
+
+
+
 
 
 
