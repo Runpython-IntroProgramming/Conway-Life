@@ -65,11 +65,11 @@ def mouseup(event):
     o = 0
 
 def mousemove(event):
-    global Cell12, o, newcells
+    global Cell1, o, newcells
     clickx = int((event.x//20)*20)
     clicky = int((event.y//20)*20)
     if o==1 and (clickx,clicky) not in newcells:
-        Cell2((clickx,clicky))
+        Cell1((clickx,clicky))
         newcells.append((clickx,clicky))
 
 def pauseplay(event):
