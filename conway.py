@@ -112,15 +112,16 @@ def step():
                     for y in range(n-20, n+40, 20):
                         if y <= height and y >= 0 and (x,y):
                             adjacent.append((x, y))
-                            adjacent.remove((m, n))
+            adjacent.remove((m, n))
 
             for (a, b) in adjacent:
                 if (a, b) in oldcells:
                     nextto += 1
             print("nextto: " + str(nextto))
-            if nextto == 3 and (a, b) not in oldcells:
-                    Cell1((a, b))
-                    newcells.append(a, b)
+            
+            if nextto == 3 and (m, n) not in oldcells:
+                    Cell1((m, n))
+                    newcells.append(m, n)
             elif (m, n) in oldcells:
                 if nextto == 2 or nextto == 3:
                     Cell2((m, n))
