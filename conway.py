@@ -68,5 +68,4 @@ class ConwayLife(App):
             ship.step()
 
 
-myapp = SpaceGame()
-myapp.run()
+ConwayLife.run()
