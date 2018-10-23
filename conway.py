@@ -113,7 +113,7 @@ def step():
 
 
 #check for 3 adjacent
-        print("adjacent: " + str(adjacent))
+        print("adjacent: " + str(adjacent) + str(len(adjacent))
         for (a, b) in adjacent:
             nextto = 0
             for (a, b) in oldcells:
