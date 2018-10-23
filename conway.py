@@ -68,4 +68,5 @@ class ConwayLife(App):
             ship.step()
 
 
-ConwayLife.run()
+myapp = ConwayLife()
+myapp.run()
