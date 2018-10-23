@@ -113,20 +113,20 @@ def step():
 
 
 #check for 3 adjacent
-        print("adjacent: " + str(adjacent) + str(len(adjacent))
-        for (a, b) in adjacent:
-            nextto = 0
-            for (a, b) in oldcells:
-                nextto += 1
-                if nextto == 3 and (a, b) not in oldcells:
-                    Cell1((a, b))
-                    newcells.append(a, b)
-                    print("ab: " + (a, b))
-            for (a, b) in oldcells:
-                if g==3 or g==2:
-                    Cell2((a, b))
-                else:
-                    Cell0((a, b))
+        print("adjacent: " + str(adjacent) + str(len(adjacent)))
+            for (a, b) in adjacent:
+                nextto = 0
+                for (a, b) in oldcells:
+                    nextto += 1
+                    if nextto == 3 and (a, b) not in oldcells:
+                        Cell1((a, b))
+                        newcells.append(a, b)
+                        print("ab: " + (a, b))
+                for (a, b) in oldcells:
+                    if g==3 or g==2:
+                        Cell2((a, b))
+                    else:
+                        Cell0((a, b))
 #            print("nextto: " + str(nextto))
 
 
