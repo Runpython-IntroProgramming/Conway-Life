@@ -84,11 +84,13 @@ def pauseplay(event):
 nextto = 0
 
 def step():
-    global pauseplay, newcells, oldcells, go, nextto, height, width, checkcells
+    global pauseplay, newcells, oldcells, go, nextto, height, width, checkcells, Cell1, Cell2, Cell0
     adjacent = []
     if go == True:
         for (m,n) in newcells:
             oldcells.append((m, n))
+            cell2
+#move newcells to oldcells
         print("old: " + str(oldcells))
         newcells = []
         checkcells = []
@@ -100,7 +102,7 @@ def step():
                     for y in range(n-20, n+40, 20):
                         if y <= height and y >= 0 and (x, y) not in checkcells:
                             checkcells.append((x, y))
-        #print("check: " + str(checkcells))
+        print("check: " + str(checkcells))
 
 
 
