@@ -120,7 +120,7 @@ def step():
             print("nextto: " + str(nextto))
             
             if nextto == 3 and (m, n) not in oldcells:
-                print("should be")
+                print("should be" + str((m, n)))
                 Cell1((m, n))
                 newcells.append((m, n))
             elif (m, n) in oldcells:
