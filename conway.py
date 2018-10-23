@@ -15,7 +15,7 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset
 
 day1 = Color(0xffffff, 1.0)
-day2 = Color(0x000000, 1.0)
+day2 = Color(0xC0C0C0, 1.0)
 grey = Color(0xC0C0C0, 1.0)
 gridgrey = LineStyle(1, grey)
 noline = LineStyle(0, grey)
@@ -24,7 +24,7 @@ class Cell(Sprite):
     """
     Cell outline
     """
-    asset = RectangleAsset(20, 20, gridgrey, day2)
+    asset = RectangleAsset(20, 20, gridgrey, day1)
 
     def __init__(self, position):
         super().__init__(Cell.asset, position)
