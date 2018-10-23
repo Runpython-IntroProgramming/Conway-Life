@@ -105,6 +105,8 @@ def step():
 
 
         for (m, n) in checkcells:
+            nextto = 0
+            adjacent = []
             for x in range(m-20, m+40, 20):
                 if x <=width and x >= 0:
                     for y in range(n-20, n+40, 20):
@@ -113,9 +115,8 @@ def step():
 
 
 #check for 3 adjacent
-        print("adjacent: " + str(adjacent) + str(len(adjacent)))
+#        print("adjacent: " + str(adjacent) + str(len(adjacent)))
             for (a, b) in adjacent:
-                nextto = 0
                 for (a, b) in oldcells:
                     nextto += 1
                     if nextto == 3 and (a, b) not in oldcells:
