@@ -28,7 +28,7 @@ class Cell(Sprite):
 
     def __init__(self, position):
         super().__init__(Cell.asset, position)
-        SpaceGame.listenMouseEvent("click", "mouseclick", self.clone)
+        ConwayLife.listenMouseEvent("click", "mouseclick", self.clone)
         self.fxcenter = self.fycenter = 0.5
         self.thrust = 0
         self.thrustframe = 1
