@@ -122,7 +122,7 @@ def step():
             if nextto == 3 and (m, n) not in oldcells:
                 print("hello")
                 Cell1((m, n))
-                newcells.append(m, n)
+                newcells.append((m, n))
             elif (m, n) in oldcells:
                 if nextto == 2 or nextto == 3:
                     Cell2((m, n))
