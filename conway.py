@@ -75,7 +75,6 @@ def mousemove(event):
 def pauseplay(event):
     global go, oldcells
     go = not go
-    print(oldcells)
     if go == True:
         print("Game is started")
     else:
