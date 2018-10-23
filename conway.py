@@ -89,7 +89,7 @@ def step():
     if go == True:
         for (m,n) in newcells:
             oldcells.append((m, n))
-            cell2
+            cell2((m, n))
 #move newcells to oldcells
         print("old: " + str(oldcells))
         newcells = []
