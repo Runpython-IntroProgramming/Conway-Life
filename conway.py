@@ -24,8 +24,7 @@ class Cell(Sprite):
     """
     Cell outline
     """
-    asset = RectangleAsset("images/four_spaceship_by_albertov_with_thrust.png",
-        Frame(227,0,65,125), 4, 'vertical')
+    asset = RectangleAsset(20, 20, gridgrey, day2)
 
     def __init__(self, position):
         super().__init__(SpaceShip.asset, position)
