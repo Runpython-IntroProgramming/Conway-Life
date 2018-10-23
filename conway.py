@@ -116,7 +116,7 @@ def step():
         print("adjacent: " + str(adjacent))
         for (a, b) in adjacent:
             nextto = 0
-            if (a, b) in oldcells:
+            for (a, b) in oldcells:
                 nextto += 1
             if nextto == 3 and (a, b) not in oldcells:
                 Cell1((a, b))
