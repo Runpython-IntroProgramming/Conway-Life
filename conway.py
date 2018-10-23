@@ -124,9 +124,9 @@ def step():
             for (a, b) in oldcells:
                 if g==3 or g==2:
                     Cell2((a, b))
-            else:
-                Cell0((a, b))
-            print("nextto: " + str(nextto))
+                else:
+                    Cell0((a, b))
+#            print("nextto: " + str(nextto))
 
 
 
