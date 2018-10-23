@@ -114,7 +114,7 @@ def step():
 
 #       adjacent.remove((m, n))
         for (a, b) in adjacent:
-            if (a,b) in oldcells:
+            if (a, b) in oldcells:
                 nextto += 1
         if nextto == 3 and (m, n) not in oldcells:
             Cell1((m, n))
