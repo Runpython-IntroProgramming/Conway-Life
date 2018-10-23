@@ -116,6 +116,7 @@ def step():
         for (a, b) in adjacent:
             if (a, b) in oldcells:
                 nextto += 1
+        print("nextto: " + str(nextto))
         if nextto == 3 and (m, n) not in oldcells:
             Cell1((m, n))
             newcells.append(m, n)
