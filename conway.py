@@ -112,7 +112,8 @@ def step():
                             adjacent.append((x, y))
 
 
-#       adjacent.remove((m, n))
+#check for 3 adjacent
+        print("adjacent: " + str(adjacent))
         for (a, b) in adjacent:
             nextto = 0
             if (a, b) in oldcells:
