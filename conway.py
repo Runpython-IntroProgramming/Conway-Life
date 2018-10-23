@@ -100,7 +100,7 @@ def step():
                     for y in range(n-20, n+40, 20):
                         if y <= height and y >= 0 and (x, y) not in checkcells:
                             checkcells.append((x, y))
-
+        print("check: " + str(checkcells)
 
 
 
