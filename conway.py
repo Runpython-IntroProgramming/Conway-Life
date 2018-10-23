@@ -47,7 +47,7 @@ class Cell(Sprite):
         else:
             self.setImage(0)
 
-    def clone(self, event)
+    def clone(self, event):
         self.x = event.x
         self.y = event.y
 
