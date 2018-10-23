@@ -117,15 +117,15 @@ def step():
             nextto = 0
             if (a, b) in oldcells:
                 nextto += 1
-            print("nextto: " + str(nextto))
             if nextto == 3 and (m, n) not in oldcells:
                 Cell1((m, n))
                 newcells.append(m, n)
             elif (m, n) in oldcells:
                 if g==3 or g==2:
-                Cell2((m, n))
+                    Cell2((m, n))
             else:
                 Cell0((m, n))
+            print("nextto: " + str(nextto))
 
 
 
