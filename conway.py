@@ -61,7 +61,7 @@ class ConwayLife(App):
         # Background
         bg_asset = RectangleAsset(self.width, self.height, noline, grey)
         bg = Sprite(bg_asset, (0,0))
-
+        Cell((111,111))
 
     def step(self):
         for ship in self.getSpritesbyClass(SpaceShip):
