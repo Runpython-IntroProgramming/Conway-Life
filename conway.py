@@ -118,10 +118,10 @@ def step():
             nextto = 0
             for (a, b) in oldcells:
                 nextto += 1
-            if nextto == 3 and (a, b) not in oldcells:
-                Cell1((a, b))
-                newcells.append(a, b)
-            elif (a, b) in oldcells:
+                if nextto == 3 and (a, b) not in oldcells:
+                    Cell1((a, b))
+                    newcells.append(a, b)
+            for (a, b) in oldcells:
                 if g==3 or g==2:
                     Cell2((a, b))
             else:
