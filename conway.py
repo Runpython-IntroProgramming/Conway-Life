@@ -37,6 +37,10 @@ class Cell(Sprite):
     def dead():
         pass
 
+    def step(self):
+        pass
+    
+
 class ConwayLife(App):
     """
     Game setup
