@@ -26,6 +26,9 @@ class Cell(Sprite):
     """
     asset = RectangleAsset(20, 20, gridgrey, day2)
 
+    def mouseClick(self, event):
+        Cell((event.x,event.y))
+
     def __init__(self, position):
         super().__init__(Cell.asset, position)
         ConwayLife.listenMouseEvent("click", mouseClick)
@@ -33,8 +36,7 @@ class Cell(Sprite):
         self.thrust = 0
         self.thrustframe = 1
 
-    def mouseClick(self, event):
-        Cell((event.x,event.y))
+
 
 
 class ConwayLife(App):
