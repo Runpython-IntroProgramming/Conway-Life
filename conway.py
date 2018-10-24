@@ -130,6 +130,7 @@ def step():
                     Cell2((m, n))
                     newcells.append((m, n))
                 else:
+                    print('wassup")
                     Cell0((m, n))
                     oldcell.remove((m, n))
             else:
