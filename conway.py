@@ -17,6 +17,7 @@ Your live cells should be two different colors: one for its first day of “life
 """
 from ggame import App, Color, LineStyle, Sprite
 from ggame import RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
+import time
 o = 0
 myapp = App()
 go = False
