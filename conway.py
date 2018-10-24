@@ -50,7 +50,6 @@ class ConwayLife(App):
         bg_asset = RectangleAsset(self.width, self.height, noline, grey)
         bg = Sprite(bg_asset, (0,0))
         ConwayLife.listenMouseEvent("click", self.mouseClick)
-        Cell((111,111))
     
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
