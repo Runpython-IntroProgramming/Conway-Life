@@ -125,11 +125,13 @@ def step():
                 Cell1((m,n))
                 newcells.append((m, n))
             elif (m, n) in oldcells:
+                print("elif")
                 if nextto == 2 or nextto == 3:
                     Cell2((m, n))
-                    newcell.append((m, n))
+                    newcells.append((m, n))
             else:
-                    Cell0((m, n))
+                print("else")
+                Cell0((m, n))
 #            print("nextto: " + str(nextto))
 
 
