@@ -131,6 +131,7 @@ def step():
                     newcells.append((m, n))
                 else:
                     Cell0((m, n))
+                    oldcell.remove((m, n))
             else:
                 print("c0 at" + str((m, n)))
                 Cell0((m, n))
