@@ -57,6 +57,6 @@ class ConwayLife(App):
             cell.step()
 
     def mouseClick(self, event):
-        Cell((int(event.x),int(event.y)))
+        Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
 
 ConwayLife().run()
