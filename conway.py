@@ -29,7 +29,7 @@ class Cell(Sprite):
     def __init__(self, position):
         super().__init__(Cell.asset, position)
         self.fxcenter = self.fycenter = 0.5
-        print('initcell')
+        print('initcell', position)
 
     def alive():
         pass
