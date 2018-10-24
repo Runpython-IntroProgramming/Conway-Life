@@ -24,32 +24,22 @@ class Cell(Sprite):
     """
     Cell outline
     """
-    asset = RectangleAsset(20, 20, gridgrey, day1)
+    asset = RectangleAsset(20, 20, gridgrey, day2)
 
     def __init__(self, position):
         super().__init__(Cell.asset, position)
-        ConwayLife.listenMouseEvent("click", self.clone)
+        ConwayLife.listenMouseEvent("click", mouseClick)
         self.fxcenter = self.fycenter = 0.5
         self.thrust = 0
         self.thrustframe = 1
 
     def step(self):
-        '''self.x += self.vx'''
-        self.y += -self.thrust
-        self.rotation += self.vr
-        # manage thrust animation
-        if self.thrust == 1:
-            print('step')
-            self.setImage(self.thrustframe)
-            self.thrustframe += 1
-            if self.thrustframe == 4:
-                self.thrustframe = 1
-        else:
-            self.setImage(0)
+        pass
 
     def clone(self, event):
-        self.x = event.x
-        self.y = event.y
+        takex = event.x
+        takey = event.y
+        Cell((takex,takey))
 
 
 class ConwayLife(App):
