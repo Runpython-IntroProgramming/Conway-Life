@@ -132,7 +132,7 @@ def step():
                 else:
                     print("wassup")
                     Cell0((m, n))
-                    oldcell.remove((m, n))
+                    oldcells.remove((m, n))
             else:
                 print("c0 at" + str((m, n)))
                 Cell0((m, n))
