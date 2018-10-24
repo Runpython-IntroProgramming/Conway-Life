@@ -49,7 +49,7 @@ class StartButton(Sprite):
     """
     Cell outline
     """
-    asset = RectangleAsset(50, 150, noline, day1)
+    asset = RectangleAsset(150, 50, noline, day1)
 
     def __init__(self, position):
         super().__init__(StartButton.asset, position)
