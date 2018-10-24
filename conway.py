@@ -53,7 +53,7 @@ class ConwayLife(App):
             cell.step()
 
     def mouseClick(self, event):
-        print('click')
+        print('click', event.x, event.y)
         Cell((event.x,event.y))
 
 ConwayLife().run()
