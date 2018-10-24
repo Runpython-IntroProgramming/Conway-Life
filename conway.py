@@ -17,7 +17,7 @@ Your live cells should be two different colors: one for its first day of “life
 """
 from ggame import App, Color, LineStyle, Sprite
 from ggame import RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
-import time
+
 o = 0
 myapp = App()
 go = False
@@ -106,7 +106,6 @@ def step():
 
 
         for (m, n) in checkcells:
-#            time.sleep(3)
             nextto = 0
             adjacent = []
             for x in range(m-20, m+40, 20):
