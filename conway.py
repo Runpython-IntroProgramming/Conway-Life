@@ -24,7 +24,7 @@ class Cell(Sprite):
     """
     Cell outline
     """
-    asset = RectangleAsset(20, 20, gridgrey, day2)
+    asset = RectangleAsset(20, 20, gridgrey, day1)
 
     def __init__(self, position):
         super().__init__(Cell.asset, position)
