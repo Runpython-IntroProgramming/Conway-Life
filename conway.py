@@ -54,6 +54,6 @@ class ConwayLife(App):
 
     def mouseClick(self, event):
         print('click', event.x, event.y)
-        Cell((event.x,event.y))
+        Cell((int(event.x),int(event.y)))
 
 ConwayLife().run()
