@@ -74,4 +74,7 @@ class ConwayLife(App):
     def mouseClick(self, event):
         Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
 
+    def start():
+        pass
+
 ConwayLife().run()
