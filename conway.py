@@ -33,13 +33,8 @@ class Cell(Sprite):
         self.thrust = 0
         self.thrustframe = 1
 
-    def step(self):
-        pass
-
     def mouseClick(self, event):
-        takex = event.x
-        takey = event.y
-        Cell((takex,takey))
+        Cell((event.x,event.y))
 
 
 class ConwayLife(App):
