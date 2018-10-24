@@ -32,13 +32,28 @@ class Cell(Sprite):
 
     def alive():
         pass
+    #Any live cell with two or three live neighbors lives on to the next generation.
+    #Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
     
     def dead():
         pass
-
+    #Any live cell with fewer than two live neighbors dies, as if by underpopulation.
+    #Any live cell with more than three live neighbors dies, as if by overpopulation.
+    #if neighbors > 3 or neighbors < 1:
+    
     def step(self):
         pass
-    
+
+
+class StartButton(Sprite):
+    """
+    Cell outline
+    """
+    asset = RectangleAsset(10, 100, noline, day1)
+
+    def __init__(self, position):
+        super().__init__(Cell.asset, position)
+        self.fxcenter = self.fycenter = 0.5
 
 class ConwayLife(App):
     """
@@ -50,6 +65,7 @@ class ConwayLife(App):
         bg_asset = RectangleAsset(self.width, self.height, noline, grey)
         bg = Sprite(bg_asset, (0,0))
         ConwayLife.listenMouseEvent("click", self.mouseClick)
+        StartButton((100,100))
     
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
