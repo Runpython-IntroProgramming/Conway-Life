@@ -36,7 +36,7 @@ class Cell(Sprite):
     def step(self):
         pass
 
-    def clone(self, event):
+    def mouseClick(self, event):
         takex = event.x
         takey = event.y
         Cell((takex,takey))
