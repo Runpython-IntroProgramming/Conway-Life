@@ -31,6 +31,9 @@ class Cell(Sprite):
         ConwayLife.listenMouseEvent("click", mouseClick)
         self.fxcenter = self.fycenter = 0.5
 
+    def mouseClick(event):
+        Cell((event.x,event.y))
+
     def alive():
         pass
     
@@ -47,10 +50,7 @@ class ConwayLife(App):
         bg_asset = RectangleAsset(self.width, self.height, noline, grey)
         bg = Sprite(bg_asset, (0,0))
         Cell((111,111))
-
-    def mouseClick(event):
-        Cell((event.x,event.y))
-        
+    
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
