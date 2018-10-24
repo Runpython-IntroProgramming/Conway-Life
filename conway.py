@@ -28,12 +28,10 @@ class Cell(Sprite):
 
     def __init__(self, position):
         super().__init__(Cell.asset, position)
-        ConwayLife.listenMouseEvent("click", self.mouseClick)
+        ConwayLife.listenMouseEvent("click", mouseClick)
         self.fxcenter = self.fycenter = 0.5
-        self.thrust = 0
-        self.thrustframe = 1
 
-    def mouseClick(self, event):
+    def mouseClick(event):
         Cell((event.x,event.y))
 
 
@@ -46,7 +44,6 @@ class ConwayLife(App):
         # Background
         bg_asset = RectangleAsset(self.width, self.height, noline, grey)
         bg = Sprite(bg_asset, (0,0))
-        Cell((111,111))
 
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
