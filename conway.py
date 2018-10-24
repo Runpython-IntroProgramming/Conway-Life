@@ -70,7 +70,7 @@ def mousemove(event):
     clicky = int((event.y//20)*20)
     if o==1 and (clickx,clicky) not in newcells:
         Cell1((clickx,clicky))
-        newcells.append((clickx,clicky))
+        newcells.append((clickx, clicky))
 
 def pauseplay(event):
     global go, oldcells
