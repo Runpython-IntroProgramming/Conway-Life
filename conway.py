@@ -130,7 +130,7 @@ def step():
                     Cell2((m, n))
                     newcells.append((m, n))
             else:
-                print("else")
+                print("c0 at" + str(m, n))
                 Cell0((m, n))
 #            print("nextto: " + str(nextto))
 
