@@ -26,13 +26,14 @@ class Cell(Sprite):
     """
     asset = RectangleAsset(20, 20, gridgrey, day1)
 
+    def mouseClick(event):
+        Cell((event.x,event.y))
+
     def __init__(self, position):
         super().__init__(Cell.asset, position)
         ConwayLife.listenMouseEvent("click", mouseClick)
         self.fxcenter = self.fycenter = 0.5
 
-    def mouseClick(event):
-        Cell((event.x,event.y))
 
     def alive():
         pass
