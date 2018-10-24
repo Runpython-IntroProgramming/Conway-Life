@@ -29,7 +29,6 @@ class Cell(Sprite):
     def __init__(self, position):
         super().__init__(Cell.asset, position)
         self.fxcenter = self.fycenter = 0.5
-        print('initcell', position)
 
     def alive():
         pass
@@ -58,7 +57,6 @@ class ConwayLife(App):
             cell.step()
 
     def mouseClick(self, event):
-        print('click', event.x, event.y)
         Cell((int(event.x),int(event.y)))
 
 ConwayLife().run()
