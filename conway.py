@@ -32,8 +32,7 @@ class Cell(Sprite):
 
     def alive():
         pass
-        collcheck = collidingWithSprites(self, sclass=Cell)
-    #Any live cell with two or thre             print('hello')e live neighbors lives on to the next generation.
+    #Any live cell with two or three live neighbors lives on to the next generation.
     #Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
     
     def dead():
@@ -47,6 +46,14 @@ class Cell(Sprite):
         collcheck = self.collidingWithSprites(Cell)
         if collcheck:
             print(list(collcheck))
+            if range(collcheck) > 3:
+                print('Dead')
+            if range(collcheck) < 2:
+                print('Dead')
+            if range(collcheck) >= 2:
+                if range(collcheck) <= 3:
+                print('Alive')
+            if 
         else:
             pass
 
