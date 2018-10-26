@@ -24,7 +24,7 @@ class Cell(Sprite):
     """
     Cell outline
     """
-    asset = RectangleAsset(10, 10, gridgrey, day1)
+    asset = RectangleAsset(11, 11, gridgrey, day1)
 
     def __init__(self, position):
         super().__init__(Cell.asset, position)
@@ -45,16 +45,6 @@ class Cell(Sprite):
         pass
 
 
-class StartButton(Sprite):
-    """
-    Cell outline
-    """
-    asset = RectangleAsset(150, 50, noline, day1)
-
-    def __init__(self, position):
-        super().__init__(StartButton.asset, position)
-
-
 class ConwayLife(App):
     """
     Game setup
@@ -65,8 +55,8 @@ class ConwayLife(App):
         bg_asset = RectangleAsset(self.width, self.height, noline, grey)
         bg = Sprite(bg_asset, (0,0))
         ConwayLife.listenMouseEvent("click", self.mouseClick)
-        StartButton((0,0))
-    
+        ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
+
     def step(self):
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
