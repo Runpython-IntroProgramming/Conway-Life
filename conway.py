@@ -46,12 +46,12 @@ class Cell(Sprite):
         collcheck = self.collidingWithSprites(Cell)
         if collcheck:
             print(list(collcheck))
-            if range(collcheck) > 3:
+            if range(list(collcheck)) > 3:
                 print('Dead')
-            if range(collcheck) < 2:
+            if range(list(collcheck)) < 2:
                 print('Dead')
-            if range(collcheck) >= 2:
-                if range(collcheck) <= 3:
+            if range(list(collcheck)) >= 2:
+                if range(list(collcheck)) <= 3:
                     print('Alive')
         else:
             pass
@@ -69,7 +69,7 @@ class ConwayLife(App):
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
 
     def step(self):
-        print(range([1,2,3,4])
+        print(range(list([1,2,3,4]))
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
 
