@@ -52,8 +52,7 @@ class Cell(Sprite):
                 print('Dead')
             if range(collcheck) >= 2:
                 if range(collcheck) <= 3:
-                print('Alive')
-            if 
+                    print('Alive')
         else:
             pass
 
