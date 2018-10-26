@@ -69,7 +69,7 @@ class ConwayLife(App):
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
 
     def step(self):
-        print(range(list([1,2,3,4]))
+        print(range(list([1,2,3,4])))
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
 
