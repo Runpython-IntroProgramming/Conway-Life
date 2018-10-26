@@ -32,6 +32,7 @@ class Cell(Sprite):
 
     def alive():
         pass
+        collcheck = collidingWithSprites(self, sclass=Cell)
     #Any live cell with two or three live neighbors lives on to the next generation.
     #Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
     
@@ -42,7 +43,8 @@ class Cell(Sprite):
     #if neighbors > 3 or neighbors < 1:
     
     def step(self):
-        pass
+        collcheck = collidingWithSprites(self, sclass=Cell)
+        print(collcheck)
 
 
 class ConwayLife(App):
