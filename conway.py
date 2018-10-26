@@ -45,7 +45,7 @@ class Cell(Sprite):
         print('hi')
         collcheck = self.collidingWithSprites(Cell)
         if collcheck:
-            print(list(collcheck))
+            print(range(list(collcheck)))
             if range(list(collcheck)) > 3:
                 print('Dead')
             if range(list(collcheck)) < 2:
