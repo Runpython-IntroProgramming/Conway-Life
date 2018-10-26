@@ -43,6 +43,7 @@ class Cell(Sprite):
     #if neighbors > 3 or neighbors < 1:
     
     def step(self):
+        print('hi')
         if collidingWithSprites(self, sclass=Cell) > 0:
             collcheck = collidingWithSprites(self, sclass=Cell)
             print(collcheck)
@@ -63,6 +64,7 @@ class ConwayLife(App):
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
 
     def step(self):
+        print('hey')
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
 
