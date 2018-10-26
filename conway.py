@@ -65,9 +65,8 @@ class ConwayLife(App):
 
     def step(self):
         print('hey')
-        for cell in self.getSpritesbyClass(Cell):
-            print('hello')
-            cell.step()
+        Cell.step()
+        print('hello')
 
     def mouseClick(self, event):
         Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
