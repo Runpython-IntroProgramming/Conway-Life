@@ -33,7 +33,7 @@ class Cell(Sprite):
     def alive():
         pass
         collcheck = collidingWithSprites(self, sclass=Cell)
-    #Any live cell with two or three live neighbors lives on to the next generation.
+    #Any live cell with two or thre             print('hello')e live neighbors lives on to the next generation.
     #Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
     
     def dead():
@@ -49,6 +49,7 @@ class Cell(Sprite):
             print(collcheck)
         else:
             pass
+            print('hello')
 
 
 class ConwayLife(App):
@@ -66,8 +67,7 @@ class ConwayLife(App):
     def step(self):
         print('hey')
         for cell in self.getSpritesbyClass(Cell):
-            print('hello')
-            Cell.step()
+            cell.step()
 
     def mouseClick(self, event):
         Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
