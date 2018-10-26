@@ -43,8 +43,11 @@ class Cell(Sprite):
     #if neighbors > 3 or neighbors < 1:
     
     def step(self):
-        collcheck = collidingWithSprites(self, sclass=Cell)
-        print(collcheck)
+        if collidingWithSprites(self, sclass=Cell) > 0:
+            collcheck = collidingWithSprites(self, sclass=Cell)
+            print(collcheck)
+        else:
+            pass
 
 
 class ConwayLife(App):
