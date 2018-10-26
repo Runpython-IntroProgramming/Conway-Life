@@ -44,13 +44,11 @@ class Cell(Sprite):
     
     def step(self):
         print('hi')
-        if collidingWithSprites(self, sclass=Cell) > 0:
-            collcheck = collidingWithSprites(self, sclass=Cell)
-            print(collcheck)
+        collcheck = self.collidingWithSprites(Cell)
+        if collcheck:
+            print(list(collcheck))
         else:
             pass
-            print('hello')
-
 
 class ConwayLife(App):
     """
