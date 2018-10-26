@@ -66,6 +66,7 @@ class ConwayLife(App):
     def step(self):
         print('hey')
         for cell in self.getSpritesbyClass(Cell):
+            print('hello')
             cell.step()
 
     def mouseClick(self, event):
