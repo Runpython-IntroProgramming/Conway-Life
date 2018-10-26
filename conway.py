@@ -129,9 +129,9 @@ def step():
                 print("elif")
                 if nextto == 2 or nextto == 3:
                     Cell2((m, n))
-                    newcells.append((m, n))
+                    oldcells.append((m, n))
                 else:
-                    print("wassup")
+                    print("else")
                     Cell0((m, n))
                     oldcells.remove((m, n))
             else:
