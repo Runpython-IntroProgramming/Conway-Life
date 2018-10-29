@@ -40,14 +40,13 @@ class Cell(Sprite):
     #Any live cell with fewer than two live neighbors dies, as if by underpopulation.
     #Any live cell with more than three live neighbors dies, as if by overpopulation.
     #if neighbors > 3 or neighbors < 1:
-    
-            '''if range(list(collcheck)) > 3:
-                print('Dead')
-            if range(list(collcheck)) < 2:
-                print('Dead')
-            if range(list(collcheck)) >= 2:
-                if range(list(collcheck)) <= 3:
-                    print('Alive')'''
+    '''if range(list(collcheck)) > 3:
+        print('Dead')
+    if range(list(collcheck)) < 2:
+        print('Dead')
+    if range(list(collcheck)) >= 2:
+        if range(list(collcheck)) <= 3:
+            print('Alive')'''
 
     def step(self):
         print('hi')
