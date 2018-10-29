@@ -106,7 +106,7 @@ def step():
 
 
         for (m, n) in checkcells:
-            print(str((m,n)))
+            print((m,n))
             nextto = 0
             adjacent = []
             for x in range(m-20, m+40, 20):
