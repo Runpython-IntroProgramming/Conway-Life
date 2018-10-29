@@ -68,14 +68,17 @@ class ConwayLife(App):
         bg = Sprite(bg_asset, (0,0))
         ConwayLife.listenMouseEvent("click", self.mouseClick)
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
+        coordlist = (())
+
 
     def step(self):
-        print('hey')
+        print(list(coordlist))
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
 
     def mouseClick(self, event):
         Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
+        coordlist.append(tuple((((round(event.x/10))*10),((round(event.y/10))*10))))
 
     def start():
         pass
