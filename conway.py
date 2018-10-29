@@ -57,6 +57,7 @@ class ConwayLife(App):
     def __init__(self):
         super().__init__()
         # Background
+
         bg_asset = RectangleAsset(self.width, self.height, noline, grey)
         bg = Sprite(bg_asset, (0,0))
         ConwayLife.listenMouseEvent("click", self.mouseClick)
