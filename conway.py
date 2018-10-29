@@ -44,8 +44,6 @@ class Cell(Sprite):
     def step(self):
         print('hi')
         collcheck = self.collidingWithSprites(Cell)
-        if collcheck:
-            print (cell.x, cell.y for cell in collcheck)
 
 class ConwayLife(App):
     """
@@ -54,7 +52,6 @@ class ConwayLife(App):
     def __init__(self):
         super().__init__()
         # Background
-
         bg_asset = RectangleAsset(self.width, self.height, noline, grey)
         bg = Sprite(bg_asset, (0,0))
         ConwayLife.listenMouseEvent("click", self.mouseClick)
