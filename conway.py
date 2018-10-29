@@ -121,24 +121,24 @@ def step():
             for (a, b) in adjacent:
                 if (a, b) in oldcells:
                     nextto += 1
-            print("adj: " + str(adjacent))
-            print("nextto: " + str(nextto))
+#            print("adj: " + str(adjacent))
+#            print("nextto: " + str(nextto))
             
             if nextto == 3 and (m, n) not in oldcells:
-                print("should be" + str((m, n)))
+#                print("should be" + str((m, n)))
                 Cell1((m,n))
                 newcells.append((m, n))
             elif (m, n) in oldcells:
-                print("elif")
+#                print("elif")
                 if nextto == 2 or nextto == 3:
                     Cell2((m, n))
                     oldcells.append((m, n))
                 else:
-                    print("else")
+#                    print("else")
 #                    Cell0((m, n))
                     topop.append((m, n))
             else:
-                print("c0 at" + str((m, n)))
+#                print("c0 at" + str((m, n)))
                 Cell0((m, n))
         for (m, n) in topop:
             oldcells.remove((m,n))
