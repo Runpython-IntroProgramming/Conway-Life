@@ -87,6 +87,7 @@ nextto = 0
 def step():
     global pauseplay, newcells, oldcells, go, nextto, height, width, checkcells, Cell1, Cell2, Cell0, time
     adjacent = []
+    topop = []
     if go == True:
         for (m, n) in newcells:
             oldcells.append((m, n))
@@ -133,11 +134,13 @@ def step():
                     oldcells.append((m, n))
                 else:
                     print("else")
-                    Cell0((m, n))
-                    oldcells.remove((m, n))
+#                    Cell0((m, n))
+                    topop.append((m, n))
             else:
                 print("c0 at" + str((m, n)))
                 Cell0((m, n))
+        for (m, n) in topop:
+            oldcells.remove((m,n))
 #            print("nextto: " + str(nextto))
 
 
