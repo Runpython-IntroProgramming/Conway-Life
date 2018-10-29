@@ -46,9 +46,6 @@ class Cell(Sprite):
         collcheck = self.collidingWithSprites(Cell)
         if collcheck:
             print (cell.x, cell.y for cell in collcheck)
-            pass
-        else:
-            pass
 
 class ConwayLife(App):
     """
