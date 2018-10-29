@@ -41,11 +41,6 @@ class Cell(Sprite):
     #Any live cell with more than three live neighbors dies, as if by overpopulation.
     #if neighbors > 3 or neighbors < 1:
     
-    def step(self):
-        print('hi')
-        collcheck = self.collidingWithSprites(Cell)
-        if collcheck:
-            [print (cell.x, cell.y for cell in collcheck)]
             '''if range(list(collcheck)) > 3:
                 print('Dead')
             if range(list(collcheck)) < 2:
@@ -53,6 +48,13 @@ class Cell(Sprite):
             if range(list(collcheck)) >= 2:
                 if range(list(collcheck)) <= 3:
                     print('Alive')'''
+
+    def step(self):
+        print('hi')
+        collcheck = self.collidingWithSprites(Cell)
+        if collcheck:
+            print (cell.x, cell.y for cell in collcheck)
+            pass
         else:
             pass
 
