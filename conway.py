@@ -36,14 +36,14 @@ class Cell(Sprite):
     #Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
     
     def dead():
-        pass
+        for cell in self.spritelist
     #Any live cell with fewer than two live neighbors dies, as if by underpopulation.
     #Any live cell with more than three live neighbors dies, as if by overpopulation.
     #if neighbors > 3 or neighbors < 1:
 
     def step(self):
         print('hi')
-        collcheck = self.collidingWithSprites(Cell)
+        print(self.spritelist)
 
 class ConwayLife(App):
     """
@@ -56,10 +56,7 @@ class ConwayLife(App):
         bg = Sprite(bg_asset, (0,0))
         self.a = []
         ConwayLife.listenMouseEvent("click", self.mouseClick)
-        ConwayLife.listenKeyEvent('keydown', 'd', self.off)
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
-
-
 
     def step(self):
         print(self.a)
@@ -67,23 +64,14 @@ class ConwayLife(App):
             cell.step()
 
     def mouseClick(self, event):
-        if ((((round(event.x/10))*10),((round(event.y/10))*10))) not in a:
+        if ((((round(event.x/10))*10),((round(event.y/10))*10))) not in self.a:
             Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
             self.a.append(tuple((((round(event.x/10))*10),((round(event.y/10))*10))))
         else:
             pass
 
-    def off(self, event):
-        pass
-
     def start():
+        #now program for dead and alive!
         
-        '''if range(list(collcheck)) > 3:
-            print('Dead')
-        if range(list(collcheck)) < 2:
-            print('Dead')
-        if range(list(collcheck)) >= 2:
-            if range(list(collcheck)) <= 3:
-                print('Alive')'''
 
 ConwayLife().run()
