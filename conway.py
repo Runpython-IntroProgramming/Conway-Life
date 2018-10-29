@@ -15,6 +15,7 @@ The user must be able to "turn on" cells by clicking on them with the mouse, or 
 If your playing area is unbounded, then the up/down/right/left cursor keys should allow the user to scroll the playing area within the window.
 Your live cells should be two different colors: one for its first day of “life”, the second for all subsequent days.
 """
+Print("click and drag to add a cell. Old cells are blue, new cells are red.")
 from ggame import App, Color, LineStyle, Sprite
 from ggame import RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 
