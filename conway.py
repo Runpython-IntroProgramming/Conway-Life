@@ -141,6 +141,7 @@ def step():
                 Cell0((m, n))
         for (m, n) in topop:
             oldcells.remove((m,n))
+            Cell0((m, n))
 #            print("nextto: " + str(nextto))
 
 
