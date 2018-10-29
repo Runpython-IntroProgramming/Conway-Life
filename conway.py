@@ -72,7 +72,8 @@ class ConwayLife(App):
             pass
 
     def start():
+        pass
         #now program for dead and alive!
-        
+
 
 ConwayLife().run()
