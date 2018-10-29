@@ -93,7 +93,7 @@ def step():
         for (m, n) in newcells:
             oldcells.append((m, n))
 #move newcells to oldcells
-        print("old: " + str(oldcells))
+#        print("old: " + str(oldcells))
         newcells = []
         checkcells = []
 #cells which may be next to others
@@ -103,7 +103,7 @@ def step():
                     for y in range(n-20, n+40, 20):
                         if y <= height and y >= 0 and (x, y) not in checkcells:
                             checkcells.append((x, y))
-        print("check: " + str(checkcells))
+#        print("check: " + str(checkcells))
 
 
 
