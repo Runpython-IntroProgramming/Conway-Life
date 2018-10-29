@@ -54,21 +54,30 @@ class ConwayLife(App):
         # Background
         bg_asset = RectangleAsset(self.width, self.height, noline, grey)
         bg = Sprite(bg_asset, (0,0))
+        self.a = []
         ConwayLife.listenMouseEvent("click", self.mouseClick)
+        ConwayLife.listenKeyEvent('keydown', 'd', self.off)
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
 
 
 
     def step(self):
+        print(self.a)
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
 
     def mouseClick(self, event):
-        Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
-        print(tuple((((round(event.x/10))*10),((round(event.y/10))*10))))
+        if ((((round(event.x/10))*10),((round(event.y/10))*10))) not in a:
+            Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
+            self.a.append(tuple((((round(event.x/10))*10),((round(event.y/10))*10))))
+        else:
+            pass
+
+    def off(self, event):
+        pass
 
     def start():
-        pass
+        
         '''if range(list(collcheck)) > 3:
             print('Dead')
         if range(list(collcheck)) < 2:
