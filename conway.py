@@ -79,11 +79,31 @@ e = zip(a,d)
 for m in d:
     print(m[0],m[1])
 
-spritelist = []
+spritlist = []
 
 for m in e:
     Sprite(m[0],m[1])
-    spritelist.append(Sprite(m[0],m[1]))
+    spritlist.append(Sprite(m[0],m[1]))
+
+class Cell(Sprite):
+    red = Color(0xff0000,.3)
+    side = LineStyle(1,grey)
+    square = RectangleAsset(8,8,side,red)
+    def __init__(self,position):
+        super.__init__(Cell.square,position)
+        
+
+
+class Game(App):
+    def __init__(self):
+        Cell((26,58))
+
+    
+
+
+#def grid()
+
+#spritelist = {spritlist}
 
 
 
@@ -91,5 +111,6 @@ for m in e:
 
 
 
-myapp = App()
+
+myapp = Game()
 myapp.run()
