@@ -8,7 +8,6 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
-myapp = App()
 
 class SpaceGame(App):
     """
@@ -22,6 +21,7 @@ class SpaceGame(App):
         bg_asset = RectangleAsset(self.width, self.height, noline, black)
         bg = Sprite(bg_asset, (0,0))
 
+myapp = SpaceGame()
 myapp.run()
 
 
