@@ -71,8 +71,13 @@ class ConwayLife(App):
             pass
 
     def start():
-        '''for cell in ConwayLife.spritelist:
-            if collidingwithSprites'''
+        for cell in ConwayLife.spritelist:
+            if len(list(self.collidingWithSprites(Cell))) < 2:
+                self.destroy
+            if len(list(self.collidingWithSprites(Cell))) > 3:
+                self.destroy
+            else:
+                pass
         #now program for dead and alive!
 
 
