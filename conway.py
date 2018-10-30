@@ -47,7 +47,7 @@ for m in range(10):
 w = int(input("How wide would you like youre grid? "))
 l = int(input("How long would you like youre grid? "))
 
-grey = Color(0x000000,.3)
+'''grey = Color(0x000000,.3)
 side = LineStyle(1,grey)
 square = RectangleAsset(8,8,side,grey)
     
@@ -79,24 +79,64 @@ e = zip(a,d)
 for m in d:
     print(m[0],m[1])
 
-spritlist = []
+#spritlist = []
 
 for m in e:
-    Sprite(m[0],m[1])
-    spritlist.append(Sprite(m[0],m[1]))
+   Sprite(m[0],m[1])
+  #  spritlist.append(Sprite(m[0],m[1]))'''
 
 class Cell(Sprite):
-    red = Color(0xff0000,.3)
+    grey = Color(0xff0000,.3)
+    yellow = Color(0xffff00,.8)
+    green = Color(0x0000ff,.8)
     side = LineStyle(1,grey)
-    square = RectangleAsset(8,8,side,red)
+    square = RectangleAsset(8,8,side,grey)
+    square1 = RectangleAsset(8,8,side,green)
+    square2 = RectangleAsset(8,8,side,yellow)
+    
     def __init__(self,position):
-        super.__init__(Cell.square,position)
+        super().__init__(DeadCell.square,position)
+        super().__init__(LiveCell1.square1,position)
+        super().__init__(LiveCell.square2,position)
         
 
 
 class Game(App):
-    def __init__(self):
-        Cell((26,58))
+    grey = Color(0x000000,.3)
+    side = LineStyle(1,grey)
+    square = RectangleAsset(8,8,side,grey)
+        
+    def __init__(self, width, height):
+        super().__init__(width, height)
+        
+        a = []
+        x = []
+        y = []
+        
+        b=[]
+        
+        for m in range(w):
+            x.append(10+(8*m))
+            y.append(10)
+            b.append(10+(8*m))
+            
+        for m in b:
+            for n in range(l):
+                x.append(m)
+                y.append(18+(n*8))
+            
+        
+        d = zip(x,y)
+        
+        for m in d:
+            DeadCell((m[0],m[1]))
+        
+        #for n in range(len(d)):
+         #   Cell((x,y))
+            
+        LiveCell1((26,58))
+        
+    
 
     
 
@@ -112,5 +152,5 @@ class Game(App):
 
 
 
-myapp = Game()
+myapp = Game(800, 800)
 myapp.run()
