@@ -43,6 +43,7 @@ class Cell(Sprite):
 
     def step(self):
         print('hi')
+        print(collidingwithSprites(self, Cell))
 
 class ConwayLife(App):
     """
@@ -70,9 +71,8 @@ class ConwayLife(App):
             pass
 
     def start():
-        pass
         for cell in ConwayLife.spritelist:
-            
+            if collidingwithSprites
         #now program for dead and alive!
 
 
