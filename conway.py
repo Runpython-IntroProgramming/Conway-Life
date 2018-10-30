@@ -14,9 +14,9 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset
 
-day1 = Color(0xffffff, 1.0)
-day2 = Color(0xC0C0C0, 1.0)
-grey = Color(0xC0C0C0, 1.0)
+day1 = Color(0xffff00, 1.0)
+day2 = Color(0xffffff, 1.0)
+grey = Color(0xffffff, 1.0)
 gridgrey = LineStyle(1, grey)
 noline = LineStyle(0, grey)
 
@@ -72,9 +72,10 @@ class ConwayLife(App):
     def start(self, event):
         for cell in ConwayLife.spritelist:
             if len(list(cell.collidingWithSprites(Cell))) < 2:
-                cell.destroy()
+                #cell.destroy()
+                cell.append(shredlist)
             if len(list(cell.collidingWithSprites(Cell))) > 3:
-                cell.destroy()
+                #cell.destroy()
             else:
                 pass
         #now program for dead and alive!
