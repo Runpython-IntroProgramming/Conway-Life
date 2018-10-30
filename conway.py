@@ -36,9 +36,42 @@ Death by isolation: Each live cell with one or fewer live neighbors will die in 
 Death by overcrowding: Each live cell with four or more live neighbors will die in the next generation.
 Survival: Each live cell with either two or three live neighbors will remain alive for the next generation.
 
-Corners Do Not Count 
+Corners Do Count 
 
 """
+#Grid
+
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
+
+# add your code here \/  \/  \/
+
+clear = Color(0xBFBFBF, 1.0) 
+brown = Color(0xCD5B45, 1.0)
+black = Color(0x000000, 1.0)
+drkgreen = Color(0x006400, 1.0)
+houseclr = Color(0xFFF8DC, 1.0)
+yellow = Color(0xEEEE00, 1.0)
+white = Color(0xF8F8FF, 1.0)
+thinline = LineStyle(1, white)
+
+rectangle = RectangleAsset(1,635, thinline, white)
+rectangle = RectangleAsset(1,635, thinline, white)
+
+line = RectangleAsset(2,2, thinline, white)
+
+Sprite(rectangle, (0,0))
+
+
+
+
+
+
+# add your code here /\  /\  /\
+
+myapp = App()
+myapp.run()
+
+
 
 
 
