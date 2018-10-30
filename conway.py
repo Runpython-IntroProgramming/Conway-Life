@@ -71,8 +71,8 @@ class ConwayLife(App):
             pass
 
     def start():
-        for cell in ConwayLife.spritelist:
-            if collidingwithSprites
+        '''for cell in ConwayLife.spritelist:
+            if collidingwithSprites'''
         #now program for dead and alive!
 
 
