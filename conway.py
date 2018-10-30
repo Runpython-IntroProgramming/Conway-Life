@@ -44,7 +44,7 @@ class Cell(Sprite):
 
     def step(self):
         print('hi')
-        print(self.spritelist)
+        print(spritelist)
 
 class ConwayLife(App):
     """
