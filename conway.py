@@ -42,7 +42,6 @@ class Cell(Sprite):
     #if neighbors > 3 or neighbors < 1:
 
     def step(self):
-        print('hi')
         print(len(list(self.collidingWithSprites(Cell))))
 
 class ConwayLife(App):
@@ -70,7 +69,7 @@ class ConwayLife(App):
         else:
             pass
 
-    def start():
+    def start(spritelist):
         for cell in ConwayLife.spritelist:
             if len(list(self.collidingWithSprites(Cell))) < 2:
                 self.destroy
