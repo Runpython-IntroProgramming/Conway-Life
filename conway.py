@@ -54,13 +54,17 @@ yellow = Color(0xEEEE00, 1.0)
 white = Color(0xF8F8FF, 1.0)
 thinline = LineStyle(1, white)
 
-rectangle = RectangleAsset(1,635, thinline, white)
-rectangle = RectangleAsset(1,635, thinline, white)
+rectangle1 = RectangleAsset(1,635, thinline, white)
+rectangle2 = RectangleAsset(635,1, thinline, white)
 
-line = RectangleAsset(2,2, thinline, white)
+vline = RectangleAsset(2,2, thinline, white)
+hline = RectangleAsset(2,2, thinline, white)
 
-Sprite(rectangle, (0,0))
-
+for vl in range(1000):
+    Sprite(rectangle1, (vl * 10,0))
+    
+for hl in range (1000):
+    Sprite(rectangle2, (hl * 0,10))
 
 
 
