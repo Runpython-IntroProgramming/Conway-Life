@@ -64,7 +64,7 @@ for vl in range(1000):
     Sprite(rectangle1, (vl * 10,0))
     
 for hl in range (1000):
-    Sprite(rectangle2, (hl * 0,10))
+    Sprite(rectangle2, (hl * 10,0))
 
 
 
