@@ -69,7 +69,7 @@ class ConwayLife(App):
         else:
             pass
 
-    def start(list(spritelist)):
+    def start():
         for cell in ConwayLife.spritelist:
             if len(list(self.collidingWithSprites(Cell))) < 2:
                 self.destroy
