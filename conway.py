@@ -43,7 +43,7 @@ class Cell(Sprite):
 
     def step(self):
         print('hi')
-        print(self.collidingwithSprites(Cell))
+        print(collidingwithSprites(Cell))
 
 class ConwayLife(App):
     """
