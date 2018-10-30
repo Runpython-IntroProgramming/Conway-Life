@@ -36,15 +36,13 @@ class Cell(Sprite):
     #Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
     
     def dead():
-        for cell in self.spritelist:
-            pass
+        pass
     #Any live cell with fewer than two live neighbors dies, as if by underpopulation.
     #Any live cell with more than three live neighbors dies, as if by overpopulation.
     #if neighbors > 3 or neighbors < 1:
 
     def step(self):
         print('hi')
-        print(ConwayLife.spritelist)
 
 class ConwayLife(App):
     """
@@ -73,6 +71,8 @@ class ConwayLife(App):
 
     def start():
         pass
+        for cell in ConwayLife.spritelist:
+            
         #now program for dead and alive!
 
 
