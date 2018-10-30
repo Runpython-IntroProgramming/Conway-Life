@@ -54,6 +54,7 @@ class ConwayLife(App):
         bg_asset = RectangleAsset(self.width, self.height, noline, grey)
         bg = Sprite(bg_asset, (0,0))
         self.a = []
+        shredlist = []
         ConwayLife.listenMouseEvent("click", self.mouseClick)
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
 
@@ -76,8 +77,7 @@ class ConwayLife(App):
                 cell.append(shredlist)
             if len(list(cell.collidingWithSprites(Cell))) > 3:
                 #cell.destroy()
-            else:
-                pass
+                cell.append(shredlist)
         #now program for dead and alive!
 
 
