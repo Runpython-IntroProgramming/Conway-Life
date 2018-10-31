@@ -98,7 +98,7 @@ class BabyCell(Sprite):
     square1 = RectangleAsset(8,8,side,green)
     
     def __init__(self,position):
-        super().__init__(LiveCell1.square1,position)
+        super().__init__(BabyCell.square1,position)
         
 class LiveCell(Sprite):
     yellow = Color(0xffff00,.8)
@@ -142,7 +142,9 @@ class Game(App):
         #for n in range(len(d)):
          #   Cell((x,y))
         
-        Game.listenKeyEvent("keydown","mouseclick")
+        Game.listenKeyEvent("keydown","mouseclick",BabyCell)
+        
+        
         
         BabyCell((26,58))
         LiveCell((18,50))
