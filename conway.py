@@ -43,20 +43,35 @@ from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, El
 white = Color(0xF8F8FF, 1.0)
 thinline = LineStyle(1, white)
 
-rectangle = RectangleAsset(1,635, thinline, white)
-Sprite(rectangle, (0,0))
+line1 = RectangleAsset(1,400, thinline, white)
+Sprite(line1, (10,10))
+Sprite(line1, (50,10))
+Sprite(line1, (90,10))
+Sprite(line1, (130,10))
+Sprite(line1, (170,10))
+Sprite(line1, (210,10))
+Sprite(line1, (250,10))
+Sprite(line1, (290,10))
+Sprite(line1, (330,10))
+Sprite(line1, (370,10))
+Sprite(line1, (410,10))
 
-rectangle1 = RectangleAsset(1,635, thinline, white)
+line2 = RectangleAsset(400,1, thinline, white)
+Sprite(line2, (10,10))
+Sprite(line2, (10,50))
+Sprite(line2, (10,90))
+Sprite(line2, (10,130))
+Sprite(line2, (10,170))
+Sprite(line2, (10,210))
+Sprite(line2, (10,250))
+Sprite(line2, (10,290))
+Sprite(line2, (10,330))
+Sprite(line2, (10,370))
+Sprite(line2, (10,410))
 
-vline = RectangleAsset(0,0, thinline, white)
-#lines
-for vl in range(100):
-    Sprite(rectangle1, (vl * 150,0))
-"""
-for hl in range (1000):
-    Sprite(rectangle2, (hl * 10,0))
-Sprite(rectangle1, (
-"""
+
+
+
 
 myapp = App()
 myapp.run()
