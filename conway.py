@@ -55,8 +55,10 @@ class ConwayLife(App):
         bg = Sprite(bg_asset, (0,0))
         self.a = []
         self.shredlist = []
+        self.bornlist = []
         ConwayLife.listenMouseEvent("click", self.mouseClick)
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
+        ConwayLife.listenKeyEvent('keydown', 's', self.ps)
 
     def step(self):
         print(self.a)
@@ -78,7 +80,9 @@ class ConwayLife(App):
             if len(list(cell.collidingWithSprites(Cell))) > 3:
                 #cell.destroy()
                 self.shredlist.append(cell)
-        #now program for dead and alive!
+        #now program for alive!
 
+    def ps(self, event):
+        print(self.shredlist)
 
 ConwayLife().run()
