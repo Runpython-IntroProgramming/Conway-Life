@@ -43,6 +43,7 @@ from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, El
 white = Color(0xF8F8FF, 1.0)
 thinline = LineStyle(1, white)
 
+#Making the grid
 line1 = RectangleAsset(1,400, thinline, white)
 Sprite(line1, (10,10))
 Sprite(line1, (50,10))
