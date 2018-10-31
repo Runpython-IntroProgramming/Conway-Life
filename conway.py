@@ -37,40 +37,26 @@ Death by overcrowding: Each live cell with four or more live neighbors will die 
 Survival: Each live cell with either two or three live neighbors will remain alive for the next generation.
 
 Corners Do Count 
-
 """
-#Grid
-
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 
-# add your code here \/  \/  \/
-
-clear = Color(0xBFBFBF, 1.0) 
-brown = Color(0xCD5B45, 1.0)
-black = Color(0x000000, 1.0)
-drkgreen = Color(0x006400, 1.0)
-houseclr = Color(0xFFF8DC, 1.0)
-yellow = Color(0xEEEE00, 1.0)
 white = Color(0xF8F8FF, 1.0)
 thinline = LineStyle(1, white)
 
+rectangle = RectangleAsset(1,635, thinline, white)
+Sprite(rectangle, (0,0))
+
 rectangle1 = RectangleAsset(1,635, thinline, white)
-rectangle2 = RectangleAsset(635,1, thinline, white)
 
-vline = RectangleAsset(2,2, thinline, white)
-hline = RectangleAsset(2,2, thinline, white)
-
-for vl in range(1000):
-    Sprite(rectangle1, (vl * 10,0))
-    
+vline = RectangleAsset(0,0, thinline, white)
+#lines
+for vl in range(100):
+    Sprite(rectangle1, (vl * 150,0))
+"""
 for hl in range (1000):
     Sprite(rectangle2, (hl * 10,0))
-
-
-
-
-
-# add your code here /\  /\  /\
+Sprite(rectangle1, (
+"""
 
 myapp = App()
 myapp.run()
