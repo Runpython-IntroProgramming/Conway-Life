@@ -70,10 +70,6 @@ Sprite(line2, (10,330))
 Sprite(line2, (10,370))
 Sprite(line2, (10,410))
 
-
-
-
-
 myapp = App()
 myapp.run()
 
