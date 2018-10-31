@@ -74,10 +74,10 @@ class ConwayLife(App):
         for cell in ConwayLife.spritelist:
             if len(list(cell.collidingWithSprites(Cell))) < 2:
                 #cell.destroy()
-                tuple(cell).append(shredlist)
+                self.shredlist.append(cell)
             if len(list(cell.collidingWithSprites(Cell))) > 3:
                 #cell.destroy()
-                tuple(cell).append(shredlist)
+                self.shredlist.append(cell)
         #now program for dead and alive!
 
 
