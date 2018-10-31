@@ -85,20 +85,28 @@ for m in e:
    Sprite(m[0],m[1])
   #  spritlist.append(Sprite(m[0],m[1]))'''
 
-class Cell(Sprite):
-    grey = Color(0xff0000,.3)
-    yellow = Color(0xffff00,.8)
-    green = Color(0x0000ff,.8)
+class DeadCell(Sprite):
+    grey = Color(0x000000,.3)
     side = LineStyle(1,grey)
     square = RectangleAsset(8,8,side,grey)
+    def __init__(self,position):
+        super().__init__(DeadCell.square,position)
+
+class BabyCell(Sprite):
+    green = Color(0x00ff00,.8)
+    side = LineStyle(1,green)
     square1 = RectangleAsset(8,8,side,green)
+    
+    def __init__(self,position):
+        super().__init__(LiveCell1.square1,position)
+        
+class LiveCell(Sprite):
+    yellow = Color(0xffff00,.8)
+    side = LineStyle(1,yellow)
     square2 = RectangleAsset(8,8,side,yellow)
     
     def __init__(self,position):
-        super().__init__(DeadCell.square,position)
-        super().__init__(LiveCell1.square1,position)
         super().__init__(LiveCell.square2,position)
-        
 
 
 class Game(App):
@@ -134,9 +142,10 @@ class Game(App):
         #for n in range(len(d)):
          #   Cell((x,y))
         
-        Game.listenKeyEvent("keydown","mouseclick",
+        Game.listenKeyEvent("keydown","mouseclick")
         
-        LiveCell1((26,58))
+        BabyCell((26,58))
+        LiveCell((18,50))
         
     
 
