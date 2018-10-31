@@ -98,6 +98,9 @@ class ConwayLife(App):
                 PosCell((cell.x, cell.y+10))
                 PosCell((cell.x-10, cell.y+10))
                 PosCell((cell.x+10, cell.y-10))
+                for poscell in len(list(PosCell.collidingWithSprites(Cell))):
+                    
+                
                 
                 #now program for alive!
                 #so what i want to do is look at all of the possible sprite places 
