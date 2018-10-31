@@ -133,7 +133,9 @@ class Game(App):
         
         #for n in range(len(d)):
          #   Cell((x,y))
-            
+        
+        Game.listenKeyEvent("keydown","mouseclick",
+        
         LiveCell1((26,58))
         
     
