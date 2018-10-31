@@ -21,6 +21,7 @@ gridgrey = LineStyle(1, grey)
 noline = LineStyle(0, grey)
 
 class PosCell(Sprite):
+    
 
 class Cell(Sprite):
     """
