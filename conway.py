@@ -90,6 +90,7 @@ class ConwayLife(App):
                 #cell.destroy()
                 self.shredlist.append(cell)
             if len(list(cell.collidingWithSprites(Cell))) == 3:
+                pass
                 #now program for alive!
                 #so what i want to do is look at all of the possible sprite places 
 
