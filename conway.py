@@ -90,7 +90,15 @@ class ConwayLife(App):
                 #cell.destroy()
                 self.shredlist.append(cell)
             if len(list(cell.collidingWithSprites(Cell))) == 3:
-                pass
+                PosCell((cell.x-10, cell.y))
+                PosCell((cell.x-10, cell.y-10))
+                PosCell((cell.x, cell.y-10))
+                PosCell((cell.x+10, cell.y))
+                PosCell((cell.x+10, cell.y+10))
+                PosCell((cell.x, cell.y+10))
+                PosCell((cell.x-10, cell.y+10))
+                PosCell((cell.x+10, cell.y-10))
+                
                 #now program for alive!
                 #so what i want to do is look at all of the possible sprite places 
 
