@@ -20,6 +20,8 @@ grey = Color(0xffffff, 1.0)
 gridgrey = LineStyle(1, grey)
 noline = LineStyle(0, grey)
 
+class PosCell(Sprite):
+
 class Cell(Sprite):
     """
     Cell outline
@@ -80,7 +82,9 @@ class ConwayLife(App):
             if len(list(cell.collidingWithSprites(Cell))) > 3:
                 #cell.destroy()
                 self.shredlist.append(cell)
-        #now program for alive!
+            if len(list(cell.collidingWithSprites(Cell))) == 3:
+                #now program for alive!
+                #so what i want to do is look at all of the possible sprite places 
 
     def ps(self, event):
         print(self.shredlist)
