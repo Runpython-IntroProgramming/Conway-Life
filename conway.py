@@ -69,73 +69,8 @@ Sprite(line2, (10,290))
 Sprite(line2, (10,330))
 Sprite(line2, (10,370))
 Sprite(line2, (10,410))
+#end of grid
+
 
 myapp = App()
 myapp.run()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
