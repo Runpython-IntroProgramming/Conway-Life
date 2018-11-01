@@ -6,9 +6,10 @@ Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
+
+
+
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
-
-
 class SpaceGame(App):
     """
     Tutorial4 space game example.
@@ -36,7 +37,7 @@ Death by isolation: Each live cell with one or fewer live neighbors will die in 
 Death by overcrowding: Each live cell with four or more live neighbors will die in the next generation.
 Survival: Each live cell with either two or three live neighbors will remain alive for the next generation.
 
-Corners Do Count 
+Corners Do Count)
 """
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 
