@@ -23,7 +23,6 @@ class SpaceGame(App):
         bg = Sprite(bg_asset, (0,0))
 
 myapp = SpaceGame()
-myapp.run()
 """
 Rules:
 Player makes initial layout
@@ -70,9 +69,23 @@ Sprite(line2, (10,290))
 Sprite(line2, (10,330))
 Sprite(line2, (10,370))
 Sprite(line2, (10,410))
+
+
+cell_asset = ImageAsset(insert sprite)
+
+cell = Sprite(cell_asset, (0, 0))
 #end of grid
+cell.scale = 0.1
+#Insert Step Function
+
+#define mouse click
 
 
+def mouseClick(event):
+    cell.x = event.x
+    cell.y = event.y
 
-myapp = App()
+#do mouse click event 
+
+myapp.listenMouseEvent('click', mouseClick)
 myapp.run()
