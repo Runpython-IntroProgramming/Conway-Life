@@ -79,18 +79,15 @@ class Game(App):
          #   Cell((x,y))
         
     
-        x=[]
-        y=[]
+        click = []
     def baby(self,event):
-        print(event.x)
-        print(event.y)
+        print(event.x,event.y)
+        BabyCell((event.x,event.y))
         
-        
-        BabyCell((26,58))
-        LiveCell((18,50))
+    
 
 
 
 
-myapp = Game(800, 800)
+myapp = Game(500, 500)
 myapp.run()
