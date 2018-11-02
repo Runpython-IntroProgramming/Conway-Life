@@ -49,7 +49,6 @@ class Game(App):
         super().__init__(width, height)
         Game.listenMouseEvent("click",self.baby)
         
-        
         a = []
         x = []
         y = []
@@ -84,10 +83,8 @@ class Game(App):
         print(event.x,event.y)
         BabyCell((event.x,event.y))
         click.append((event.x,event.y))
-        
-    def inbetween(self,position):
         for m in Cells:
-            if click[0] == m[0] or click[0] <= m[0]+8:
+            if m[0] <= event.x <= m[0]+8:
                 LiveCell((m[0],m[1]))
         
         
