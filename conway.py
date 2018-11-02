@@ -91,23 +91,23 @@ class ConwayLife(App):
                 self.shredlist.append(cell)
             if len(list(cell.collidingWithSprites(Cell))) == 3:
                 PosCell((cell.x-10, cell.y))
-                PosCell.createlist.append(tuple((cell.x-10, cell.y)))
+                #PosCell.createlist.append(tuple((cell.x-10, cell.y)))
                 PosCell((cell.x-10, cell.y-10))
-                PosCell.createlist.append(tuple((cell.x-10, cell.y-10)))
+                #PosCell.createlist.append(tuple((cell.x-10, cell.y-10)))
                 PosCell((cell.x, cell.y-10))
-                PosCell.createlist.append(tuple((cell.x, cell.y-10)))
+                #PosCell.createlist.append(tuple((cell.x, cell.y-10)))
                 PosCell((cell.x+10, cell.y))
-                PosCell.createlist.append(tuple((cell.x+10, cell.y)))
+                #PosCell.createlist.append(tuple((cell.x+10, cell.y)))
                 PosCell((cell.x+10, cell.y+10))
-                PosCell.createlist.append(tuple((cell.x+10, cell.y+10)))
+                #PosCell.createlist.append(tuple((cell.x+10, cell.y+10)))
                 PosCell((cell.x, cell.y+10))
-                PosCell.createlist.append(tuple((cell.x, cell.y+10)))
+                #PosCell.createlist.append(tuple((cell.x, cell.y+10)))
                 PosCell((cell.x-10, cell.y+10))
-                PosCell.createlist.append(tuple((cell.x-10, cell.y+10)))
+                #PosCell.createlist.append(tuple((cell.x-10, cell.y+10)))
                 PosCell((cell.x+10, cell.y-10))
-                PosCell.createlist.append(tuple((cell.x+10, cell.y-10)))
+                #PosCell.createlist.append(tuple((cell.x+10, cell.y-10)))
                 #for poscell in len(list(PosCell.collidingWithSprites(Cell))):
-                for nposcell in PosCell.:
+                for nposcell in PosCell.createlist:
                     for ncell in self.a:
                         if nposcell == ncell:
                             nposcell.destroy
