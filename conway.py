@@ -44,46 +44,13 @@ moregrid=[]
 for m in range(10):
     Sprite(grid(m))
 '''
+#print("Press the space bar to pause or play simulation.")
+#print("When the simulation is paused, click to remove or add cells.")
+print("Green Cells are babies and yellow cells are older")
+print("A cell will survive if it has 2-3 neighbors, and a dead cell will create life if it has 3 neighbors.")
+
 w = int(input("How wide would you like youre grid? "))
 l = int(input("How long would you like youre grid? "))
-
-'''grey = Color(0x000000,.3)
-side = LineStyle(1,grey)
-square = RectangleAsset(8,8,side,grey)
-    
-a = []
-x = []
-y = []
-
-b=[]
-
-for m in range(w):
-    x.append(10+(8*m))
-    y.append(10)
-    b.append(10+(8*m))
-    
-for m in b:
-    for n in range(l):
-        x.append(m)
-        y.append(18+(n*8))
-    
-print(x)
-print(y)
-
-for m in range(len(x)):
-    a.append(square)
-
-d = zip(x,y)
-e = zip(a,d)
-
-for m in d:
-    print(m[0],m[1])
-
-#spritlist = []
-
-for m in e:
-   Sprite(m[0],m[1])
-  #  spritlist.append(Sprite(m[0],m[1]))'''
 
 class DeadCell(Sprite):
     grey = Color(0x000000,.3)
@@ -142,25 +109,15 @@ class Game(App):
         #for n in range(len(d)):
          #   Cell((x,y))
         
-        Game.listenKeyEvent("keydown","mouseclick",BabyCell)
+        #Game.listenMouseEvent("click",self.baby)
+        
+        #def baby.(self,possition):
+            
         
         
         
         BabyCell((26,58))
         LiveCell((18,50))
-        
-    
-
-    
-
-
-#def grid()
-
-#spritelist = {spritlist}
-
-
-
-
 
 
 
