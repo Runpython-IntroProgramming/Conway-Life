@@ -26,16 +26,17 @@ class PosCell(Sprite):
     Cell outline
     """
     asset = RectangleAsset(11, 11, gridgrey, trial)
+    createlist = []
+
 
     def __init__(self, position):
         super().__init__(Cell.asset, position)
         self.fxcenter = self.fycenter = 0.5
-        self.createlist = []
 
     def step(self):
         if len(list(self.collidingWithSprites(Cell))) >= 0:
-            self.createlist.append(cell)
-            print(self.createlist)
+            createlist.append(cell)
+            print(createlist)
 
 
 class Cell(Sprite):
