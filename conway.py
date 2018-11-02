@@ -67,7 +67,13 @@ def mouseClick(event):
 #Only allowing user to click inside grid
         Sprite(cell_asset,(x, y))
 #making user be able to move the mouse with finger and make new cells when hovered over grid
-
+def MouseMove(event):
+    global cell
+    x = int((event.x//15)*15)
+    y = int((event.y//15)*15)
+    if x < 400 and y < 400:
+        Sprite(cell_asset,(x, y))
     
+myapp.listenMouseEvent('mousemove',MouseMove)
 myapp.listenMouseEvent('click', mouseClick)
 myapp.run()
