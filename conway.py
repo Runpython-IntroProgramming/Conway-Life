@@ -83,7 +83,7 @@ class ConwayLife(App):
             pass
 
     def start(self, event):
-        for cell in ConwayLife.spritelist:
+        for cell in self.a:
             if len(list(cell.collidingWithSprites(Cell))) < 2:
                 #cell.destroy()
                 self.shredlist.append(cell)
