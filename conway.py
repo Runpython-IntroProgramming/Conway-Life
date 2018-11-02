@@ -10,7 +10,6 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 
 
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
-from math import floor
 class SpaceGame(App):
     """
     Tutorial4 space game example.
@@ -77,6 +76,8 @@ Sprite(line2, (10,370))
 Sprite(line2, (10,410))
 
 #Making user be able to click 
+from math import floor
+
 cell_asset = RectangleAsset(40,40,thinline, orange)
 
 cell = Sprite(cell_asset, (0,0))
