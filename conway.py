@@ -39,13 +39,14 @@ Survival: Each live cell with either two or three live neighbors will remain ali
 Corners Do Count)
 """
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
-
+from math import floor
 #colors
 red = Color(0xFF4040, 1.0)
 green = Color(0x00FF00, 1.0)
 blue = Color(0x1C86EE, 1.0)
 white = Color(0xF8F8FF, 1.0)
 orange = Color(0xFF7D40, 1.0)
+
 thinline = LineStyle(1, white)
 
 #Making the grid
@@ -76,19 +77,17 @@ Sprite(line2, (10,370))
 Sprite(line2, (10,410))
 
 #Making user be able to click 
-from math import floor
+
 
 cell_asset = RectangleAsset(40,40,thinline, orange)
-
 cell = Sprite(cell_asset, (0,0))
-
 def mouseClick(event):
     cell.x = event.x
     cell.y = event.y 
     x = floor(event.x/40)*40 
     y = floor(event.y/40)*40
-    Sprite(cell_asset, (event.x,event.y))
-    
+    Sprite(cell_asset,(event.x,event.y))
 
+    
 myapp.listenMouseEvent('click', mouseClick)
 myapp.run()
