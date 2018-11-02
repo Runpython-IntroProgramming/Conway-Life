@@ -63,6 +63,7 @@ class ConwayLife(App):
         self.a = []
         self.shredlist = []
         self.bornlist = []
+        self.poslist = []
         ConwayLife.listenMouseEvent("click", self.mouseClick)
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
         ConwayLife.listenKeyEvent('keydown', 's', self.ps)
