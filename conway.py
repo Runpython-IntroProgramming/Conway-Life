@@ -70,19 +70,15 @@ Sprite(line2, (10,330))
 Sprite(line2, (10,370))
 Sprite(line2, (10,410))
 
-#end of grid
+cell_asset = RectangleAsset(10,10,thinline, white)
 
-#Insert Step Function
+cell = Sprite(cell_asset, (0, 0))
 
-#define mouse click
-
-
-ball = Sprite(ball_asset, (0, 0))
-ball_asset = RectangleAsset(10,10)
 def mouseClick(event):
-    ball.x = event.x
-    ball.y = event.y
-#do mouse click event 
+    cell.x = event.x
+    cell.y = event.y 
+    Sprite(cell_asset, (event.x,event.y))
+    
 
 myapp.listenMouseEvent('click', mouseClick)
 myapp.run()
