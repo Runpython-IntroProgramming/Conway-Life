@@ -70,6 +70,7 @@ Sprite(line2, (10,330))
 Sprite(line2, (10,370))
 Sprite(line2, (10,410))
 
+#Making user be able to click 
 cell_asset = RectangleAsset(10,10,thinline, white)
 
 cell = Sprite(cell_asset, (0, 0))
@@ -77,6 +78,8 @@ cell = Sprite(cell_asset, (0, 0))
 def mouseClick(event):
     cell.x = event.x
     cell.y = event.y 
+    #floor
+    #hve x and y be divided by something
     Sprite(cell_asset, (event.x,event.y))
     
 
