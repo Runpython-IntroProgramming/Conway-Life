@@ -40,7 +40,12 @@ Corners Do Count)
 """
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 
+#colors
+red = Color(0xFF4040, 1.0)
+green = Color(0x00FF00, 1.0)
+blue = Color(0x1C86EE, 1.0)
 white = Color(0xF8F8FF, 1.0)
+orange = Color(0xFF7D40, 1.0)
 thinline = LineStyle(1, white)
 
 #Making the grid
@@ -71,9 +76,9 @@ Sprite(line2, (10,370))
 Sprite(line2, (10,410))
 
 #Making user be able to click 
-cell_asset = RectangleAsset(10,10,thinline, white)
+cell_asset = RectangleAsset(40,40,thinline, orange)
 
-cell = Sprite(cell_asset, (0, 0))
+cell = Sprite(cell_asset, (0,0))
 
 def mouseClick(event):
     cell.x = event.x
