@@ -7,7 +7,6 @@ Write and submit a program that plays Conway's Game of Life, per
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
-import pymouse
 
 #print("Press the space bar to pause or play simulation.")
 #print("When the simulation is paused, click to remove or add cells.")
@@ -48,6 +47,8 @@ class Game(App):
         
     def __init__(self, width, height):
         super().__init__(width, height)
+        Game.listenMouseEvent("click",self.baby)
+        
         
         a = []
         x = []
@@ -71,18 +72,18 @@ class Game(App):
         
         for m in d:
             DeadCell((m[0],m[1]))
-            Cells.append(m[0],m[1])
+            Cells.append((m[0],m[1]))
         
         
         #for n in range(len(d)):
          #   Cell((x,y))
         
-        Game.listenMouseEvent("click",self.baby)
-        
+    
         x=[]
         y=[]
-        def baby.(self,possition):
-            
+    def baby(self,event):
+        print(event.x)
+        print(event.y)
         
         
         BabyCell((26,58))
