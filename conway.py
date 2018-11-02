@@ -50,25 +50,23 @@ orange = Color(0xFF7D40, 1.0)
 
 thinline = LineStyle(1, white)
 
-#Making the grid
+#Making the grid. Square 400 by 400 goes up by 40
 line1 = RectangleAsset(1,400, thinline, white)
 line2 = RectangleAsset(400,1, thinline, white)
 for x in range(11):
     Sprite(line1, (x*40, 0))
     Sprite(line2, (0, x*40))
 
-#Making user be able to click 
-
-cell_asset = RectangleAsset(40,40,thinline, green)
-#cell = Sprite(cell_asset, (0,0))
+#Making user be able to click and fill a cell
+cell_asset = RectangleAsset(40,40,thinline, blue)
 def mouseClick(event):
-    #cell.x = event.x
-    #cell.y = event.y 
 #making a rectangle in closest box
     x = floor(event.x/40)*40 
     y = floor(event.y/40)*40
     if x < 400 and y < 400:
+#Only allowing user to click inside grid
         Sprite(cell_asset,(x, y))
+#making user be able to move the mouse with finger and make new cells when hovered over grid
 
     
 myapp.listenMouseEvent('click', mouseClick)
