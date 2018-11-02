@@ -86,7 +86,7 @@ def mouseClick(event):
     cell.y = event.y 
     x = floor(event.x/40)*40 
     y = floor(event.y/40)*40
-    Sprite(cell_asset,(event.x,event.y))
+    Sprite(cell_asset,(event.x, event.y))
 
     
 myapp.listenMouseEvent('click', mouseClick)
