@@ -79,10 +79,17 @@ class Game(App):
          #   Cell((x,y))
         
     
-        click = []
     def baby(self,event):
+        click = []
         print(event.x,event.y)
         BabyCell((event.x,event.y))
+        click.append((event.x,event.y))
+        
+    def inbetween(self,position):
+        for m in Cells:
+            if click[0] == m[0] or click[0] <= m[0]+8:
+                LiveCell((m[0],m[1]))
+        
         
     
 
