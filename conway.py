@@ -70,8 +70,8 @@ def mouseClick(event):
 #making user be able to move the mouse with finger and make new cells when hovered over grid
 def MouseMove(event):
     global cell
-    x = int((event.x//15)*15)
-    y = int((event.y//15)*15)
+    x = int((event.x//40)*40)
+    y = int((event.y//40)*40)
     if x < 400 and y < 400:
         Sprite(cell_asset,(x, y))
     
