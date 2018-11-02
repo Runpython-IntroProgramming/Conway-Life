@@ -1,7 +1,7 @@
 """
 conway.py
-Author: <your name here>
-Credit: <list sources used, if any>
+Author: Eric Goodney
+Credit: Jack, Patrick, Teacher, http://brythonserver.github.io/ggame/#ggame.MouseEvent
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
@@ -58,7 +58,7 @@ for x in range(11):
     Sprite(line2, (0, x*40))
 
 #Making user be able to click and fill a cell
-cell_asset = RectangleAsset(40,40,thinline, red)
+cell_asset = RectangleAsset(40,40,thinline, blue)
 def mouseClick(event):
 #making a rectangle in closest box
     x = floor(event.x/40)*40 
@@ -66,6 +66,7 @@ def mouseClick(event):
     if x < 400 and y < 400:
 #Only allowing user to click inside grid
         Sprite(cell_asset,(x, y))
+
 #making user be able to move the mouse with finger and make new cells when hovered over grid
 def MouseMove(event):
     global cell
@@ -75,5 +76,6 @@ def MouseMove(event):
         Sprite(cell_asset,(x, y))
     
 myapp.listenMouseEvent('mousemove',MouseMove)
+
 myapp.listenMouseEvent('click', mouseClick)
 myapp.run()
