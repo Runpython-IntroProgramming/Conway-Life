@@ -50,6 +50,7 @@ orange = Color(0xFF7D40, 1.0)
 thinline = LineStyle(1, white)
 
 #Making the grid
+#once each click fills the closed box, make grid black to fill in with back ground
 line1 = RectangleAsset(1,400, thinline, white)
 Sprite(line1, (10,10))
 Sprite(line1, (50,10))
@@ -77,7 +78,6 @@ Sprite(line2, (10,370))
 Sprite(line2, (10,410))
 
 #Making user be able to click 
-
 
 cell_asset = RectangleAsset(40,40,thinline, orange)
 cell = Sprite(cell_asset, (0,0))
