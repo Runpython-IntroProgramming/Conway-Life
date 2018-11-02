@@ -107,8 +107,8 @@ class ConwayLife(App):
                 PosCell((cell.x+10, cell.y-10))
                 self.poslist.append(tuple((cell.x+10, cell.y-10)))
                 #for poscell in len(list(PosCell.collidingWithSprites(Cell))):
-                for nposcell in 
-                    for ncell in 
+                '''for nposcell in 
+                    for ncell in'''
                 
                 
                 #now program for alive!
