@@ -33,7 +33,7 @@ class PosCell(Sprite):
         self.createlist = []
 
     def step(self):
-        if len(list(self.collidingWithSprites(Cell))) == 3:
+        if len(list(self.collidingWithSprites(Cell))) >= 0:
             self.createlist.append(cell)
             print(self.createlist)
 
@@ -63,7 +63,6 @@ class ConwayLife(App):
         self.a = []
         self.shredlist = []
         self.bornlist = []
-        self.poslist = []
         ConwayLife.listenMouseEvent("click", self.mouseClick)
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
         ConwayLife.listenKeyEvent('keydown', 's', self.ps)
@@ -92,24 +91,26 @@ class ConwayLife(App):
                 self.shredlist.append(cell)
             if len(list(cell.collidingWithSprites(Cell))) == 3:
                 PosCell((cell.x-10, cell.y))
-                self.poslist.append(tuple((cell.x-10, cell.y)))
+                PosCell.createlist.append(tuple((cell.x-10, cell.y)))
                 PosCell((cell.x-10, cell.y-10))
-                self.poslist.append(tuple((cell.x-10, cell.y-10)))
+                PosCell.createlist.append(tuple((cell.x-10, cell.y-10)))
                 PosCell((cell.x, cell.y-10))
-                self.poslist.append(tuple((cell.x, cell.y-10)))
+                PosCell.createlist.append(tuple((cell.x, cell.y-10)))
                 PosCell((cell.x+10, cell.y))
-                self.poslist.append(tuple((cell.x+10, cell.y)))
+                PosCell.createlist.append(tuple((cell.x+10, cell.y)))
                 PosCell((cell.x+10, cell.y+10))
-                self.poslist.append(tuple((cell.x+10, cell.y+10)))
+                PosCell.createlist.append(tuple((cell.x+10, cell.y+10)))
                 PosCell((cell.x, cell.y+10))
-                self.poslist.append(tuple((cell.x, cell.y+10)))
+                PosCell.createlist.append(tuple((cell.x, cell.y+10)))
                 PosCell((cell.x-10, cell.y+10))
-                self.poslist.append(tuple((cell.x-10, cell.y+10)))
+                PosCell.createlist.append(tuple((cell.x-10, cell.y+10)))
                 PosCell((cell.x+10, cell.y-10))
-                self.poslist.append(tuple((cell.x+10, cell.y-10)))
+                PosCell.createlist.append(tuple((cell.x+10, cell.y-10)))
                 #for poscell in len(list(PosCell.collidingWithSprites(Cell))):
-                '''for nposcell in 
-                    for ncell in'''
+                for nposcell in PosCell.:
+                    for ncell in self.a:
+                        if nposcell == ncell:
+                            nposcell.destroy
                 
                 
                 #now program for alive!
