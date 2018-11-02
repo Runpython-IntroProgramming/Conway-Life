@@ -40,6 +40,7 @@ Corners Do Count)
 """
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 from math import floor
+
 #colors
 red = Color(0xFF4040, 1.0)
 green = Color(0x00FF00, 1.0)
@@ -50,7 +51,6 @@ orange = Color(0xFF7D40, 1.0)
 thinline = LineStyle(1, white)
 
 #Making the grid
-#once each click fills the closed box, make grid black to fill in with back ground
 line1 = RectangleAsset(1,400, thinline, white)
 line2 = RectangleAsset(400,1, thinline, white)
 for x in range(11):
