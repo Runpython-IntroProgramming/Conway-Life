@@ -10,6 +10,7 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 
 
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+from math import floor
 class SpaceGame(App):
     """
     Tutorial4 space game example.
@@ -83,8 +84,8 @@ cell = Sprite(cell_asset, (0,0))
 def mouseClick(event):
     cell.x = event.x
     cell.y = event.y 
-    #floor
-    #hve x and y be divided by something
+    x = floor(event.x/40)*40 
+    y = floor(event.y/40)*40
     Sprite(cell_asset, (event.x,event.y))
     
 
