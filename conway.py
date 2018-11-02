@@ -52,41 +52,23 @@ thinline = LineStyle(1, white)
 #Making the grid
 #once each click fills the closed box, make grid black to fill in with back ground
 line1 = RectangleAsset(1,400, thinline, white)
-Sprite(line1, (10,10))
-Sprite(line1, (50,10))
-Sprite(line1, (90,10))
-Sprite(line1, (130,10))
-Sprite(line1, (170,10))
-Sprite(line1, (210,10))
-Sprite(line1, (250,10))
-Sprite(line1, (290,10))
-Sprite(line1, (330,10))
-Sprite(line1, (370,10))
-Sprite(line1, (410,10))
-
 line2 = RectangleAsset(400,1, thinline, white)
-Sprite(line2, (10,10))
-Sprite(line2, (10,50))
-Sprite(line2, (10,90))
-Sprite(line2, (10,130))
-Sprite(line2, (10,170))
-Sprite(line2, (10,210))
-Sprite(line2, (10,250))
-Sprite(line2, (10,290))
-Sprite(line2, (10,330))
-Sprite(line2, (10,370))
-Sprite(line2, (10,410))
+for x in range(11):
+    Sprite(line1, (x*40, 0))
+    Sprite(line2, (0, x*40))
 
 #Making user be able to click 
 
-cell_asset = RectangleAsset(40,40,thinline, orange)
-cell = Sprite(cell_asset, (0,0))
+cell_asset = RectangleAsset(40,40,thinline, green)
+#cell = Sprite(cell_asset, (0,0))
 def mouseClick(event):
-    cell.x = event.x
-    cell.y = event.y 
+    #cell.x = event.x
+    #cell.y = event.y 
+#making a rectangle in closest box
     x = floor(event.x/40)*40 
     y = floor(event.y/40)*40
-    Sprite(cell_asset,(event.x, event.y))
+    if x < 400 and y < 400:
+        Sprite(cell_asset,(x, y))
 
     
 myapp.listenMouseEvent('click', mouseClick)
