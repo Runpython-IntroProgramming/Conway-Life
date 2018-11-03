@@ -58,7 +58,7 @@ for x in range(11):
     Sprite(line2, (0, x*40))
 
 #Making user be able to click and fill a cell
-cell_asset = RectangleAsset(40,40,thinline, orange)
+cell_asset = RectangleAsset(40,40,thinline, blue)
 def mouseClick(event):
 #making a rectangle in closest box
     x = floor(event.x/40)*40 
