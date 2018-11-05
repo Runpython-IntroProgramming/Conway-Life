@@ -89,7 +89,7 @@ def mouseup(event):
     if x < 400 and y < 400:
         Sprite(cell_asset,(x, y))
         
-"""
+
 
 def MouseMove(event):
     global cell
@@ -97,9 +97,10 @@ def MouseMove(event):
     y = int((event.y//40)*40)
     if x < 400 and y < 400:
         Sprite(cell_asset,(x, y))
-        
-myapp.listenMouseEvent('mousemove',MouseMove)
 """
+"""
+myapp.listenMouseEvent('mousemove',MouseMove)
+
 myapp.listenMouseEvent('mousedown',mousedown)
 """
 myapp.listenMouseEvent('click', mouseClick)
