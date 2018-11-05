@@ -6,9 +6,6 @@ Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
-
-
-
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 class SpaceGame(App):
     """
@@ -58,7 +55,7 @@ for x in range(11):
     Sprite(line2, (0, x*40))
 
 #Making user be able to click and fill a cell
-cell_asset = RectangleAsset(40,40,thinline, blue)
+cell_asset = RectangleAsset(40,40,thinline, white)
 def mouseClick(event):
 #making a rectangle in closest box
     x = floor(event.x/40)*40 
@@ -67,7 +64,32 @@ def mouseClick(event):
 #Only allowing user to click inside grid
         Sprite(cell_asset,(x, y))
 
+
+#making player press down mouse in order to use drag option. 
+
+
+#only have something haopen when mouse click event
+#only in mouse move down for mouse move event
+#mouse down, 
+#mouse up to stop
+"""
 #making user be able to move the mouse with finger and make new cells when hovered over grid
+def mousedown(event):
+    global cell
+    x = int((event.x//40)*40)
+    y = int((event.y//40)*40)
+    if x < 400 and y < 400:
+        Sprite(cell_asset,(x, y))
+        
+def mouseup(event):
+    global cell
+    x = int((event.x//40)*40)
+    y = int((event.y//40)*40)
+    if x < 400 and y < 400:
+        Sprite(cell_asset,(x, y))
+        
+"""
+
 def MouseMove(event):
     global cell
     x = int((event.x//40)*40)
@@ -76,6 +98,8 @@ def MouseMove(event):
         Sprite(cell_asset,(x, y))
         
 myapp.listenMouseEvent('mousemove',MouseMove)
+
+myapp.listenMouseEvent('mousedown',mousedown)
 
 myapp.listenMouseEvent('click', mouseClick)
 myapp.run()
