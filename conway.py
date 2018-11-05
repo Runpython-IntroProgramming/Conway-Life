@@ -102,7 +102,7 @@ class ConwayLife(App):
                 #for poscell in len(list(PosCell.collidingWithSprites(Cell))):
                 for nposcell in PosCell.createlist:
                     if nposcell in self.celldict:
-                        .destroy
+                        #.destroy
                 
                 
                 #now program for alive!
