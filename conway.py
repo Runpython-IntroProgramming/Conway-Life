@@ -80,7 +80,7 @@ class ConwayLife(App):
         if ((((round(event.x/10))*10),((round(event.y/10))*10))) not in self.a:
             c = Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
             c
-            celldict{c.position} = cell
+            celldict[c.position] = cell
         else:
             pass
 
