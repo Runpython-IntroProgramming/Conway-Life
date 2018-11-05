@@ -1,7 +1,7 @@
 """
 conway.py
 Author: <your name here>
-Credit: <list sources used, if any>
+Credit: <list sources used, if any>http://doc.pyschools.com/html/dictionary.html, https://gamedev.stackexchange.com/questions/11838/sprite-group-doesnt-support-indexing
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
@@ -100,8 +100,8 @@ class ConwayLife(App):
                 PosCell((cell.x-10, cell.y+10))
                 PosCell((cell.x+10, cell.y-10))
                 #for poscell in len(list(PosCell.collidingWithSprites(Cell))):
-                for nposcell in keys(PosCell.createdict):
-                    if nposcell in self.celldict:
+                for nposcell in keys(self.celldict):
+                    if nposcell in PosCell.createdict:
                         PosCell
                         
                 
