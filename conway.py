@@ -18,14 +18,14 @@ l = int(input("How long would you like youre grid? "))
 
 class DeadCell(Sprite):
     grey = Color(0x000000,.3)
-    grey1 = Color(0x000000,.8)
+    grey1 = Color(0x000000,.1)
     side = LineStyle(1,grey)
     square = RectangleAsset(8,8,side,grey1)
     def __init__(self,position):
         super().__init__(DeadCell.square,position)
 
 class BabyCell(Sprite):
-    green = Color(0x00ff00,.3)
+    green = Color(0x00ff00,.8)
     side = LineStyle(1,green)
     square1 = RectangleAsset(8,8,side,green)
     
@@ -88,7 +88,7 @@ class Game(App):
             if m[0] <= event.x <= m[0]+8:
                 if m[1] <= event.y <= m[1]+8:
                     BabyCell((m[0],m[1]))
-                    DeadCell((m[0],m[1])).visable = False
+                    DeadCell((m[0],m[1])).visable = False           #work on this
                     Babys.append((m[0],m[1]))
                     self.Alive == True
 
