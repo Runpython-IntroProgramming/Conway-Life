@@ -68,11 +68,12 @@ def mouseClick(event):
 #making player press down mouse in order to use drag option. 
 
 
+
+"""
 #only have something haopen when mouse click event
 #only in mouse move down for mouse move event
 #mouse down, 
 #mouse up to stop
-"""
 #making user be able to move the mouse with finger and make new cells when hovered over grid
 def mousedown(event):
     global cell
@@ -98,8 +99,8 @@ def MouseMove(event):
         Sprite(cell_asset,(x, y))
         
 myapp.listenMouseEvent('mousemove',MouseMove)
-
+"""
 myapp.listenMouseEvent('mousedown',mousedown)
-
+"""
 myapp.listenMouseEvent('click', mouseClick)
 myapp.run()
