@@ -62,6 +62,7 @@ class ConwayLife(App):
         bg_asset = RectangleAsset(self.width, self.height, noline, grey)
         bg = Sprite(bg_asset, (0,0))
         self.a = []
+        celldict = {}
         self.shredlist = []
         self.bornlist = []
         ConwayLife.listenMouseEvent("click", self.mouseClick)
@@ -79,7 +80,7 @@ class ConwayLife(App):
         if ((((round(event.x/10))*10),((round(event.y/10))*10))) not in self.a:
             c = Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
             c
-            self.a.append(c.position)
+            celldict{c.position} = cell
         else:
             pass
 
