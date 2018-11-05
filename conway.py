@@ -48,30 +48,31 @@ class Game(App):
     def __init__(self, width, height):
         super().__init__(width, height)
         Game.listenMouseEvent("click",self.baby)
+        Game.listenKeyEvent("click",self.go)
         
-        a = []
-        x = []
-        y = []
+    a = []
+    x = []
+    y = []
+    
+    b=[]
+    
+    for m in range(w):
+        x.append(10+(8*m))
+        y.append(10)
+        b.append(10+(8*m))
         
-        b=[]
+    for m in b:
+        for n in range(l):
+            x.append(m)
+            y.append(18+(n*8))
         
-        for m in range(w):
-            x.append(10+(8*m))
-            y.append(10)
-            b.append(10+(8*m))
-            
-        for m in b:
-            for n in range(l):
-                x.append(m)
-                y.append(18+(n*8))
-            
-        
-        d = zip(x,y)
-        Cells=[]
-        
-        for m in d:
-            DeadCell((m[0],m[1]))
-            Cells.append((m[0],m[1]))
+    
+    d = zip(x,y)
+    Cells=[]
+    
+    for m in d:
+        DeadCell((m[0],m[1]))
+        Cells.append((m[0],m[1]))
         
         
         #for n in range(len(d)):
@@ -81,11 +82,15 @@ class Game(App):
     def baby(self,event):
         click = []
         print(event.x,event.y)
-        BabyCell((event.x,event.y))
+        #BabyCell((event.x,event.y))
         click.append((event.x,event.y))
-        for m in Cells:
+        for m in self.Cells:
             if m[0] <= event.x <= m[0]+8:
-                LiveCell((m[0],m[1]))
+                if m[1] <= event.y <= m[1]+8:
+                    LiveCell((m[0],m[1]))
+
+    def go(self,event):
+        
         
         
     
