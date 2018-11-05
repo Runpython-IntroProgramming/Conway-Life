@@ -26,7 +26,7 @@ class PosCell(Sprite):
     Cell outline
     """
     asset = RectangleAsset(11, 11, gridgrey, trial)
-    createlist = []
+    createdict = {}
 
 
     def __init__(self, position):
@@ -35,8 +35,8 @@ class PosCell(Sprite):
 
     def step(self):
         if len(list(self.collidingWithSprites(Cell))) >= 0:
-            createlist.append(cell)
-            print(createlist)
+            createdict[cell.position] = PosCell
+            print(createdict)
 
 
 class Cell(Sprite):
@@ -100,9 +100,9 @@ class ConwayLife(App):
                 PosCell((cell.x-10, cell.y+10))
                 PosCell((cell.x+10, cell.y-10))
                 #for poscell in len(list(PosCell.collidingWithSprites(Cell))):
-                for nposcell in PosCell.createlist:
+                for nposcell in PosCell.createdict:
                     if nposcell in self.celldict:
-                        self.celldict[nposcell].destroy
+                        PosCell
                         
                 
                 
