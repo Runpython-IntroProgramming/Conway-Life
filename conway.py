@@ -70,7 +70,7 @@ class ConwayLife(App):
         ConwayLife.listenKeyEvent('keydown', 's', self.ps)
 
     def step(self):
-        print(self.a)
+        print(self.celldict)
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         for sell in self.getSpritesbyClass(PosCell):
@@ -85,35 +85,24 @@ class ConwayLife(App):
             pass
 
     def start(self, event):
-        for cell in self.a:
+        for cell in self.celldict:
             if len(list(cell.collidingWithSprites(Cell))) < 2:
-                #cell.destroy()
                 self.shredlist.append(cell)
             if len(list(cell.collidingWithSprites(Cell))) > 3:
-                #cell.destroy()
                 self.shredlist.append(cell)
             if len(list(cell.collidingWithSprites(Cell))) == 3:
                 PosCell((cell.x-10, cell.y))
-                #PosCell.createlist.append(tuple((cell.x-10, cell.y)))
                 PosCell((cell.x-10, cell.y-10))
-                #PosCell.createlist.append(tuple((cell.x-10, cell.y-10)))
                 PosCell((cell.x, cell.y-10))
-                #PosCell.createlist.append(tuple((cell.x, cell.y-10)))
                 PosCell((cell.x+10, cell.y))
-                #PosCell.createlist.append(tuple((cell.x+10, cell.y)))
                 PosCell((cell.x+10, cell.y+10))
-                #PosCell.createlist.append(tuple((cell.x+10, cell.y+10)))
                 PosCell((cell.x, cell.y+10))
-                #PosCell.createlist.append(tuple((cell.x, cell.y+10)))
                 PosCell((cell.x-10, cell.y+10))
-                #PosCell.createlist.append(tuple((cell.x-10, cell.y+10)))
                 PosCell((cell.x+10, cell.y-10))
-                #PosCell.createlist.append(tuple((cell.x+10, cell.y-10)))
                 #for poscell in len(list(PosCell.collidingWithSprites(Cell))):
                 for nposcell in PosCell.createlist:
-                    for ncell in self.a:
-                        if nposcell == ncell:
-                            nposcell.destroy
+                    if nposcell in self.celldict:
+                        .destroy
                 
                 
                 #now program for alive!
