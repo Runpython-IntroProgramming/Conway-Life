@@ -18,14 +18,14 @@ l = int(input("How long would you like youre grid? "))
 
 class DeadCell(Sprite):
     grey = Color(0x000000,.3)
-    grey1 = Color(0x000000,.05)
+    grey1 = Color(0x000000,.8)
     side = LineStyle(1,grey)
     square = RectangleAsset(8,8,side,grey1)
     def __init__(self,position):
         super().__init__(DeadCell.square,position)
 
 class BabyCell(Sprite):
-    green = Color(0x00ff00,.8)
+    green = Color(0x00ff00,.3)
     side = LineStyle(1,green)
     square1 = RectangleAsset(8,8,side,green)
     
@@ -42,15 +42,12 @@ class LiveCell(Sprite):
 
 
 class Game(App):
-    grey = Color(0x000000,.5)
-    grey1 = Color(0x000000,.1)
-    side = LineStyle(1,grey)
-    square = RectangleAsset(8,8,side,grey1)
         
     def __init__(self, width, height):
         super().__init__(width, height)
+        self.Alive = False
         Game.listenMouseEvent("click",self.baby)
-        Game.listenKeyEvent("click",self.go)
+        #Game.listenKeyEvent("keydown","m",self.go)
         
     a = []
     x = []
@@ -83,19 +80,23 @@ class Game(App):
     
     def baby(self,event):
         click = []
-        print(event.x,event.y)
+        print(int(event.x),int(event.y))
         #BabyCell((event.x,event.y))
         click.append((event.x,event.y))
         Babys = []
         for m in self.Cells:
             if m[0] <= event.x <= m[0]+8:
                 if m[1] <= event.y <= m[1]+8:
-                    LiveCell((m[0],m[1]))
+                    BabyCell((m[0],m[1]))
+                    DeadCell((m[0],m[1])).visable = False
                     Babys.append((m[0],m[1]))
+                    self.Alive == True
 
-    def go(self,event):
-        for m in self.Babys:
-            if  
+    '''def go(self,event):
+        for m in self.Cells:
+            if m in self.Babys:
+                print(m[0],m[1])
+                LiveCell((m[0],m[1]))'''
         
         
     
