@@ -100,7 +100,7 @@ class ConwayLife(App):
                 PosCell((cell.x-10, cell.y+10))
                 PosCell((cell.x+10, cell.y-10))
                 #for poscell in len(list(PosCell.collidingWithSprites(Cell))):
-                for nposcell in PosCell.createdict:
+                for nposcell in keys(PosCell.createdict):
                     if nposcell in self.celldict:
                         PosCell
                         
