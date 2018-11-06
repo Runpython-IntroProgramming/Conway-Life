@@ -23,6 +23,10 @@ class DeadCell(Sprite):
     square = RectangleAsset(8,8,side,grey1)
     def __init__(self,position):
         super().__init__(DeadCell.square,position)
+        if cells[(position)] == "alive":
+            self.visible == True
+        else:
+            self.visible == False
 
 class BabyCell(Sprite):
     green = Color(0x00ff00,.8)
@@ -75,8 +79,8 @@ class Game(App):
         Cells.append((m[0],m[1]))
         Sprites.append((DeadCell,(m[0],m[1])))
         
-    #for m in Sprites:
-        #m[0](m[1])
+    for m in Sprites:
+        m.visable = True
         
         
         #for n in range(len(d)):
@@ -98,11 +102,13 @@ class Game(App):
                     self.Alive == True
 
     def go(self,event):
-        
+        super.__init__(baby.Babys)
+        for m in self.Babys:
+            print("hi")
 
 
 
 
 
-myapp = Game()
+myapp = Game(500,500)
 myapp.run()
