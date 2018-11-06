@@ -55,26 +55,14 @@ for x in range(11):
     Sprite(line2, (0, x*40))
 
 #Making user be able to click and fill a cell
-cell_asset = RectangleAsset(40,40,thinline, orange)
+cell_asset = RectangleAsset(40,40,thinline, blue)
+
 def mouseClick(event):
-#making a rectangle in closest box
     x = floor(event.x/40)*40 
     y = floor(event.y/40)*40
     if x < 400 and y < 400:
-#Only allowing user to click inside grid
         Sprite(cell_asset,(x, y))
-
-
-#making player press down mouse in order to use drag option. 
-
-
-
-"""
-#only have something haopen when mouse click event
-#only in mouse move down for mouse move event
-#mouse down, 
-#mouse up to stop
-#making user be able to move the mouse with finger and make new cells when hovered over grid
+"""       
 def mousedown(event):
     global cell
     x = int((event.x//40)*40)
@@ -88,9 +76,41 @@ def mouseup(event):
     y = int((event.y//40)*40)
     if x < 400 and y < 400:
         Sprite(cell_asset,(x, y))
+#how do you program mouse up event to stop making new cells?
+    
+"""
+
+#making player press down mouse in order to use drag option. 
+
+"""
+
+def mousedown(event):
+    global cell
+    x = int((event.x//40)*40)
+    y = int((event.y//40)*40)
+    if x < 400 and y < 400:
+        Sprite(cell_asset,(x, y))
+    
+def mouseup(event):
+    global cell
+    x = int((event.x//40)*40)
+    y = int((event.y//40)*40)
+    if x < 400 and y < 400:
+        Sprite(cell_asset,(x, y))
         
+def Down(event):
+    global z
+    z = 1
+    
+def Up(event):
+    global z
+    z = 0
+    
+       
+    
+"""
 
-
+"""
 def MouseMove(event):
     global cell
     x = int((event.x//40)*40)
