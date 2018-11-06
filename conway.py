@@ -47,7 +47,7 @@ class Game(App):
         super().__init__(width, height)
         self.Alive = False
         Game.listenMouseEvent("click",self.baby)
-        #Game.listenKeyEvent("keydown","m",self.go)
+        Game.listenKeyEvent("keydown","m",self.go)
         
     a = []
     x = []
@@ -67,11 +67,16 @@ class Game(App):
         
     
     d = zip(x,y)
-    Cells=[]
+    Cells = []
+    Sprites = []
     
     for m in d:
-        DeadCell((m[0],m[1]))
+        #DeadCell((m[0],m[1]))
         Cells.append((m[0],m[1]))
+        Sprites.append((DeadCell,(m[0],m[1])))
+        
+    #for m in Sprites:
+        #m[0](m[1])
         
         
         #for n in range(len(d)):
@@ -88,21 +93,16 @@ class Game(App):
             if m[0] <= event.x <= m[0]+8:
                 if m[1] <= event.y <= m[1]+8:
                     BabyCell((m[0],m[1]))
-                    DeadCell((m[0],m[1])).visable = False           #work on this
+                    DeadCell((m[0],m[1])).visable == False           #work on this
                     Babys.append((m[0],m[1]))
                     self.Alive == True
 
-    '''def go(self,event):
-        for m in self.Cells:
-            if m in self.Babys:
-                print(m[0],m[1])
-                LiveCell((m[0],m[1]))'''
+    def go(self,event):
         
-        
-    
 
 
 
 
-myapp = Game(500,500)
+
+myapp = Game()
 myapp.run()
