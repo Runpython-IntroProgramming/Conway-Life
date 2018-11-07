@@ -16,6 +16,9 @@ print("A cell will survive if it has 2-3 neighbors, and a dead cell will create 
 w = int(input("How wide would you like youre grid? "))
 l = int(input("How long would you like youre grid? "))
 
+cells={}
+sprites={}
+
 class DeadCell(Sprite):
     grey = Color(0x000000,.3)
     grey1 = Color(0x000000,.1)
@@ -23,10 +26,12 @@ class DeadCell(Sprite):
     square = RectangleAsset(8,8,side,grey1)
     def __init__(self,position):
         super().__init__(DeadCell.square,position)
-        if cells[(position)] == "alive":
-            self.visible == True
+        if cells[position] == "dead":
+            self.visible = True
         else:
-            self.visible == False
+            self.visible = False
+        #print(cells)
+        #print(position)
 
 class BabyCell(Sprite):
     green = Color(0x00ff00,.8)
@@ -35,6 +40,10 @@ class BabyCell(Sprite):
     
     def __init__(self,position):
         super().__init__(BabyCell.square1,position)
+        if cells[(position)] == "baby":
+            self.visible = True
+        else:
+            self.visible = False
         
 class LiveCell(Sprite):
     yellow = Color(0xffff00,.8)
@@ -43,13 +52,16 @@ class LiveCell(Sprite):
     
     def __init__(self,position):
         super().__init__(LiveCell.square2,position)
+        if cells[(position)] == "old":
+            self.visible = True
+        else:
+            self.visible = False
 
 
 class Game(App):
         
     def __init__(self, width, height):
         super().__init__(width, height)
-        self.Alive = False
         Game.listenMouseEvent("click",self.baby)
         Game.listenKeyEvent("keydown","m",self.go)
         
@@ -75,31 +87,31 @@ class Game(App):
     Sprites = []
     
     for m in d:
-        #DeadCell((m[0],m[1]))
+        DeadCell((m[0],m[1]))
+        cells[(m[0],m[1])] = "dead"
+        sprites[(DeadCell)] = (m[0],m[1])
         Cells.append((m[0],m[1]))
-        Sprites.append((DeadCell,(m[0],m[1])))
-        
-    for m in Sprites:
-        m.visable = True
-        
-        
-        #for n in range(len(d)):
-         #   Cell((x,y))
+        #Sprites.append((DeadCell,(m[0],m[1])))
+    
+    #for m in Sprites:
+     #   m[(1)] == "alive"
+      #  m[0](m[1])
         
     
     def baby(self,event):
         click = []
         print(int(event.x),int(event.y))
-        #BabyCell((event.x,event.y))
+        BabyCell((event.x,event.y))
         click.append((event.x,event.y))
         Babys = []
         for m in self.Cells:
             if m[0] <= event.x <= m[0]+8:
                 if m[1] <= event.y <= m[1]+8:
-                    BabyCell((m[0],m[1]))
-                    DeadCell((m[0],m[1])).visable == False           #work on this
-                    Babys.append((m[0],m[1]))
-                    self.Alive == True
+                    cells[(m[0],m[1])] = "baby"
+                    
+                    #DeadCell((m[0],m[1])).visable == False           #work on this
+                    #Babys.append((m[0],m[1]))
+                    #self.Alive == True
 
     def go(self,event):
         super.__init__(baby.Babys)
