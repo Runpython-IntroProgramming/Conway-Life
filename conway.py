@@ -114,13 +114,15 @@ class Game(App):
                     #Babys.append((m[0],m[1]))
                     #self.Alive == True
 
-    def go(self,event):
+    def step(self):
         for m in self.Cells:
             print(cells.get((m[0],m[1])))
             DeadCell((m[0],m[1]))
             BabyCell((m[0],m[1]))
             LiveCell((m[0],m[1]))
-
+            
+    def go(self,event):
+        print("hi")
 
 
 
