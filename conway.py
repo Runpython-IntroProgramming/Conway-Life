@@ -41,7 +41,7 @@ class BabyCell(Sprite):
     def __init__(self,position):
         super().__init__(BabyCell.square1,position)
         if cells[(position)] == "baby":
-            self.visible = True
+            self.visible = False
         else:
             self.visible = False
         
@@ -107,6 +107,8 @@ class Game(App):
         for m in self.Cells:
             if m[0] <= event.x <= m[0]+8:
                 if m[1] <= event.y <= m[1]+8:
+                    #DeadCell((m[0],m[1])).visable = False
+                    BabyCell((m[0],m[1]))
                     cells[(m[0],m[1])] = "baby"
                     #DeadCell((m[0],m[1])).visable == False           #work on this
                     #Babys.append((m[0],m[1]))
@@ -114,6 +116,7 @@ class Game(App):
 
     def go(self,event):
         for m in self.Cells:
+            print(cells.get((m[0],m[1])))
             DeadCell((m[0],m[1]))
             BabyCell((m[0],m[1]))
             LiveCell((m[0],m[1]))
