@@ -86,11 +86,11 @@ class ConwayLife(App):
 
     def start(self, event):
         for cell in self.celldict:
-            if len(list(cell.collidingWithSprites(Cell))) < 2:
-                self.shredlist.append(cell)
-            if len(list(cell.collidingWithSprites(Cell))) > 3:
-                self.shredlist.append(cell)
-            if len(list(cell.collidingWithSprites(Cell))) == 3:
+            if len(list(self.celldict[cell].collidingWithSprites(Cell))) < 2:
+                self.shredlist.append(self.celldict[cell])
+            if len(list(self.celldict[cell].collidingWithSprites(Cell))) > 3:
+                self.shredlist.append(self.celldict[cell])
+            if len(list(self.celldict[cell].collidingWithSprites(Cell))) == 3:
                 PosCell((cell.x-10, cell.y))
                 PosCell((cell.x-10, cell.y-10))
                 PosCell((cell.x, cell.y-10))
