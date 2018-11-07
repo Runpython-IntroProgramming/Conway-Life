@@ -80,40 +80,29 @@ class ConwayLife(App):
         if ((((round(event.x/10))*10),((round(event.y/10))*10))) not in self.a:
             c = Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
             c
-            self.celldict[c.position] = Cell
+            self.celldict[c.position] = c
         else:
             pass
 
     def start(self, event):
         for cell in self.celldict:
-            print(cell)
-            #print(self.celldict[cell].collidingWithSprites(Cell), '8888888')
-            count = 0
-            for othercell in self.getSpritesbyClass(Cell):
-                if self.celldict[cell].collidingWith(othercell,othercell):
-                    count +=1
-                    if count < 2:
-                        self.shredlist.append(self.celldict[cell])
-                    if count > 3:
-                        self.shredlist.append(self.celldict[cell])
-                    if count == 3:
-                        '''if len(self.celldict[cell].collidingWithSprites(Cell, Cell)) < 2:
-                        self.shredlist.append(self.celldict[cell])
-                        if len(list(self.celldict[cell].collidingWithSprites(Cell, Cell))) > 3:
-                        self.shredlist.append(self.celldict[cell])
-                        if len(list(self.celldict[cell].collidingWithSprites(Cell, Cell))) == 3:'''
-                        PosCell((cell.x-10, cell.y))
-                        PosCell((cell.x-10, cell.y-10))
-                        PosCell((cell.x, cell.y-10))
-                        PosCell((cell.x+10, cell.y))
-                        PosCell((cell.x+10, cell.y+10))
-                        PosCell((cell.x, cell.y+10))
-                        PosCell((cell.x-10, cell.y+10))
-                        PosCell((cell.x+10, cell.y-10))
+            if len(self.celldict[cell].collidingWithSprites(Cell, Cell)) < 2:
+                self.shredlist.append(self.celldict[cell])
+            if len(list(self.celldict[cell].collidingWithSprites(Cell, Cell))) > 3:
+                self.shredlist.append(self.celldict[cell])
+            if len(list(self.celldict[cell].collidingWithSprites(Cell, Cell))) == 3:
+                PosCell((cell.x-10, cell.y))
+                PosCell((cell.x-10, cell.y-10))
+                PosCell((cell.x, cell.y-10))
+                PosCell((cell.x+10, cell.y))
+                PosCell((cell.x+10, cell.y+10))
+                PosCell((cell.x, cell.y+10))
+                PosCell((cell.x-10, cell.y+10))
+                PosCell((cell.x+10, cell.y-10))
                 #for poscell in len(list(PosCell.collidingWithSprites(Cell))):
-                        for nposcell in keys(self.celldict):
-                            if nposcell in PosCell.createdict:
-                                PosCell
+                for nposcell in keys(self.celldict):
+                    if nposcell in PosCell.createdict:
+                        PosCell
                         
                 
                 
