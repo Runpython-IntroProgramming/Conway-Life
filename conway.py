@@ -87,6 +87,12 @@ class ConwayLife(App):
     def start(self, event):
         for cell in self.celldict:
             print(cell)
+            #print(self.celldict[cell].collidingWithSprites(Cell), '8888888')
+            count = 0
+            for othercell in self.getSpritesbyClass(Cell):
+                if self.celldict[cell].collidingWith(othercell,othercell):
+                    count +=1
+            print(count,111111)
             if len(self.celldict[cell].collidingWithSprites(Cell)) < 2:
                 self.shredlist.append(self.celldict[cell])
             if len(list(self.celldict[cell].collidingWithSprites(Cell))) > 3:
