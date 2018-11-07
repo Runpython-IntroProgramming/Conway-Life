@@ -71,6 +71,7 @@ class ConwayLife(App):
 
     def step(self):
         print(self.celldict)
+        print(PosCell.createdict)
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         for sell in self.getSpritesbyClass(PosCell):
