@@ -103,6 +103,8 @@ class Game(App):
                     cells[(m[0],m[1])] = "baby"
                     sprites[(m[0],m[1])] = BabyCell
                     #BabyCell((m[0],m[1]))
+            else:
+                cells[(m[0],m[1])] = "nothing"
 
     def step(self):
         for m in self.Cells:
