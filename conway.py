@@ -92,24 +92,28 @@ class ConwayLife(App):
             for othercell in self.getSpritesbyClass(Cell):
                 if self.celldict[cell].collidingWith(othercell,othercell):
                     count +=1
-            print(count,111111)
-            if len(self.celldict[cell].collidingWithSprites(Cell, Cell)) < 2:
-                self.shredlist.append(self.celldict[cell])
-            if len(list(self.celldict[cell].collidingWithSprites(Cell, Cell))) > 3:
-                self.shredlist.append(self.celldict[cell])
-            if len(list(self.celldict[cell].collidingWithSprites(Cell, Cell))) == 3:
-                PosCell((cell.x-10, cell.y))
-                PosCell((cell.x-10, cell.y-10))
-                PosCell((cell.x, cell.y-10))
-                PosCell((cell.x+10, cell.y))
-                PosCell((cell.x+10, cell.y+10))
-                PosCell((cell.x, cell.y+10))
-                PosCell((cell.x-10, cell.y+10))
-                PosCell((cell.x+10, cell.y-10))
+                    if count < 2:
+                        self.shredlist.append(self.celldict[cell])
+                    if count > 3:
+                        self.shredlist.append(self.celldict[cell])
+                    if count == 3:
+                    '''if len(self.celldict[cell].collidingWithSprites(Cell, Cell)) < 2:
+                        self.shredlist.append(self.celldict[cell])
+                    if len(list(self.celldict[cell].collidingWithSprites(Cell, Cell))) > 3:
+                        self.shredlist.append(self.celldict[cell])
+                    if len(list(self.celldict[cell].collidingWithSprites(Cell, Cell))) == 3:'''
+                        PosCell((cell.x-10, cell.y))
+                        PosCell((cell.x-10, cell.y-10))
+                        PosCell((cell.x, cell.y-10))
+                        PosCell((cell.x+10, cell.y))
+                        PosCell((cell.x+10, cell.y+10))
+                        PosCell((cell.x, cell.y+10))
+                        PosCell((cell.x-10, cell.y+10))
+                        PosCell((cell.x+10, cell.y-10))
                 #for poscell in len(list(PosCell.collidingWithSprites(Cell))):
-                for nposcell in keys(self.celldict):
-                    if nposcell in PosCell.createdict:
-                        PosCell
+                        for nposcell in keys(self.celldict):
+                            if nposcell in PosCell.createdict:
+                                PosCell
                         
                 
                 
