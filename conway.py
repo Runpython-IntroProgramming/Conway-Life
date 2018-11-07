@@ -87,8 +87,8 @@ class Game(App):
     Sprites = []
     
     for m in d:
-        DeadCell((m[0],m[1]))
         cells[(m[0],m[1])] = "dead"
+        DeadCell((m[0],m[1]))
         sprites[(DeadCell)] = (m[0],m[1])
         Cells.append((m[0],m[1]))
         #Sprites.append((DeadCell,(m[0],m[1])))
@@ -101,22 +101,22 @@ class Game(App):
     def baby(self,event):
         click = []
         print(int(event.x),int(event.y))
-        BabyCell((event.x,event.y))
+        #BabyCell((event.x,event.y))
         click.append((event.x,event.y))
         Babys = []
         for m in self.Cells:
             if m[0] <= event.x <= m[0]+8:
                 if m[1] <= event.y <= m[1]+8:
                     cells[(m[0],m[1])] = "baby"
-                    
                     #DeadCell((m[0],m[1])).visable == False           #work on this
                     #Babys.append((m[0],m[1]))
                     #self.Alive == True
 
     def go(self,event):
-        super.__init__(baby.Babys)
-        for m in self.Babys:
-            print("hi")
+        for m in self.Cells:
+            DeadCell((m[0],m[1]))
+            BabyCell((m[0],m[1]))
+            LiveCell((m[0],m[1]))
 
 
 
