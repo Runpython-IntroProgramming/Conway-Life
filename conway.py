@@ -65,6 +65,7 @@ class Game(App):
         super().__init__(width, height)
         Game.listenMouseEvent("click",self.baby)
         Game.listenKeyEvent("keydown","n",self.clear)
+        madecells = []
 
     a = []
     x = []
@@ -85,11 +86,12 @@ class Game(App):
     d = zip(x,y)
     Cells = []
     Sprites = []
+    madecells = []
     
     for m in d:
         cells[(m[0],m[1])] = "dead"
         sprites[(m[0],m[1])] = DeadCell
-        DeadCell((m[0],m[1]))
+        madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
         Cells.append((m[0],m[1]))
     
     def baby(self,event):
@@ -107,14 +109,12 @@ class Game(App):
                 cells[(m[0],m[1])] = "nothing"
 
     def step(self):
+        for n in self.madecells:
+            n.destroy()
+        self.madecells = []
         for m in self.Cells:
-            sprites.get((m[0],m[1]))((m[0],m[1]))
-            '''if cells.get((m[0],m[1])) == "dead":
-                DeadCell((m[0],m[1]))
-            elif cells.get((m[0],m[1])) == "baby":
-                BabyCell((m[0],m[1]))
-            elif cells.get((m[0],m[1])) == "old":
-                LiveCell((m[0],m[1]))'''
+            self.madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
+        print(self.Cells)
             
     def clear(self,event):
         print("hi")
