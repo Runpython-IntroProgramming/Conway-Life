@@ -62,6 +62,13 @@ def mouseClick(event):
     y = floor(event.y/40)*40
     if x < 400 and y < 400:
         Sprite(cell_asset,(x, y))
+
+cell_asset = ImageAsset("Conway-life.png")
+ball = sprite(ball_asset, (0, 0))
+
+
+
+
 """       
 def mousedown(event):
     global cell
