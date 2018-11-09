@@ -103,7 +103,8 @@ class ConwayLife(App):
                 #for poscell in len(list(Poscell.collidingWithSprites(Cell))):
                 for nposcellk, nposcelld in self.celldict.items():
                     if nposcellk in Poscell.createdict:
-                        Poscell((20,20))
+                        print(nposcellk)
+                        del Poscell.createdict[nposcellk]
                         
                 
                 
