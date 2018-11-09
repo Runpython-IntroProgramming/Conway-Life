@@ -69,6 +69,8 @@ class ConwayLife(App):
         ConwayLife.listenMouseEvent("click", self.mouseClick)
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
         ConwayLife.listenKeyEvent('keydown', 's', self.ps)
+        adddict = {}
+        deldict = {}
 
     def step(self):
         print(self.celldict)
@@ -101,10 +103,15 @@ class ConwayLife(App):
                 Poscell.posposcells.append((cell[0], cell[1]+10))
                 Poscell.posposcells.append((cell[0]-10, cell[1]+10))
                 Poscell.posposcells.append((cell[0]+10, cell[1]-10))
+                posposcells = sorted(posposcells)
                 print(Poscell.posposcells)
+                for countcopies in Poscell.posposcells:
+                    copies = Poscell.posposcells.count(countcopies)
+                    if copies >= 0:
+                        pass
                 for nposcellk, nposcelld in self.celldict.items():
-                    if nposcellk in Poscell.createdict:
-                        print(nposcellk)
+                    if nposcellk in Poscell.posposcells:
+                        pass
                         
                         
     def ps(self, event):
