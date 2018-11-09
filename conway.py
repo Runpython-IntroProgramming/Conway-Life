@@ -26,8 +26,8 @@ class Poscell(Sprite):
     Cell outline
     """
     asset = RectangleAsset(11, 11, gridgrey, trial)
-    createdict = {}
-    posposcells = []
+    self.createdict = {}
+    self.posposcells = []
 
 
     def __init__(self, position):
