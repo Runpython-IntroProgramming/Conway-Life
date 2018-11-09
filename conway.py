@@ -27,6 +27,7 @@ class Poscell(Sprite):
     """
     asset = RectangleAsset(11, 11, gridgrey, trial)
     createdict = {}
+    posposcells = []
 
 
     def __init__(self, position):
@@ -92,19 +93,18 @@ class ConwayLife(App):
             if len(list(self.celldict[cell].collidingWithSprites(Cell))) > 3:
                 self.shredlist.append(self.celldict[cell])
             if len(list(self.celldict[cell].collidingWithSprites(Cell))) == 3:
-                Poscell((cell[0]-10, cell[1]))
-                Poscell((cell[0]-10, cell[1]-10))
-                Poscell((cell[0], cell[1]-10))
-                Poscell((cell[0]+10, cell[1]))
-                Poscell((cell[0]+10, cell[1]+10))
-                Poscell((cell[0], cell[1]+10))
-                Poscell((cell[0]-10, cell[1]+10))
-                Poscell((cell[0]+10, cell[1]-10))
-                #for poscell in len(list(Poscell.collidingWithSprites(Cell))):
+                Poscell.posposcells.append((cell[0]-10, cell[1]))
+                Poscell.posposcells.append((cell[0]-10, cell[1]-10))
+                Poscell.posposcells.append((cell[0], cell[1]-10))
+                Poscell.posposcells.append((cell[0]+10, cell[1]))
+                Poscell.posposcells.append((cell[0]+10, cell[1]+10))
+                Poscell.posposcells.append((cell[0], cell[1]+10))
+                Poscell.posposcells.append((cell[0]-10, cell[1]+10))
+                Poscell.posposcells.append((cell[0]+10, cell[1]-10))
                 for nposcellk, nposcelld in self.celldict.items():
                     if nposcellk in Poscell.createdict:
                         print(nposcellk)
-                        del Poscell.createdict[nposcellk]
+                        del
                         
                 
                 
