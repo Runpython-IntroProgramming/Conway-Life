@@ -30,7 +30,7 @@ class Poscell(Sprite):
 
 
     def __init__(self, position):
-        super().__init__(Cell.asset, position)
+        super().__init__(Poscell.asset, position)
         self.fxcenter = self.fycenter = 0.5
 
     def step(self):
