@@ -105,15 +105,15 @@ class ConwayLife(App):
                 Poscell.posposcells.append((cell[0]+10, cell[1]-10))
                 Poscell.posposcells = sorted(Poscell.posposcells)
                 print(Poscell.posposcells)
-                for countcopies in Poscell.posposcells:
-                    copies = Poscell.posposcells.count(countcopies)
-                    if copies >= 0:
-                        pass
-                for nposcellk, nposcelld in self.celldict.items():
-                    if nposcellk in Poscell.posposcells:
-                        pass
-                        
-                        
+        for countcopies in Poscell.posposcells:
+            copies = Poscell.posposcells.count(countcopies)
+            if copies >= 0:
+                pass
+        for nposcellk, nposcelld in self.celldict.items():
+            if nposcellk in Poscell.posposcells:
+                pass
+                
+                
     def ps(self, event):
         print(self.shredlist)
 
