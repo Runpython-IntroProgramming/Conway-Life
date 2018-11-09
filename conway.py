@@ -26,8 +26,8 @@ class Poscell(Sprite):
     Cell outline
     """
     asset = RectangleAsset(11, 11, gridgrey, trial)
-    self.createdict = {}
-    self.posposcells = []
+    createdict = {}
+    posposcells = []
 
 
     def __init__(self, position):
@@ -101,7 +101,7 @@ class ConwayLife(App):
                 Poscell.posposcells.append((cell[0], cell[1]+10))
                 Poscell.posposcells.append((cell[0]-10, cell[1]+10))
                 Poscell.posposcells.append((cell[0]+10, cell[1]-10))
-                print(Poscell.posposcells)
+                #print(Poscell.posposcells)
                 for nposcellk, nposcelld in self.celldict.items():
                     if nposcellk in Poscell.createdict:
                         print(nposcellk)
