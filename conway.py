@@ -6,7 +6,7 @@ Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
 from math import floor
 red = Color(0xFF4040, 1.0)
 green = Color(0x00FF00, 1.0)
@@ -28,6 +28,15 @@ def mouseClick(event):
     y = floor(event.y/40)*40
     if x < 400 and y < 400:
         Sprite(cell_asset,(x, y))
+
+ball_asset = ImageAsset("Conway-life.png", Frame(0,0,100,100))
+
+ball = Sprite(ball_asset, (0,0))
+
+ball.scale = 0.1
+
+
+
 
 myapp = App()
 myapp.listenMouseEvent('click', mouseClick)
