@@ -21,7 +21,7 @@ trial = Color(0xC0C0C0, 1.0)
 gridgrey = LineStyle(1, grey)
 noline = LineStyle(0, grey)
 
-class PosCell(Sprite):
+class Poscell(Sprite):
     """
     Cell outline
     """
@@ -35,7 +35,7 @@ class PosCell(Sprite):
 
     def step(self):
         if len(list(self.collidingWithSprites(Cell))) >= 0:
-            createdict[cell.position] = PosCell
+            createdict[cell.position] = Poscell
             print(createdict)
 
 
@@ -71,10 +71,10 @@ class ConwayLife(App):
 
     def step(self):
         print(self.celldict)
-        print(PosCell.createdict)
+        print(Poscell.createdict)
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
-        for sell in self.getSpritesbyClass(PosCell):
+        for sell in self.getSpritesbyClass(Poscell):
             sell.step
 
     def mouseClick(self, event):
@@ -92,18 +92,18 @@ class ConwayLife(App):
             if len(list(self.celldict[cell].collidingWithSprites(Cell))) > 3:
                 self.shredlist.append(self.celldict[cell])
             if len(list(self.celldict[cell].collidingWithSprites(Cell))) == 3:
-                PosCell((cell[0]-10, cell[1]))
-                PosCell((cell[0]-10, cell[1]-10))
-                PosCell((cell[0], cell[1]-10))
-                PosCell((cell[0]+10, cell[1]))
-                PosCell((cell[0]+10, cell[1]+10))
-                PosCell((cell[0], cell[1]+10))
-                PosCell((cell[0]-10, cell[1]+10))
-                PosCell((cell[0]+10, cell[1]-10))
-                #for poscell in len(list(PosCell.collidingWithSprites(Cell))):
+                Poscell((cell[0]-10, cell[1]))
+                Poscell((cell[0]-10, cell[1]-10))
+                Poscell((cell[0], cell[1]-10))
+                Poscell((cell[0]+10, cell[1]))
+                Poscell((cell[0]+10, cell[1]+10))
+                Poscell((cell[0], cell[1]+10))
+                Poscell((cell[0]-10, cell[1]+10))
+                Poscell((cell[0]+10, cell[1]-10))
+                #for poscell in len(list(Poscell.collidingWithSprites(Cell))):
                 for nposcellk, nposcelld in self.celldict.items():
-                    if nposcellk in PosCell.createdict:
-                        PosCell((20,20))
+                    if nposcellk in Poscell.createdict:
+                        Poscell((20,20))
                         
                 
                 
