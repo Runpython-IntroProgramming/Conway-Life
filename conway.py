@@ -130,7 +130,7 @@ class ConwayLife(App):
                 self.delprepcelldict[a.position] = 1
                 self.posdict[poscell].destroy()
                 del self.posdict[poscell]
-            
+        print(self.posdict)
 
     def ps(self, event):
         print(self.shredlist)
