@@ -115,7 +115,7 @@ class ConwayLife(App):
         for nposcellk, nposcelld in self.celldict.items():
             if nposcellk in self.postuplelist:
                 del self.postuplelist[nposcellk]
-                
+        print(self.postuplelist)
 
     def ps(self, event):
         print(self.shredlist)
