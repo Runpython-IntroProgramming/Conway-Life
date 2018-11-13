@@ -88,7 +88,7 @@ class ConwayLife(App):
             c = Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
             c
             self.celldict[c.position] = c
-            self.delprepcelldict[c.position] = 0r
+            self.delprepcelldict[c.position] = 0
         else:
             pass
 
