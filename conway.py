@@ -64,7 +64,7 @@ class ConwayLife(App):
         bg = Sprite(bg_asset, (0,0))
         self.a = []
         self.celldict = {}
-        self.posdict = {}
+        self.postuplelist = []
         self.shredlist = []
         self.bornlist = []
         ConwayLife.listenMouseEvent("click", self.mouseClick)
@@ -107,11 +107,8 @@ class ConwayLife(App):
                 Poscell.posposcells = sorted(Poscell.posposcells)
         print(Poscell.posposcells)
         for countcopies in Poscell.posposcells:
-            copies = Poscell.posposcells.count(countcopies)
             if countcopies not in self.posdict: 
                 self.posdict.append(num) 
-            else:
-                pass
         print(self.posdict)
         for nposcellk, nposcelld in self.celldict.items():
             if nposcellk in Poscell.posposcells:
