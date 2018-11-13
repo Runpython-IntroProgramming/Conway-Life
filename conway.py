@@ -29,9 +29,10 @@ def mouseClick(event):
     if x < 400 and y < 400:
         Sprite(cell_asset,(x, y))
 
-ball_asset = ImageAsset("Conway-life.png", Frame(0,0,100,100))
+ball_asset = ImageAsset("Conway-life.png", Frame(60,210,275,275),3)
 
 ball = Sprite(ball_asset, (0,0))
+ball.setImage(0)
 
 ball.scale = 0.1
 
