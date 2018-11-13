@@ -128,6 +128,8 @@ class ConwayLife(App):
                 a
                 self.celldict[a.position] = a
                 self.delprepcelldict[a.position] = 1
+                self.posdict[poscell].destroy()
+                del self.posdict[poscell]
             
 
     def ps(self, event):
