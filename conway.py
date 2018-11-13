@@ -64,10 +64,12 @@ class ConwayLife(App):
         bg = Sprite(bg_asset, (0,0))
         self.a = []
         self.celldict = {}
+        self.posdict = {}
         self.postuplelist = []
         self.shredlist = []
         self.bornlist = []
         self.delprepcelldict = {}
+        self.delprepposdict = {}
         ConwayLife.listenMouseEvent("click", self.mouseClick)
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
         ConwayLife.listenKeyEvent('keydown', 's', self.ps)
@@ -116,7 +118,10 @@ class ConwayLife(App):
                 self.postuplelist.remove(nposcellk)
         print(self.postuplelist)
         for x in self.postuplelist:
-            Poscell((x))
+            b = Poscell((x))
+            b
+            self.posdict[b.position] = b
+            self.delprepposdict[b.position] = 1
 
     def ps(self, event):
         print(self.shredlist)
