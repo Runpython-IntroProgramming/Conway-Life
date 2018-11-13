@@ -21,6 +21,7 @@ line2 = RectangleAsset(400,1, thinline, black)
 for x in range(11):
     Sprite(line1, (x*40, 0))
     Sprite(line2, (0, x*40))
+"""
 #mouseClick event 
 cell_asset = RectangleAsset(40,40,thinline, blue)
 def mouseClick(event):
@@ -28,13 +29,33 @@ def mouseClick(event):
     y = floor(event.y/40)*40
     if x < 400 and y < 400:
         Sprite(cell_asset,(x, y))
+"""
+        
 
 ball_asset = ImageAsset("Conway-life.png", Frame(60,210,275,275),3)
-
 ball = Sprite(ball_asset, (0,0))
 ball.setImage(0)
+ball.scale = 0.145
+"""
+ball_asset = 
+def mouseClick(event):
+    Sprite(cell_asset, (0,0))
+    
+    
+dic position of sprite
+coordinste pair
+get sprint
 
-ball.scale = 0.1
+"""
+  
+def mouseClick(event):
+    ball.x = event.x
+    ball.y = event.y
+
+    x = floor(event.x/40)*40 
+    y = floor(event.y/40)*40
+    if x < 400 and y < 400:
+        Sprite(ball_asset,(x, y))
 
 
 
