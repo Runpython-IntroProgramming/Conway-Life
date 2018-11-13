@@ -107,7 +107,7 @@ class ConwayLife(App):
                 Poscell.posposcells = sorted(Poscell.posposcells)
         print(Poscell.posposcells)
         for countcopies in Poscell.posposcells:
-            if countcopies not in self.posdict: 
+            if countcopies not in self.postuplelist: 
                 self.postuplelist.append(num) 
         print(self.postuplelist)
         for nposcellk, nposcelld in self.celldict.items():
