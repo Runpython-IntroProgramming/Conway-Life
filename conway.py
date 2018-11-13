@@ -76,6 +76,7 @@ class ConwayLife(App):
 
     def step(self):
         print(self.celldict)
+        print(self.delprepcelldict)
         print(Poscell.createdict)
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
@@ -87,7 +88,7 @@ class ConwayLife(App):
             c = Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
             c
             self.celldict[c.position] = c
-            self.delprepcelldict[c.position] = 0
+            self.delprepcelldict[c.position] = 0r
         else:
             pass
 
