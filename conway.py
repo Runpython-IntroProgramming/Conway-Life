@@ -108,7 +108,7 @@ class ConwayLife(App):
         print(Poscell.posposcells)
         for countcopies in Poscell.posposcells:
             copies = Poscell.posposcells.count(countcopies)
-            if num not in self.posdict: 
+            if countcopies not in self.posdict: 
                 self.posdict.append(num) 
             else:
                 pass
