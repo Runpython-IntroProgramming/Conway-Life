@@ -122,6 +122,7 @@ class ConwayLife(App):
             b
             self.posdict[b.position] = b
             self.delprepposdict[b.position] = 1
+            
 
     def ps(self, event):
         print(self.shredlist)
