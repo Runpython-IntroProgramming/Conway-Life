@@ -98,9 +98,9 @@ class ConwayLife(App):
         for cell in self.celldict:
             if len(self.celldict[cell].collidingWithSprites(Cell)) < 2:
                 self.shredlist.append(self.celldict[cell])
-            if len(list(self.celldict[cell].collidingWithSprites(Cell))) > 3:
+            if len(self.celldict[cell].collidingWithSprites(Cell)) > 3:
                 self.shredlist.append(self.celldict[cell])
-            if len(list(self.celldict[cell].collidingWithSprites(Cell))) == 3:
+            if len(self.celldict[cell].collidingWithSprites(Cell)) == 3:
                 Poscell.posposcells.append((cell[0]-10, cell[1]))
                 Poscell.posposcells.append((cell[0]-10, cell[1]-10))
                 Poscell.posposcells.append((cell[0], cell[1]-10))
@@ -122,6 +122,8 @@ class ConwayLife(App):
             b
             self.posdict[b.position] = b
             self.delprepposdict[b.position] = 1
+        for poscell in self.posdict:
+            if len(self.posdict[poscell].collidingWithSprites(Cell)) == 3:
             
 
     def ps(self, event):
