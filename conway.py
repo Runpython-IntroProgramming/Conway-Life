@@ -105,13 +105,12 @@ class ConwayLife(App):
                 Poscell.posposcells.append((cell[0]-10, cell[1]+10))
                 Poscell.posposcells.append((cell[0]+10, cell[1]-10))
                 Poscell.posposcells = sorted(Poscell.posposcells)
-        print(Poscell.posposcells)
         for countcopies in Poscell.posposcells:
             if countcopies not in self.postuplelist: 
                 self.postuplelist.append(countcopies) 
         print(self.postuplelist)
         for nposcellk, nposcelld in self.celldict.items():
-            if nposcellk in Poscell.posposcells:
+            if nposcellk in self.postuplelist:
                 pass
                 
 
