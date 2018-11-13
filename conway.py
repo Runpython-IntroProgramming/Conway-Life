@@ -1,7 +1,7 @@
 """
 conway.py
 Author: Jackson Tolliday
-Credit: http://doc.pyschools.com/html/dictionary.html, https://gamedev.stackexchange.com/questions/11838/sprite-group-doesnt-support-indexing
+Credit: http://doc.pyschools.com/html/dictionary.html, https://gamedev.stackexchange.com/questions/11838/sprite-group-doesnt-support-indexing, https://www.programiz.com/python-programming/dictionary#delete
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
@@ -114,7 +114,7 @@ class ConwayLife(App):
         print(self.postuplelist)
         for nposcellk, nposcelld in self.celldict.items():
             if nposcellk in self.postuplelist:
-                pass
+                del self.postuplelist[nposcellk]
                 
 
     def ps(self, event):
