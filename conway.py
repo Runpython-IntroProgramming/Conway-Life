@@ -73,7 +73,7 @@ class ConwayLife(App):
         ConwayLife.listenMouseEvent("click", self.mouseClick)
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
         ConwayLife.listenKeyEvent('keydown', 's', self.ps)
-        adddict = {}
+        addlist = []
         deldict = {}
 
     def step(self):
@@ -118,18 +118,18 @@ class ConwayLife(App):
         for x in self.postuplelist:
             b = Poscell((x))
             b
-            self.adddict[b.position] = b
+            self.posdict[b.position] = b
             self.delprepposdict[b.position] = 1
         for poscell in self.posdict.keys():
             if len(self.posdict[poscell].collidingWithSprites(Cell)) == 3:
                 print(poscell)
                 a = Cell((poscell))
-                self.adddict[a.position] = a
+                self.addlist.append(a.position)
                 self.delprepcelldict[a.position] = 1
                 self.posdict[poscell].destroy()
                 del self.posdict[poscell]
-        '''for notherposcell in self.posdict.keys():
-            self.posdict[notherposcell].destroy()'''
+        for notherposcell in self.posdict.keys():
+            self.posdict[notherposcell].destroy()
         print(self.posdict)
 
     def ps(self, event):
