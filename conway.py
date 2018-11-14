@@ -114,7 +114,6 @@ class ConwayLife(App):
         for nposcellk, nposcelld in self.celldict.items():
             if nposcellk in self.postuplelist:
                 self.postuplelist.remove(nposcellk)
-        print(self.postuplelist)
         for x in self.postuplelist:
             b = Poscell((x))
             b
@@ -122,12 +121,10 @@ class ConwayLife(App):
             self.delprepposdict[b.position] = 1
         for poscell in self.posdict.keys():
             if len(self.posdict[poscell].collidingWithSprites(Cell)) == 3:
-                print(poscell)
                 self.addlist.append(poscell)
                 self.delprepcelldict[poscell] = 1
                 self.posdict[poscell].destroy()
                 del self.posdict[poscell]
-        print(self.addlist)
         for notherposcell in self.posdict.keys():
             self.posdict[notherposcell].destroy()
         for add in self.addlist:
