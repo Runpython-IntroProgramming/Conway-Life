@@ -130,7 +130,8 @@ class ConwayLife(App):
         print(self.addlist)
         for notherposcell in self.posdict.keys():
             self.posdict[notherposcell].destroy()
-        print(self.posdict)
+        for add in self.addlist:
+            a = Cell((add))
 
     def ps(self, event):
         print(self.shredlist)
