@@ -68,9 +68,9 @@ class ConwayLife(App):
         self.postuplelist = []
         self.shredlist = []
         self.bornlist = []
+        self.addlist = []
         self.delprepcelldict = {}
         self.delprepposdict = {}
-        addlist = []
         ConwayLife.listenMouseEvent("click", self.mouseClick)
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
         ConwayLife.listenKeyEvent('keydown', 's', self.ps)
