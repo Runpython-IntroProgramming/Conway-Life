@@ -14,10 +14,10 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset
 
-day1 = Color(0xffff00, 1.0)
+day1 = Color(0xffff00, 0.5)
 day2 = Color(0xffffff, 1.0)
 grey = Color(0xffffff, 1.0) 
-trial = Color(0xC0C0C0, 1.0)
+trial = Color(0xC0C0C0, 0.5)
 gridgrey = LineStyle(1, grey)
 noline = LineStyle(0, grey)
 
@@ -130,8 +130,8 @@ class ConwayLife(App):
                 self.delprepcelldict[a.position] = 1
                 self.posdict[poscell].destroy()
                 del self.posdict[poscell]
-        for notherposcell in self.posdict.keys():
-            self.posdict[notherposcell].destroy()
+        '''for notherposcell in self.posdict.keys():
+            self.posdict[notherposcell].destroy()'''
         print(self.posdict)
 
     def ps(self, event):
