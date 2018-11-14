@@ -30,12 +30,12 @@ def mouseClick(event):
     if x < 400 and y < 400:
         Sprite(cell_asset,(x, y))
 """
-        
-
 ball_asset = ImageAsset("Conway-life.png", Frame(60,210,275,275),3)
+"""
 ball = Sprite(ball_asset, (0,0))
 ball.setImage(0)
 ball.scale = 0.145
+"""
 """
 ball_asset = 
 def mouseClick(event):
@@ -47,18 +47,21 @@ coordinste pair
 get sprint
 
 """
-  
 def mouseClick(event):
-    ball.x = event.x
-    ball.y = event.y
-
+    x = floor(event.x/40)*40 
+    y = floor(event.y/40)*40
+    ball = Sprite(ball_asset,(x, y))
+    ball.setImage(0)
+    ball.scale = 0.145
+    
+    
+    
+"""
     x = floor(event.x/40)*40 
     y = floor(event.y/40)*40
     if x < 400 and y < 400:
         Sprite(ball_asset,(x, y))
-
-
-
+"""
 
 myapp = App()
 myapp.listenMouseEvent('click', mouseClick)
