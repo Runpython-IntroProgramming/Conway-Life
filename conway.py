@@ -118,14 +118,13 @@ class ConwayLife(App):
         for x in self.postuplelist:
             b = Poscell((x))
             b
-            self.posdict[b.position] = b
+            self.addlist[b.position] = b
             self.delprepposdict[b.position] = 1
         for poscell in self.posdict.keys():
             if len(self.posdict[poscell].collidingWithSprites(Cell)) == 3:
                 print(poscell)
                 a = Cell((poscell))
-                a
-                self.celldict[a.position] = a
+                self.adddict[a.position] = a
                 self.delprepcelldict[a.position] = 1
                 self.posdict[poscell].destroy()
                 del self.posdict[poscell]
