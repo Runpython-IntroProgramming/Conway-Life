@@ -36,32 +36,14 @@ ball = Sprite(ball_asset, (0,0))
 ball.setImage(0)
 ball.scale = 0.145
 """
-"""
-ball_asset = 
-def mouseClick(event):
-    Sprite(cell_asset, (0,0))
-    
-    
-dic position of sprite
-coordinste pair
-get sprint
-
-"""
 def mouseClick(event):
     x = floor(event.x/40)*40 
     y = floor(event.y/40)*40
     ball = Sprite(ball_asset,(x, y))
     ball.setImage(0)
     ball.scale = 0.145
-    
-    
-    
-"""
-    x = floor(event.x/40)*40 
-    y = floor(event.y/40)*40
-    if x < 400 and y < 400:
-        Sprite(ball_asset,(x, y))
-"""
+    if x > 400 and y > 400:
+        Sprite(bruh)
 
 myapp = App()
 myapp.listenMouseEvent('click', mouseClick)
