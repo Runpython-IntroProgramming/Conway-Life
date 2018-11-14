@@ -127,6 +127,7 @@ class ConwayLife(App):
                 self.delprepcelldict[poscell] = 1
                 self.posdict[poscell].destroy()
                 del self.posdict[poscell]
+        print(self.addlist)
         for notherposcell in self.posdict.keys():
             self.posdict[notherposcell].destroy()
         print(self.posdict)
