@@ -79,7 +79,6 @@ class ConwayLife(App):
     def step(self):
         print(self.celldict)
         print(self.delprepcelldict)
-        print(Poscell.createdict)
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         for sell in self.getSpritesbyClass(Poscell):
@@ -131,7 +130,7 @@ class ConwayLife(App):
                 self.posdict[poscell].destroy()
                 del self.posdict[poscell]
         for notherposcell in self.posdict.keys():
-            del self.posdict[notherposcell]
+            self.posdict[notherposcell].destroy()
         print(self.posdict)
 
     def ps(self, event):
