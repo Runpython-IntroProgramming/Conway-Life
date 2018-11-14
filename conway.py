@@ -99,16 +99,15 @@ class ConwayLife(App):
                 self.shredlist.append(self.celldict[cell])
             if len(self.celldict[cell].collidingWithSprites(Cell)) > 3:
                 self.shredlist.append(self.celldict[cell])
-            if len(self.celldict[cell].collidingWithSprites(Cell)) == 3:
-                Poscell.posposcells.append((cell[0]-10, cell[1]))
-                Poscell.posposcells.append((cell[0]-10, cell[1]-10))
-                Poscell.posposcells.append((cell[0], cell[1]-10))
-                Poscell.posposcells.append((cell[0]+10, cell[1]))
-                Poscell.posposcells.append((cell[0]+10, cell[1]+10))
-                Poscell.posposcells.append((cell[0], cell[1]+10))
-                Poscell.posposcells.append((cell[0]-10, cell[1]+10))
-                Poscell.posposcells.append((cell[0]+10, cell[1]-10))
-                Poscell.posposcells = sorted(Poscell.posposcells)
+            Poscell.posposcells.append((cell[0]-10, cell[1]))
+            Poscell.posposcells.append((cell[0]-10, cell[1]-10))
+            Poscell.posposcells.append((cell[0], cell[1]-10))
+            Poscell.posposcells.append((cell[0]+10, cell[1]))
+            Poscell.posposcells.append((cell[0]+10, cell[1]+10))
+            Poscell.posposcells.append((cell[0], cell[1]+10))
+            Poscell.posposcells.append((cell[0]-10, cell[1]+10))
+            Poscell.posposcells.append((cell[0]+10, cell[1]-10))
+            Poscell.posposcells = sorted(Poscell.posposcells)
         for countcopies in Poscell.posposcells:
             if countcopies not in self.postuplelist: 
                 self.postuplelist.append(countcopies) 
