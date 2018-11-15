@@ -131,8 +131,8 @@ class ConwayLife(App):
             a = Cell((add))
             a
             self.celldict[a.position] = a
-        for remove in self.shredlist:
-            self.celldict[remove].destroy()
+        for rem in self.shredlist:
+            self.celldict[rem].remove()
 
     def ps(self, event):
         print(self.shredlist)
