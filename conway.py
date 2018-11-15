@@ -76,7 +76,6 @@ class ConwayLife(App):
         deldict = {}
 
     def step(self):
-        self.celldict = sorted(self.celldict)
         print(self.celldict)
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
@@ -84,7 +83,7 @@ class ConwayLife(App):
             sell.step
         for x in self.celldict:
             if x.count > 1:
-                pass
+                
 
     def mouseClick(self, event):
         if ((((round(event.x/10))*10),((round(event.y/10))*10))) not in self.a:
