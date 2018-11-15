@@ -86,7 +86,7 @@ class ConwayLife(App):
     def mouseClick(self, event):
         if ((((round(event.x/10))*10),((round(event.y/10))*10))) not in self.a:
             c = Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
-            if c.position in celldict:
+            if c.position in self.celldict:
                 pass
             else:
                 c
