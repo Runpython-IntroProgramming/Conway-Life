@@ -69,8 +69,6 @@ class ConwayLife(App):
         self.shredlist = []
         self.bornlist = []
         self.addlist = []
-        self.delprepcelldict = {}
-        self.delprepposdict = {}
         ConwayLife.listenMouseEvent("click", self.mouseClick)
         ConwayLife.listenKeyEvent('keydown', 'enter', self.start)
         ConwayLife.listenKeyEvent('keydown', 's', self.ps)
@@ -78,7 +76,6 @@ class ConwayLife(App):
 
     def step(self):
         print(self.celldict)
-        print(self.delprepcelldict)
         for cell in self.getSpritesbyClass(Cell):
             cell.step()
         for sell in self.getSpritesbyClass(Poscell):
@@ -89,7 +86,6 @@ class ConwayLife(App):
             c = Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
             c
             self.celldict[c.position] = c
-            self.delprepcelldict[c.position] = 1
         else:
             pass
 
@@ -118,11 +114,9 @@ class ConwayLife(App):
             b = Poscell((x))
             b
             self.posdict[b.position] = b
-            self.delprepposdict[b.position] = 1
         for poscell in self.posdict.keys():
             if len(self.posdict[poscell].collidingWithSprites(Cell)) == 3:
                 self.addlist.append(poscell)
-                self.delprepcelldict[poscell] = 1
                 self.posdict[poscell].destroy()
                 del self.posdict[poscell]
         for notherposcell in self.posdict.keys():
@@ -132,6 +126,7 @@ class ConwayLife(App):
             a = Cell((add))
             a
             self.celldict[a.position] = a
+
         for rem in self.shredlist:
             self.celldict[rem].destroy()
 
