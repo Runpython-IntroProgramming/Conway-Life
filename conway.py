@@ -93,9 +93,9 @@ class ConwayLife(App):
     def start(self, event):
         for cell in self.celldict:
             if len(self.celldict[cell].collidingWithSprites(Cell)) < 2:
-                self.shredlistless.append(self.celldict[cell])
+                self.shredlistless.append(cell)
             if len(self.celldict[cell].collidingWithSprites(Cell)) > 3:
-                self.shredlistmany.append(self.celldict[cell])
+                self.shredlistmany.append(cell)
             Poscell.posposcells.append((cell[0]-10, cell[1]))
             Poscell.posposcells.append((cell[0]-10, cell[1]-10))
             Poscell.posposcells.append((cell[0], cell[1]-10))
@@ -130,9 +130,11 @@ class ConwayLife(App):
         print(self.shredlistless)
         print(self.shredlistmany)
         for rem in self.shredlistless:
-            rem.destroy()
-        for rem in self.shredlistmany:
-            rem.destroy()
+            self.celldict[rem].destroy()
+            del self.celldict[rem]
+        for remo in self.shredlistmany:
+            self.celldict[remo].destroy()
+            del self.celldict[remo]
     def ps(self, event):
         print(self.shredlist)
 
