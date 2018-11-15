@@ -81,9 +81,6 @@ class ConwayLife(App):
             cell.step()
         for sell in self.getSpritesbyClass(Poscell):
             sell.step
-        for x in self.celldict:
-            if x.count > 1:
-                
 
     def mouseClick(self, event):
         if ((((round(event.x/10))*10),((round(event.y/10))*10))) not in self.a:
@@ -129,10 +126,14 @@ class ConwayLife(App):
         for notherposcell in self.posdict.keys():
             self.posdict[notherposcell].destroy()
             del self.posdict[notherposcell]
+        print(self.addlist)
         for add in self.addlist:
             a = Cell((add))
-            a
-            self.celldict[a.position] = a
+            if add in self.celldict:
+                pass
+            else:
+                a
+                self.celldict[a.position] = a
         print(self.shredlistless)
         print(self.shredlistmany)
         for rem in self.shredlistless:
