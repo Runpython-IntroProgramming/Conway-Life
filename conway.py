@@ -95,7 +95,6 @@ class ConwayLife(App):
                 self.shredlist.append(self.celldict[cell])
             if len(self.celldict[cell].collidingWithSprites(Cell)) > 3:
                 self.shredlist.append(self.celldict[cell])
-        print(self.shredlist)
             Poscell.posposcells.append((cell[0]-10, cell[1]))
             Poscell.posposcells.append((cell[0]-10, cell[1]-10))
             Poscell.posposcells.append((cell[0], cell[1]-10))
@@ -127,6 +126,7 @@ class ConwayLife(App):
             a = Cell((add))
             a
             self.celldict[a.position] = a
+        print(self.shredlist)
         for rem in self.shredlist:
             self.celldict[rem].destroy()
 
