@@ -81,12 +81,16 @@ class ConwayLife(App):
             cell.step()
         for sell in self.getSpritesbyClass(Poscell):
             sell.step
+        
 
     def mouseClick(self, event):
         if ((((round(event.x/10))*10),((round(event.y/10))*10))) not in self.a:
             c = Cell((((round(event.x/10))*10),((round(event.y/10))*10)))
-            c
-            self.celldict[c.position] = c
+            if c.position in celldict:
+                pass
+            else:
+                c
+                self.celldict[c.position] = c
         else:
             pass
 
@@ -107,7 +111,7 @@ class ConwayLife(App):
             Poscell.posposcells = sorted(Poscell.posposcells)
         for countcopies in Poscell.posposcells:
             if countcopies not in self.postuplelist: 
-                self.postuplelist.append(countcopies) 
+                self.postuplelist.append(countcopies)
         for nposcellk, nposcelld in self.celldict.items():
             if nposcellk in self.postuplelist:
                 self.postuplelist.remove(nposcellk)
