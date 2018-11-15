@@ -66,7 +66,8 @@ class ConwayLife(App):
         self.celldict = {}
         self.posdict = {}
         self.postuplelist = []
-        self.shredlist = []
+        self.shredlistless = []
+        self.shredlistmany = []
         self.bornlist = []
         self.addlist = []
         ConwayLife.listenMouseEvent("click", self.mouseClick)
@@ -92,9 +93,9 @@ class ConwayLife(App):
     def start(self, event):
         for cell in self.celldict:
             if len(self.celldict[cell].collidingWithSprites(Cell)) < 2:
-                self.shredlist.append(self.celldict[cell])
+                self.shredlistless.append(self.celldict[cell])
             if len(self.celldict[cell].collidingWithSprites(Cell)) > 3:
-                self.shredlist.append(self.celldict[cell])
+                self.shredlistmany.append(self.celldict[cell])
             Poscell.posposcells.append((cell[0]-10, cell[1]))
             Poscell.posposcells.append((cell[0]-10, cell[1]-10))
             Poscell.posposcells.append((cell[0], cell[1]-10))
@@ -126,10 +127,12 @@ class ConwayLife(App):
             a = Cell((add))
             a
             self.celldict[a.position] = a
-        print(self.shredlist)
-        for rem in self.shredlist:
+        print(self.shredlistless)
+        print(self.shredlistmany)
+        for rem in self.shredlistless:
             rem.destroy()
-
+        for rem in self.shredlistmany:
+            rem.destroy()
     def ps(self, event):
         print(self.shredlist)
 
