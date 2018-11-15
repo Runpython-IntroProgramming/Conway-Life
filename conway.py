@@ -126,7 +126,6 @@ class ConwayLife(App):
             a = Cell((add))
             a
             self.celldict[a.position] = a
-
         for rem in self.shredlist:
             self.celldict[rem].destroy()
 
