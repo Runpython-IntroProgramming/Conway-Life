@@ -1,7 +1,7 @@
 """
 conway.py
 Author: Jackson Tolliday
-Credit: http://doc.pyschools.com/html/dictionary.html, https://gamedev.stackexchange.com/questions/11838/sprite-group-doesnt-support-indexing, https://www.programiz.com/python-programming/dictionary#delete, https://www.tutorialspoint.com/python/list_remove.htm
+Credit: http://doc.pyschools.com/html/dictionary.html, https://gamedev.stackexchange.com/questions/11838/sprite-group-doesnt-support-indexing, https://www.programiz.com/python-programming/dictionary#delete, https://www.tutorialspoint.com/python/list_remove.htm, https://stackoverflow.com/questions/1602934/check-if-a-given-key-already-exists-in-a-dictionary
 Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
