@@ -129,11 +129,12 @@ class ConwayLife(App):
         print(self.addlist)
         for add in self.addlist:
             a = Cell((add))
-            if add in self.celldict:
-                pass
+            if add in self.celldict.keys():
+                print('umm')
             else:
                 a
                 self.celldict[a.position] = a
+                print('hi')
         print(self.shredlistless)
         print(self.shredlistmany)
         for rem in self.shredlistless:
