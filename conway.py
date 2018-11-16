@@ -29,7 +29,7 @@ for x in range(11):
     Sprite(line1, (x*40, 0))
     Sprite(line2, (0, x*40))
     
-ball_asset = ImageAsset("Conway-life.png", Frame(60,210,275,275),3)
+ball_asset = ImageAsset("Conway-life.png", Frame(62,210,275,275),3)
 """
 ball = Sprite(ball_asset, (0,0))
 ball.setImage(0)
