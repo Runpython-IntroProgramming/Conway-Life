@@ -129,7 +129,7 @@ class ConwayLife(App):
         print(self.addlist)
         for add in self.addlist:
             a = Cell((add))
-            if add in self.celldict == True:
+            if (add in self.celldict) == True:
                 print('umm')
             else:
                 a
