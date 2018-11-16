@@ -16,8 +16,8 @@ black = Color(0x000000, 1.0)
 orange = Color(0xFF7D40, 1.0)
 thinline = LineStyle(1, black)
 #Making the grid. Square 400 by 400 goes up by 40
-line1 = RectangleAsset(1,400, thinline, green)
-line2 = RectangleAsset(400,1, thinline, green)
+line1 = RectangleAsset(1,400, thinline, red)
+line2 = RectangleAsset(400,1, thinline, red)
 for x in range(11):
     Sprite(line1, (x*40, 0))
     Sprite(line2, (0, x*40))
