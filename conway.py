@@ -22,7 +22,7 @@ for x in range(11):
     Sprite(line1, (x*40, 0))
     Sprite(line2, (0, x*40))
     
-White = 
+
 """
 #mouseClick event 
 cell_asset = RectangleAsset(40,40,thinline, blue)
@@ -45,7 +45,7 @@ def mouseClick(event):
     ball.setImage(0)
     ball.scale = 0.145
     if x > 400 and y > 400:
-        Sprite()
+        Sprite( )
 
 myapp = App()
 myapp.listenMouseEvent('click', mouseClick)
