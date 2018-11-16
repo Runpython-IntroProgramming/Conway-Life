@@ -128,10 +128,11 @@ class ConwayLife(App):
             del self.posdict[notherposcell]
         print(self.addlist)
         for add in self.addlist:
-            a = Cell((add))
             if (add in self.celldict) == True:
                 print('umm')
+                pass
             else:
+                a = Cell((add))
                 a
                 self.celldict[a.position] = a
                 print('hi')
