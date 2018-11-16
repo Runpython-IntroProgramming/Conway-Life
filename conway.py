@@ -16,8 +16,8 @@ black = Color(0x000000, 1.0)
 orange = Color(0xFF7D40, 1.0)
 thinline = LineStyle(1, black)
 #Making the grid. Square 400 by 400 goes up by 40
-line1 = RectangleAsset(1,400, thinline, black)
-line2 = RectangleAsset(400,1, thinline, black)
+line1 = RectangleAsset(1,400, thinline, green)
+line2 = RectangleAsset(400,1, thinline, green)
 for x in range(11):
     Sprite(line1, (x*40, 0))
     Sprite(line2, (0, x*40))
@@ -34,8 +34,14 @@ def mouseClick(event):
     ball = Sprite(ball_asset,(x, y))
     ball.setImage(0)
     ball.scale = 0.145
-    if x > 400 and y > 400:
-        Sprite(ball_asset, (x,y))
+    if x > 375 or y > 375:
+        x = floor(event.x/40)*40 
+        y = floor(event.y/40)*40
+        ball = Sprite(ball_asset,(x, y))
+        ball.setImage(2)
+        ball.scale = 0.145
+        
+        
 
 myapp = App()
 myapp.listenMouseEvent('click', mouseClick)
