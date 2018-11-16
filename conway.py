@@ -22,16 +22,6 @@ for x in range(11):
     Sprite(line1, (x*40, 0))
     Sprite(line2, (0, x*40))
     
-
-"""
-#mouseClick event 
-cell_asset = RectangleAsset(40,40,thinline, blue)
-def mouseClick(event):
-    x = floor(event.x/40)*40 
-    y = floor(event.y/40)*40
-    if x < 400 and y < 400:
-        Sprite(cell_asset,(x, y))
-"""
 ball_asset = ImageAsset("Conway-life.png", Frame(60,210,275,275),3)
 """
 ball = Sprite(ball_asset, (0,0))
@@ -45,7 +35,7 @@ def mouseClick(event):
     ball.setImage(0)
     ball.scale = 0.145
     if x > 400 and y > 400:
-        Sprite( )
+        Sprite(ball_asset, (x,y))
 
 myapp = App()
 myapp.listenMouseEvent('click', mouseClick)
