@@ -33,7 +33,7 @@ ball_asset = ImageAsset("Conway-life.png", Frame(62,210,275,275),3)
 """
 ball = Sprite(ball_asset, (0,0))
 ball.setImage(0)
-ball.scale = 0.145
+ball.scale = 0.
 """
 def mouseClick(event):
     x = floor(event.x/40)*40 
