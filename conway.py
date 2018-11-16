@@ -134,7 +134,7 @@ class ConwayLife(App):
             else:
                 a = Cell((add))
                 a
-                self.celldict[a.position] = a
+                self.celldict[add] = a
                 print('hi')
         self.shredlist = self.shredlistless + self.shredlistmany
         print(self.shredlist)
