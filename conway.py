@@ -21,7 +21,7 @@ thinline = LineStyle(1, red)
 grid1 = RectangleAsset(1300,800, thinline1, black)
 Sprite(grid1, (0,0))
 
-grid = RectangleAsset(400,400, thinline, orange)
+grid = RectangleAsset(400,400, thinline, green)
 Sprite(grid, (0,0))
 line1 = RectangleAsset(1,400, thinline, red)
 line2 = RectangleAsset(400,1, thinline, red)
