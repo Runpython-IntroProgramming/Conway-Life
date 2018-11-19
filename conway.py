@@ -144,8 +144,6 @@ class ConwayLife(App):
                 self.celldict[add] = a
                 print('hi')
 
-
-
     def ps(self, event):
         print(self.shredlist)
 
