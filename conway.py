@@ -126,12 +126,13 @@ class ConwayLife(App):
         for notherposcell in self.posdict.keys():
             self.posdict[notherposcell].destroy()
             del self.posdict[notherposcell]
-            print(self.shredlist)
+        print(self.shredlist)
         for rem in self.shredlist:
             self.celldict[rem].destroy()
             del self.celldict[rem]
         print(self.addlist)
         for add in self.addlist:
+            print(self.addlist)
             if (add in self.celldict) == True:
                 print('umm')
                 pass
