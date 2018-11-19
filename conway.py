@@ -94,6 +94,9 @@ class ConwayLife(App):
             pass
 
     def start(self, event):
+        self.addlist = []
+        self.shredlistless = []
+        self.shredlistmany = []
         for cell in self.celldict:
             if len(self.celldict[cell].collidingWithSprites(Cell)) < 2:
                 self.shredlistless.append(cell)
