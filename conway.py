@@ -25,7 +25,7 @@ class Poscell(Sprite):
     """
     Cell outline
     """
-    asset = RectangleAsset(11, 11, gridgrey, trial)
+    asset = RectangleAsset(12, 12, gridgrey, trial)
     createdict = {}
     posposcells = []
 
@@ -44,7 +44,7 @@ class Cell(Sprite):
     """
     Cell outline
     """
-    asset = RectangleAsset(11, 11, gridgrey, day1)
+    asset = RectangleAsset(12, 12, gridgrey, day1)
 
     def __init__(self, position):
         super().__init__(Cell.asset, position)
@@ -128,6 +128,7 @@ class ConwayLife(App):
             del self.posdict[notherposcell]
         self.shredlist = self.shredlistless + self.shredlistmany
         print(self.shredlist)
+        print(self.celldict)
         for rem in self.shredlist:
             if rem in self.celldict:
                 self.celldict[rem].destroy()
