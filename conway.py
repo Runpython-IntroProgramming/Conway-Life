@@ -126,9 +126,12 @@ class ConwayLife(App):
         for notherposcell in self.posdict.keys():
             self.posdict[notherposcell].destroy()
             del self.posdict[notherposcell]
+                print(self.shredlist)
+        for rem in self.shredlist:
+            self.celldict[rem].destroy()
+            del self.celldict[rem]
         print(self.addlist)
         for add in self.addlist:
-            print(self.addlist)
             if (add in self.celldict) == True:
                 print('umm')
                 pass
@@ -138,10 +141,7 @@ class ConwayLife(App):
                 self.celldict[add] = a
                 print('hi')
         self.shredlist = self.shredlistless + self.shredlistmany
-        print(self.shredlist)
-        for rem in self.shredlist:
-            self.celldict[rem].destroy()
-            del self.celldict[rem]
+
 
     def ps(self, event):
         print(self.shredlist)
