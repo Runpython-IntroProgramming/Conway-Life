@@ -129,8 +129,9 @@ class ConwayLife(App):
         self.shredlist = self.shredlistless + self.shredlistmany
         print(self.shredlist)
         for rem in self.shredlist:
-            self.celldict[rem].destroy()
-            del self.celldict[rem]
+            if rem in self.celldict:
+                self.celldict[rem].destroy()
+                del self.celldict[rem]
         print(self.addlist)
         for add in self.addlist:
             print(self.addlist)
