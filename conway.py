@@ -128,6 +128,7 @@ class ConwayLife(App):
             del self.posdict[notherposcell]
         print(self.addlist)
         for add in self.addlist:
+            print(self.addlist)
             if (add in self.celldict) == True:
                 print('umm')
                 pass
