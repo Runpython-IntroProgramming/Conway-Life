@@ -15,21 +15,19 @@ white = Color(0xF8F8FF, 1.0)
 black = Color(0x000000, 1.0)
 orange = Color(0xFF7D40, 1.0)
 thinline1 = LineStyle(1, black)
-thinline = LineStyle(1, red)
+thinline = LineStyle(1, blue)
 
 #Making the grid. Square 400 by 400 goes up by 40
 grid1 = RectangleAsset(1300,800, thinline1, black)
 Sprite(grid1, (0,0))
-
-grid = RectangleAsset(400,400, thinline, green)
+grid = RectangleAsset(400,400, thinline, blue)
 Sprite(grid, (0,0))
-line1 = RectangleAsset(1,400, thinline, red)
-line2 = RectangleAsset(400,1, thinline, red)
+line1 = RectangleAsset(1,400, thinline, blue)
+line2 = RectangleAsset(400,1, thinline, blue)
 for x in range(11):
     Sprite(line1, (x*40, 0))
     Sprite(line2, (0, x*40))
 ball_asset = ImageAsset("Conway-life.png", Frame(62,210,275,275),3)
-
 #have beginning of the games start out with 
 sprites = []
 for g in range (10):
@@ -38,8 +36,10 @@ for g in range (10):
         y = (h)*(40)
         sball = Sprite(ball_asset,(x, y))
         sprites.append(sball)
-        sball.setImage(1)
+        sball.setImage(0)
         sball.scale = 0.145
+
+
 """
 #allows player to click cells to make them aive
 def mouseClick(event):
