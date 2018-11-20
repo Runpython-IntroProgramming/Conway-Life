@@ -38,16 +38,21 @@ for g in range (10):
         sprites.append(sball)
         sball.setImage(0)
         sball.scale = 0.145
-
-
+#allows player to click cells to make cell alive
+#if sprite.poistiton= (0 x,y) then 
 """
-#allows player to click cells to make them aive
 def mouseClick(event):
+    if sprite.position = (x,y):
+    
     x = floor(event.x/40)*40 
     y = floor(event.y/40)*40
+    if sprite.(x,y) = (x,y):
+        nball.setImage(1)
+        nball.scale = 0.145
 
+"""
 
-
+"""
 #(g+1)*40
 
 #If empty cell is touching three live balls- ball image 0
