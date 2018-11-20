@@ -28,33 +28,25 @@ line2 = RectangleAsset(400,1, thinline, red)
 for x in range(11):
     Sprite(line1, (x*40, 0))
     Sprite(line2, (0, x*40))
-    
 ball_asset = ImageAsset("Conway-life.png", Frame(62,210,275,275),3)
 
-for g in range (11):
-    x = (g+1)*40
-    for h in range(11):
-        y = (h+1)*(40)
-start = Sprite(ball_asset,(g,h))
-sball = Sprite(ball_asset,(g, h))
-sball.setImage(0)
-sball.scale = 0.145
-            
-
+#have beginning of the games start out with 
+sprites = []
+for g in range (10):
+    x = (g)*40
+    for h in range(10):
+        y = (h)*(40)
+        sball = Sprite(ball_asset,(x, y))
+        sprites.append(sball)
+        sball.setImage(1)
+        sball.scale = 0.145
 """
+#allows player to click cells to make them aive
 def mouseClick(event):
     x = floor(event.x/40)*40 
     y = floor(event.y/40)*40
-    ball = Sprite(ball_asset,(x, y))
-    ball.setImage(0)
-    ball.scale = 0.145
-    if x > 375 or y > 375:
-        x = floor(event.x/40)*40 
-        y = floor(event.y/40)*40
-        ball = Sprite(ball_asset,(x, y))
-        ball.setImage(2)
-        ball.scale = 0.145
-"""
+
+
 
 #(g+1)*40
 
@@ -70,9 +62,11 @@ def mouseClick(event):
 #list of every sprite location
 # should start out with 100 dead sprites (image 2)
 
-
+"""
 
 
 myapp = App()
+"""
 myapp.listenMouseEvent('click', mouseClick)
+"""
 myapp.run()
