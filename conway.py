@@ -93,7 +93,7 @@ class Game(App):
         cells[(m[0],m[1])] = "dead"
         sprites[(m[0],m[1])] = DeadCell
         madecellslist.append((sprites.get((m[0],m[1])),((m[0],m[1]))))
-        madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
+        #madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
         Cells.append((m[0],m[1]))
     
     def baby(self,event):
@@ -115,10 +115,11 @@ class Game(App):
         for n in self.madecells:
             n.destroy()
         self.madecells = []
-        longtermcells = []
         for m in self.Cells:
             self.madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
             sprites.get((m[0],m[1]))((m[0],m[1]))
+            if sprites.get((m[0],m[1])) == "baby":
+                sprites[(m[0],m[1])] = "old"
         for n in self.madecells:
             B = self.madecellslist[b]
             if B[0] == "baby":
