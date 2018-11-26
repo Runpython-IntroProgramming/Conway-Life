@@ -47,8 +47,29 @@ def mouseClick(event):
 #Getting into the actual conway game of life
 def livingneighbors(position):
     neighbors = 0
-    if sprites[(position[0]+40,position[1]0].
-    index ==1:
+
+    if sprites[(position[0]+40,position[1])].index ==1:
+        neighbors += 1
+        
+    if sprites[(position[0]+40,position[1]+40)].index ==1:
+        neighbors += 1
+        
+    if sprites[(position[0]+40,position[1]-40)].index ==1:
+        neighbors += 1
+        
+    if sprites[(position[0]-40,position[1])].index ==1:
+        neighbors += 1
+    
+    if sprites[(position[0]-40,position[1]-40)].index ==1:
+        neighbors += 1
+        
+    if sprites[(position[0]-40,position[1]+40)].index ==1:
+        neighbors += 1
+        
+    if sprites[(position[0],position[1]+40)].index ==1:
+        neighbors += 1
+        
+    if sprites[(position[0],position[1]-40)].index ==1:
         neighbors += 1
         
 #Do this for every neighboring cell
