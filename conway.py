@@ -72,16 +72,11 @@ def livingneighbors(position):
     if sprites[(position[0],position[1]-40)].index ==1:
         neighbors += 1
         
-#Do this for every neighboring cell
-
+"""
 for pos in sprites:
     alive = livingcell(pos)
     n = livingneighbors(pos)
     if n < 2 or n > 3:
-    
-
-
-"""
 
 def living neigbors (position):
 neighbors = 0
