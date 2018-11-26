@@ -29,26 +29,64 @@ for x in range(11):
     Sprite(line2, (0, x*40))
 ball_asset = ImageAsset("Conway-life.png", Frame(62,210,275,275),3)
 #have beginning of the games start out with 
-sprites = []
+sprites = {}
 for g in range (10):
     x = (g)*40
     for h in range(10):
         y = (h)*(40)
         sball = Sprite(ball_asset,(x, y))
-        sprites.append(sball)
+        sprites[sball.position] = sball
         sball.setImage(0)
         sball.scale = 0.145
 #allows user to make cells alive 
 def mouseClick(event):
     x = floor(event.x/40)*40
     y = floor(event.y/40)*40
-    sprites.append(sball)
-    sball.setImage(1)
-    sball.scale = 0.145
+    s = sprites[(x,y)]
+    s.setImage(1)
+#Getting into the actual conway game of life
+def livingneighbors(position):
+    neighbors = 0
+    if sprites[(position[0]+40,position[1]0].
+    index ==1:
+        neighbors += 1
         
+#Do this for every neighboring cell
+
+for pos in sprites:
+    alive = livingcell(pos)
+    n = livingneighbors(pos)
+    if n < 2 or n > 3:
+    
+
+
 """
 
-#If empty cell is touching three live balls- ball image 0
+def living neigbors (position):
+neighbors = 0
+if sprites[(position[0] + 40,position[1])].
+index == 1:
+neighbors +=1
+
+do this for all surrounding cells. 
+return neighbors 
+
+
+for pos in sprites:
+    alive = lving cell (pos)
+    n = livingneigbors(pos)
+    if alive and n <2 or n>3:
+    cell must step. 
+    
+
+
+
+
+
+
+#If empty cell is touching three live balls- ball image 0 
+
+check (x,y) to (x+40,y) (x-40,y) (x+40,y+40) (x-40,y-40) (x,y+40) (x,y-40) (x+40,y-40) (x-40,y+40)
 
 #If ball is touching one or fewer balls - image 2
 
@@ -61,6 +99,8 @@ def mouseClick(event):
 # should start out with 100 dead sprites (image 2)
 
 """
+
+
 
 
 myapp = App()
