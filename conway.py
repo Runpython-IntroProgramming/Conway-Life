@@ -113,16 +113,17 @@ class Game(App):
     def clear(self,event):
         b=0
         for n in self.madecells:
-            B = self.madecellslist[b]
-            if B[0] == "baby":
-                sprites[(B[0])] = "old"
             n.destroy()
-            b+=1
         self.madecells = []
         longtermcells = []
         for m in self.Cells:
             self.madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
             sprites.get((m[0],m[1]))((m[0],m[1]))
+        for n in self.madecells:
+            B = self.madecellslist[b]
+            if B[0] == "baby":
+                sprites[B[1]] = "old"
+            b+=0
         print(sprites)
         
             
