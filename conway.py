@@ -115,27 +115,36 @@ class Game(App):
             n.destroy()
         self.madecells = []
         for m in self.Cells:
-            if sprites.get((m[0],m[1])) == BabyCell or sprites.get((m[0],m[1])) == LiveCell:
+            newdead = []
+            newalive = []
+            if sprites.get((m[0],m[1])) != DeadCell:
+                print((m[0],m[1]))
                 if sprites.get((m[0]-8,m[1])) != DeadCell:
                     print("there is a cell to the left")
-                    l=True
+                    l=1
                 if sprites.get((m[0]+8,m[1])) != DeadCell:
                     print("there is a cell to the right")
-                    r=True
-                if sprites.get((m[0],m[1]-8)) != DeadCell:
+                    r=1
+                if sprites.get((m[0],m[1]+8)) != DeadCell:
                     print("there is a cell below")
-                    b=True
-                if sprites.get((m[0]+8,m[1]+8)) != DeadCell:
+                    b=1
+                if sprites.get((m[0],m[1]-8)) != DeadCell:
                     print("there is a cell above")
-                    a=True
+                    a=1
+                '''if a*b*l*r == 1:
+                    newdead.append((m[0],m[1]))'''
                 if sprites.get((m[0],m[1])) == BabyCell:
                     sprites[(m[0],m[1])] = LiveCell
                     cells[(m[0],m[1])] = "old"
-                    
-                l = False
-                r = False
-                b = False
-                a = False
+                print()
+                l = 0
+                r = 0
+                b = 0
+                a = 0
+        for m in newdead:
+            sprites[(m[0],m[1])] = DeadCell
+            cells[(m[0],m[1])] = "dead"
+        for m in self.Cells:
             self.madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
             sprites.get((m[0],m[1]))((m[0],m[1]))
         #print(sprites)
