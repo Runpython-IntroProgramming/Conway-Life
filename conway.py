@@ -111,14 +111,14 @@ class Game(App):
                 cells[(m[0],m[1])] = "nothing"
 
     def clear(self,event):
+        left = {}
+        right = {}
+        above = {}
+        below = {}
         for n in self.madecells:
             n.destroy()
         self.madecells = []
         for m in self.Cells:
-            left = {}
-            right = {}
-            above = {}
-            below = {}
             if sprites.get((m[0],m[1])) != DeadCell:
                 print((m[0],m[1]))
                 if sprites.get((m[0]-8,m[1])) != DeadCell:
@@ -142,6 +142,9 @@ class Game(App):
                 b = 0
                 a = 0
         for m in self.Cells:
+            if above.get((m[0],m[1]))==True and below.get((m[0],m[1]))==True and left.get((m[0],m[1]))==True and right.get((m[0],m[1]))==True:
+                sprites[(m[0],m[1])] = DeadCell
+                cells[(m[0],m[1])] = "dead" 
             self.madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
             sprites.get((m[0],m[1]))((m[0],m[1]))
         #print(sprites)
