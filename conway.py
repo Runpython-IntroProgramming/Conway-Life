@@ -115,7 +115,7 @@ class Game(App):
         for n in self.madecells:
             B = self.madecellslist[b]
             if B[0] == "baby":
-                cells[sprints[B[0]]] = "old"
+                sprites[(B[0])] = "old"
             n.destroy()
             b+=1
         self.madecells = []
@@ -123,7 +123,7 @@ class Game(App):
         for m in self.Cells:
             self.madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
             sprites.get((m[0],m[1]))((m[0],m[1]))
-        print(self.Cells)
+        print(sprites)
         
             
 
