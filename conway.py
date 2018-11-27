@@ -41,7 +41,7 @@ class BabyCell(Sprite):
     
     def __init__(self,position):
         super().__init__(BabyCell.square1,position)
-        if cells[(position)] == "baby":
+        if cells[position] == "baby":
             self.visible = True
         else:
             self.visible = False
@@ -120,31 +120,59 @@ class Game(App):
         self.madecells = []
         for m in self.Cells:
             if sprites.get((m[0],m[1])) != DeadCell:
-                print((m[0],m[1]))
+                #print((m[0],m[1]))
                 if sprites.get((m[0]-8,m[1])) != DeadCell:
-                    print("there is a cell to the left")
-                    left[(m[0],m[1])]=True
+                    #print("there is a cell to the left")
+                    left[(m[0],m[1])]="yes"
                 if sprites.get((m[0]+8,m[1])) != DeadCell:
-                    print("there is a cell to the right")
-                    right[(m[0],m[1])]=True
+                    #print("there is a cell to the right")
+                    right[(m[0],m[1])]="yes"
                 if sprites.get((m[0],m[1]+8)) != DeadCell:
-                    print("there is a cell below")
-                    below[(m[0],m[1])]=True
+                    #print("there is a cell below")
+                    below[(m[0],m[1])]="yes"
                 if sprites.get((m[0],m[1]-8)) != DeadCell:
-                    print("there is a cell above")
-                    above[(m[0],m[1])]=True
-                if sprites.get((m[0],m[1])) == BabyCell:
+                    #print("there is a cell above")
+                    above[(m[0],m[1])]="yes"
+                '''if sprites.get((m[0],m[1])) == BabyCell:
                     sprites[(m[0],m[1])] = LiveCell
-                    cells[(m[0],m[1])] = "old"
+                    cells[(m[0],m[1])] = "old"'''
+                print()
+                l = 0
+                r = 0
+                b = 0
+                a = 0
+            if sprites.get((m[0],m[1])) == DeadCell:
+                #print((m[0],m[1]))
+                if sprites.get((m[0]-8,m[1])) != DeadCell:
+                    #print("there is a cell to the left")
+                    left[(m[0],m[1])]="yes"
+                if sprites.get((m[0]+8,m[1])) != DeadCell:
+                    #print("there is a cell to the right")
+                    right[(m[0],m[1])]="yes"
+                if sprites.get((m[0],m[1]+8)) != DeadCell:
+                    #print("there is a cell below")
+                    below[(m[0],m[1])]="yes"
+                if sprites.get((m[0],m[1]-8)) != DeadCell:
+                    #print("there is a cell above")
+                    above[(m[0],m[1])]="yes"
                 print()
                 l = 0
                 r = 0
                 b = 0
                 a = 0
         for m in self.Cells:
-            if above.get((m[0],m[1]))==True and below.get((m[0],m[1]))==True and left.get((m[0],m[1]))==True and right.get((m[0],m[1]))==True:
+            if above.get((m[0],m[1]))=="yes" and below.get((m[0],m[1]))=="yes" and left.get((m[0],m[1]))=="yes" and right.get((m[0],m[1]))=="yes":
                 sprites[(m[0],m[1])] = DeadCell
                 cells[(m[0],m[1])] = "dead" 
+            elif above.get((m[0],m[1]))=="yes" and below.get((m[0],m[1]))=="yes":
+                sprites[(m[0],m[1])] = BabyCell
+                cells[(m[0],m[1])] = "baby"
+            elif sprites.get((m[0],m[1])) == BabyCell:
+                    sprites[(m[0],m[1])] = LiveCell
+                    cells[(m[0],m[1])] = "old"
+            else:
+                sprites[(m[0],m[1])] = DeadCell
+                cells[(m[0],m[1])] = "dead"
             self.madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
             sprites.get((m[0],m[1]))((m[0],m[1]))
         #print(sprites)
