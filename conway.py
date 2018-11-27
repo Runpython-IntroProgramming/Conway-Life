@@ -73,17 +73,24 @@ def livingneighbors(position):
     if sprites[(position[0],position[1]-40)].index ==1:
         neighbors += 1
         #top
-"""
+    return neighbors
+
+spritestokill = []
+
 for pos in sprites:
-    alive = livingcell(pos)
+    #alive = livingcell(pos)
     n = livingneighbors(pos)
     if n < 2 or n > 3:
-
+        
+        # do something to make the sprite at pos be DEAD
+        spritestokill.append(pos)
+"""
 def living neigbors (position):
 neighbors = 0
 if sprites[(position[0] + 40,position[1])].
 index == 1:
 neighbors +=1
+
 
 do this for all surrounding cells. 
 return neighbors 
