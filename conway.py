@@ -44,6 +44,7 @@ def mouseClick(event):
     y = floor(event.y/40)*40
     s = sprites[(x,y)]
     s.setImage(1)
+"""
 #Getting into the actual conway game of life
 #Finding which neighboring cells are alive or dead. 
 def livingneighbors(position):
@@ -81,11 +82,13 @@ for pos in sprites:
     #alive = livingcell(pos)
     n = livingneighbors(pos)
     if n < 2 or n > 3:
+        spritestokill.append(pos)
         s = sprites[(x,y)]
         s.setImage(0)
         
         # do something to make the sprite at pos be DEAD
-        spritestokill.append(pos)
+"""
+
 """
 def living neigbors (position):
 neighbors = 0
