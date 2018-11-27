@@ -81,6 +81,8 @@ for pos in sprites:
     #alive = livingcell(pos)
     n = livingneighbors(pos)
     if n < 2 or n > 3:
+        s = sprites[(x,y)]
+        s.setImage(0)
         
         # do something to make the sprite at pos be DEAD
         spritestokill.append(pos)
