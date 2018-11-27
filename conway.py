@@ -115,6 +115,10 @@ class Game(App):
         right = {}
         above = {}
         below = {}
+        dal = {}
+        dar = {}
+        dbl = {}
+        dbr = {}
         for n in self.madecells:
             n.destroy()
         self.madecells = []
@@ -133,6 +137,21 @@ class Game(App):
                 if sprites.get((m[0],m[1]-8)) != DeadCell:
                     #print("there is a cell above")
                     above[(m[0],m[1])]="yes"
+                if sprites.get((m[0]-8,m[1])) != DeadCell:
+                    #print("there is a cell to the left")
+                    left[(m[0],m[1])]="yes"
+                if sprites.get((m[0]-8,m[1]-8)) != DeadCell:
+                    #print("there is a cell dal")
+                    dal[(m[0],m[1])]="yes"
+                if sprites.get((m[0]+8,m[1]-8)) != DeadCell:
+                    #print("there is a cell dar")
+                    dar[(m[0],m[1])]="yes"
+                if sprites.get((m[0]-8,m[1]+8)) != DeadCell:
+                    #print("there is a cell dbl")
+                    dbl[(m[0],m[1])]="yes"
+                if sprites.get((m[0]+8,m[1]+8)) != DeadCell:
+                    #print("there is a cell dbr")
+                    dbr[(m[0],m[1])]="yes"
                 '''if sprites.get((m[0],m[1])) == BabyCell:
                     sprites[(m[0],m[1])] = LiveCell
                     cells[(m[0],m[1])] = "old"'''
@@ -141,6 +160,7 @@ class Game(App):
                 r = 0
                 b = 0
                 a = 0
+            lrabdaldardbldbrzip= 
             if sprites.get((m[0],m[1])) == DeadCell:
                 #print((m[0],m[1]))
                 if sprites.get((m[0]-8,m[1])) != DeadCell:
