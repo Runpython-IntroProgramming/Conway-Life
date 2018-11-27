@@ -45,33 +45,34 @@ def mouseClick(event):
     s = sprites[(x,y)]
     s.setImage(1)
 #Getting into the actual conway game of life
+#Finding which neighboring cells are alive or dead. 
 def livingneighbors(position):
     neighbors = 0
 
     if sprites[(position[0]+40,position[1])].index ==1:
         neighbors += 1
-        
+        #right
     if sprites[(position[0]+40,position[1]+40)].index ==1:
         neighbors += 1
-        
+        #bottom right
     if sprites[(position[0]+40,position[1]-40)].index ==1:
         neighbors += 1
-        
+        #top right
     if sprites[(position[0]-40,position[1])].index ==1:
         neighbors += 1
-    
+        #left
     if sprites[(position[0]-40,position[1]-40)].index ==1:
         neighbors += 1
-        
+        #top left
     if sprites[(position[0]-40,position[1]+40)].index ==1:
         neighbors += 1
-        
+        #bottom left 
     if sprites[(position[0],position[1]+40)].index ==1:
         neighbors += 1
-        
+        #bottom
     if sprites[(position[0],position[1]-40)].index ==1:
         neighbors += 1
-        
+        #top
 """
 for pos in sprites:
     alive = livingcell(pos)
