@@ -170,38 +170,17 @@ class Game(App):
                     cells[(m[0],m[1])] = "old"'''
                 print()
                 zip1234578.append(((m[0],m[1]),l,r,b,a,dal,dar,dbl,dbr))
-                '''l = 'n'
-                r = 'n'
-                b = 'n'
-                a = 'n'
-                dal = 'n'
-                dar = 'n'
-                dbl = 'n'
-                dbr = 'n'
-            if sprites.get((m[0],m[1])) == DeadCell:
-                #print((m[0],m[1]))
-                if sprites.get((m[0]-8,m[1])) != DeadCell:
-                    #print("there is a cell to the left")
-                    left[(m[0],m[1])]="yes"
-                if sprites.get((m[0]+8,m[1])) != DeadCell:
-                    #print("there is a cell to the right")
-                    right[(m[0],m[1])]="yes"
-                if sprites.get((m[0],m[1]+8)) != DeadCell:
-                    #print("there is a cell below")
-                    below[(m[0],m[1])]="yes"
-                if sprites.get((m[0],m[1]-8)) != DeadCell:
-                    #print("there is a cell above")
-                    above[(m[0],m[1])]="yes"'''
+
         for m in zip1234578:
             if sprites.get((m[0])) != DeadCell:
-                if above4.get((m[0]))=="yes" and below3.get((m[0]))=="yes" and left1.get((m[0]))=="yes" and right2.get((m[0]))=="yes":
+                if m[1]=="y" and m[2]=="y" and m[3]=="y" and m[4]=="y":
                     sprites[(m[0])] = DeadCell
                     cells[(m[0])] = "dead" 
                 elif sprites.get((m[0])) == BabyCell:
                         sprites[(m[0])] = LiveCell
                         cells[(m[0])] = "old"
             elif sprites.get((m[0])) == DeadCell:
-                if above4.get((m[0]))=="yes" and below3.get((m[0]))=="yes":
+                if m[3]=="y" and m[4]=="y":
                     sprites[(m[0])] = BabyCell
                     cells[(m[0])] = "baby"
                 else:
