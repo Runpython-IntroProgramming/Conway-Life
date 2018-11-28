@@ -111,14 +111,14 @@ class Game(App):
                 cells[(m[0],m[1])] = "nothing"
 
     def clear(self,event):
-        left = {}
-        right = {}
-        above = {}
-        below = {}
-        dal = {}
-        dar = {}
-        dbl = {}
-        dbr = {}
+        left1 = {}
+        right2 = {}
+        below3 = {}
+        above4 = {}
+        dal5 = {}
+        dar6 = {}
+        dbl7 = {}
+        dbr8 = {}
         for n in self.madecells:
             n.destroy()
         self.madecells = []
@@ -127,41 +127,50 @@ class Game(App):
                 #print((m[0],m[1]))
                 if sprites.get((m[0]-8,m[1])) != DeadCell:
                     #print("there is a cell to the left")
-                    left[(m[0],m[1])]="yes"
+                    left1[(m[0],m[1])]="yes"
+                    l = 'y'
                 if sprites.get((m[0]+8,m[1])) != DeadCell:
                     #print("there is a cell to the right")
-                    right[(m[0],m[1])]="yes"
+                    right2[(m[0],m[1])]="yes"
+                    r = 'y'
                 if sprites.get((m[0],m[1]+8)) != DeadCell:
                     #print("there is a cell below")
-                    below[(m[0],m[1])]="yes"
+                    below3[(m[0],m[1])]="yes"
+                    b = 'y'
                 if sprites.get((m[0],m[1]-8)) != DeadCell:
                     #print("there is a cell above")
-                    above[(m[0],m[1])]="yes"
-                if sprites.get((m[0]-8,m[1])) != DeadCell:
-                    #print("there is a cell to the left")
-                    left[(m[0],m[1])]="yes"
+                    above4[(m[0],m[1])]="yes"
+                    a = 'y'
                 if sprites.get((m[0]-8,m[1]-8)) != DeadCell:
                     #print("there is a cell dal")
-                    dal[(m[0],m[1])]="yes"
+                    dal5[(m[0],m[1])]="yes"
+                    dal = 'y'
                 if sprites.get((m[0]+8,m[1]-8)) != DeadCell:
                     #print("there is a cell dar")
-                    dar[(m[0],m[1])]="yes"
+                    dar6[(m[0],m[1])]="yes"
+                    dar = 'y'
                 if sprites.get((m[0]-8,m[1]+8)) != DeadCell:
                     #print("there is a cell dbl")
-                    dbl[(m[0],m[1])]="yes"
+                    dbl7[(m[0],m[1])]="yes"
+                    dbl = 'y'
                 if sprites.get((m[0]+8,m[1]+8)) != DeadCell:
                     #print("there is a cell dbr")
-                    dbr[(m[0],m[1])]="yes"
+                    dbr8[(m[0],m[1])]="yes"
+                    dbr = 'y'
                 '''if sprites.get((m[0],m[1])) == BabyCell:
                     sprites[(m[0],m[1])] = LiveCell
                     cells[(m[0],m[1])] = "old"'''
                 print()
-                l = 0
-                r = 0
-                b = 0
-                a = 0
-            lrabdaldardbldbrzip= 
-            if sprites.get((m[0],m[1])) == DeadCell:
+                zip1234578.append(((m[0],m[1]),l,r,b,a,dal,dar,dbl,dbr))
+                l = 'n'
+                r = 'n'
+                b = 'n'
+                a = 'n'
+                dal = 'n'
+                dar = 'n'
+                dbl = 'n'
+                dbr = 'n'
+            '''if sprites.get((m[0],m[1])) == DeadCell:
                 #print((m[0],m[1]))
                 if sprites.get((m[0]-8,m[1])) != DeadCell:
                     #print("there is a cell to the left")
@@ -174,12 +183,7 @@ class Game(App):
                     below[(m[0],m[1])]="yes"
                 if sprites.get((m[0],m[1]-8)) != DeadCell:
                     #print("there is a cell above")
-                    above[(m[0],m[1])]="yes"
-                print()
-                l = 0
-                r = 0
-                b = 0
-                a = 0
+                    above[(m[0],m[1])]="yes"'''
         for m in self.Cells:
             if above.get((m[0],m[1]))=="yes" and below.get((m[0],m[1]))=="yes" and left.get((m[0],m[1]))=="yes" and right.get((m[0],m[1]))=="yes":
                 sprites[(m[0],m[1])] = DeadCell
