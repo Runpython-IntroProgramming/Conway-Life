@@ -16,7 +16,6 @@ black = Color(0x000000, 1.0)
 orange = Color(0xFF7D40, 1.0)
 thinline1 = LineStyle(1, black)
 thinline = LineStyle(1, blue)
-
 #Making the grid. Square 400 by 400 goes up by 40
 grid1 = RectangleAsset(1300,800, thinline1, black)
 Sprite(grid1, (0,0))
@@ -44,12 +43,10 @@ def mouseClick(event):
     y = floor(event.y/40)*40
     s = sprites[(x,y)]
     s.setImage(1)
-"""
 #Getting into the actual conway game of life
 #Finding which neighboring cells are alive or dead. 
 def livingneighbors(position):
     neighbors = 0
-
     if sprites[(position[0]+40,position[1])].index ==1:
         neighbors += 1
         #right
@@ -79,16 +76,17 @@ def livingneighbors(position):
 spritestokill = []
 
 for pos in sprites:
-    #alive = livingcell(pos)
-    n = livingneighbors(pos)
-    if n < 2 or n > 3:
-        spritestokill.append(pos)
-        s = sprites[(x,y)]
-        s.setImage(0)
+    if pos.position.x > 320 and pos.position.x < 680 and pos.position.y < 480 and pos.position.y > 120:
+    #print noting 
+        if pos > (680,480)
+        #alive = livingcell(pos)
+        n = livingneighbors(pos)
+        if n < 2 or n > 3:
+            spritestokill.append(pos)
+            s = sprites[(x,y)]
+            s.setImage(0)
         
         # do something to make the sprite at pos be DEAD
-
-"""
 """
 def living neigbors (position):
 neighbors = 0
@@ -100,18 +98,11 @@ neighbors +=1
 do this for all surrounding cells. 
 return neighbors 
 
-
 for pos in sprites:
     alive = lving cell (pos)
     n = livingneigbors(pos)
     if alive and n <2 or n>3:
     cell must step. 
-    
-
-
-
-
-
 
 #If empty cell is touching three live balls- ball image 0 
 
@@ -128,10 +119,6 @@ check (x,y) to (x+40,y) (x-40,y) (x+40,y+40) (x-40,y-40) (x,y+40) (x,y-40) (x+40
 # should start out with 100 dead sprites (image 2)
 
 """
-
-
-
-
 myapp = App()
 
 myapp.listenMouseEvent('click', mouseClick)
