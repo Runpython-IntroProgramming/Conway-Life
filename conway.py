@@ -21,19 +21,19 @@ thinline = LineStyle(1, blue)
 grid1 = RectangleAsset(1300,800, thinline1, black)
 Sprite(grid1, (0,0))
 grid = RectangleAsset(400,400, thinline, blue)
-Sprite(grid, (0,0))
+Sprite(grid, (320,120))
 line1 = RectangleAsset(1,400, thinline, blue)
 line2 = RectangleAsset(400,1, thinline, blue)
 for x in range(11):
-    Sprite(line1, (x*40, 0))
-    Sprite(line2, (0, x*40))
+    Sprite(line1, (((x*40)+320), 120))
+    Sprite(line2, (320, ((x*40)+120)))
 ball_asset = ImageAsset("Conway-life.png", Frame(62,210,275,275),3)
 #have beginning of the games start out with 
 sprites = {}
 for g in range (10):
-    x = (g)*40
+    x = ((g)*40)+320
     for h in range(10):
-        y = (h)*(40)
+        y = ((h)*(40))+120
         sball = Sprite(ball_asset,(x, y))
         sprites[sball.position] = sball
         sball.setImage(0)
