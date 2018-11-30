@@ -80,11 +80,9 @@ spritestokill = []
 spritestobirth = []
 
 for pos in sprites:
-    """
     if pos.position.x > 320 and pos.position.x < 680 and pos.position.y < 480 and pos.position.y > 120:
         #alive = livingcell(pos)
         n = livingneighbors(pos)
-    """
         if n < 2 or n > 3:
             spritestokill.append(pos)
         if n == 2:
@@ -93,11 +91,13 @@ for pos in sprites:
             spritestobirth.append(pos)
 
 for pos in spritestokill:
+    if spritestokill in [0,101]:
     # kill this sprite
     s = sprites[pos]
     s.setImage(2)
 
 for pos in spritestobirth:
+    if spritestobirth in [0,101]:
     # set this sprite to born
     s = sprites[pos]
     s.setImage(1)
