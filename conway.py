@@ -204,21 +204,17 @@ class Game(App):
                     sprites[(m[0])] = DeadCell
                     cells[(m[0])] = "dead"
                 elif neighbors.get((m[0])) > 3:
-                    (sprites.get(m[0])(m[0])).destroy()
                     sprites[(m[0])] = DeadCell
                     cells[(m[0])] = "dead"
                 else:
-                    (sprites.get(m[0])(m[0])).destroy()
                     sprites[(m[0])] = LiveCell
                     cells[(m[0])] = "old"
                     
             elif sprites.get((m[0])) == DeadCell:
                 if neighbors.get((m[0])) == 3:
-                    (sprites.get(m[0])(m[0])).destroy()
                     sprites[(m[0])] = BabyCell
                     cells[(m[0])] = "baby"
                 else:
-                    (sprites.get(m[0])(m[0])).destroy()
                     sprites[(m[0],m[1])] = DeadCell
                     cells[(m[0],m[1])] = "dead"
                     
