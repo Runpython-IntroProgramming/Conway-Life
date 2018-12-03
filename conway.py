@@ -194,23 +194,28 @@ class Game(App):
                 neighbors[(n[0])] = z
                 
             if sprites.get((m[0])) != DeadCell:
-                if m[1]=="y" and m[2]=="y" and m[3]=="y" and m[4]=="y":
+                if neighbors.get((m[0])) < 2:
+                    sprites[(m[0])] = DeadCell
+                    cells[(m[0])] = "dead"
+                if neighbors.get((m[0])) > 3:
+                    sprites[(m[0])] = DeadCell
+                    cells[(m[0])] = "dead"
+                elif m[1]=="y" and m[2]=="y" and m[3]=="y" and m[4]=="y":
                     sprites[(m[0])] = DeadCell
                     cells[(m[0])] = "dead" 
                 elif sprites.get((m[0])) == BabyCell:
                         sprites[(m[0])] = LiveCell
                         cells[(m[0])] = "old"
-                if neighbors.get((m[0])) == 3:
-                    sprites[(m[0])] = BabyCell
-                    cells[(m[0])] = "baby"
+                
                     
             elif sprites.get((m[0])) == DeadCell:
-                if m[3]=="y" and m[4]=="y":
+                if neighbors.get((m[0])) == 3:
                     sprites[(m[0])] = BabyCell
                     cells[(m[0])] = "baby"
                 else:
                     sprites[(m[0],m[1])] = DeadCell
                     cells[(m[0],m[1])] = "dead"
+                    
             self.madecells.append(sprites.get(m[0])(m[0]))
             sprites.get(m[0])(m[0])
         print(neighbors)
