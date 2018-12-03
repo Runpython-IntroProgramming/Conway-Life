@@ -120,6 +120,7 @@ class Game(App):
         dbl7 = {}
         dbr8 = {}
         zip1234578 = []
+        
         for n in self.madecells:
             n.destroy()
         self.madecells = []
@@ -165,9 +166,6 @@ class Game(App):
                     #print("there is a cell dbr")
                     dbr8[(m[0],m[1])]="yes"
                     dbr = 'y'
-                '''if sprites.get((m[0],m[1])) == BabyCell:
-                    sprites[(m[0],m[1])] = LiveCell
-                    cells[(m[0],m[1])] = "old"'''
                 #print()
                 zip1234578.append(((m[0],m[1]),l,r,b,a,dal,dar,dbl,dbr))
 
@@ -192,7 +190,8 @@ class Game(App):
                 if n[8]=="y":
                     z+=1
                 neighbors[(n[0])] = z
-                
+        
+        for m in zip1234578:
             if sprites.get((m[0])) != DeadCell:
                 if neighbors.get((m[0])) < 2:
                     sprites[(m[0])] = DeadCell
@@ -202,15 +201,10 @@ class Game(App):
                     sprites[(m[0])] = DeadCell
                     cells[(m[0])] = "dead"
                     self.madecells.append(sprites.get(m[0])(m[0]))
-                elif m[1]=="y" and m[2]=="y" and m[3]=="y" and m[4]=="y":
-                    sprites[(m[0])] = DeadCell
-                    cells[(m[0])] = "dead" 
+                else:
+                    sprites[(m[0])] = LiveCell
+                    cells[(m[0])] = "old"
                     self.madecells.append(sprites.get(m[0])(m[0]))
-                elif sprites.get((m[0])) == BabyCell:
-                        sprites[(m[0])] = LiveCell
-                        cells[(m[0])] = "old"
-                        self.madecells.append(sprites.get(m[0])(m[0]))
-                
                     
             elif sprites.get((m[0])) == DeadCell:
                 if neighbors.get((m[0])) == 3:
@@ -222,10 +216,11 @@ class Game(App):
                     cells[(m[0],m[1])] = "dead"
                     self.madecells.append(sprites.get(m[0])(m[0]))
                     
-            self.madecells.append(sprites.get(m[0])(m[0]))
+            #self.madecells.append(sprites.get(m[0])(m[0]))
             sprites.get(m[0])(m[0])
         #print(neighbors)
         #print(sprites)
+        
         
             
 
