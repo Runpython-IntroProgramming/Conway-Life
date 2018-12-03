@@ -109,8 +109,10 @@ class Game(App):
                     cells[(m[0],m[1])] = "baby"
                     sprites[(m[0],m[1])] = BabyCell
                     self.madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
+                else:
+                    cells[(m[0],m[1])] = "dead"
             else:
-                cells[(m[0],m[1])] = "nothing"
+                cells[(m[0],m[1])] = "dead"
 
     def clear(self,event):
         
