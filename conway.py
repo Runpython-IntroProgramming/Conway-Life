@@ -92,17 +92,17 @@ for pos in sprites:
 
 for pos in spritestokill:
     if spritestokill in range(0,101):
-    for pos(x,y)
-        # kill this sprite
-        s = sprites[pos]
-        s.setImage(2)
+        for pos[(x,y)]
+            # kill this sprite
+            s = sprites[pos]
+            s.setImage(2)
 
 for pos in spritestobirth:
     if spritestobirth in range(0,101):
-    for pos (x,y)
-        # set this sprite to born
-        s = sprites[pos]
-        s.setImage(1)
+        for pos [(x,y)]
+            # set this sprite to born
+            s = sprites[pos]
+            s.setImage(1)
     
         
         # do something to make the sprite at pos be DEAD
