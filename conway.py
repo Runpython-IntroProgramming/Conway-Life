@@ -115,7 +115,6 @@ class Game(App):
 
     def clear(self,event):
         
-        
         left1 = {}
         right2 = {}
         below3 = {}
@@ -132,49 +131,49 @@ class Game(App):
         self.madecells = []
         
         for m in self.Cells:
-                #print((m[0],m[1]))
-                l = 'n'
-                r = 'n'
-                b = 'n'
-                a = 'n'
-                dal = 'n'
-                dar = 'n'
-                dbl = 'n'
-                dbr = 'n'
-                if sprites.get((m[0]-8,m[1])) != DeadCell:
+            #print((m[0],m[1]))
+            l = 'n'
+            r = 'n'
+            b = 'n'
+            a = 'n'
+            dal = 'n'
+            dar = 'n'
+            dbl = 'n'
+            dbr = 'n'
+            if sprites.get((m[0]-8,m[1])) != DeadCell:
                     #print("there is a cell to the left")
                     left1[(m[0],m[1])]="yes"
                     l = 'y'
-                if sprites.get((m[0]+8,m[1])) != DeadCell:
+            if sprites.get((m[0]+8,m[1])) != DeadCell:
                     #print("there is a cell to the right")
                     right2[(m[0],m[1])]="yes"
                     r = 'y'
-                if sprites.get((m[0],m[1]+8)) != DeadCell:
+            if sprites.get((m[0],m[1]+8)) != DeadCell:
                     #print("there is a cell below")
                     below3[(m[0],m[1])]="yes"
                     b = 'y'
-                if sprites.get((m[0],m[1]-8)) != DeadCell:
+            if sprites.get((m[0],m[1]-8)) != DeadCell:
                     #print("there is a cell above")
                     above4[(m[0],m[1])]="yes"
                     a = 'y'
-                if sprites.get((m[0]-8,m[1]-8)) != DeadCell:
+            if sprites.get((m[0]-8,m[1]-8)) != DeadCell:
                     #print("there is a cell dal")
                     dal5[(m[0],m[1])]="yes"
                     dal = 'y'
-                if sprites.get((m[0]+8,m[1]-8)) != DeadCell:
+            if sprites.get((m[0]+8,m[1]-8)) != DeadCell:
                     #print("there is a cell dar")
                     dar6[(m[0],m[1])]="yes"
                     dar = 'y'
-                if sprites.get((m[0]-8,m[1]+8)) != DeadCell:
+            if sprites.get((m[0]-8,m[1]+8)) != DeadCell:
                     #print("there is a cell dbl")
                     dbl7[(m[0],m[1])]="yes"
                     dbl = 'y'
-                if sprites.get((m[0]+8,m[1]+8)) != DeadCell:
+            if sprites.get((m[0]+8,m[1]+8)) != DeadCell:
                     #print("there is a cell dbr")
                     dbr8[(m[0],m[1])]="yes"
                     dbr = 'y'
-                #print()
-                zip1234578.append(((m[0],m[1]),l,r,b,a,dal,dar,dbl,dbr))
+            #print()
+            zip1234578.append(((m[0],m[1]),l,r,b,a,dal,dar,dbl,dbr))
 
         for m in zip1234578:
             neighbors = {}
@@ -221,7 +220,7 @@ class Game(App):
                     cells[(m[0],m[1])] = "dead"
                     
             else:
-                print("well fuck")
+                print("well this print statement is never suposed to pop so somethings wrong")
                     
         for m in zip1234578: 
             self.madecells.append(sprites.get(m[0])(m[0]))
