@@ -218,7 +218,7 @@ class Game(App):
                     
             self.madecells.append(sprites.get(m[0])(m[0]))
             sprites.get(m[0])(m[0])
-        print(neighbors)
+        #print(neighbors)
         #print(sprites)
         
             
