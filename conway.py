@@ -6,8 +6,6 @@ Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
-
-
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
 from math import floor
 
@@ -21,6 +19,7 @@ black = Color(0x000000, 1.0)
 orange = Color(0xFF7D40, 1.0)
 thinline1 = LineStyle(1, black)
 thinline = LineStyle(1, blue)
+
 #Making the grid. Square 400 by 400 goes up by 40
 grid1 = RectangleAsset(1300,800, thinline1, black)
 Sprite(grid1, (0,0))
