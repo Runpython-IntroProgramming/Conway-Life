@@ -14,6 +14,10 @@ print("Green Cells are babies and yellow cells are older")
 print("A cell will survive if it has 2-3 neighbors, and a dead cell will create life if it has 3 neighbors.")
 print("Edges are neighbors.")
 print("Press 'n' every time you wish to move on a generation")
+print("P.S.") 
+print("with a 10x10 this progrma takes 1.72 seconds per generation")
+print("with a 15x15 this progrma takes 6.38 seconds per generation")
+print("I would recomend making your no larger for times sake")
 
 w = int(input("How wide would you like youre grid? "))
 l = int(input("How long would you like youre grid? "))
@@ -100,7 +104,7 @@ class Game(App):
     
     def baby(self,event):
         click = []
-        print(int(event.x),int(event.y))
+        #print(int(event.x),int(event.y))
         click.append((event.x,event.y))
         Babys = []
         for m in self.Cells:
