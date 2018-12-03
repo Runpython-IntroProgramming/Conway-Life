@@ -106,40 +106,7 @@ def step():
         sprites[pos].setImage(1)
     
 def spaceKey(event):
-# do something to make the sprite at pos be DEAD
-
-"""
-def living neigbors (position):
-neighbors = 0
-if sprites[(position[0] + 40,position[1])].
-index == 1:
-neighbors +=1
-
-
-do this for all surrounding cells. 
-return neighbors 
-
-for pos in sprites:
-    alive = lving cell (pos)
-    n = livingneigbors(pos)
-    if alive and n <2 or n>3:
-    cell must step. 
-
-#If empty cell is touching three live balls- ball image 0 
-
-check (x,y) to (x+40,y) (x-40,y) (x+40,y+40) (x-40,y-40) (x,y+40) (x,y-40) (x+40,y-40) (x-40,y+40)
-
-#If ball is touching one or fewer balls - image 2
-
-#If ball is touching four or more balls -- image 2
-
-#If ball is touching 2 or 3 balls- image 1
-
-
-#list of every sprite location
-# should start out with 100 dead sprites (image 2)
-
-"""
+#START WITH THIS 
 
 myapp.listenKeyEvent('keydown', 'space', spaceKey)
 myapp.listenMouseEvent('click', mouseClick)
