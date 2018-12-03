@@ -6,8 +6,13 @@ Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
+
+
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
 from math import floor
+
+myapp = App()
+
 red = Color(0xFF4040, 1.0)
 green = Color(0x00FF00, 1.0)
 blue = Color(0x1C86EE, 1.0)
@@ -76,31 +81,31 @@ def livingneighbors(position):
         #top
     return neighbors
     
-def spaceKey(event):
-    def step():
-        spritestokill = []
-        spritestobirth = []
-        
-        for pos in sprites:
-            if pos[0] > 320 and pos[0] < 680 and pos[1] < 480 and pos[1]> 120:
-                #alive = livingcell(pos)
-                n = livingneighbors(pos)
-                if n < 2 or n > 3:
-                    spritestokill.append(pos)
-                if n == 2:
-                    spritestobirth.append(pos)
-                if n ==3:
-                    spritestobirth.append(pos)
-        
-        for pos in spritestokill:
-            # kill this sprite
-            sprites[pos].setImage(0)
-        
-        for pos in spritestobirth:
-            # set this sprite to born
-            sprites[pos].setImage(1)
-    
 
+def step():
+    spritestokill = []
+    spritestobirth = []
+
+    for pos in sprites:
+        if pos[0] > 320 and pos[0] < 680 and pos[1] < 480 and pos[1]> 120:
+            #alive = livingcell(pos)
+            n = livingneighbors(pos)
+            if n < 2 or n > 3:
+                spritestokill.append(pos)
+            if n == 2:
+                spritestobirth.append(pos)
+            if n ==3:
+                spritestobirth.append(pos)
+    
+    for pos in spritestokill:
+        # kill this sprite
+        sprites[pos].setImage(0)
+    
+    for pos in spritestobirth:
+        # set this sprite to born
+        sprites[pos].setImage(1)
+    
+def spaceKey(event):
 # do something to make the sprite at pos be DEAD
 
 """
@@ -135,8 +140,7 @@ check (x,y) to (x+40,y) (x-40,y) (x+40,y+40) (x-40,y-40) (x,y+40) (x,y-40) (x+40
 # should start out with 100 dead sprites (image 2)
 
 """
-myapp = App()
+
 myapp.listenKeyEvent('keydown', 'space', spaceKey)
 myapp.listenMouseEvent('click', mouseClick)
 myapp.run(step)
-
