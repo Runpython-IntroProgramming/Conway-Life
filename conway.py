@@ -12,6 +12,8 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 #print("When the simulation is paused, click to remove or add cells.")
 print("Green Cells are babies and yellow cells are older")
 print("A cell will survive if it has 2-3 neighbors, and a dead cell will create life if it has 3 neighbors.")
+print("Edges are neighbors.")
+print("Press 'n' every time you wish to move on a generation")
 
 w = int(input("How wide would you like youre grid? "))
 l = int(input("How long would you like youre grid? "))
@@ -93,7 +95,7 @@ class Game(App):
         cells[(m[0],m[1])] = "dead"
         sprites[(m[0],m[1])] = DeadCell
         #madecellslist.append((sprites.get((m[0],m[1])),((m[0],m[1]))))
-        #madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
+        madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
         Cells.append((m[0],m[1]))
     
     def baby(self,event):
@@ -121,8 +123,8 @@ class Game(App):
         dbr8 = {}
         zip1234578 = []
         
-        for n in self.madecells:
-            n.destroy()
+        for m in zip1234578:
+            (sprites.get(m[0])(m[0])).destroy()
             
         self.madecells = []
         
@@ -196,32 +198,31 @@ class Game(App):
         for m in zip1234578:
             if sprites.get((m[0])) != DeadCell:
                 if neighbors.get((m[0])) < 2:
+                    (sprites.get(m[0])(m[0])).destroy()
                     sprites[(m[0])] = DeadCell
                     cells[(m[0])] = "dead"
-                    sprites.get(m[0])(m[0])
-                    self.madecells.append(sprites.get(m[0])(m[0]))
                 elif neighbors.get((m[0])) > 3:
+                    (sprites.get(m[0])(m[0])).destroy()
                     sprites[(m[0])] = DeadCell
                     cells[(m[0])] = "dead"
-                    sprites.get(m[0])(m[0])
-                    self.madecells.append(sprites.get(m[0])(m[0]))
                 else:
+                    (sprites.get(m[0])(m[0])).destroy()
                     sprites[(m[0])] = LiveCell
                     cells[(m[0])] = "old"
-                    sprites.get(m[0])(m[0])
-                    self.madecells.append(sprites.get(m[0])(m[0]))
                     
             elif sprites.get((m[0])) == DeadCell:
                 if neighbors.get((m[0])) == 3:
+                    (sprites.get(m[0])(m[0])).destroy()
                     sprites[(m[0])] = BabyCell
                     cells[(m[0])] = "baby"
-                    sprites.get(m[0])(m[0])
-                    self.madecells.append(sprites.get(m[0])(m[0]))
                 else:
+                    (sprites.get(m[0])(m[0])).destroy()
                     sprites[(m[0],m[1])] = DeadCell
                     cells[(m[0],m[1])] = "dead"
-                    sprites.get(m[0])(m[0])
-                    self.madecells.append(sprites.get(m[0])(m[0]))
+            
+        for m in zip1234578: 
+            sprites.get(m[0])(m[0])
+            self.madecells.append(sprites.get(m[0])(m[0]))
                     
             #self.madecells.append(sprites.get(m[0])(m[0]))
             #sprites.get(m[0])(m[0])
