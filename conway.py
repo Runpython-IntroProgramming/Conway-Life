@@ -203,9 +203,11 @@ class Game(App):
                 if neighbors.get((m[0])) < 2:
                     sprites[(m[0])] = DeadCell
                     cells[(m[0])] = "dead"
+                    
                 elif neighbors.get((m[0])) > 3:
                     sprites[(m[0])] = DeadCell
                     cells[(m[0])] = "dead"
+                    
                 else:
                     sprites[(m[0])] = LiveCell
                     cells[(m[0])] = "old"
@@ -217,6 +219,9 @@ class Game(App):
                 else:
                     sprites[(m[0],m[1])] = DeadCell
                     cells[(m[0],m[1])] = "dead"
+                    
+            else:
+                print("well fuck")
                     
         for m in zip1234578: 
             self.madecells.append(sprites.get(m[0])(m[0]))
