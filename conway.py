@@ -168,7 +168,7 @@ class Game(App):
                 '''if sprites.get((m[0],m[1])) == BabyCell:
                     sprites[(m[0],m[1])] = LiveCell
                     cells[(m[0],m[1])] = "old"'''
-                print()
+                #print()
                 zip1234578.append(((m[0],m[1]),l,r,b,a,dal,dar,dbl,dbr))
 
         for m in zip1234578:
@@ -197,24 +197,30 @@ class Game(App):
                 if neighbors.get((m[0])) < 2:
                     sprites[(m[0])] = DeadCell
                     cells[(m[0])] = "dead"
-                if neighbors.get((m[0])) > 3:
+                    self.madecells.append(sprites.get(m[0])(m[0]))
+                elif neighbors.get((m[0])) > 3:
                     sprites[(m[0])] = DeadCell
                     cells[(m[0])] = "dead"
+                    self.madecells.append(sprites.get(m[0])(m[0]))
                 elif m[1]=="y" and m[2]=="y" and m[3]=="y" and m[4]=="y":
                     sprites[(m[0])] = DeadCell
                     cells[(m[0])] = "dead" 
+                    self.madecells.append(sprites.get(m[0])(m[0]))
                 elif sprites.get((m[0])) == BabyCell:
                         sprites[(m[0])] = LiveCell
                         cells[(m[0])] = "old"
+                        self.madecells.append(sprites.get(m[0])(m[0]))
                 
                     
             elif sprites.get((m[0])) == DeadCell:
                 if neighbors.get((m[0])) == 3:
                     sprites[(m[0])] = BabyCell
                     cells[(m[0])] = "baby"
+                    self.madecells.append(sprites.get(m[0])(m[0]))
                 else:
                     sprites[(m[0],m[1])] = DeadCell
                     cells[(m[0],m[1])] = "dead"
+                    self.madecells.append(sprites.get(m[0])(m[0]))
                     
             self.madecells.append(sprites.get(m[0])(m[0]))
             sprites.get(m[0])(m[0])
