@@ -80,7 +80,7 @@ spritestokill = []
 spritestobirth = []
 
 for pos in sprites:
-    if pos.position.x > 320 and pos.position.x < 680 and pos.position.y < 480 and pos.position.y > 120:
+    if pos[0] > 320 and pos[0] < 680 and pos[1] < 480 and pos[1]> 120:
         #alive = livingcell(pos)
         n = livingneighbors(pos)
         if n < 2 or n > 3:
@@ -91,21 +91,15 @@ for pos in sprites:
             spritestobirth.append(pos)
 
 for pos in spritestokill:
-    if spritestokill in range(0,101):
-        for pos[(x,y)]
-            # kill this sprite
-            s = sprites[pos]
-            s.setImage(2)
+    # kill this sprite
+    sprites[pos].setImage(0)
 
 for pos in spritestobirth:
-    if spritestobirth in range(0,101):
-        for pos [(x,y)]
-            # set this sprite to born
-            s = sprites[pos]
-            s.setImage(1)
+    # set this sprite to born
+    sprites[pos].setImage(1)
     
-        
-        # do something to make the sprite at pos be DEAD
+
+# do something to make the sprite at pos be DEAD
 
 """
 def living neigbors (position):
