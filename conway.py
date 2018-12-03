@@ -79,6 +79,41 @@ class Game(App):
     
     b=[]
     
+    sprites[(2,2)] = DeadCell
+    cells[(2,2)] = "dead"
+    
+    i=0
+    while i <= l:
+        sprites[(2,(i*8)+10)] = DeadCell
+        cells[(2,(i*8)+10)] = "dead"
+        #print((2,(i*8)+10))
+        #DeadCell((2,(i*8)+10))
+        i+=1
+        
+    i=0
+    while i <= l:
+        sprites[((10+(8*w)),((i*8)+10))] = DeadCell
+        cells[((10+(8*w)),((i*8)+10))] = "dead"
+        #print(((10+(8*w)),((i*8)+10)))
+        #DeadCell(((10+(8*w)),((i*8)+10)))
+        i+=1
+        
+    i=0
+    while i <= l:
+        sprites[((10+(8*i)),(2))] = DeadCell
+        cells[((10+(8*i)),(2))] = "dead"
+        #print(((10+(8*i)),(2)))
+        #DeadCell(((10+(8*i)),(2)))
+        i+=1
+        
+    i=0
+    while i <= l:
+        sprites[((10+(8*i)),((l*8)+18))] = DeadCell
+        cells[((10+(8*i)),((l*8)+18))] = "dead"
+        #print(((10+(8*i)),((l*8)+10)))
+        #DeadCell(((10+(8*i)),((l*8)+10)))
+        i+=1
+    
     for m in range(w):
         x.append(10+(8*m))
         y.append(10)
