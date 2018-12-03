@@ -109,10 +109,13 @@ class Game(App):
                     cells[(m[0],m[1])] = "baby"
                     sprites[(m[0],m[1])] = BabyCell
                     BabyCell((m[0],m[1]))
+                    self.madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
             else:
                 cells[(m[0],m[1])] = "nothing"
 
     def clear(self,event):
+        
+        
         left1 = {}
         right2 = {}
         below3 = {}
@@ -123,8 +126,8 @@ class Game(App):
         dbr8 = {}
         zip1234578 = []
         
-        for m in zip1234578:
-            (sprites.get(m[0])(m[0])).destroy()
+        for m in self.madecells:
+            m.destroy()
             
         self.madecells = []
         
@@ -219,7 +222,7 @@ class Game(App):
                     (sprites.get(m[0])(m[0])).destroy()
                     sprites[(m[0],m[1])] = DeadCell
                     cells[(m[0],m[1])] = "dead"
-            
+                    
         for m in zip1234578: 
             sprites.get(m[0])(m[0])
             self.madecells.append(sprites.get(m[0])(m[0]))
