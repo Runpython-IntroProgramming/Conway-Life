@@ -275,12 +275,6 @@ class Game(App):
         #print(neighbors)
         #print(sprites)
         
-        
-            
-
-        
-
-
 
 myapp = Game(500,500)
 myapp.run()
