@@ -108,7 +108,6 @@ class Game(App):
                 if m[1] <= event.y <= m[1]+8:
                     cells[(m[0],m[1])] = "baby"
                     sprites[(m[0],m[1])] = BabyCell
-                    BabyCell((m[0],m[1]))
                     self.madecells.append(sprites.get((m[0],m[1]))((m[0],m[1])))
             else:
                 cells[(m[0],m[1])] = "nothing"
@@ -202,28 +201,33 @@ class Game(App):
                 if neighbors.get((m[0])) < 2:
                     sprites[(m[0])] = DeadCell
                     cells[(m[0])] = "dead"
+                    self.madecells.append(sprites.get(m[0])(m[0]))
                     
                 elif neighbors.get((m[0])) > 3:
                     sprites[(m[0])] = DeadCell
                     cells[(m[0])] = "dead"
+                    self.madecells.append(sprites.get(m[0])(m[0]))
                     
                 else:
                     sprites[(m[0])] = LiveCell
                     cells[(m[0])] = "old"
+                    self.madecells.append(sprites.get(m[0])(m[0]))
                     
             elif sprites.get((m[0])) == DeadCell:
                 if neighbors.get((m[0])) == 3:
                     sprites[(m[0])] = BabyCell
                     cells[(m[0])] = "baby"
+                    self.madecells.append(sprites.get(m[0])(m[0]))
                 else:
                     sprites[(m[0],m[1])] = DeadCell
                     cells[(m[0],m[1])] = "dead"
+                    self.madecells.append(sprites.get(m[0])(m[0]))
                     
             else:
                 print("well this print statement is never suposed to pop so somethings wrong")
                     
-        for m in zip1234578: 
-            self.madecells.append(sprites.get(m[0])(m[0]))
+        #for m in zip1234578: 
+         #   self.madecells.append(sprites.get(m[0])(m[0]))
                     
             #self.madecells.append(sprites.get(m[0])(m[0]))
             #sprites.get(m[0])(m[0])
