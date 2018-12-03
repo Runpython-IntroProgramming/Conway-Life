@@ -76,8 +76,7 @@ def livingneighbors(position):
         #top
     return neighbors
     
-
-def spaceClick(event):
+def spaceKey(event):
     def step():
         spritestokill = []
         spritestobirth = []
@@ -137,7 +136,7 @@ check (x,y) to (x+40,y) (x-40,y) (x+40,y+40) (x-40,y-40) (x,y+40) (x,y-40) (x+40
 
 """
 myapp = App()
-
+myapp.listenKeyEvent('keydown', 'space', spaceKey)
 myapp.listenMouseEvent('click', mouseClick)
-
 myapp.run(step)
+
