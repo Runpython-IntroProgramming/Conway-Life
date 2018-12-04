@@ -81,6 +81,9 @@ def livingneighbors(position):
         #top
     return neighbors
     
+    
+#red sprites with neighbors turn black
+#blue sprites with neighbors turn red
 #fix so the black balls are shown
 def step():
     if go:
@@ -101,13 +104,16 @@ def step():
             sprites[pos].setImage(0)
         
         for pos in spritestobirth:
+            #if image(0) change to (1)
+            #if image(1) change to (2)
             # set this sprite to born
             sprites[pos].setImage(1)
-    
+
 def spaceKey(event):
     global go
     go = not go
     
+print("Hello, Welcome to conways game of life! Click the cells you desire to become alive. Then click the spacebar to begin the game. Press the spacebar again to pause the game, and add any new cells you want. Enjoy! :)")
 #START WITH THIS 
 
 myapp.listenKeyEvent('keydown', 'space', spaceKey)
