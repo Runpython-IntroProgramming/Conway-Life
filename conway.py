@@ -48,7 +48,7 @@ def mouseClick(event):
     y = floor(event.y/40)*40
     s = sprites[(x,y)]  
     s.setImage(1)
-    
+conway.go = True
 
 #Getting into the actual conway game of life
 #Finding which neighboring cells are alive or dead. 
@@ -82,29 +82,32 @@ def livingneighbors(position):
     
 
 def step():
-    spritestokill = []
-    spritestobirth = []
-
-    for pos in sprites:
-        if pos[0] > 320 and pos[0] < 680 and pos[1] < 480 and pos[1]> 120:
-            #alive = livingcell(pos)
-            n = livingneighbors(pos)
-            if n < 2 or n > 3:
-                spritestokill.append(pos)
-            if n == 2:
-                spritestobirth.append(pos)
-            if n ==3:
-                spritestobirth.append(pos)
+    if conway.go:
+        spritestokill = []
+        spritestobirth = []
     
-    for pos in spritestokill:
-        # kill this sprite
-        sprites[pos].setImage(0)
-    
-    for pos in spritestobirth:
-        # set this sprite to born
-        sprites[pos].setImage(1)
+        for pos in sprites:
+            if pos[0] > 320 and pos[0] < 680 and pos[1] < 480 and pos[1]> 120:
+                #alive = livingcell(pos)
+                n = livingneighbors(pos)
+                if n < 2 or n > 3:
+                    spritestokill.append(pos)
+                if n == 2:
+                    spritestobirth.append(pos)
+                if n ==3:
+                    spritestobirth.append(pos)
+        
+        for pos in spritestokill:
+            # kill this sprite
+            sprites[pos].setImage(0)
+        
+        for pos in spritestobirth:
+            # set this sprite to born
+            sprites[pos].setImage(1)
     
 def spaceKey(event):
+    conway.go = not conway.go
+    
 #START WITH THIS 
 
 myapp.listenKeyEvent('keydown', 'space', spaceKey)
