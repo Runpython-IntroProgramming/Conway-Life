@@ -48,41 +48,42 @@ def mouseClick(event):
     y = floor(event.y/40)*40
     s = sprites[(x,y)]  
     s.setImage(1)
-conway.go = True
+
+go = False
 
 #Getting into the actual conway game of life
 #Finding which neighboring cells are alive or dead. 
 def livingneighbors(position):
     neighbors = 0
-    if sprites[(position[0]+40,position[1])].index in [0,2]:
+    if sprites[(position[0]+40,position[1])].index in [1,2]:
         neighbors += 1
         #right
-    if sprites[(position[0]+40,position[1]+40)].index in [0,2]:
+    if sprites[(position[0]+40,position[1]+40)].index in [1,2]:
         neighbors += 1
         #bottom right
-    if sprites[(position[0]+40,position[1]-40)].index in [0,2]:
+    if sprites[(position[0]+40,position[1]-40)].index in [1,2]:
         neighbors += 1
         #top right
-    if sprites[(position[0]-40,position[1])].index in [0,2]:
+    if sprites[(position[0]-40,position[1])].index in [1,2]:
         neighbors += 1
         #left
-    if sprites[(position[0]-40,position[1]-40)].index in [0,2]:
+    if sprites[(position[0]-40,position[1]-40)].index in [1,2]:
         neighbors += 1
         #top left
-    if sprites[(position[0]-40,position[1]+40)].index in [0,2]:
+    if sprites[(position[0]-40,position[1]+40)].index in [1,2]:
         neighbors += 1
         #bottom left 
-    if sprites[(position[0],position[1]+40)].index in [0,2]:
+    if sprites[(position[0],position[1]+40)].index in [1,2]:
         neighbors += 1
         #bottom
-    if sprites[(position[0],position[1]-40)].index in [0,2]:
+    if sprites[(position[0],position[1]-40)].index in [1,2]:
         neighbors += 1
         #top
     return neighbors
     
 
 def step():
-    if conway.go:
+    if go:
         spritestokill = []
         spritestobirth = []
     
@@ -92,8 +93,6 @@ def step():
                 n = livingneighbors(pos)
                 if n < 2 or n > 3:
                     spritestokill.append(pos)
-                if n == 2:
-                    spritestobirth.append(pos)
                 if n ==3:
                     spritestobirth.append(pos)
         
@@ -106,7 +105,8 @@ def step():
             sprites[pos].setImage(1)
     
 def spaceKey(event):
-    conway.go = not conway.go
+    global go
+    go = not go
     
 #START WITH THIS 
 
