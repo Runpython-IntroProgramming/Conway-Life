@@ -81,7 +81,7 @@ def livingneighbors(position):
         #top
     return neighbors
     
-
+#fix so the black balls are shown
 def step():
     if go:
         spritestokill = []
