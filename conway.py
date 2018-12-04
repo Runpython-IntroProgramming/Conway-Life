@@ -103,18 +103,29 @@ def step():
             # kill this sprite
             sprites[pos].setImage(0)
         
+        for pos in sprites:
+            if sprites[pos].index == 1:
+                sprites[pos].setImage(2)
+            
+        
         for pos in spritestobirth:
+            if sprites[pos].index == 0:
+                sprites[pos].setImage(1)
+            #elif sprites[pos].index == 1:
+            #    sprites[pos].setImage(2)
             #if image(0) change to (1)
+            #if Image(0):
+              #  sprite[pos].setImage(1)
             #if image(1) change to (2)
             # set this sprite to born
-            sprites[pos].setImage(1)
+            #sprites[pos].setImage(1)
 
 def spaceKey(event):
     global go
     go = not go
     
-print("Hello, Welcome to conways game of life! Click the cells you desire to become alive. Then click the spacebar to begin the game. Press the spacebar again to pause the game, and add any new cells you want. Enjoy! :)")
-#START WITH THIS 
+print("Hello, Welcome to conways game of life! Click the cells you desire to become alive. Then click the spacebar to begin the game. Press the spacebar again to pause the game, and add any new cells you want. Keep in mind that if an alive cell has less than 2 or more than three alive neighbors, it will die, and that if a dead sprite has three alive neighbors it will become alive. Enjoy! :)")
+
 
 myapp.listenKeyEvent('keydown', 'space', spaceKey)
 myapp.listenMouseEvent('click', mouseClick)
