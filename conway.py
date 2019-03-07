@@ -18,14 +18,14 @@ purple = Color(0x800080, 1.0)
 black = Color(0x000000, 1.0)
 white = Color(0xffffff, 1.0)
 
-noline = LineStyle(
+noline = LineStyle(0, white)
 
 colorslist = [red, orange, yellow, green, blue, purple, black]
 
 class Cell(Sprite):
-    """"
+    """
     Cell
-    """"
+    """
     
     def __init__(self):
         super().__init__()
@@ -39,9 +39,9 @@ class Cell(Sprite):
             circle = CircleAsset(5, noline, self.color)
 
 class Conway(App):
-    """"
+    """
     Play Conway's Game
-    """"
+    """
     
     def __init__(self):
         super().__init__()
