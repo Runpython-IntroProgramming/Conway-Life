@@ -7,6 +7,7 @@ Write and submit a program that plays Conway's Game of Life, per
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
 from ggame import App, Color, LineStyle, Sprite, CircleAsset
+import random
 
 # Colors
 red = Color(0xff0000, 1.0)
@@ -40,8 +41,7 @@ grid = []
 for i in range(0,gridheight):
     grid.append([0] * gridwidth)
     for j in range(0,gridwidth):
-            if i == 0:
-                grid[i][j] = 1
+        grid[i][j] = random.randint(0,1)
 
 
 print(grid)
