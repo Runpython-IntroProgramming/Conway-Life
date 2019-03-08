@@ -46,13 +46,15 @@ for i in range(0,gridrows):
         grid[i][j] = random.randint(0,7)
 
 # Create Sprites for each element in grid
+x = 0
+y = 0
 for i in grid:
     for j in i:
-        Sprite(circles[j%7]), (len(grid)*100,len(i)*100)
+        Sprite(circles[j%7]), (x,y))
+        y += 10
+    x += 10
 
 print(grid)
-print(len(grid))
-print(len(grid[1]))
 
 myapp = App()
 myapp.run()
