@@ -47,5 +47,5 @@ for i in range(0,gridrows):
 
 grid[2][1] = 7
 
-myapp = App()
-myapp.run()
+#myapp = App()
+#myapp.run()
