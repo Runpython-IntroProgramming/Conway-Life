@@ -32,8 +32,8 @@ blackcircle = CircleAsset(5, noline, black)
 whitecircle = CircleAsset(5, noline, white)
 
 
-gridwidth = 5
-gridheight = 5
+gridwidth = 2
+gridheight = 3
 
 grid = []
 
