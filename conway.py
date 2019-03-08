@@ -43,7 +43,9 @@ grid = []
 for i in range(0,gridrows):
     grid.append([0] * gridcolumns)
     for j in range(0,gridcolumns):
-        grid[i][j] = random.randint(0,7)
+        grid[i][j] = random.randint(0,1)
+        if grid[i][j] == 1:
+            grid[i][j] = random.randint(1,7)
 
 # Create Sprites for each element in grid
 x = 0
