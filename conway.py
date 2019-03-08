@@ -32,22 +32,26 @@ purplecircle = CircleAsset(5, noline, purple)
 blackcircle = CircleAsset(5, noline, black)
 whitecircle = CircleAsset(5, noline, white)
 
+circles = [redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
 
-gridcolumns = 2
-gridrows = 3
-
+# Create grid
+gridcolumns = 10
+gridrows = 10
 grid = []
-
 
 # Grid[row][column]
 for i in range(0,gridrows):
-    grid.append([0] * gridrows)
+    grid.append([0] * gridcolumns)
     for j in range(0,gridcolumns):
-        grid[i][j] = random.randint(0,1)
+        grid[i][j] = random.randint(0,7)
 
 grid[2][1] = 7
 
 print(grid)
 
-#myapp = App()
-#myapp.run()
+for i in grid:
+    for j in i:
+        Sprite(circles[j]), (len(grid)*10,len(i)*10)
+
+myapp = App()
+myapp.run()
