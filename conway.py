@@ -39,6 +39,10 @@ grid = []
 
 for i in range(0,gridwidth):
     grid.append([0] * gridheight)
+    for j in range(0,gridheight):
+            if i == 0:
+                grid[i][j] = 1
+
 
 print(grid)
         
