@@ -33,18 +33,19 @@ blackcircle = CircleAsset(5, noline, black)
 whitecircle = CircleAsset(5, noline, white)
 
 
-gridwidth = 2
-gridheight = 3
+gridcolumns = 2
+gridrows = 3
 
 grid = []
 
-for i in range(0,gridheight):
-    grid.append([0] * gridwidth)
-    for j in range(0,gridwidth):
+
+# Grid[row][column]
+for i in range(0,gridrows):
+    grid.append([0] * gridrows)
+    for j in range(0,gridcolumns):
         grid[i][j] = random.randint(0,1)
 
 grid[2][1] = 7
 
-print(grid)
-        
-
+myapp = App()
+myapp.run()
