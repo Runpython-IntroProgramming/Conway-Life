@@ -45,13 +45,12 @@ for i in range(0,gridrows):
     for j in range(0,gridcolumns):
         grid[i][j] = random.randint(0,7)
 
-grid[2][1] = 7
-
-print(grid)
-
+# Create Sprites for each element in grid
 for i in grid:
     for j in i:
         Sprite(circles[j%7]), (len(grid)*100,len(i)*100)
+
+print(grid)
 
 myapp = App()
 myapp.run()
