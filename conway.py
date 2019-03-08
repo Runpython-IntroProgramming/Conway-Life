@@ -18,35 +18,21 @@ purple = Color(0x800080, 1.0)
 black = Color(0x000000, 1.0)
 white = Color(0xffffff, 1.0)
 
+# LineStyle
 noline = LineStyle(0, white)
 
-colorslist = [red, orange, yellow, green, blue, purple, black]
+#Circles
+redcircle = CircleAsset(5, noline, red)
+orangecircle = CircleAsset(5, noline, orange)
+yellowcircle = CircleAsset(5, noline, yellow)
+greencircle = CircleAsset(5, noline, green)
+bluecircle = CircleAsset(5, noline, blue)
+purplecircle = CircleAsset(5, noline, purple)
+blackcircle = CircleAsset(5, noline, black)
+whitecircle = CircleAsset(5, noline, white)
 
-class Cell(Sprite):
-    """
-    Cell
-    """
-    
-    def __init__(self):
-        super().__init__()
-        
-        self.alive = 1
-        self.age = 0
-        self.color = colorslist[self.age]
-        
-        # Display Cell
-        if self.alive == 1:
-            circle = CircleAsset(5, noline, self.color)
 
-class Conway(App):
-    """
-    Play Conway's Game
-    """
-    
-    def __init__(self):
-        super().__init__()
-        
-        Cell()
+grid = [0] * 10
 
-myapp = Conway()
-myapp.run()
+print(grid)
+
