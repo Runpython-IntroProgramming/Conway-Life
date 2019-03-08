@@ -35,8 +35,8 @@ whitecircle = CircleAsset(5, noline, white)
 circles = [whitecircle, redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
 
 # Get dimensions from user
-gridcolumns = 100
-gridrows = 60
+gridcolumns = 5
+gridrows = 5
 grid = []
 
 # Create grid
@@ -54,7 +54,7 @@ x = 0
 y = 0
 for i in grid:
     for j in i:
-        Sprite(circles[j%8], (x,y))
+        #Sprite(circles[j%8], (x,y))
         x += 10
     x = 0
     y += 10
