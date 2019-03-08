@@ -47,5 +47,7 @@ for i in range(0,gridrows):
 
 grid[2][1] = 7
 
+print(grid)
+
 #myapp = App()
 #myapp.run()
