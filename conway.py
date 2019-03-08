@@ -52,7 +52,7 @@ x = 0
 y = 0
 for i in grid:
     for j in i:
-            Sprite(circle[j%8], (x,y))
+        Sprite(circle[j%8], (x,y))
         x += 10
     x = 0
     y += 10
