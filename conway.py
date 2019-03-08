@@ -77,7 +77,6 @@ for i in range(0, len(grid)):
         if i != 0 & j != len(grid[0]):
             neighbors += (grid[i-1][j+1] != 0)
         neighbors += (grid[i][j-1] != 0)
-        neighbors += (grid[i][j] != 0)
         neighbors += (grid[i][j+1] != 0)
         neighbors += (grid[i+1][j-1] != 0)
         neighbors += (grid[i+1][j] != 0)
