@@ -32,7 +32,14 @@ blackcircle = CircleAsset(5, noline, black)
 whitecircle = CircleAsset(5, noline, white)
 
 
-grid = [0] * 10
+gridwidth = 5
+girdheight = 5
+
+grid = []
+
+for i in range(0,gridwidth):
+    grid.append([0] * gridheight)
 
 print(grid)
+        
 
