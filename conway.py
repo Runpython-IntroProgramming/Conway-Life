@@ -34,11 +34,12 @@ whitecircle = CircleAsset(5, noline, white)
 
 circles = [whitecircle, redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
 
-# Create grid
+# Get dimensions from user
 gridcolumns = 100
 gridrows = 60
 grid = []
 
+# Create grid
 # Grid[row][column]
 for i in range(0,gridrows):
     grid.append([0] * gridcolumns)
@@ -48,6 +49,7 @@ for i in range(0,gridrows):
             grid[i][j] = random.randint(1,7)
 
 # Create Sprites for each element in grid
+# Make this into it's own function
 x = 0
 y = 0
 for i in grid:
