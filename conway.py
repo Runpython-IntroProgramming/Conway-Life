@@ -43,7 +43,7 @@ for i in range(0,gridheight):
     for j in range(0,gridwidth):
         grid[i][j] = random.randint(0,1)
 
-grid[2][2] = 7
+grid[1][1] = 7
 
 print(grid)
         
