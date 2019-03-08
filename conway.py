@@ -35,8 +35,8 @@ whitecircle = CircleAsset(5, noline, white)
 circles = [whitecircle, redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
 
 # Create grid
-gridcolumns = 80
-gridrows = 10
+gridcolumns = 100
+gridrows = 60
 grid = []
 
 # Grid[row][column]
