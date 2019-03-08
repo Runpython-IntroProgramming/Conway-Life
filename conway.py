@@ -35,8 +35,8 @@ whitecircle = CircleAsset(5, noline, white)
 circles = [whitecircle, redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
 
 # Create grid
-gridcolumns = 30
-gridrows = 30
+gridcolumns = 50
+gridrows = 50
 grid = []
 
 # Grid[row][column]
@@ -56,8 +56,6 @@ for i in grid:
         x += 10
     x = 0
     y += 10
-
-print(grid)
-
+    
 myapp = App()
 myapp.run()
