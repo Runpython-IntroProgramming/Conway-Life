@@ -60,5 +60,7 @@ for i in grid:
     x = 0
     y += 10
 
+print(grid)
+
 myapp = App()
 myapp.run()
