@@ -51,8 +51,8 @@ y = 0
 for i in grid:
     for j in i:
         Sprite(circles[j%7], (x,y))
-        y += 10
-    x += 10
+        x += 10
+    y += 10
 
 print(grid)
 
