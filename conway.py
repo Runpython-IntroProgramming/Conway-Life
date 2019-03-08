@@ -51,6 +51,7 @@ for i in grid:
         Sprite(circles[j%7]), (len(grid)*100,len(i)*100)
 
 print(grid)
+print(len(grid))
 
 myapp = App()
 myapp.run()
