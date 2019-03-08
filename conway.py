@@ -52,6 +52,7 @@ for i in grid:
 
 print(grid)
 print(len(grid))
+print(len(grid[1]))
 
 myapp = App()
 myapp.run()
