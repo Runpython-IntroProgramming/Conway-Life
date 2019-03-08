@@ -58,6 +58,29 @@ for i in grid:
         x += 10
     x = 0
     y += 10
+
+print(grid)
+
+# Create tick function
+# Use for loops to look through entirety of grid
+# Need to use i & j as numbers
+# Need to make old grid and new grid
+# Need to include conditional statemens incase i < 0 or j < 0
+for i in range(1, len(grid)-2):
+    for j in range(1, len(grid[0])-2):
+        neighbors = 0
+        neighbors += (grid[i-1][j-1] != 0)
+        neighbors += (grid[i-1][j] != 0)
+        neighbors += (grid[i-1][j+1] != 0)
+        neighbors += (grid[i][j-1] != 0)
+        neighbors += (grid[i][j] != 0)
+        neighbors += (grid[i][j+1] != 0)
+        neighbors += (grid[i+1][j-1] != 0)
+        neighbors += (grid[i+1][j] != 0)
+        neighbors += (grid[i+1][j+1] != 0)
+        
+print(grid)
+        
     
-myapp = App()
-myapp.run()
+#myapp = App()
+#myapp.run()
