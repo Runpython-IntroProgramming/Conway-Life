@@ -66,6 +66,7 @@ print(grid)
 # Need to use i & j as numbers
 # Need to make old grid and new grid
 # Need to include conditional statemens incase i < 0 or j < 0
+newgrid = grid
 for i in range(1, len(grid)-2):
     for j in range(1, len(grid[0])-2):
         neighbors = 0
@@ -78,6 +79,12 @@ for i in range(1, len(grid)-2):
         neighbors += (grid[i+1][j-1] != 0)
         neighbors += (grid[i+1][j] != 0)
         neighbors += (grid[i+1][j+1] != 0)
+        if neighbors < 2:
+            newgrid[i][j] = 0
+        elif neighbors > 3:
+            newgrid[i][j] = 0
+        else:
+            newgrid[i][j] = grid[i][j] + 1
         
 print(grid)
         
