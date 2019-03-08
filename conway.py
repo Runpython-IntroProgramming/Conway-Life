@@ -32,7 +32,7 @@ purplecircle = CircleAsset(5, noline, purple)
 blackcircle = CircleAsset(5, noline, black)
 whitecircle = CircleAsset(5, noline, white)
 
-circles = [redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
+circles = [whitecircle, redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
 
 # Create grid
 gridcolumns = 30
@@ -52,10 +52,7 @@ x = 0
 y = 0
 for i in grid:
     for j in i:
-        if j == 0:
-            Sprite(whitecircle, (x,y))
-        else:
-            Sprite(circles[j%7], (x,y))
+            Sprite(circle[j%8], (x,y))
         x += 10
     x = 0
     y += 10
