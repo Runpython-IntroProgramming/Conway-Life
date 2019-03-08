@@ -33,7 +33,7 @@ whitecircle = CircleAsset(5, noline, white)
 
 
 gridwidth = 5
-girdheight = 5
+gridheight = 5
 
 grid = []
 
