@@ -70,27 +70,22 @@ newgrid = grid
 for i in range(0, len(grid)): # rows
     for j in range(0, len(grid[0])): # columns
         neighbors = 0
-        if i != 0 & j != 0:
-            neighbors += (grid[i-1][j-1] != 0)
-        if i != 0:
-            neighbors += (grid[i-1][j] != 0)
-        if i != 0 & j != len(grid[0]):
-            neighbors += (grid[i-1][j+1] != 0)
-        if j != 0:
-            neighbors += (grid[i][j-1] != 0)
-        if j != len(grid[0]):
-            neighbors += (grid[i][j+1] != 0)
+        neighbors += (grid[i-1][j-1] != 0)
+        neighbors += (grid[i-1][j] != 0)
+        neighbors += (grid[i-1][j+1] != 0)
+        neighbors += (grid[i][j-1] != 0)
+        neighbors += (grid[i][j+1] != 0)
         neighbors += (grid[i+1][j-1] != 0)
         neighbors += (grid[i+1][j] != 0)
         neighbors += (grid[i+1][j+1] != 0)
-        print(neighbors)
-        if neighbors < 2:
+
+        if neighbors < 2 or neighbors > 3:
             newgrid[i][j] = 0
-        elif neighbors > 3:
-            newgrid[i][j] = 0
+        elif grid[i][j] == 0:
+            newgrid[i][j] = 1
         else:
             if grid[i][j] < 7:
-                newgrid[i][j] = grid[i][j] + 1
+                newgrid[i][j] += 1
             else:
                 newgrid[i][j] = 1
                 
