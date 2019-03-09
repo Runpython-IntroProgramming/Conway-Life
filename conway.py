@@ -54,7 +54,7 @@ x = 0
 y = 0
 for i in grid:
     for j in i:
-        #Sprite(circles[j%8], (x,y))
+        Sprite(circles[j%8], (x,y))
         x += 10
     x = 0
     y += 10
@@ -67,8 +67,8 @@ print(grid)
 # Need to make old grid and new grid
 # Need to include conditional statemens incase i < 0 or j < 0
 newgrid = grid
-for i in range(0, len(grid)):
-    for j in range(0, len(grid[0])):
+for i in range(0, len(grid)): # rows
+    for j in range(0, len(grid[0])): # columns
         neighbors = 0
         if i != 0 & j != 0:
             neighbors += (grid[i-1][j-1] != 0)
@@ -76,8 +76,10 @@ for i in range(0, len(grid)):
             neighbors += (grid[i-1][j] != 0)
         if i != 0 & j != len(grid[0]):
             neighbors += (grid[i-1][j+1] != 0)
-        neighbors += (grid[i][j-1] != 0)
-        neighbors += (grid[i][j+1] != 0)
+        if j != 0:
+            neighbors += (grid[i][j-1] != 0)
+        if j != len(grid[0]):
+            neighbors += (grid[i][j+1] != 0)
         neighbors += (grid[i+1][j-1] != 0)
         neighbors += (grid[i+1][j] != 0)
         neighbors += (grid[i+1][j+1] != 0)
@@ -87,10 +89,13 @@ for i in range(0, len(grid)):
         elif neighbors > 3:
             newgrid[i][j] = 0
         else:
-            newgrid[i][j] = grid[i][j] + 1
-        
+            if grid[i][j] < 7:
+                newgrid[i][j] = grid[i][j] + 1
+            else:
+                newgrid[i][j] = 1
+                
 print(newgrid)
         
     
-#myapp = App()
-#myapp.run()
+myapp = App()
+myapp.run()
