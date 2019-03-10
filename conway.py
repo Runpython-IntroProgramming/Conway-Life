@@ -93,14 +93,14 @@ for i in range(0, len(grid)): # rows
             neighbors += (grid[i+1][j+1] != 0)
 
         if neighbors < 2 or neighbors > 3:
-            newgrid[i][j] = 0
+            grid[i][j] = 0
         elif grid[i][j] == 0:
-            newgrid[i][j] = 1
+            grid[i][j] = 1
         else:
             if grid[i][j] < 7:
-                newgrid[i][j] += 1
+                grid[i][j] += 1
             else:
-                newgrid[i][j] = 1
+                grid[i][j] = 1
 
 print(grid)
 print(newgrid)
