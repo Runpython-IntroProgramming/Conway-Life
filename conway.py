@@ -70,8 +70,6 @@ print(grid)
 neighbors = [0] * len(grid)
 neighbors = [ [0] * len(grid[0]) for x in neighbors]
 
-print(neighbors)
-
 for i in range(0, len(grid)): # rows
     for j in range(0, len(grid[0])): # columns
         count = 0
@@ -105,7 +103,7 @@ for i in range(0, len(grid)): # rows
                 grid[i][j] = 1
 
 print(grid)
-        
+print(neighbors)        
     
 #myapp = App()
 #myapp.run()
