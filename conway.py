@@ -89,30 +89,24 @@ for i in range(0, len(grid)): # rows
             count += 1
         neighbors[i][j] = count
 
-
+print(grid)
 
 # Keeps running simulation until reaching desired number of generations
+# Make this into a function
 gen_count = 0
 while gen_count < num_generations:
+    for i in range(0, len(grid)):
+        for j in range(0,len(grid[0])):
+            if neighbors[i][j] < 2:
+                grid[i][j] = 0
+            elif neighbors[i][j] > 3:
+                grid[i][j] = 0
+            elif grid[i][j] != 0:
+                grid[i][j] += 1
+            elif neighbors[i][j] == 3:
+                grid[i][j] += 1
     gen_count += 1
+    print(grid)
 
-print(grid)
-print(neighbors)
-
-# Make this into a function
-for i in range(0, len(grid)):
-    for j in range(0,len(grid[0])):
-        if neighbors[i][j] < 2:
-            grid[i][j] = 0
-        elif neighbors[i][j] > 3:
-            grid[i][j] = 0
-        elif grid[i][j] != 0:
-            grid[i][j] += 1
-        elif neighbors[i][j] == 3:
-            grid[i][j] += 1
-
-
-print(grid)
-    
 #myapp = App()
 #myapp.run()
