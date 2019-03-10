@@ -36,11 +36,11 @@ circles = [whitecircle, redcircle, orangecircle, yellowcircle, greencircle, blue
 
 # Get dimensions from user
 # Width of grid
-gridcolumns = 3
+gridcolumns = 4
 # Height of grid
-gridrows = 3
+gridrows = 4
 # Total # of generations
-num_generations = 2
+num_generations = 5
 
 # Create grid
 # Grid[row][column]
