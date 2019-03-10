@@ -61,6 +61,8 @@ for i in grid:
 
 print(grid)
 
+grid = [ [1,1,1], [1,1,1], [1,1,1] ]
+
 # Create tick function
 # Use for loops to look through entirety of grid
 # Need to use i & j as numbers
