@@ -70,18 +70,22 @@ newgrid = grid
 for i in range(0, len(grid)): # rows
     for j in range(0, len(grid[0])): # columns
         neighbors = 0
-        print("i+1: " + str(i+1))
-        print("j+1: " + str(j+1))
-        print("i-1: " + str(i-1))
-        print("j-1: " + str(j-1))
-        #neighbors += (grid[i-1][j-1] != 0)
-        #neighbors += (grid[i-1][j] != 0)
-        #neighbors += (grid[i-1][j+1] != 0)
-        #neighbors += (grid[i][j-1] != 0)
-        #neighbors += (grid[i][j+1] != 0)
-        #neighbors += (grid[i+1][j-1] != 0)
-        #neighbors += (grid[i+1][j] != 0)
-        #neighbors += (grid[i+1][j+1] != 0)
+        if i-1 > 0 and j-1 > 0:
+            neighbors += (grid[i-1][j-1] != 0)
+        if i-1 > 0:
+            neighbors += (grid[i-1][j] != 0)
+        if i-1 > 0 and j+1 < len(grid[0]):
+            neighbors += (grid[i-1][j+1] != 0)
+        if j-1 > 0:
+            neighbors += (grid[i][j-1] != 0)
+        if j+1 < len(grid[0]):
+            neighbors += (grid[i][j+1] != 0)
+        if i+1 < len(grid) and j-1 > 0:
+            neighbors += (grid[i+1][j-1] != 0)
+        if i+1 < len(grid):
+            neighbors += (grid[i+1][j] != 0)
+        if i+1 < len(grid) and j+1 < len(grid[0]):
+            neighbors += (grid[i+1][j+1] != 0)
 
         if neighbors < 2 or neighbors > 3:
             newgrid[i][j] = 0
