@@ -64,9 +64,14 @@ print(grid)
 # Create tick function
 # Use for loops to look through entirety of grid
 # Need to use i & j as numbers
-# Need to make old grid and new grid
+# Need to make neighbors grid
 # Need to include conditional statemens incase i < 0 or j < 0
-newgrid = grid.copy()
+
+neighbors = [0] * len(grid)
+neighbors = [ [0] * len(grid[0]) for x in neighbors]
+
+print(neighbors)
+
 for i in range(0, len(grid)): # rows
     for j in range(0, len(grid[0])): # columns
         neighbors = 0
