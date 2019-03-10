@@ -59,8 +59,6 @@ for i in grid:
     x = 0
     y += 10
 
-print(grid)
-
 grid = [ [1,1,1], [1,1,1], [1,1,1] ]
 
 # Create tick function
@@ -94,6 +92,7 @@ for i in range(0, len(grid)): # rows
         neighbors[i][j] = count
         print(count)
 
+print(grid)
 print(neighbors)        
     
 #myapp = App()
