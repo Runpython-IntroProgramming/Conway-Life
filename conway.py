@@ -35,12 +35,16 @@ whitecircle = CircleAsset(5, noline, white)
 circles = [whitecircle, redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
 
 # Get dimensions from user
+# Width of grid
 gridcolumns = 3
+# Height of grid
 gridrows = 3
-grid = []
+# Total # of generations
+num_generations = 10
 
 # Create grid
 # Grid[row][column]
+grid = []
 for i in range(0,gridrows):
     grid.append([0] * gridcolumns)
     for j in range(0,gridcolumns):
@@ -60,11 +64,7 @@ for i in grid:
     y += 10
 
 # Create tick function
-# Use for loops to look through entirety of grid
-# Need to use i & j as numbers
-# Need to make neighbors grid
-# Need to include conditional statemens incase i < 0 or j < 0
-
+# Neighbors matrix counts neighbors for each cell (need to convert this into function)
 neighbors = [0] * len(grid)
 neighbors = [ [0] * len(grid[0]) for x in neighbors]
 
@@ -88,10 +88,31 @@ for i in range(0, len(grid)): # rows
         if i+1 < len(grid) and j+1 < len(grid[0]) and grid[i+1][j+1] != 0:
             count += 1
         neighbors[i][j] = count
-        print(count)
+
+
+
+# Keeps running simulation until reaching desired number of generations
+gen_count = 0
+while gen_count < num_generations:
+    gen_count += 1
 
 print(grid)
-print(neighbors)        
+print(neighbors)
+
+# Make this into a function
+for i in range(0, len(grid)):
+    for j in range(0,len(grid[0])):
+        if neighbors[i][j] < 2:
+            grid[i][j] = 0
+        elif neighbors[i][j] > 3:
+            grid[i][j] = 0
+        elif grid[i][j] != 0:
+            grid[i][j] += 1
+        elif neighbors[i][j] == 3:
+            grid[i][j] += 1
+
+
+print(grid)
     
 #myapp = App()
 #myapp.run()
