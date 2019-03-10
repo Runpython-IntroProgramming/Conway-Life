@@ -103,7 +103,10 @@ x = 0
 y = 0
 for i in grid:
     for j in i:
-        #Sprite(circles[j-1], (x,y))
+        if j > 7:
+            Sprite(circles[6], (x,y))
+        else:
+            Sprite(circles[j-1], (x,y))
         x += 10
     x = 0
     y += 10
