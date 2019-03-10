@@ -102,7 +102,6 @@ for i in range(0, len(grid)): # rows
             else:
                 grid[i][j] = 1
 
-print(grid)
 print(neighbors)        
     
 #myapp = App()
