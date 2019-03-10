@@ -73,22 +73,22 @@ neighbors = [ [0] * len(grid[0]) for x in neighbors]
 for i in range(0, len(grid)): # rows
     for j in range(0, len(grid[0])): # columns
         count = 0
-        if i-1 > 0 and j-1 > 0:
-            count += (grid[i-1][j-1] != 0)
-        if i-1 > 0:
-            count += (grid[i-1][j] != 0)
-        if i-1 > 0 and j+1 < len(grid[0]):
-            count += (grid[i-1][j+1] != 0)
-        if j-1 > 0:
-            count += (grid[i][j-1] != 0)
-        if j+1 < len(grid[0]):
-            count += (grid[i][j+1] != 0)
-        if i+1 < len(grid) and j-1 > 0:
-            count += (grid[i+1][j-1] != 0)
-        if i+1 < len(grid):
-            count += (grid[i+1][j] != 0)
-        if i+1 < len(grid) and j+1 < len(grid[0]):
-            count += (grid[i+1][j+1] != 0)
+        if i-1 > 0 and j-1 > 0 and grid[i-1][j-1] != 0:
+            count += 1
+        if i-1 > 0 and grid[i-1][j] != 0:
+            count += 1
+        if i-1 > 0 and j+1 < len(grid[0]) and grid[i-1][j+1] != 0:
+            count += 1
+        if j-1 > 0 and grid[i][j-1] != 0:
+            count += 1
+        if j+1 < len(grid[0]) and grid[i][j+1] != 0:
+            count += 1
+        if i+1 < len(grid) and j-1 > 0 grid[i+1][j-1] != 0:
+            count += 1
+        if i+1 < len(grid) and grid[i+1][j] != 0:
+            count += 1
+        if i+1 < len(grid) and j+1 < len(grid[0]) and grid[i+1][j+1] != 0:
+            count += 1
 
         neighbors[i][j] = count
 
