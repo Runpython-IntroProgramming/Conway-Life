@@ -96,7 +96,8 @@ for i in range(0, len(grid)): # rows
                 newgrid[i][j] += 1
             else:
                 newgrid[i][j] = 1
-                
+
+print(grid)
 print(newgrid)
         
     
