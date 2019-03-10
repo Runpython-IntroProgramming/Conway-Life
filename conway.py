@@ -66,7 +66,7 @@ print(grid)
 # Need to use i & j as numbers
 # Need to make old grid and new grid
 # Need to include conditional statemens incase i < 0 or j < 0
-newgrid = grid.copy()
+newgrid = list(grid)
 for i in range(0, len(grid)): # rows
     for j in range(0, len(grid[0])): # columns
         neighbors = 0
