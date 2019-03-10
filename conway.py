@@ -59,8 +59,6 @@ for i in grid:
     x = 0
     y += 10
 
-grid = [ [1,1,1], [1,1,1], [1,1,1] ]
-
 # Create tick function
 # Use for loops to look through entirety of grid
 # Need to use i & j as numbers
