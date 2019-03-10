@@ -40,7 +40,7 @@ gridcolumns = 3
 # Height of grid
 gridrows = 3
 # Total # of generations
-num_generations = 10
+num_generations = 5
 
 # Create grid
 # Grid[row][column]
