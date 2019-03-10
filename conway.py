@@ -92,6 +92,8 @@ for i in range(0, len(grid)): # rows
         if i+1 < len(grid) and j+1 < len(grid[0]):
             count += (grid[i+1][j+1] != 0)
 
+        neighbors[i][j] = count
+
         if count < 2 or count > 3:
             grid[i][j] = 0
         elif grid[i][j] == 0:
