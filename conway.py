@@ -101,5 +101,5 @@ print(grid)
 print(newgrid)
         
     
-myapp = App()
-myapp.run()
+#myapp = App()
+#myapp.run()
