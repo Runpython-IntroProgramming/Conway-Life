@@ -111,5 +111,5 @@ for i in grid:
     x = 0
     y += 10
 
-#myapp = App()
-#myapp.run()
+myapp = App()
+myapp.run()
