@@ -40,7 +40,7 @@ gridcolumns = 4
 # Height of grid
 gridrows = 4
 # Total # of generations
-num_generations = 5
+num_generations = 1
 
 # Create grid
 # Grid[row][column]
@@ -108,5 +108,5 @@ while gen_count < num_generations:
         x = 0
         y += 10
 
-#myapp = App()
-#myapp.run()
+myapp = App()
+myapp.run()
