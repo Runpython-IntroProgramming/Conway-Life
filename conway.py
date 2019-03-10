@@ -52,19 +52,6 @@ for i in range(0,gridrows):
         if grid[i][j] == 1:
             grid[i][j] = random.randint(1,7)
 
-# Create Sprites for each element in grid
-# Make this into it's own function
-x = 0
-y = 0
-for i in grid:
-    for j in i:
-        #Sprite(circles[j%8], (x,y))
-        x += 10
-    x = 0
-    y += 10
-
-
-
 print(grid)
 
 # Keeps running simulation until reaching desired number of generations
@@ -109,6 +96,17 @@ while gen_count < num_generations:
                 grid[i][j] += 1
     gen_count += 1
     print(grid)
+    
+    # Create Sprites for each element in grid
+    # Make this into it's own function
+    x = 0
+    y = 0
+    for i in grid:
+        for j in i:
+            Sprite(circles[j%8], (x,y))
+            x += 10
+        x = 0
+        y += 10
 
 #myapp = App()
 #myapp.run()
