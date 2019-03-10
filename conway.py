@@ -32,15 +32,15 @@ purplecircle = CircleAsset(5, noline, purple)
 blackcircle = CircleAsset(5, noline, black)
 whitecircle = CircleAsset(5, noline, white)
 
-circles = [whitecircle, redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
+circles = [redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
 
 # Get dimensions from user
 # Width of grid
-gridcolumns = 4
+gridcolumns = int(input("How wide would you like the simulation to be? "))
 # Height of grid
-gridrows = 4
+gridrows = int(input("How tall would you like the simulation to be? "))
 # Total # of generations
-num_generations = 1
+num_generations = int(input("How many generations would you like to simulate?" ))
 
 # Create grid
 # Grid[row][column]
@@ -97,16 +97,16 @@ while gen_count < num_generations:
     gen_count += 1
     print(grid)
     
-    # Create Sprites for each element in grid
-    # Make this into it's own function
+# Create Sprites for each element in grid
+# Make this into it's own function
+x = 0
+y = 0
+for i in grid:
+    for j in i:
+        #Sprite(circles[j-1], (x,y))
+        x += 10
     x = 0
-    y = 0
-    for i in grid:
-        for j in i:
-            Sprite(circles[j%8], (x,y))
-            x += 10
-        x = 0
-        y += 10
+    y += 10
 
-myapp = App()
-myapp.run()
+#myapp = App()
+#myapp.run()
