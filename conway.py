@@ -89,18 +89,8 @@ for i in range(0, len(grid)): # rows
             count += 1
         if i+1 < len(grid) and j+1 < len(grid[0]) and grid[i+1][j+1] != 0:
             count += 1
-
         neighbors[i][j] = count
-
-        if count < 2 or count > 3:
-            grid[i][j] = 0
-        elif grid[i][j] == 0:
-            grid[i][j] = 1
-        else:
-            if grid[i][j] < 7:
-                grid[i][j] += 1
-            else:
-                grid[i][j] = 1
+        print(count)
 
 print(neighbors)        
     
