@@ -105,7 +105,7 @@ for i in grid:
     for j in i:
         if j > 7:
             Sprite(circles[6], (x,y))
-        elif j> 0:
+        elif j > 0:
             Sprite(circles[j-1], (x,y))
         x += 10
     x = 0
