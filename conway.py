@@ -40,7 +40,7 @@ gridcolumns = 3
 # Height of grid
 gridrows = 3
 # Total # of generations
-num_generations = 5
+num_generations = 2
 
 # Create grid
 # Grid[row][column]
@@ -63,31 +63,7 @@ for i in grid:
     x = 0
     y += 10
 
-# Create tick function
-# Neighbors matrix counts neighbors for each cell (need to convert this into function)
-neighbors = [0] * len(grid)
-neighbors = [ [0] * len(grid[0]) for x in neighbors]
 
-for i in range(0, len(grid)): # rows
-    for j in range(0, len(grid[0])): # columns
-        count = 0
-        if i-1 >= 0 and j-1 >= 0 and grid[i-1][j-1] != 0:
-            count += 1
-        if i-1 >= 0 and grid[i-1][j] != 0:
-            count += 1
-        if i-1 >= 0 and j+1 < len(grid[0]) and grid[i-1][j+1] != 0:
-            count += 1
-        if j-1 >= 0 and grid[i][j-1] != 0:
-            count += 1
-        if j+1 < len(grid[0]) and grid[i][j+1] != 0:
-            count += 1
-        if i+1 < len(grid) and j-1 >= 0 and grid[i+1][j-1] != 0:
-            count += 1
-        if i+1 < len(grid) and grid[i+1][j] != 0:
-            count += 1
-        if i+1 < len(grid) and j+1 < len(grid[0]) and grid[i+1][j+1] != 0:
-            count += 1
-        neighbors[i][j] = count
 
 print(grid)
 
@@ -95,6 +71,32 @@ print(grid)
 # Make this into a function
 gen_count = 0
 while gen_count < num_generations:
+    # Create tick function
+    # Neighbors matrix counts neighbors for each cell (need to convert this into function)
+    neighbors = [0] * len(grid)
+    neighbors = [ [0] * len(grid[0]) for x in neighbors]
+
+    for i in range(0, len(grid)): # rows
+        for j in range(0, len(grid[0])): # columns
+            count = 0
+            if i-1 >= 0 and j-1 >= 0 and grid[i-1][j-1] != 0:
+                count += 1
+            if i-1 >= 0 and grid[i-1][j] != 0:
+                count += 1
+            if i-1 >= 0 and j+1 < len(grid[0]) and grid[i-1][j+1] != 0:
+                count += 1
+            if j-1 >= 0 and grid[i][j-1] != 0:
+                count += 1
+            if j+1 < len(grid[0]) and grid[i][j+1] != 0:
+                count += 1
+            if i+1 < len(grid) and j-1 >= 0 and grid[i+1][j-1] != 0:
+                count += 1
+            if i+1 < len(grid) and grid[i+1][j] != 0:
+                count += 1
+            if i+1 < len(grid) and j+1 < len(grid[0]) and grid[i+1][j+1] != 0:
+                count += 1
+            neighbors[i][j] = count
+        
     for i in range(0, len(grid)):
         for j in range(0,len(grid[0])):
             if neighbors[i][j] < 2:
