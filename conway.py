@@ -52,8 +52,6 @@ for i in range(0,gridrows):
         if grid[i][j] == 1:
             grid[i][j] = random.randint(1,7)
 
-print(grid)
-
 # Keeps running simulation until reaching desired number of generations
 # Make this into a function
 gen_count = 0
@@ -95,7 +93,6 @@ while gen_count < num_generations:
             elif neighbors[i][j] == 3:
                 grid[i][j] += 1
     gen_count += 1
-    print(grid)
     
 # Create Sprites for each element in grid
 # Make this into it's own function
