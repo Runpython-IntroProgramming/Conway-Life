@@ -74,25 +74,25 @@ print(neighbors)
 
 for i in range(0, len(grid)): # rows
     for j in range(0, len(grid[0])): # columns
-        neighbors = 0
+        count = 0
         if i-1 > 0 and j-1 > 0:
-            neighbors += (grid[i-1][j-1] != 0)
+            count += (grid[i-1][j-1] != 0)
         if i-1 > 0:
-            neighbors += (grid[i-1][j] != 0)
+            count += (grid[i-1][j] != 0)
         if i-1 > 0 and j+1 < len(grid[0]):
-            neighbors += (grid[i-1][j+1] != 0)
+            count += (grid[i-1][j+1] != 0)
         if j-1 > 0:
-            neighbors += (grid[i][j-1] != 0)
+            count += (grid[i][j-1] != 0)
         if j+1 < len(grid[0]):
-            neighbors += (grid[i][j+1] != 0)
+            count += (grid[i][j+1] != 0)
         if i+1 < len(grid) and j-1 > 0:
-            neighbors += (grid[i+1][j-1] != 0)
+            count += (grid[i+1][j-1] != 0)
         if i+1 < len(grid):
-            neighbors += (grid[i+1][j] != 0)
+            count += (grid[i+1][j] != 0)
         if i+1 < len(grid) and j+1 < len(grid[0]):
-            neighbors += (grid[i+1][j+1] != 0)
+            count += (grid[i+1][j+1] != 0)
 
-        if neighbors < 2 or neighbors > 3:
+        if count < 2 or count > 3:
             grid[i][j] = 0
         elif grid[i][j] == 0:
             grid[i][j] = 1
