@@ -40,8 +40,6 @@ circles = [redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purpl
 gridcolumns = int(input("How wide would you like the simulation to be? "))
 # Height of grid
 gridrows = int(input("How tall would you like the simulation to be? "))
-# Total # of generations
-num_generations = int(input("How many generations would you like to simulate? "))
 
 # Create grid
 # Grid[row][column]
@@ -54,17 +52,14 @@ for i in range(0,gridrows):
             grid[i][j] = random.randint(1,7)
 
 def tick():            
-    # Keeps running simulation until reaching desired number of generations
-    # Make this into a function
-    #gen_count = 0
-    #while gen_count < num_generations:
     # Clears grid
     Sprite(RectangleAsset(gridcolumns*10, gridrows*10, noline, white), (0,0))
     
     # Neighbors matrix counts neighbors for each cell (convert into function?)
+    # Start w/ all zeros
     neighbors = [0] * len(grid)
     neighbors = [ [0] * len(grid[0]) for x in neighbors]
-
+    # Populate neighbors matrix appropriate count
     for i in range(0, len(grid)): # rows
         for j in range(0, len(grid[0])): # columns
             count = 0
@@ -96,9 +91,8 @@ def tick():
                 grid[i][j] += 1
             elif neighbors[i][j] == 3:
                 grid[i][j] += 1
-    #gen_count += 1
     
-    # Make this into it's own function
+    # Make this into it's own function?
     # Create Sprites for each element in grid
     x = 0
     y = 0
