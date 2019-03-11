@@ -25,6 +25,7 @@ class Conway(App):
         
         # LineStyle
         noline = LineStyle(0, white)
+        whiteline = LineStyle(1, white)
         
         #Circles
         redcircle = CircleAsset(5, noline, red)
@@ -34,7 +35,7 @@ class Conway(App):
         bluecircle = CircleAsset(5, noline, blue)
         purplecircle = CircleAsset(5, noline, purple)
         blackcircle = CircleAsset(5, noline, black)
-        whitecircle = CircleAsset(5, noline, white)
+        whitecircle = CircleAsset(5, whiteline, white)
         
         circles = [whitecircle, redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
         
