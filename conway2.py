@@ -9,8 +9,7 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 from ggame import App, Color, LineStyle, Sprite, CircleAsset
 import random
 
-class Conway(Sprite):
-    
+class Conway(App):
     def __init__(self):
         super().__init__()
         
