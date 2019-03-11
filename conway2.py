@@ -60,7 +60,7 @@ def tick():
     gen_count = 0
     while gen_count < num_generations:
         # Clears grid
-        Sprite(RectangleAsset(gridrows*10, gridcolumns*10, noline, white), (0,0))
+        Sprite(RectangleAsset(gridcolumns*10, gridrows*10, noline, white), (0,0))
         
         # Create tick function
         # Neighbors matrix counts neighbors for each cell (need to convert this into function)
