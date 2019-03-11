@@ -98,12 +98,13 @@ class Conway(App):
                         grid[i][j] += 1
             gen_count += 1
             
-            # Create Sprites for each element in grid
+
             # Make this into it's own function
+            # Clears grid
+            RectangleAsset(gridrows*10, gridcolums*10, noline, white)
+            # Create Sprites for each element in grid
             x = 0
             y = 0
-            Rectangle(gridrows*10, gridcolums*10, noline, white)
-            Sprite
             for i in grid:
                 for j in i:
                     if j > 7:
