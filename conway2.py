@@ -108,6 +108,8 @@ class Conway(App):
                         Sprite(circles[6], (x,y))
                     elif j > 0:
                         Sprite(circles[j-1], (x,y))
+                    else:
+                        Sprite(whitecircle, (x,y))
                     x += 10
                 x = 0
                 y += 10
