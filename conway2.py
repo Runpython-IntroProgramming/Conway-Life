@@ -59,6 +59,9 @@ class Conway(App):
         # Make this into a function
         gen_count = 0
         while gen_count < num_generations:
+            # Clears grid
+            RectangleAsset(gridrows*10, gridcolumns*10, noline, white)
+            
             # Create tick function
             # Neighbors matrix counts neighbors for each cell (need to convert this into function)
             neighbors = [0] * len(grid)
@@ -99,8 +102,6 @@ class Conway(App):
             
 
             # Make this into it's own function
-            # Clears grid
-            RectangleAsset(gridrows*10, gridcolumns*10, noline, white)
             # Create Sprites for each element in grid
             x = 0
             y = 0
