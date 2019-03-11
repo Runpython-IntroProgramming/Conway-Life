@@ -36,7 +36,7 @@ class Conway(App):
         blackcircle = CircleAsset(5, noline, black)
         whiterectangle = RectangleAsset(10, 10, noline, white)
         
-        circles = [whiterectangle, redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
+        circles = [redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
         
         # Get dimensions from user
         # Width of grid
@@ -102,12 +102,14 @@ class Conway(App):
             # Make this into it's own function
             x = 0
             y = 0
+            Rectangle(gridrows*10, gridcolums*10, noline, white)
+            Sprite
             for i in grid:
                 for j in i:
                     if j > 7:
-                        Sprite(circles[7], (x,y))
-                    else:
-                        Sprite(circles[j], (x,y))
+                        Sprite(circles[6], (x,y))
+                    elif j > 0:
+                        Sprite(circles[j-1], (x,y))
                     x += 10
                 x = 0
                 y += 10
