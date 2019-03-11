@@ -41,7 +41,7 @@ gridcolumns = int(input("How wide would you like the simulation to be? "))
 # Height of grid
 gridrows = int(input("How tall would you like the simulation to be? "))
 # Total # of generations
-#num_generations = int(input("How many generations would you like to simulate? "))
+num_generations = int(input("How many generations would you like to simulate? "))
 
 # Create grid
 # Grid[row][column]
