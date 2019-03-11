@@ -56,7 +56,7 @@ for i in range(0,gridrows):
 def tick():            
     # Keeps running simulation until reaching desired number of generations
     # Make this into a function
-    #gen_count = 0
+    gen_count = 0
     while 0 < 1:
         # Clears grid
         Sprite(RectangleAsset(gridrows*10, gridcolumns*10, noline, white), (0,0))
