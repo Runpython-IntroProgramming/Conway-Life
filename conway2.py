@@ -41,7 +41,7 @@ gridcolumns = int(input("How wide would you like the simulation to be? "))
 # Height of grid
 gridrows = int(input("How tall would you like the simulation to be? "))
 # Total # of generations
-#num_generations = int(input("How many generations would you like to simulate? "))
+num_generations = int(input("How many generations would you like to simulate? "))
 
 # Create grid
 # Grid[row][column]
@@ -57,7 +57,7 @@ def tick():
     # Keeps running simulation until reaching desired number of generations
     # Make this into a function
     gen_count = 0
-    while 0 < 1:
+    while gen_count < num_generations:
         # Clears grid
         Sprite(RectangleAsset(gridrows*10, gridcolumns*10, noline, white), (0,0))
         
