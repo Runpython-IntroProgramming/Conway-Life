@@ -113,6 +113,8 @@ class Conway(App):
                         x += 10
                     x = 0
                     y += 10
+                    
+        self.step()
 
 myapp = Conway()
 myapp.run()
