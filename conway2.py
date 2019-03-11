@@ -34,7 +34,7 @@ class Conway(App):
         bluecircle = CircleAsset(5, noline, blue)
         purplecircle = CircleAsset(5, noline, purple)
         blackcircle = CircleAsset(5, noline, black)
-        whiterectangle = RectangleAsset(6, noline, white)
+        whiterectangle = RectangleAsset(10, 10, noline, white)
         
         circles = [whiterectangle, redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
         
