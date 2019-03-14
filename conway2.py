@@ -105,5 +105,7 @@ def tick():
             x += 10
         x = 0
         y += 10
+        
+    Sprite.kill()
                     
 myapp.run(tick)
