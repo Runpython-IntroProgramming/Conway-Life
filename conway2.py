@@ -56,7 +56,7 @@ def mouseClick(event):
     event.y
 
 def spaceKey(event):
-    myapp.run(tick)
+    tick()
 
 def tick():            
     [x.destroy() for x in App.spritelist[:]]
@@ -114,4 +114,4 @@ def tick():
 
 myapp.listenMouseEvent('click', mouseClick)
 myapp.listenKeyEvent('keydown', 'space', spaceKey)                    
-myapp.run()
+myapp.run(tick)
