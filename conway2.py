@@ -50,6 +50,13 @@ for i in range(0,gridrows):
         grid[i][j] = random.randint(0,1)
         if grid[i][j] == 1:
             grid[i][j] = random.randint(1,7)
+            
+def mouseClick(event):
+    event.x
+    event.y
+
+def spaceKey(event):
+    tick()
 
 def tick():            
     [x.destroy() for x in App.spritelist[:]]
@@ -104,5 +111,7 @@ def tick():
             x += 10
         x = 0
         y += 10
-                    
-myapp.run(tick)
+
+myapp.listenMouseEvent('click', mouseClick)
+myapp.listenKeyEvent('keydown', spaceKey)                    
+myapp.run()
