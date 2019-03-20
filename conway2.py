@@ -130,11 +130,11 @@ if randomstart == 'r':
             grid[i][j] = random.randint(0,1)
             if grid[i][j] == 1:
                 grid[i][j] = random.randint(1,7)
-    myapp.run(displayCells())
+    #myapp.run(displayCells())
 else:
     # Create blank grid
     [grid.append([0] * gridcolumns) for x in range(0,gridrows)]
     print(grid)
 
-myapp.listenMouseEvent('click', mouseClick)
+#myapp.listenMouseEvent('click', mouseClick)
 myapp.listenKeyEvent('keydown', 'space', spaceKey)                    
