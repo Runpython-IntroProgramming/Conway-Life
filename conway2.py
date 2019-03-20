@@ -113,5 +113,5 @@ def tick():
         y += 10
 
 myapp.listenMouseEvent('click', mouseClick)
-myapp.listenKeyEvent('keydown', spaceKey)                    
+myapp.listenKeyEvent('keydown', 'space', spaceKey)                    
 myapp.run()
