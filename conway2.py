@@ -85,7 +85,7 @@ def tick():
             if i+1 < len(grid) and j+1 < len(grid[0]) and grid[i+1][j+1] != 0:
                 count += 1
             neighbors[i][j] = count
-        
+    # Change status of cells depending on rules    
     for i in range(0, len(grid)):
         for j in range(0,len(grid[0])):
             if neighbors[i][j] < 2:
