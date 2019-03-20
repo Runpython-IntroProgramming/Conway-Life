@@ -54,15 +54,20 @@ while start == False:
         print("Did not understand command.")
         
 
-# Create grid
+# Create random grid
 # Grid[row][column]
-grid = []
-for i in range(0,gridrows):
-    grid.append([0] * gridcolumns)
-    for j in range(0,gridcolumns):
-        grid[i][j] = random.randint(0,1)
-        if grid[i][j] == 1:
-            grid[i][j] = random.randint(1,7)
+if randomstart == 'r':
+    grid = []
+    for i in range(0,gridrows):
+        grid.append([0] * gridcolumns)
+        for j in range(0,gridcolumns):
+            grid[i][j] = random.randint(0,1)
+            if grid[i][j] == 1:
+                grid[i][j] = random.randint(1,7)
+else:
+    grid = []
+    for i in range(0,gridrows):
+        grid.append([0] * gridcolumns)
             
 def mouseClick(event):
     event.x
@@ -85,7 +90,8 @@ def displayCells():
         x = 0
         y += 10
 
-def tick():            
+def tick(): 
+    # Clear sprites from previous generation
     [x.destroy() for x in App.spritelist[:]]
     
     # Neighbors matrix counts neighbors for each cell (convert into function?)
@@ -126,8 +132,6 @@ def tick():
                 grid[i][j] += 1
     
     displayCells()
-
-
 
 myapp.listenMouseEvent('click', mouseClick)
 myapp.listenKeyEvent('keydown', 'space', spaceKey)                    
