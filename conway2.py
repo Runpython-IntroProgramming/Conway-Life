@@ -55,6 +55,7 @@ def displayCells():
 def mouseClick(event):
     print(event.x)
     print(event.y)
+    grid[round(event.y/10)][round(event.x/10)] += 1
     myapp.run(displayCells)
 
 def tick(): 
