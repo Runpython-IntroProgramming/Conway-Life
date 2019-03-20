@@ -41,13 +41,15 @@ gridcolumns = int(input("How wide would you like the simulation to be? "))
 # Height of grid
 gridrows = int(input("How tall would you like the simulation to be? "))
 # Start w/ random initial conditions or user determined?
-randomstart = ''
-while randomstart != 'r' or randomstart != 'm':
+start = False
+while start == False:
     randomstart = input("Please press 'r' to begin with random initial conditions.  Otherwise, press 'm' to use the mouse to set initial conditions.")
     if randomstart == 'r':
         print("Press space key to begin")
+        start = True
     elif randomstart == 'm':
         print("Click on cells to make them 'live' then press space key to begin.")
+        start = True
     else:
         print("Did not understand command.")
         
