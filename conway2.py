@@ -53,21 +53,21 @@ while start == False:
     else:
         print("Did not understand command.")
         
-
-# Create random grid
 # Grid[row][column]
+grid = []
 if randomstart == 'r':
-    grid = []
+    # Create random grid
     for i in range(0,gridrows):
         grid.append([0] * gridcolumns)
         for j in range(0,gridcolumns):
             grid[i][j] = random.randint(0,1)
             if grid[i][j] == 1:
                 grid[i][j] = random.randint(1,7)
+    displayCells()
 else:
-    grid = []
-    for i in range(0,gridrows):
-        grid.append([0] * gridcolumns)
+    # Create blank grid
+    [grid.append([0] * gridcolumns) for x in range(0,gridrows)]
+    print(grid)
             
 def mouseClick(event):
     event.x
