@@ -34,10 +34,6 @@ purplecircle = CircleAsset(5, noline, purple)
 blackcircle = CircleAsset(5, noline, black)
 
 circles = [redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
-            
-def mouseClick(event):
-    event.x
-    event.y
 
 def spaceKey(event):
     myapp.run(tick)
@@ -55,6 +51,11 @@ def displayCells():
             x += 10
         x = 0
         y += 10
+        
+def mouseClick(event):
+    print(event.x)
+    print(event.y)
+    myapp.run(displayCells)
 
 def tick(): 
     # Clear sprites from previous generation
