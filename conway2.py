@@ -71,6 +71,20 @@ def mouseClick(event):
 def spaceKey(event):
     myapp.run(tick)
 
+# Create Sprites for each element in grid
+def displayCells():
+    x = 0
+    y = 0
+    for i in grid:
+        for j in i:
+            if j > 7:
+                Sprite(circles[6], (x,y))
+            elif j > 0:
+                Sprite(circles[j-1], (x,y))
+            x += 10
+        x = 0
+        y += 10
+
 def tick():            
     [x.destroy() for x in App.spritelist[:]]
     
@@ -111,19 +125,9 @@ def tick():
             elif neighbors[i][j] == 3:
                 grid[i][j] += 1
     
-    # Make this into it's own function?
-    # Create Sprites for each element in grid
-    x = 0
-    y = 0
-    for i in grid:
-        for j in i:
-            if j > 7:
-                Sprite(circles[6], (x,y))
-            elif j > 0:
-                Sprite(circles[j-1], (x,y))
-            x += 10
-        x = 0
-        y += 10
+    displayCells()
+
+
 
 myapp.listenMouseEvent('click', mouseClick)
 myapp.listenKeyEvent('keydown', 'space', spaceKey)                    
