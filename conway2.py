@@ -52,8 +52,7 @@ for i in range(0,gridrows):
             grid[i][j] = random.randint(1,7)
 
 def tick():            
-    # Clears grid
-    Sprite(RectangleAsset(gridcolumns*10, gridrows*10, noline, white), (0,0))
+    [x.destroy() for x in App.spritelist]
     
     # Neighbors matrix counts neighbors for each cell (convert into function?)
     # Start w/ all zeros
