@@ -53,9 +53,10 @@ def displayCells():
         y += 10
         
 def mouseClick(event):
-    print(event.x)
-    print(event.y)
-    grid[round((event.y-5)/10)][round((event.x-5)/10)] += 1
+    i = (event.x - 5) / 10
+    j = (event.y - 5) / 10
+    if i < gridcolumns and j < gridrows:
+        grid[j][i] += 1
     myapp.run(displayCells)
 
 def tick(): 
