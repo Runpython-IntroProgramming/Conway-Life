@@ -52,7 +52,7 @@ for i in range(0,gridrows):
             grid[i][j] = random.randint(1,7)
 
 def tick():            
-    [x.destroy() for x in App.spritelist]
+    [x.destroy() for x in App.spritelist[:]]
     
     # Neighbors matrix counts neighbors for each cell (convert into function?)
     # Start w/ all zeros
