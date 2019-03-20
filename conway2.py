@@ -56,7 +56,7 @@ def mouseClick(event):
     event.y
 
 def spaceKey(event):
-    tick()
+    myapp.run(tick)
 
 def tick():            
     [x.destroy() for x in App.spritelist[:]]
