@@ -34,40 +34,6 @@ purplecircle = CircleAsset(5, noline, purple)
 blackcircle = CircleAsset(5, noline, black)
 
 circles = [redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
-
-# Get dimensions from user
-# Width of grid
-gridcolumns = int(input("How wide would you like the simulation to be? "))
-# Height of grid
-gridrows = int(input("How tall would you like the simulation to be? "))
-# Start w/ random initial conditions or user determined?
-start = False
-while start == False:
-    randomstart = input("Please press 'r' to begin with random initial conditions.  Otherwise, press 'm' to use the mouse to set initial conditions.")
-    if randomstart == 'r':
-        print("Press space key to begin")
-        start = True
-    elif randomstart == 'm':
-        print("Click on cells to make them 'live' then press space key to begin.")
-        start = True
-    else:
-        print("Did not understand command.")
-        
-# Grid[row][column]
-grid = []
-if randomstart == 'r':
-    # Create random grid
-    for i in range(0,gridrows):
-        grid.append([0] * gridcolumns)
-        for j in range(0,gridcolumns):
-            grid[i][j] = random.randint(0,1)
-            if grid[i][j] == 1:
-                grid[i][j] = random.randint(1,7)
-    displayCells()
-else:
-    # Create blank grid
-    [grid.append([0] * gridcolumns) for x in range(0,gridrows)]
-    print(grid)
             
 def mouseClick(event):
     event.x
@@ -132,6 +98,40 @@ def tick():
                 grid[i][j] += 1
     
     displayCells()
+    
+# Get dimensions from user
+# Width of grid
+gridcolumns = int(input("How wide would you like the simulation to be? "))
+# Height of grid
+gridrows = int(input("How tall would you like the simulation to be? "))
+# Start w/ random initial conditions or user determined?
+start = False
+while start == False:
+    randomstart = input("Please press 'r' to begin with random initial conditions.  Otherwise, press 'm' to use the mouse to set initial conditions.")
+    if randomstart == 'r':
+        print("Press space key to begin")
+        start = True
+    elif randomstart == 'm':
+        print("Click on cells to make them 'live' then press space key to begin.")
+        start = True
+    else:
+        print("Did not understand command.")
+        
+# Grid[row][column]
+grid = []
+if randomstart == 'r':
+    # Create random grid
+    for i in range(0,gridrows):
+        grid.append([0] * gridcolumns)
+        for j in range(0,gridcolumns):
+            grid[i][j] = random.randint(0,1)
+            if grid[i][j] == 1:
+                grid[i][j] = random.randint(1,7)
+    displayCells()
+else:
+    # Create blank grid
+    [grid.append([0] * gridcolumns) for x in range(0,gridrows)]
+    print(grid)
 
 myapp.listenMouseEvent('click', mouseClick)
 myapp.listenKeyEvent('keydown', 'space', spaceKey)                    
