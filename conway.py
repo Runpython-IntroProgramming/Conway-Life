@@ -6,7 +6,7 @@ Assignment:
 Write and submit a program that plays Conway's Game of Life, per 
 https://github.com/HHS-IntroProgramming/Conway-Life
 """
-from ggame import App, Color, LineStyle, Sprite, CircleAsset
+from ggame import App, Color, LineStyle, Sprite, CircleAsset, RectangleAsset
 import random
 
 # Colors
@@ -30,37 +30,32 @@ greencircle = CircleAsset(5, noline, green)
 bluecircle = CircleAsset(5, noline, blue)
 purplecircle = CircleAsset(5, noline, purple)
 blackcircle = CircleAsset(5, noline, black)
-whitecircle = CircleAsset(5, noline, white)
 
 circles = [redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
 
-# Get dimensions from user
-# Width of grid
-gridcolumns = int(input("How wide would you like the simulation to be? "))
-# Height of grid
-gridrows = int(input("How tall would you like the simulation to be? "))
-# Total # of generations
-num_generations = int(input("How many generations would you like to simulate? "))
+# Create Sprites for each element in grid
+def displayCells():
+    x = 0
+    y = 0
+    for i in grid:
+        for j in i:
+            if j > 7:
+                Sprite(circles[6], (x,y))
+            elif j > 0:
+                Sprite(circles[j-1], (x,y))
+            x += 10
+        x = 0
+        y += 10
 
-# Create grid
-# Grid[row][column]
-grid = []
-for i in range(0,gridrows):
-    grid.append([0] * gridcolumns)
-    for j in range(0,gridcolumns):
-        grid[i][j] = random.randint(0,1)
-        if grid[i][j] == 1:
-            grid[i][j] = random.randint(1,7)
-
-# Keeps running simulation until reaching desired number of generations
-# Make this into a function
-gen_count = 0
-while gen_count < num_generations:
-    # Create tick function
-    # Neighbors matrix counts neighbors for each cell (need to convert this into function)
+def tick(): 
+    # Clear sprites from previous generation
+    [x.destroy() for x in App.spritelist[:]]
+    
+    # Neighbors matrix counts neighbors for each cell (convert into function?)
+    # Start w/ all zeros
     neighbors = [0] * len(grid)
     neighbors = [ [0] * len(grid[0]) for x in neighbors]
-
+    # Populate neighbors matrix appropriate count
     for i in range(0, len(grid)): # rows
         for j in range(0, len(grid[0])): # columns
             count = 0
@@ -81,7 +76,7 @@ while gen_count < num_generations:
             if i+1 < len(grid) and j+1 < len(grid[0]) and grid[i+1][j+1] != 0:
                 count += 1
             neighbors[i][j] = count
-        
+    # Change status of cells depending on rules    
     for i in range(0, len(grid)):
         for j in range(0,len(grid[0])):
             if neighbors[i][j] < 2:
@@ -92,21 +87,26 @@ while gen_count < num_generations:
                 grid[i][j] += 1
             elif neighbors[i][j] == 3:
                 grid[i][j] += 1
-    gen_count += 1
     
-# Create Sprites for each element in grid
-# Make this into it's own function
-x = 0
-y = 0
-for i in grid:
-    for j in i:
-        if j > 7:
-            Sprite(circles[6], (x,y))
-        elif j > 0:
-            Sprite(circles[j-1], (x,y))
-        x += 10
-    x = 0
-    y += 10
+    # Displays live cells
+    displayCells()
+    
+# Get dimensions from user
+# Width of grid
+gridcolumns = int(input("How wide would you like the simulation to be? "))
+# Height of grid
+gridrows = int(input("How tall would you like the simulation to be? "))
+# Start w/ random initial conditions or user determined?
+        
+# Grid[row][column]
+grid = []
+# Create random grid
+for i in range(0,gridrows):
+    grid.append([0] * gridcolumns)
+    for j in range(0,gridcolumns):
+        grid[i][j] = random.randint(0,1)
+        if grid[i][j] == 1:
+            grid[i][j] = random.randint(1,7)
 
 myapp = App()
-myapp.run()
+myapp.run(tick)
