@@ -9,8 +9,6 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 from ggame import App, Color, LineStyle, Sprite, CircleAsset, RectangleAsset
 import random
 
-myapp = App()
-
 # Colors
 red = Color(0xff0000, 1.0)
 orange = Color(0xffa500, 1.0)
@@ -35,9 +33,6 @@ blackcircle = CircleAsset(5, noline, black)
 
 circles = [redcircle, orangecircle, yellowcircle, greencircle, bluecircle, purplecircle, blackcircle]
 
-def spaceKey(event):
-    myapp.run(tick)
-
 # Create Sprites for each element in grid
 def displayCells():
     x = 0
@@ -51,13 +46,6 @@ def displayCells():
             x += 10
         x = 0
         y += 10
-        
-def mouseClick(event):
-    i = (event.x - 5) / 10
-    j = (event.y - 5) / 10
-    if i < gridcolumns and j < gridrows:
-        grid[j][i] += 1
-    myapp.run(displayCells)
 
 def tick(): 
     # Clear sprites from previous generation
@@ -108,17 +96,6 @@ gridcolumns = int(input("How wide would you like the simulation to be? "))
 # Height of grid
 gridrows = int(input("How tall would you like the simulation to be? "))
 # Start w/ random initial conditions or user determined?
-start = False
-while start == False:
-    randomstart = input("Please press 'r' to begin with random initial conditions.  Otherwise, press 'm' to use the mouse to set initial conditions.")
-    if randomstart == 'r':
-        print("Press space key to begin")
-        start = True
-    elif randomstart == 'm':
-        print("Click on cells to make them 'live' then press space key to begin.")
-        start = True
-    else:
-        print("Did not understand command.")
         
 # Grid[row][column]
 grid = []
@@ -136,5 +113,5 @@ else:
     [grid.append([0] * gridcolumns) for x in range(0,gridrows)]
     print(grid)
 
-#myapp.listenMouseEvent('click', mouseClick)
-myapp.listenKeyEvent('keydown', 'space', spaceKey)                    
+myapp = App()
+myapp.run(tick)
